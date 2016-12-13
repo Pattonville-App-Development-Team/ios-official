@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DateCell" id="SrO-26-U2d" customClass="DateCell" customModule="Pattonville_School_District_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SrO-26-U2d" id="7KG-XW-aWS">
+                <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iN-Ii-h0z">
+                        <rect key="frame" x="16" y="6" width="41" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCE-sp-E1W">
+                        <rect key="frame" x="16" y="26" width="41" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="0.39949776790000002" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kM9-TO-ZUQ">
+                        <rect key="frame" x="67" y="4" width="1" height="35"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Robotics Meet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h89-i5-JsU">
+                        <rect key="frame" x="74" y="4" width="99" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HS  HT  HO  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5H7-og-XtC">
+                        <rect key="frame" x="181" y="9" width="61.5" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pattonville High School Auditorim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOe-fa-g8h">
+                        <rect key="frame" x="74" y="26" width="161.5" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="0.4070033482" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKW-fX-wth">
+                        <rect key="frame" x="308" y="9" width="26" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="VoA-wy-24b"/>
+                            <constraint firstAttribute="width" constant="26" id="uVT-Vi-Ii6"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="pin-black.png"/>
+                        <state key="selected" image="pin-green.png"/>
+                        <connections>
+                            <action selector="setPinned" destination="SrO-26-U2d" eventType="touchDown" id="WGc-8I-631"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="h89-i5-JsU" firstAttribute="leading" secondItem="7KG-XW-aWS" secondAttribute="leadingMargin" constant="66" id="3Ul-bV-fiL"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="4iN-Ii-h0z" secondAttribute="leading" constant="-8" id="GCq-Xr-kjR"/>
+                    <constraint firstItem="OKW-fX-wth" firstAttribute="centerY" secondItem="7KG-XW-aWS" secondAttribute="centerY" id="HE0-da-TVO"/>
+                    <constraint firstItem="h89-i5-JsU" firstAttribute="top" secondItem="7KG-XW-aWS" secondAttribute="topMargin" constant="-4" id="Ohs-Gj-wqe"/>
+                    <constraint firstItem="KOe-fa-g8h" firstAttribute="leading" secondItem="h89-i5-JsU" secondAttribute="leading" id="QTm-q3-jmS"/>
+                    <constraint firstItem="4iN-Ii-h0z" firstAttribute="top" secondItem="7KG-XW-aWS" secondAttribute="topMargin" constant="-2" id="QWb-Ab-l5A"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="OKW-fX-wth" secondAttribute="trailing" id="Umh-cV-9RY"/>
+                    <constraint firstItem="jCE-sp-E1W" firstAttribute="top" secondItem="4iN-Ii-h0z" secondAttribute="bottom" constant="8" id="YBP-Y9-3R1"/>
+                    <constraint firstItem="5H7-og-XtC" firstAttribute="top" secondItem="7KG-XW-aWS" secondAttribute="topMargin" constant="1" id="eY1-Og-HGK"/>
+                    <constraint firstItem="5H7-og-XtC" firstAttribute="leading" secondItem="h89-i5-JsU" secondAttribute="trailing" constant="8" id="pdF-AH-mt9"/>
+                    <constraint firstItem="KOe-fa-g8h" firstAttribute="centerY" secondItem="jCE-sp-E1W" secondAttribute="centerY" id="rQT-UO-7IG"/>
+                    <constraint firstItem="jCE-sp-E1W" firstAttribute="leading" secondItem="4iN-Ii-h0z" secondAttribute="leading" id="vek-Wd-ajY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="endTime" destination="jCE-sp-E1W" id="8tm-9y-brt"/>
+                <outlet property="location" destination="KOe-fa-g8h" id="f11-9I-eF9"/>
+                <outlet property="pinButton" destination="OKW-fX-wth" id="cxT-Bt-IcX"/>
+                <outlet property="schools" destination="5H7-og-XtC" id="urM-yF-yTj"/>
+                <outlet property="startTime" destination="4iN-Ii-h0z" id="FUt-2k-sEq"/>
+                <outlet property="title" destination="h89-i5-JsU" id="ens-LE-Vkh"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="54"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="pin-black.png" width="48" height="48"/>
+        <image name="pin-green.png" width="48" height="48"/>
+    </resources>
+</document>

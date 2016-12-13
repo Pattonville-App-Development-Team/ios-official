@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zAo-hx-RnD">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Calendar List View Controller-->
+        <scene sceneID="bS2-1g-gfC">
+            <objects>
+                <tableViewController id="s9P-JA-vRq" customClass="CalendarListViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="DUO-At-iYc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DateCell" id="jS1-D6-lMC" customClass="DateCell" customModule="Pattonville_School_District_App" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jS1-D6-lMC" id="MAN-fm-nzR">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="3t2-u7-U6r" kind="show" identifier="EventDetail" id="tKm-jj-tQK"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="s9P-JA-vRq" id="Enx-Qs-cPT"/>
+                            <outlet property="delegate" destination="s9P-JA-vRq" id="0xB-34-5dm"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T26-SW-7P7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-372" y="1549"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="eKd-1x-n8L">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Fa4-Xk-h4Z" customClass="CalendarViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zi0-Zb-nIw"/>
+                        <viewControllerLayoutGuide type="bottom" id="9sU-zo-Lkh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MJJ-CY-AGo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gU-Ab-bVq" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
+                                <rect key="frame" x="0.0" y="64" width="375" height="321"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="321" id="09H-n8-4bV"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z4G-Ne-V4A">
+                                <rect key="frame" x="0.0" y="384" width="375" height="234"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DateCell" id="UT1-9I-x2E" customClass="DateCell" customModule="Pattonville_School_District_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UT1-9I-x2E" id="DEj-he-8mt">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="3t2-u7-U6r" kind="show" identifier="EventDetail" id="KRv-jj-Kom"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fa4-Xk-h4Z" id="jTH-cT-ugi"/>
+                                    <outlet property="delegate" destination="Fa4-Xk-h4Z" id="Rwd-7k-xTE"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6gU-Ab-bVq" firstAttribute="top" secondItem="Zi0-Zb-nIw" secondAttribute="bottom" id="8bb-ED-4bD"/>
+                            <constraint firstItem="Z4G-Ne-V4A" firstAttribute="top" secondItem="6gU-Ab-bVq" secondAttribute="bottom" constant="-1" id="9fy-SO-hA5"/>
+                            <constraint firstItem="6gU-Ab-bVq" firstAttribute="leading" secondItem="MJJ-CY-AGo" secondAttribute="leadingMargin" constant="-16" id="DKo-OA-iDN"/>
+                            <constraint firstItem="9sU-zo-Lkh" firstAttribute="top" secondItem="Z4G-Ne-V4A" secondAttribute="bottom" id="UKd-gQ-SJE"/>
+                            <constraint firstItem="Z4G-Ne-V4A" firstAttribute="leading" secondItem="MJJ-CY-AGo" secondAttribute="leadingMargin" constant="-16" id="Zll-sL-Gwg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6gU-Ab-bVq" secondAttribute="trailing" constant="-16" id="ctK-2i-W7c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Z4G-Ne-V4A" secondAttribute="trailing" constant="-16" id="xui-8f-hxp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Calendar" id="gUM-eg-TA9">
+                        <barButtonItem key="leftBarButtonItem" title="List" id="Dai-y7-BWa">
+                            <connections>
+                                <segue destination="s9P-JA-vRq" kind="show" identifier="CalendarListViewSegue" id="X8D-uE-Yer"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Pinned" id="ozb-P6-d6I">
+                            <connections>
+                                <segue destination="XQB-Ig-PfD" kind="show" identifier="CalendarPinnedViewSegue" id="ipG-c5-OGV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="calendar" destination="6gU-Ab-bVq" id="GGC-4f-FQq"/>
+                        <outlet property="tableView" destination="Z4G-Ne-V4A" id="dJC-3w-ltN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VeD-oF-az2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="381.60000000000002" y="1549.4752623688157"/>
+        </scene>
+        <!--Calendar Pinned List View Controller-->
+        <scene sceneID="wNk-Th-JR5">
+            <objects>
+                <tableViewController id="XQB-Ig-PfD" customClass="CalendarPinnedListViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="fxy-m7-v0X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DateCell" id="mZz-Gc-0Dj" customClass="DateCell" customModule="Pattonville_School_District_App" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mZz-Gc-0Dj" id="crf-Mu-6F8">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="3t2-u7-U6r" kind="show" identifier="EventDetail" id="Iyk-31-r9T"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XQB-Ig-PfD" id="zto-sx-7bu"/>
+                            <outlet property="delegate" destination="XQB-Ig-PfD" id="UNO-Mh-Fzm"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y31-Gg-nih" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1141.5999999999999" y="1548.5757121439281"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="shI-qL-mD5">
+            <objects>
+                <navigationController id="zAo-hx-RnD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar" id="YsQ-Qx-tVi"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="m9g-co-k2k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Fa4-Xk-h4Z" kind="relationship" relationship="rootViewController" id="Oib-h7-cwm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pOb-Cs-4bZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="383" y="759"/>
+        </scene>
+        <!--Calendar Event Detail Controller-->
+        <scene sceneID="aYO-ic-rkG">
+            <objects>
+                <viewController id="3t2-u7-U6r" customClass="CalendarEventDetailController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="clR-FN-oiE"/>
+                        <viewControllerLayoutGuide type="bottom" id="RtT-nC-7bt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="o53-37-wSK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Robotics Meet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHo-KF-eri">
+                                <rect key="frame" x="16" y="79" width="118" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pattonville High School Cafeteria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqu-QC-F5d">
+                                <rect key="frame" x="16" y="108" width="225" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c80-z5-GID">
+                                <rect key="frame" x="16" y="141" width="33" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.40700334821428569" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLb-KE-uqm">
+                                <rect key="frame" x="16" y="163" width="34" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.4070033482" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MLb-KE-uqm" firstAttribute="top" secondItem="c80-z5-GID" secondAttribute="bottom" constant="4" id="0EH-4L-dVl"/>
+                            <constraint firstItem="hqu-QC-F5d" firstAttribute="top" secondItem="kHo-KF-eri" secondAttribute="bottom" constant="8" id="28i-je-QW3"/>
+                            <constraint firstItem="hqu-QC-F5d" firstAttribute="leading" secondItem="kHo-KF-eri" secondAttribute="leading" id="DXv-q2-2kX"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="kHo-KF-eri" secondAttribute="leading" id="G99-jW-qZx"/>
+                            <constraint firstItem="MLb-KE-uqm" firstAttribute="leading" secondItem="c80-z5-GID" secondAttribute="leading" id="Nm7-jh-6yH"/>
+                            <constraint firstItem="c80-z5-GID" firstAttribute="leading" secondItem="hqu-QC-F5d" secondAttribute="leading" id="pnz-vk-ydv"/>
+                            <constraint firstItem="kHo-KF-eri" firstAttribute="top" secondItem="clR-FN-oiE" secondAttribute="bottom" constant="15" id="xrh-nl-Z32"/>
+                            <constraint firstItem="c80-z5-GID" firstAttribute="top" secondItem="hqu-QC-F5d" secondAttribute="bottom" constant="15" id="zs6-I6-g0t"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="eventDate" destination="c80-z5-GID" id="pjV-uP-74I"/>
+                        <outlet property="eventLocation" destination="hqu-QC-F5d" id="hAe-cW-V0P"/>
+                        <outlet property="eventName" destination="kHo-KF-eri" id="kQV-e0-5fy"/>
+                        <outlet property="eventTime" destination="MLb-KE-uqm" id="fB0-lp-Pgt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7lr-xE-13D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="382" y="2382"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="calendar" width="30" height="30"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Iyk-31-r9T"/>
+    </inferredMetricsTieBreakers>
+</document>

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DHr-DV-oCS">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Data Source-->
+        <scene sceneID="WvC-Iz-vsq">
+            <objects>
+                <viewController id="cZa-8G-Igb" customClass="NewsViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Chm-rN-0fy"/>
+                        <viewControllerLayoutGuide type="bottom" id="fAR-mc-Icf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c16-Ym-zgA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1J-QF-WcQ" customClass="iCarousel">
+                                <rect key="frame" x="-4" y="64" width="383" height="200"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="oXy-pr-qHb"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="cZa-8G-Igb" id="OPr-8k-bYq"/>
+                                    <outlet property="delegate" destination="cZa-8G-Igb" id="AIz-wj-r9L"/>
+                                </connections>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QQ7-ld-LYh">
+                                <rect key="frame" x="0.0" y="264" width="375" height="435"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="435" id="Uwj-hN-O5G"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NewsItemCell" rowHeight="60" id="UXM-ll-ri2" customClass="NewsItemCell" customModule="Pattonville_School_District_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UXM-ll-ri2" id="3u9-fK-ARd">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EzK-UZ-lfZ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="75" height="61"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="75" id="65o-Km-Wpt"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Atc-Vv-V0m">
+                                                    <rect key="frame" x="83" y="0.0" width="29" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="YPb-4h-eEj"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGY-sW-EMG">
+                                                    <rect key="frame" x="83" y="20" width="29" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="8cB-Mi-Sd2"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nGY-sW-EMG" firstAttribute="leading" secondItem="Atc-Vv-V0m" secondAttribute="leading" id="0ls-Kw-rQB"/>
+                                                <constraint firstItem="nGY-sW-EMG" firstAttribute="top" secondItem="Atc-Vv-V0m" secondAttribute="bottom" constant="-1" id="0yV-M5-ieG"/>
+                                                <constraint firstItem="Atc-Vv-V0m" firstAttribute="leading" secondItem="EzK-UZ-lfZ" secondAttribute="trailing" constant="8" id="INl-8k-W3z"/>
+                                                <constraint firstItem="nGY-sW-EMG" firstAttribute="leading" secondItem="EzK-UZ-lfZ" secondAttribute="trailing" constant="8" id="MKn-KK-vFa"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="EzK-UZ-lfZ" secondAttribute="bottom" constant="-8.8333333333333357" id="UDW-rr-5xY"/>
+                                                <constraint firstItem="EzK-UZ-lfZ" firstAttribute="leading" secondItem="3u9-fK-ARd" secondAttribute="leadingMargin" constant="-8" id="YK1-Hz-3g6"/>
+                                                <constraint firstItem="EzK-UZ-lfZ" firstAttribute="top" secondItem="3u9-fK-ARd" secondAttribute="topMargin" constant="-8" id="b0W-fM-920"/>
+                                                <constraint firstItem="nGY-sW-EMG" firstAttribute="trailing" secondItem="Atc-Vv-V0m" secondAttribute="trailing" id="cJ6-2T-VjR"/>
+                                                <constraint firstItem="Atc-Vv-V0m" firstAttribute="top" secondItem="3u9-fK-ARd" secondAttribute="topMargin" constant="-8" id="mUo-Rl-xbh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="date" destination="nGY-sW-EMG" id="0Lb-fB-Fri"/>
+                                            <outlet property="image_view" destination="EzK-UZ-lfZ" id="zjp-71-4JA"/>
+                                            <outlet property="title" destination="Atc-Vv-V0m" id="8YG-mg-6l6"/>
+                                            <segue destination="ylR-ud-n9g" kind="show" identifier="NewsDetail" id="B6a-JR-z1L"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="cZa-8G-Igb" id="fa3-v6-LVp"/>
+                                    <outlet property="delegate" destination="cZa-8G-Igb" id="MI2-DX-VfP"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QQ7-ld-LYh" firstAttribute="top" secondItem="k1J-QF-WcQ" secondAttribute="bottom" id="HJv-4S-uQ1"/>
+                            <constraint firstItem="QQ7-ld-LYh" firstAttribute="leading" secondItem="c16-Ym-zgA" secondAttribute="leadingMargin" constant="-16" id="bfR-rR-O5G"/>
+                            <constraint firstItem="k1J-QF-WcQ" firstAttribute="top" secondItem="Chm-rN-0fy" secondAttribute="bottom" id="fDc-Sl-t1j"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="k1J-QF-WcQ" secondAttribute="trailing" constant="-20" id="hvk-yl-nrF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QQ7-ld-LYh" secondAttribute="trailing" constant="-16" id="qBM-1q-AQm"/>
+                            <constraint firstItem="k1J-QF-WcQ" firstAttribute="leading" secondItem="c16-Ym-zgA" secondAttribute="leadingMargin" constant="-20" id="rbN-Yq-zAL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="News" id="9Fx-xT-C4e"/>
+                    <connections>
+                        <outlet property="tableView" destination="QQ7-ld-LYh" id="Gc6-J0-lcK"/>
+                        <outlet property="vwCarousel" destination="k1J-QF-WcQ" id="f6V-bB-ITK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P6A-n7-kFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-381.15942028985512" y="1459.2391304347827"/>
+        </scene>
+        <!--News Detail View Controller-->
+        <scene sceneID="hiQ-V3-3sO">
+            <objects>
+                <viewController id="ylR-ud-n9g" customClass="NewsDetailViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6o4-IV-Ufq"/>
+                        <viewControllerLayoutGuide type="bottom" id="kgL-9P-FT2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WSA-dV-t2Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rpW-GE-4h5">
+                                <rect key="frame" x="-4" y="64" width="383" height="232"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="232" id="cBw-rg-kLn"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parent/Teacher Conferences at PHS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZa-8j-cbf">
+                                <rect key="frame" x="16" y="317" width="343" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday, September 29, 2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfk-kG-BJB">
+                                <rect key="frame" x="16" y="373" width="343" height="17"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRF-mZ-q8h">
+                                <rect key="frame" x="16" y="406" width="343" height="82"/>
+                                <string key="text">Parent/Teach Conferences will be held at Pattonville High School on Wednesday, October 5 from 4:30-8:00 and on Thursday, October 6 4:30-7:30.</string>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uRF-mZ-q8h" firstAttribute="top" secondItem="yfk-kG-BJB" secondAttribute="bottom" constant="16" id="0lC-0X-YaT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tZa-8j-cbf" secondAttribute="trailing" id="A1G-nN-vRd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rpW-GE-4h5" secondAttribute="trailing" constant="-20" id="F4T-jV-b0L"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="uRF-mZ-q8h" secondAttribute="leading" id="LGx-xl-vdz"/>
+                            <constraint firstItem="tZa-8j-cbf" firstAttribute="top" secondItem="rpW-GE-4h5" secondAttribute="bottom" constant="21" id="N6O-IT-4dO"/>
+                            <constraint firstItem="rpW-GE-4h5" firstAttribute="top" secondItem="6o4-IV-Ufq" secondAttribute="bottom" id="OV4-FH-9ls"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yfk-kG-BJB" secondAttribute="trailing" id="a19-bd-Ags"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uRF-mZ-q8h" secondAttribute="trailing" id="aNY-UF-B5D"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="yfk-kG-BJB" secondAttribute="leading" id="cmJ-ge-x7r"/>
+                            <constraint firstItem="rpW-GE-4h5" firstAttribute="leading" secondItem="WSA-dV-t2Y" secondAttribute="leadingMargin" constant="-20" id="hNN-Tu-NKX"/>
+                            <constraint firstItem="yfk-kG-BJB" firstAttribute="top" secondItem="tZa-8j-cbf" secondAttribute="bottom" constant="8" id="jhR-b9-lN3"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="tZa-8j-cbf" secondAttribute="leading" id="yNW-t8-hOe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ivDisplayImage" destination="rpW-GE-4h5" id="iZZ-qk-CBS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3mb-m4-bGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="399.5" y="1458.5"/>
+        </scene>
+        <!--News-->
+        <scene sceneID="QlN-IT-OEw">
+            <objects>
+                <navigationController id="DHr-DV-oCS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="News" image="news" id="UXW-6i-OYT"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yyE-7D-NBk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="cZa-8G-Igb" kind="relationship" relationship="rootViewController" id="JfD-3G-AYz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YhK-bu-qaL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-348" y="737"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="news" width="30" height="30"/>
+    </resources>
+</document>

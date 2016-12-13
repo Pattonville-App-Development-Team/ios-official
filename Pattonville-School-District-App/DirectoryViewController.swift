@@ -1,0 +1,33 @@
+//
+//  DirectoryViewController.swift
+//  Pattonville School District App
+//
+//  Created by Kevin Bowers on 11/15/16.
+//  Copyright © 2016 Pattonville School Distrcit. All rights reserved.
+//
+
+import UIKit
+
+class DirectoryViewController: UITableViewController {
+    
+    var schools: SchoolsArray! = SchoolsArray.init()
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return schools.allSchools.count
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        
+        let school = schools.allSchools[indexPath.row]
+        
+        cell.textLabel?.text = school.name
+        
+        return cell
+        
+    }
+    
+}

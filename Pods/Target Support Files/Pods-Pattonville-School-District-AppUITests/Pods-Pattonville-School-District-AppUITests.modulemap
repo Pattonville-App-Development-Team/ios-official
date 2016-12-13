@@ -1,0 +1,6 @@
+framework module Pods_Pattonville_School_District_AppUITests {
+  umbrella header "Pods-Pattonville-School-District-AppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

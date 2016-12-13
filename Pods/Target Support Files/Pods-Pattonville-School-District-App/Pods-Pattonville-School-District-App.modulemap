@@ -1,0 +1,6 @@
+framework module Pods_Pattonville_School_District_App {
+  umbrella header "Pods-Pattonville-School-District-App-umbrella.h"
+
+  export *
+  module * { export * }
+}
