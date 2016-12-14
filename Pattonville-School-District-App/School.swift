@@ -18,7 +18,7 @@ class School: NSObject {
     var mainNumber: String
     var attendanceNumber: String
     var faxNumber: String
-    //var schoolPicture: UIImage
+    var schoolPicture: String
     var peachjarURL: String
     var isSubscribedTo: Bool
     var color: UIColor
@@ -42,7 +42,7 @@ class School: NSObject {
          address: String,
          city: String, state: String, zip: String,
          mainNumber: String, attendanceNumber: String, faxNumber: String,
-         //schoolPicture: UIImage,
+         schoolPicture: String,
          peachjarURL: String,
          isSubscribedTo: Bool, color: UIColor) {
         
@@ -54,7 +54,7 @@ class School: NSObject {
             self.mainNumber = mainNumber
             self.attendanceNumber = attendanceNumber
             self.faxNumber = faxNumber
-            //self.schoolPicture = schoolPicture
+            self.schoolPicture = schoolPicture
             self.peachjarURL = peachjarURL
             self.isSubscribedTo = isSubscribedTo
             self.color = color

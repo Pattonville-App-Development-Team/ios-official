@@ -42,19 +42,15 @@
 		42B933891DFAEEF400514B73 /* NewsReel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933551DFAEEF300514B73 /* NewsReel.swift */; };
 		42B9338A1DFAEEF400514B73 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933561DFAEEF300514B73 /* NewsViewController.swift */; };
 		42B9338C1DFAEEF400514B73 /* Peachjar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B933581DFAEEF300514B73 /* Peachjar.storyboard */; };
-		42B9338D1DFAEEF400514B73 /* Peachjar~.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B933591DFAEEF300514B73 /* Peachjar~.storyboard */; };
 		42B9338E1DFAEEF400514B73 /* PeachjarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9335A1DFAEEF300514B73 /* PeachjarViewController.swift */; };
 		42B933921DFAEEF400514B73 /* PSDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9335E1DFAEEF300514B73 /* PSDViewController.swift */; };
 		42B933931DFAEEF400514B73 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9335F1DFAEEF300514B73 /* School.swift */; };
-		42B933941DFAEEF400514B73 /* Schools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933601DFAEEF400514B73 /* Schools.swift */; };
 		42B933951DFAEEF400514B73 /* SchoolsArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933611DFAEEF400514B73 /* SchoolsArray.swift */; };
 		42B933961DFAEEF400514B73 /* SchoolsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933621DFAEEF400514B73 /* SchoolsEnum.swift */; };
 		42B933971DFAEEF400514B73 /* SelectSchoolsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933631DFAEEF400514B73 /* SelectSchoolsTableCell.swift */; };
 		42B933981DFAEEF400514B73 /* SelectSchoolsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933641DFAEEF400514B73 /* SelectSchoolsTableViewController.swift */; };
 		42B933991DFAEEF400514B73 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B933651DFAEEF400514B73 /* Settings.storyboard */; };
 		42B9339A1DFAEEF400514B73 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933661DFAEEF400514B73 /* SettingsViewController.swift */; };
-		42B9339B1DFAEEF400514B73 /* StaffMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933671DFAEEF400514B73 /* StaffMember.swift */; };
-		42B9339C1DFAEEF400514B73 /* StaffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933681DFAEEF400514B73 /* StaffViewController.swift */; };
 		42B933A21DFAEF1B00514B73 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B9339D1DFAEF1B00514B73 /* Calendar.storyboard */; };
 		42B933A31DFAEF1B00514B73 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B9339E1DFAEF1B00514B73 /* Home.storyboard */; };
 		42B933A51DFAEF1B00514B73 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B933A01DFAEF1B00514B73 /* Settings.storyboard */; };
@@ -65,6 +61,12 @@
 		42B933C21DFB022B00514B73 /* lines.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933BA1DFB022B00514B73 /* lines.jpg */; };
 		42B933C31DFB022B00514B73 /* nature- dear.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933BB1DFB022B00514B73 /* nature- dear.jpg */; };
 		42B933C51DFB022B00514B73 /* pin-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 42B933BD1DFB022B00514B73 /* pin-green.png */; };
+		55A31F021E01B5E50094056E /* SchoolSpecificDirectory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55A31EFF1E01B5E50094056E /* SchoolSpecificDirectory.storyboard */; };
+		55A31F031E01B5E50094056E /* SchoolSpecificDirectoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A31F001E01B5E50094056E /* SchoolSpecificDirectoryTableViewController.swift */; };
+		55A31F041E01B5E50094056E /* SchoolSpecificDirectoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A31F011E01B5E50094056E /* SchoolSpecificDirectoryViewController.swift */; };
+		55A31F091E01B8180094056E /* StaffArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A31F061E01B8180094056E /* StaffArray.swift */; };
+		55A31F0A1E01B8180094056E /* StaffMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A31F071E01B8180094056E /* StaffMember.swift */; };
+		55A31F0B1E01B8180094056E /* StaffTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A31F081E01B8180094056E /* StaffTableViewController.swift */; };
 		6B4B6CFEFCAF92D0441078C0 /* Pods_Pattonville_School_District_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3997F7E4BE66858E7DB5202 /* Pods_Pattonville_School_District_AppTests.framework */; };
 		F00DBA22462C83C348C9D4E6 /* Pods_Pattonville_School_District_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5FC4863EB3AC5B68D1FAFB /* Pods_Pattonville_School_District_App.framework */; };
 /* End PBXBuildFile section */
@@ -131,19 +133,15 @@
 		42B933551DFAEEF300514B73 /* NewsReel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsReel.swift; sourceTree = "<group>"; };
 		42B933561DFAEEF300514B73 /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		42B933581DFAEEF300514B73 /* Peachjar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Peachjar.storyboard; sourceTree = "<group>"; };
-		42B933591DFAEEF300514B73 /* Peachjar~.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Peachjar~.storyboard"; sourceTree = "<group>"; };
 		42B9335A1DFAEEF300514B73 /* PeachjarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeachjarViewController.swift; sourceTree = "<group>"; };
 		42B9335E1DFAEEF300514B73 /* PSDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PSDViewController.swift; sourceTree = "<group>"; };
 		42B9335F1DFAEEF300514B73 /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
-		42B933601DFAEEF400514B73 /* Schools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schools.swift; sourceTree = "<group>"; };
 		42B933611DFAEEF400514B73 /* SchoolsArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolsArray.swift; sourceTree = "<group>"; };
 		42B933621DFAEEF400514B73 /* SchoolsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolsEnum.swift; sourceTree = "<group>"; };
 		42B933631DFAEEF400514B73 /* SelectSchoolsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSchoolsTableCell.swift; sourceTree = "<group>"; };
 		42B933641DFAEEF400514B73 /* SelectSchoolsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSchoolsTableViewController.swift; sourceTree = "<group>"; };
 		42B933651DFAEEF400514B73 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		42B933661DFAEEF400514B73 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		42B933671DFAEEF400514B73 /* StaffMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffMember.swift; sourceTree = "<group>"; };
-		42B933681DFAEEF400514B73 /* StaffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffViewController.swift; sourceTree = "<group>"; };
 		42B9339D1DFAEF1B00514B73 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Calendar.storyboard; path = Base.lproj/Calendar.storyboard; sourceTree = "<group>"; };
 		42B9339E1DFAEF1B00514B73 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		42B933A01DFAEF1B00514B73 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
@@ -154,6 +152,12 @@
 		42B933BA1DFB022B00514B73 /* lines.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lines.jpg; sourceTree = "<group>"; };
 		42B933BB1DFB022B00514B73 /* nature- dear.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "nature- dear.jpg"; sourceTree = "<group>"; };
 		42B933BD1DFB022B00514B73 /* pin-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin-green.png"; sourceTree = "<group>"; };
+		55A31EFF1E01B5E50094056E /* SchoolSpecificDirectory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SchoolSpecificDirectory.storyboard; sourceTree = "<group>"; };
+		55A31F001E01B5E50094056E /* SchoolSpecificDirectoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolSpecificDirectoryTableViewController.swift; sourceTree = "<group>"; };
+		55A31F011E01B5E50094056E /* SchoolSpecificDirectoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolSpecificDirectoryViewController.swift; sourceTree = "<group>"; };
+		55A31F061E01B8180094056E /* StaffArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffArray.swift; sourceTree = "<group>"; };
+		55A31F071E01B8180094056E /* StaffMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffMember.swift; sourceTree = "<group>"; };
+		55A31F081E01B8180094056E /* StaffTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffTableViewController.swift; sourceTree = "<group>"; };
 		744CB7DE37186867DC47DBFC /* Pods-Pattonville-School-District-AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-AppTests/Pods-Pattonville-School-District-AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		94EB10DCC58D641E498FA421 /* Pods-Pattonville-School-District-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-AppTests/Pods-Pattonville-School-District-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		A8A1980D33A0CDF1093BA0BB /* Pods-Pattonville-School-District-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-App/Pods-Pattonville-School-District-App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -239,10 +243,10 @@
 				42B933BD1DFB022B00514B73 /* pin-green.png */,
 				42B933341DFAEEF300514B73 /* Assets.xcassets */,
 				42B933351DFAEEF300514B73 /* Base.lproj */,
-				42B933A71DFAF71300514B73 /* Calendar */,
 				42B933AC1DFAF83300514B73 /* PSD */,
-				42B933A81DFAF77300514B73 /* More */,
 				42B933AB1DFAF7E600514B73 /* News */,
+				42B933A71DFAF71300514B73 /* Calendar */,
+				42B933A81DFAF77300514B73 /* More */,
 				42B933AD1DFAF83A00514B73 /* Schools */,
 				42B933311DFAEEE300514B73 /* TabBarIcons */,
 				42B933011DFAEDC500514B73 /* AppDelegate.swift */,
@@ -300,9 +304,7 @@
 				42B933AA1DFAF7B200514B73 /* DIrectory */,
 				42B9334E1DFAEEF300514B73 /* More.storyboard */,
 				42B9334F1DFAEEF300514B73 /* MoreViewController.swift */,
-				42B933581DFAEEF300514B73 /* Peachjar.storyboard */,
-				42B933591DFAEEF300514B73 /* Peachjar~.storyboard */,
-				42B9335A1DFAEEF300514B73 /* PeachjarViewController.swift */,
+				55A31EFD1E01AB2B0094056E /* Peachjar */,
 			);
 			name = More;
 			sourceTree = "<group>";
@@ -322,10 +324,10 @@
 		42B933AA1DFAF7B200514B73 /* DIrectory */ = {
 			isa = PBXGroup;
 			children = (
+				55A31F051E01B7FC0094056E /* Staff */,
+				55A31EFE1E01B3660094056E /* School-Specific-Directory */,
 				42B933441DFAEEF300514B73 /* Directory.storyboard */,
 				42B933451DFAEEF300514B73 /* DirectoryViewController.swift */,
-				42B933671DFAEEF400514B73 /* StaffMember.swift */,
-				42B933681DFAEEF400514B73 /* StaffViewController.swift */,
 			);
 			name = DIrectory;
 			sourceTree = "<group>";
@@ -356,11 +358,39 @@
 			isa = PBXGroup;
 			children = (
 				42B9335F1DFAEEF300514B73 /* School.swift */,
-				42B933601DFAEEF400514B73 /* Schools.swift */,
 				42B933611DFAEEF400514B73 /* SchoolsArray.swift */,
 				42B933621DFAEEF400514B73 /* SchoolsEnum.swift */,
 			);
 			name = Schools;
+			sourceTree = "<group>";
+		};
+		55A31EFD1E01AB2B0094056E /* Peachjar */ = {
+			isa = PBXGroup;
+			children = (
+				42B933581DFAEEF300514B73 /* Peachjar.storyboard */,
+				42B9335A1DFAEEF300514B73 /* PeachjarViewController.swift */,
+			);
+			name = Peachjar;
+			sourceTree = "<group>";
+		};
+		55A31EFE1E01B3660094056E /* School-Specific-Directory */ = {
+			isa = PBXGroup;
+			children = (
+				55A31EFF1E01B5E50094056E /* SchoolSpecificDirectory.storyboard */,
+				55A31F001E01B5E50094056E /* SchoolSpecificDirectoryTableViewController.swift */,
+				55A31F011E01B5E50094056E /* SchoolSpecificDirectoryViewController.swift */,
+			);
+			name = "School-Specific-Directory";
+			sourceTree = "<group>";
+		};
+		55A31F051E01B7FC0094056E /* Staff */ = {
+			isa = PBXGroup;
+			children = (
+				55A31F061E01B8180094056E /* StaffArray.swift */,
+				55A31F071E01B8180094056E /* StaffMember.swift */,
+				55A31F081E01B8180094056E /* StaffTableViewController.swift */,
+			);
+			name = Staff;
 			sourceTree = "<group>";
 		};
 		626C9E3738DD8BDD0E2B291C /* Frameworks */ = {
@@ -450,7 +480,7 @@
 				TargetAttributes = {
 					42B932FD1DFAEDC500514B73 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = EL5EGW5Z8R;
+						DevelopmentTeam = QK7J4T8GBL;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -493,7 +523,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42B9338D1DFAEEF400514B73 /* Peachjar~.storyboard in Resources */,
 				42B933821DFAEEF400514B73 /* More.storyboard in Resources */,
 				42B933C31DFB022B00514B73 /* nature- dear.jpg in Resources */,
 				42B9330E1DFAEDC500514B73 /* LaunchScreen.storyboard in Resources */,
@@ -512,6 +541,7 @@
 				42617B431E00A61C00BB5992 /* pin-black-1.png in Resources */,
 				42B933701DFAEEF400514B73 /* CalendarHeaderView.xib in Resources */,
 				42B9336A1DFAEEF400514B73 /* Base.lproj in Resources */,
+				55A31F021E01B5E50094056E /* SchoolSpecificDirectory.storyboard in Resources */,
 				42B933C11DFB022B00514B73 /* java.jpg in Resources */,
 				42B933C51DFB022B00514B73 /* pin-green.png in Resources */,
 				42B933991DFAEEF400514B73 /* Settings.storyboard in Resources */,
@@ -683,8 +713,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				42B933861DFAEEF400514B73 /* NewsDetailViewController.swift in Sources */,
+				55A31F031E01B5E50094056E /* SchoolSpecificDirectoryTableViewController.swift in Sources */,
+				55A31F0B1E01B8180094056E /* StaffTableViewController.swift in Sources */,
 				42B933921DFAEEF400514B73 /* PSDViewController.swift in Sources */,
 				42B933731DFAEEF400514B73 /* CalendarViewController.swift in Sources */,
+				55A31F0A1E01B8180094056E /* StaffMember.swift in Sources */,
 				42B933751DFAEEF400514B73 /* DateCell.swift in Sources */,
 				42B933721DFAEEF400514B73 /* CalendarPinnedListViewController.swift in Sources */,
 				42B9339A1DFAEEF400514B73 /* SettingsViewController.swift in Sources */,
@@ -692,15 +725,14 @@
 				42B933831DFAEEF400514B73 /* MoreViewController.swift in Sources */,
 				42B933871DFAEEF400514B73 /* NewsItem.swift in Sources */,
 				42B933931DFAEEF400514B73 /* School.swift in Sources */,
-				42B9339C1DFAEEF400514B73 /* StaffViewController.swift in Sources */,
 				42B933971DFAEEF400514B73 /* SelectSchoolsTableCell.swift in Sources */,
 				42B933981DFAEEF400514B73 /* SelectSchoolsTableViewController.swift in Sources */,
-				42B9339B1DFAEEF400514B73 /* StaffMember.swift in Sources */,
-				42B933941DFAEEF400514B73 /* Schools.swift in Sources */,
 				42B933891DFAEEF400514B73 /* NewsReel.swift in Sources */,
 				42B933021DFAEDC500514B73 /* AppDelegate.swift in Sources */,
+				55A31F041E01B5E50094056E /* SchoolSpecificDirectoryViewController.swift in Sources */,
 				42B9336F1DFAEEF400514B73 /* CalendarHeaderView.swift in Sources */,
 				42B933961DFAEEF400514B73 /* SchoolsEnum.swift in Sources */,
+				55A31F091E01B8180094056E /* StaffArray.swift in Sources */,
 				42B9336C1DFAEEF400514B73 /* CalendarDateView.swift in Sources */,
 				42B933951DFAEEF400514B73 /* SchoolsArray.swift in Sources */,
 				42B9337A1DFAEEF400514B73 /* DirectoryViewController.swift in Sources */,
@@ -863,11 +895,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = EL5EGW5Z8R;
+				DEVELOPMENT_TEAM = QK7J4T8GBL;
 				INFOPLIST_FILE = "Pattonville-School-District-App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.joshuazahner.Pattonville-School-District-App";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bowersk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pattonville-School-District-App/Pattonville-School-District-App-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -881,11 +913,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = EL5EGW5Z8R;
+				DEVELOPMENT_TEAM = QK7J4T8GBL;
 				INFOPLIST_FILE = "Pattonville-School-District-App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.joshuazahner.Pattonville-School-District-App";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bowersk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pattonville-School-District-App/Pattonville-School-District-App-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

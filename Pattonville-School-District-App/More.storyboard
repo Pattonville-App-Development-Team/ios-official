@@ -15,7 +15,7 @@
                 <navigationController id="7aQ-VB-hHI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="more" id="7yg-Du-pJ6"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="RWX-rZ-jrW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RWX-rZ-jrW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

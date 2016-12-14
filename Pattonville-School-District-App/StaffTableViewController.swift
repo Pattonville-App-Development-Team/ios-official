@@ -1,14 +1,14 @@
 //
-//  DirectoryViewController.swift
+//  StaffTableViewController.swift
 //  Pattonville School District App
 //
-//  Created by Kevin Bowers on 11/15/16.
+//  Created by Kevin Bowers on 11/8/16.
 //  Copyright © 2016 Pattonville School Distrcit. All rights reserved.
 //
 
 import UIKit
 
-class DirectoryViewController: UITableViewController {
+class StaffTableViewController: UITableViewController {
     
     var schools: SchoolsArray! = SchoolsArray.init()
     
@@ -29,18 +29,5 @@ class DirectoryViewController: UITableViewController {
         return cell
         
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SchoolSpecificDirectorySegue" {
-            
-            let row = tableView.indexPathForSelectedRow?.row
-            
-            let destination = segue.destination as! SchoolSpecificDirectoryViewController
-            
-            destination.indexOfSchool = row
-            
-        }
-        
-    }
-    
+
 }
