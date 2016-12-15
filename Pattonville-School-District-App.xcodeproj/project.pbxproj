@@ -61,6 +61,7 @@
 		42B933C21DFB022B00514B73 /* lines.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933BA1DFB022B00514B73 /* lines.jpg */; };
 		42B933C31DFB022B00514B73 /* nature- dear.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933BB1DFB022B00514B73 /* nature- dear.jpg */; };
 		42B933C51DFB022B00514B73 /* pin-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 42B933BD1DFB022B00514B73 /* pin-green.png */; };
+		552BF0301E02EDD400929E4E /* StaffListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552BF02F1E02EDD400929E4E /* StaffListNavigationController.swift */; };
 		55A31F021E01B5E50094056E /* SchoolSpecificDirectory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55A31EFF1E01B5E50094056E /* SchoolSpecificDirectory.storyboard */; };
 		55A31F031E01B5E50094056E /* SchoolSpecificDirectoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A31F001E01B5E50094056E /* SchoolSpecificDirectoryTableViewController.swift */; };
 		55A31F041E01B5E50094056E /* SchoolSpecificDirectoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A31F011E01B5E50094056E /* SchoolSpecificDirectoryViewController.swift */; };
@@ -152,6 +153,7 @@
 		42B933BA1DFB022B00514B73 /* lines.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lines.jpg; sourceTree = "<group>"; };
 		42B933BB1DFB022B00514B73 /* nature- dear.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "nature- dear.jpg"; sourceTree = "<group>"; };
 		42B933BD1DFB022B00514B73 /* pin-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin-green.png"; sourceTree = "<group>"; };
+		552BF02F1E02EDD400929E4E /* StaffListNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffListNavigationController.swift; sourceTree = "<group>"; };
 		55A31EFF1E01B5E50094056E /* SchoolSpecificDirectory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SchoolSpecificDirectory.storyboard; sourceTree = "<group>"; };
 		55A31F001E01B5E50094056E /* SchoolSpecificDirectoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolSpecificDirectoryTableViewController.swift; sourceTree = "<group>"; };
 		55A31F011E01B5E50094056E /* SchoolSpecificDirectoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolSpecificDirectoryViewController.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				55A31EFF1E01B5E50094056E /* SchoolSpecificDirectory.storyboard */,
 				55A31F001E01B5E50094056E /* SchoolSpecificDirectoryTableViewController.swift */,
 				55A31F011E01B5E50094056E /* SchoolSpecificDirectoryViewController.swift */,
+				552BF02F1E02EDD400929E4E /* StaffListNavigationController.swift */,
 			);
 			name = "School-Specific-Directory";
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				42B933831DFAEEF400514B73 /* MoreViewController.swift in Sources */,
 				42B933871DFAEEF400514B73 /* NewsItem.swift in Sources */,
 				42B933931DFAEEF400514B73 /* School.swift in Sources */,
+				552BF0301E02EDD400929E4E /* StaffListNavigationController.swift in Sources */,
 				42B933971DFAEEF400514B73 /* SelectSchoolsTableCell.swift in Sources */,
 				42B933981DFAEEF400514B73 /* SelectSchoolsTableViewController.swift in Sources */,
 				42B933891DFAEEF400514B73 /* NewsReel.swift in Sources */,
