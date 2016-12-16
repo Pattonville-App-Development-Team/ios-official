@@ -1,5 +1,5 @@
 //
-//  SchoolSpecificDirectoryViewController.swift
+//  SSDViewController.swift
 //  Pattonville School District App
 //
 //  Created by Kevin Bowers on 11/30/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SchoolSpecificDirectoryViewController: UIViewController {
+class SSDViewController: UIViewController{
     
     var schools = SchoolsArray.init().allSchools
     
@@ -21,6 +21,9 @@ class SchoolSpecificDirectoryViewController: UIViewController {
     @IBOutlet weak var attendanceNumber: UILabel!
     @IBOutlet weak var faxNumber: UILabel!
     @IBOutlet weak var schoolPicture: UIImageView!
+    
+    @IBAction func unwindSegue(forSegue: UIStoryboardSegue) {
+    }
     
     
     var indexOfSchool: Int!

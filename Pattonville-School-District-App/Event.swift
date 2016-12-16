@@ -12,14 +12,13 @@ class Event: Equatable{
     
     var name: String
     var date: Date
-    var startTime: Date
-    var endTime: Date
+    var startTime: Date = Date.init()
+    var endTime: Date = Date.init()
     var dateString: String
     var timeString: String
     var location: String
     var pinned: Bool = false
-    var eventID: String
-    
+    var eventID: String    
     init(name: String, dateString: String, startTime: String, endTime: String, location: String){
         
         self.name = name
