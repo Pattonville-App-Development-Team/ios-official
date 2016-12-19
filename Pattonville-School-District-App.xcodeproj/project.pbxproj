@@ -861,7 +861,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = ZPVDW8LQL8;
 				INFOPLIST_FILE = "Pattonville-School-District-App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.joshuazahner.Pattonville-School-District-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -879,7 +879,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = ZPVDW8LQL8;
 				INFOPLIST_FILE = "Pattonville-School-District-App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.joshuazahner.Pattonville-School-District-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";

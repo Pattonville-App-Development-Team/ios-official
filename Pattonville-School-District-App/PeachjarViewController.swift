@@ -53,7 +53,13 @@ class PeachjarViewController: UITableViewController{
         
         let row = indexPath.row
         
-        UIApplication.shared.open(URL(string: schools.allSchools[row].peachjarURL)!, options: [:], completionHandler: nil)
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL(string: schools.allSchools[row].peachjarURL)!, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(NSURL(string: schools.allSchools[row].peachjarURL)! as URL)
+
+            
+        }
         
         tableView.deselectRow(at: indexPath, animated: true)
         

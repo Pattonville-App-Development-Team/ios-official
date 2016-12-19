@@ -39,13 +39,29 @@ class MoreViewController: UITableViewController {
         
         switch row{
             case 0:
-                UIApplication.shared.open(URL(string: "http://pirates.psdr3.org")!, options: [:], completionHandler: nil)
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(URL(string: "http://pirates.psdr3.org")!, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(NSURL(string: "http://pirates.psdr3.org")! as URL)
+            }
             case 2:
-                UIApplication.shared.open(URL(string: "http://moodle.psdr3.org")!, options: [:], completionHandler: nil)
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(URL(string: "http://moodle.psdr3.org")!, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(NSURL(string: "http://moodle.psdr3.org")! as URL)
+            }
             case 3:
-                UIApplication.shared.open(URL(string: "http://psdr3.nutrislice.com")!, options: [:], completionHandler: nil)
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(URL(string: "http://psdr3.nutrislice.com")!, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(NSURL(string: "http://psdr3.nutrislice.com")! as URL)
+            }
             case 5:
-                UIApplication.shared.open(URL(string: "http://powerschool.psdr3.org")!, options: [:], completionHandler: nil)
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(URL(string: "http://powerschool.psdr3.org")!, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(NSURL(string: "http://powerschool.psdr3.org")! as URL)
+            }
             default:
                 print("ROW: \(row)")
         }
