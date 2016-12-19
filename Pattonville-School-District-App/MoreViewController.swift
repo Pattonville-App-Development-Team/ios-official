@@ -44,19 +44,25 @@ class MoreViewController: UITableViewController {
                 } else {
                     UIApplication.shared.openURL(NSURL(string: "http://pirates.psdr3.org")! as URL)
             }
-            case 2:
+            case 1:
+                if #available(iOS 10.0, *){
+                    UIApplication.shared.open(URL(string: "http://psdr3.org")!, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(NSURL(string: "http://psdr3.org" )! as URL)
+            }
+            case 3:
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(URL(string: "http://moodle.psdr3.org")!, options: [:], completionHandler: nil)
                 } else {
                     UIApplication.shared.openURL(NSURL(string: "http://moodle.psdr3.org")! as URL)
             }
-            case 3:
+            case 4:
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(URL(string: "http://psdr3.nutrislice.com")!, options: [:], completionHandler: nil)
                 } else {
                     UIApplication.shared.openURL(NSURL(string: "http://psdr3.nutrislice.com")! as URL)
             }
-            case 5:
+            case 6:
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(URL(string: "http://powerschool.psdr3.org")!, options: [:], completionHandler: nil)
                 } else {
