@@ -19,6 +19,7 @@ static var earlyChildhood = School(name: "Early Childhood",
                             faxNumber: "(314)-213-8696",
                             //schoolPicture: "",
                             peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=93233",
+                            nutriSliceURL: "http://psdr3.nutrislice.com/menu/bridgeway",
                             isSubscribedTo: false,
                             color: UIColor.red)
 
@@ -29,6 +30,7 @@ static var bridgewayElementary = School(name: "Bridgeway Elementary",
                             faxNumber: "(314)-213-8612",
                             //schoolPicture: "",
                             peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94979",
+                            nutriSliceURL: "http://psdr3.nutrislice.com/menu/bridgeway",
                             isSubscribedTo: false,
                             color: UIColor.blue)
 
@@ -39,6 +41,7 @@ static var drummondElementary = School(name: "Drummond Elementary",
                             faxNumber: "(314)-213-8619",
                             //schoolPicture: "",
                             peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94976",
+                            nutriSliceURL: "http://psdr3.nutrislice.com/menu/drummond",
                             isSubscribedTo: false,
                             color: UIColor.black)
 
@@ -49,6 +52,7 @@ static var parkwoodElementary = School(name: "Parkwood Elementary",
                             faxNumber: "(314)-213-8615",
                             //schoolPicture: "",
                             peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94967",
+                            nutriSliceURL: "http://psdr3.nutrislice.com/menu/parkwood",
                             isSubscribedTo: false,
                             color: UIColor.yellow)
 
@@ -59,6 +63,7 @@ static var remingtonTraditional = School(name: "Remington Traditional",
                             faxNumber: "(314)-213-8616",
                             //schoolPicture: "",
                             peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94971",
+                            nutriSliceURL: "http://psdr3.nutrislice.com/menu/remington-traditional",
                             isSubscribedTo: false,
                             color: UIColor.magenta)
 
@@ -69,6 +74,7 @@ static var roseAcresElementary = School(name: "Rose Acres Elementary",
                             faxNumber: "(314)-213-8617",
                             //schoolPicture: "",
                             peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94970",
+                            nutriSliceURL: "http://psdr3.nutrislice.com/menu/rose-acres",
                             isSubscribedTo: false,
                             color: UIColor.purple)
 
@@ -79,6 +85,7 @@ static var willowBrookElementary = School(name: "Willow Brook Elementary",
                             faxNumber: "(314)-213-8618",
                             //schoolPicture: "",
                             peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94953",
+                            nutriSliceURL: "http://psdr3.nutrislice.com/menu/willow-brook",
                             isSubscribedTo: false,
                             color: UIColor.cyan)
 
@@ -89,6 +96,7 @@ static var holmanMiddleSchool = School(name: "Holman Middle School",
                             faxNumber: "(314)-213-8632",
                             //schoolPicture: "",
                             peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94975",
+                            nutriSliceURL: "http://psdr3.nutrislice.com/menu/holman",
                             isSubscribedTo: false,
                             color: UIColor.orange)
 
@@ -99,6 +107,7 @@ static var heightsMiddleSchool = School(name: "Heights Middle School",
                             faxNumber: "(314)-213-8633",
                             //schoolPicture: "",
                             peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94968",
+                            nutriSliceURL: "http://psdr3.nutrislice.com/menu/pattonville-heights,",
                             isSubscribedTo: false,
                             color: UIColor.gray)
 
@@ -109,6 +118,7 @@ static var pattonvilleHighSchool = School(name: "Pattonville High School",
                             faxNumber: "(314)-213-8651",
                             //schoolPicture: "",
                             peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94969",
+                            nutriSliceURL: "http://psdr3.nutrislice.com/menu/pattonville-high",
                             isSubscribedTo: false,
                             color: UIColor.green)
 

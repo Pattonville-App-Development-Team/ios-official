@@ -22,6 +22,7 @@ class School: NSObject {
     var peachjarURL: String
     var isSubscribedTo: Bool
     var color: UIColor
+    var nutriSliceURL: String
     
     /// The School Object initializer, to be used in the Schools Enum
     ///
@@ -44,6 +45,7 @@ class School: NSObject {
          mainNumber: String, attendanceNumber: String, faxNumber: String,
          //schoolPicture: UIImage,
          peachjarURL: String,
+         nutriSliceURL: String,
          isSubscribedTo: Bool, color: UIColor) {
         
             self.name = name
@@ -56,6 +58,7 @@ class School: NSObject {
             self.faxNumber = faxNumber
             //self.schoolPicture = schoolPicture
             self.peachjarURL = peachjarURL
+            self.nutriSliceURL = nutriSliceURL
             self.isSubscribedTo = isSubscribedTo
             self.color = color
         
