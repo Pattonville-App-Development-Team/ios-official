@@ -57,7 +57,6 @@
 		42B9339C1DFAEEF400514B73 /* StaffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933681DFAEEF400514B73 /* StaffViewController.swift */; };
 		42B933A21DFAEF1B00514B73 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B9339D1DFAEF1B00514B73 /* Calendar.storyboard */; };
 		42B933A31DFAEF1B00514B73 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B9339E1DFAEF1B00514B73 /* Home.storyboard */; };
-		42B933A51DFAEF1B00514B73 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B933A01DFAEF1B00514B73 /* Settings.storyboard */; };
 		42B933BE1DFB022B00514B73 /* circle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933B61DFB022B00514B73 /* circle.jpg */; };
 		42B933BF1DFB022B00514B73 /* diamond.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933B71DFB022B00514B73 /* diamond.jpg */; };
 		42B933C01DFB022B00514B73 /* illusion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933B81DFB022B00514B73 /* illusion.jpg */; };
@@ -146,7 +145,6 @@
 		42B933681DFAEEF400514B73 /* StaffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffViewController.swift; sourceTree = "<group>"; };
 		42B9339D1DFAEF1B00514B73 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Calendar.storyboard; path = Base.lproj/Calendar.storyboard; sourceTree = "<group>"; };
 		42B9339E1DFAEF1B00514B73 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
-		42B933A01DFAEF1B00514B73 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		42B933B61DFB022B00514B73 /* circle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = circle.jpg; sourceTree = "<group>"; };
 		42B933B71DFB022B00514B73 /* diamond.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = diamond.jpg; sourceTree = "<group>"; };
 		42B933B81DFB022B00514B73 /* illusion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = illusion.jpg; sourceTree = "<group>"; };
@@ -310,7 +308,6 @@
 		42B933A91DFAF79F00514B73 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				42B933A01DFAEF1B00514B73 /* Settings.storyboard */,
 				42B933641DFAEEF400514B73 /* SelectSchoolsTableViewController.swift */,
 				42B933651DFAEEF400514B73 /* Settings.storyboard */,
 				42B933631DFAEEF400514B73 /* SelectSchoolsTableCell.swift */,
@@ -450,7 +447,7 @@
 				TargetAttributes = {
 					42B932FD1DFAEDC500514B73 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = EL5EGW5Z8R;
+						DevelopmentTeam = ZPVDW8LQL8;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -518,7 +515,6 @@
 				42B933691DFAEEF400514B73 /* Assets.xcassets in Resources */,
 				42B933A21DFAEF1B00514B73 /* Calendar.storyboard in Resources */,
 				42B933761DFAEEF400514B73 /* DateCell.xib in Resources */,
-				42B933A51DFAEF1B00514B73 /* Settings.storyboard in Resources */,
 				42B933BE1DFB022B00514B73 /* circle.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -863,9 +859,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = EL5EGW5Z8R;
+				DEVELOPMENT_TEAM = ZPVDW8LQL8;
 				INFOPLIST_FILE = "Pattonville-School-District-App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.joshuazahner.Pattonville-School-District-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -881,9 +877,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = EL5EGW5Z8R;
+				DEVELOPMENT_TEAM = ZPVDW8LQL8;
 				INFOPLIST_FILE = "Pattonville-School-District-App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.joshuazahner.Pattonville-School-District-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
