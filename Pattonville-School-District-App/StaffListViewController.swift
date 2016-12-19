@@ -8,26 +8,43 @@
 
 import UIKit
 
-class StaffListViewController: UITableViewController, UISearchResultsUpdating {
+class StaffListViewController: UIViewController, UISearchResultsUpdating, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate {
 
     var staffList = StaffArray.init().staffList
     var filteredStaffList = [StaffMember]()
-    var searchController = UISearchController()
+    
+    
+    @IBOutlet weak var staffListTableView: UITableView!
+
+    @IBOutlet var searchController: UISearchController!
+    
+    
+    
+    var searchText: String!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = true
         
+        
+        
+        searchController.delegate = self
+        
         searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
+        
+        searchController.searchBar.sizeToFit()
+        
+        searchController.definesPresentationContext = true
+        
+        searchText = searchController.searchBar.text?.lowercased()
+        
+        searchController.searchBar.showsCancelButton = true
         
         searchController.dimsBackgroundDuringPresentation = false
-      searchController.searchBar.sizeToFit()
         
-        tableView.tableHeaderView = searchController.searchBar
-        
-        tableView.reloadData()
+        staffListTableView.reloadData()
         
     }
 
@@ -49,7 +66,7 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating {
     
     // MARK: - Table View
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.isActive && searchController.searchBar.text != "" {
             return filteredStaffList.count
         } else {
@@ -57,9 +74,9 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating {
         }
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "staffMemberCell", for: indexPath) as! SSDTableViewCell
+        let cell = staffListTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SSDTableViewCell
 
         let staffMember: StaffMember
         
@@ -81,22 +98,26 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating {
         
         return cell
         
+        
+        
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredStaffList.removeAll()
         filteredStaffList = staffList.filter{ staffMember in
-            return staffMember.firstName.lowercased().contains(searchText.lowercased()) || staffMember.lastName.lowercased().contains(searchText.lowercased()) || staffMember.department.lowercased().contains(searchText.lowercased())
+            return staffMember.firstName.lowercased().contains(self.searchText) /* || staffMember.lastName.lowercased().contains(searchText.lowercased()) || staffMember.department.lowercased().contains(searchText.lowercased()) */
         }
+        
+        for staff in filteredStaffList {
+            print(staff.firstName + "\n")
+        }
+        
     }
     
     func updateSearchResults(for searchController: UISearchController) {
         
         filterContentForSearchText(searchText: searchController.searchBar.text!)
-        
-        tableView.reloadData()
-        
-        
-        
+        staffListTableView.reloadData()
     }
     
     @IBAction func emailAction(sender: UIButton) {
