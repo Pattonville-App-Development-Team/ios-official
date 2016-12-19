@@ -125,6 +125,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ac9-yw-FUB" kind="show" id="5Gy-4n-caf"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="g4W-jb-T4e" style="IBUITableViewCellStyleDefault" id="31k-W5-a7C" userLabel="Peachjar">
                                         <rect key="frame" x="0.0" y="220" width="375" height="44"/>
@@ -206,6 +209,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dcI-oK-4X9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2380" y="801"/>
+        </scene>
+        <!--6NutriSliceLinks-->
+        <scene sceneID="xui-wQ-hEO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="6NutriSliceLinks" id="ac9-yw-FUB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Xo-IM-ho8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2433" y="855"/>
         </scene>
         <!--Peachjar-->
         <scene sceneID="bZf-Pv-BsD">
