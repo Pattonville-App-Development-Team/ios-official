@@ -17,7 +17,11 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     
     var calendarList: Calendar!
     
-    var selectedDate: Date = Date()
+    var selectedDate: Date!{
+        didSet{
+            print(selectedDate)
+        }
+    }
     
     var selectedDateEvents = [Event]()
     var pinnedDateEvents = [Event]()
@@ -28,12 +32,12 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         super.viewDidLoad()
         
-        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-19", startTime: "10:00 AM", endTime: "2:00 PM", location: "PHS Cafeteria"))
-        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-19", startTime: "10:00 AM", endTime: "2:00 PM", location: "PHS Cafeteria"))
-        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-19", startTime: "10:00 AM", endTime: "2:00 PM", location: "PHS Cafeteria"))
-        calendarList.addDate(event: Event(name: "Winter Orchestra Concert", dateString: "2016-12-08", startTime: "7:00 PM", endTime: "9:00 PM", location: "PHS Auditorium"))
-        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-29", startTime: "10:00 AM", endTime: "2:00 PM", location: "PHS Cafeteria"))
-        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-29", startTime: "10:00 AM", endTime: "2:00 PM", location: "PHS Cafeteria"))
+        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-19", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
+        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-19", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
+        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-19", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
+        calendarList.addDate(event: Event(name: "Winter Orchestra Concert", dateString: "2016-12-08", start: "7:00 PM", end: "9:00 PM", location: "PHS Auditorium"))
+        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-29", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
+        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-29", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
 
         
         tableView.dataSource = self
@@ -70,9 +74,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         filterCalendarData(for: selectedDate)
         calendar.selectDates([Date(), selectedDate])
-        
-        print("VIEW DID APPEAR")
-        
+        //selectDateCell(cell: )
         
     }
     
@@ -175,7 +177,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
         (cell as? CalendarDateView)?.setUnselected(cellState: cellState)
         
-        calendar.selectDates([Date()])
+        calendar.selectDates([Date(), selectedDate])
     }
     
 
@@ -212,7 +214,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     }
     
     /// Defines the functionality of a selected cell in the table
-    /// - tableeView: the instance of teh teableview onscreen
+    /// - tableeView: the instance of the tableview onscreen
     /// - indexPath: the indexPath of the selected cell
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -288,6 +290,12 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         calendar.reloadData()
         tableView.reloadData()
+        
+    }
+    
+    func selectDateCell(cell: JTAppleDayCell){
+        
+        (cell as? CalendarDateView)?.setSelected(color: UIColor(red: 150/255.0, green: 150/255.0, blue: 150/255.0, alpha: 1))
         
     }
     

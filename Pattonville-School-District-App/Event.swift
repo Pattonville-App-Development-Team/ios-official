@@ -20,12 +20,12 @@ class Event: Equatable{
     var pinned: Bool = false
     var eventID: String
     
-    init(name: String, dateString: String, startTime: String, endTime: String, location: String){
+    init(name: String, dateString: String, start: String, end: String, location: String){
         
         self.name = name
         self.dateString = dateString
         self.location = location
-        self.timeString = "\(startTime) - \(endTime)"
+        self.timeString = "\(start) - \(end)"
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
@@ -36,8 +36,8 @@ class Event: Equatable{
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "h:mm a"
         
-        let startTime = timeFormatter.date(from: startTime)
-        let endTime = timeFormatter.date(from: endTime)
+        let startTime = timeFormatter.date(from: start)
+        let endTime = timeFormatter.date(from: end)
         
         self.startTime = startTime!
         self.endTime = endTime!
