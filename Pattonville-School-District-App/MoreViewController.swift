@@ -28,7 +28,7 @@ class MoreViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    /// Sends the user to a webview if user selects one of these link options
+    /// Sends the user to a webview if user selects one of these link options, if statement to allow for iOS 9 compatibility
     ///
     /// - parameter tableView: the More tab table view that contains options below and other options that arent links
     /// - parameter indexPath: the row of the More table view that the user selects that the user selects
@@ -39,13 +39,29 @@ class MoreViewController: UITableViewController {
         
         switch row{
             case 0:
-                UIApplication.shared.open(URL(string: "http://pirates.psdr3.org")!, options: [:], completionHandler: nil)
-            case 2:
-                UIApplication.shared.open(URL(string: "http://moodle.psdr3.org")!, options: [:], completionHandler: nil)
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(URL(string: "http://pirates.psdr3.org")!, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(NSURL(string: "http://pirates.psdr3.org")! as URL)
+            }
+            case 1:
+                if #available(iOS 10.0, *){
+                    UIApplication.shared.open(URL(string: "http://psdr3.org")!, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(NSURL(string: "http://psdr3.org" )! as URL)
+            }
             case 3:
-                UIApplication.shared.open(URL(string: "http://psdr3.nutrislice.com")!, options: [:], completionHandler: nil)
-            case 5:
-                UIApplication.shared.open(URL(string: "http://powerschool.psdr3.org")!, options: [:], completionHandler: nil)
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(URL(string: "http://moodle.psdr3.org")!, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(NSURL(string: "http://moodle.psdr3.org")! as URL)
+            }
+            case 6:
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(URL(string: "http://powerschool.psdr3.org")!, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(NSURL(string: "http://powerschool.psdr3.org")! as URL)
+            }
             default:
                 print("ROW: \(row)")
         }

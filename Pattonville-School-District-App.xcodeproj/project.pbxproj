@@ -57,7 +57,6 @@
 		42B9339C1DFAEEF400514B73 /* StaffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933681DFAEEF400514B73 /* StaffViewController.swift */; };
 		42B933A21DFAEF1B00514B73 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B9339D1DFAEF1B00514B73 /* Calendar.storyboard */; };
 		42B933A31DFAEF1B00514B73 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B9339E1DFAEF1B00514B73 /* Home.storyboard */; };
-		42B933A51DFAEF1B00514B73 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B933A01DFAEF1B00514B73 /* Settings.storyboard */; };
 		42B933BE1DFB022B00514B73 /* circle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933B61DFB022B00514B73 /* circle.jpg */; };
 		42B933BF1DFB022B00514B73 /* diamond.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933B71DFB022B00514B73 /* diamond.jpg */; };
 		42B933C01DFB022B00514B73 /* illusion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933B81DFB022B00514B73 /* illusion.jpg */; };
@@ -65,6 +64,8 @@
 		42B933C21DFB022B00514B73 /* lines.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933BA1DFB022B00514B73 /* lines.jpg */; };
 		42B933C31DFB022B00514B73 /* nature- dear.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933BB1DFB022B00514B73 /* nature- dear.jpg */; };
 		42B933C51DFB022B00514B73 /* pin-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 42B933BD1DFB022B00514B73 /* pin-green.png */; };
+		4B4299A81E087F7200A202F9 /* 6NutriSliceLinks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4299A71E087F7200A202F9 /* 6NutriSliceLinks.storyboard */; };
+		4BE086DE1E08738F00BEA0E4 /* NutriSliceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE086DD1E08738F00BEA0E4 /* NutriSliceViewController.swift */; };
 		6B4B6CFEFCAF92D0441078C0 /* Pods_Pattonville_School_District_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3997F7E4BE66858E7DB5202 /* Pods_Pattonville_School_District_AppTests.framework */; };
 		F00DBA22462C83C348C9D4E6 /* Pods_Pattonville_School_District_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5FC4863EB3AC5B68D1FAFB /* Pods_Pattonville_School_District_App.framework */; };
 /* End PBXBuildFile section */
@@ -146,7 +147,6 @@
 		42B933681DFAEEF400514B73 /* StaffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffViewController.swift; sourceTree = "<group>"; };
 		42B9339D1DFAEF1B00514B73 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Calendar.storyboard; path = Base.lproj/Calendar.storyboard; sourceTree = "<group>"; };
 		42B9339E1DFAEF1B00514B73 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
-		42B933A01DFAEF1B00514B73 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		42B933B61DFB022B00514B73 /* circle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = circle.jpg; sourceTree = "<group>"; };
 		42B933B71DFB022B00514B73 /* diamond.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = diamond.jpg; sourceTree = "<group>"; };
 		42B933B81DFB022B00514B73 /* illusion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = illusion.jpg; sourceTree = "<group>"; };
@@ -154,6 +154,8 @@
 		42B933BA1DFB022B00514B73 /* lines.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lines.jpg; sourceTree = "<group>"; };
 		42B933BB1DFB022B00514B73 /* nature- dear.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "nature- dear.jpg"; sourceTree = "<group>"; };
 		42B933BD1DFB022B00514B73 /* pin-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin-green.png"; sourceTree = "<group>"; };
+		4B4299A71E087F7200A202F9 /* 6NutriSliceLinks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = 6NutriSliceLinks.storyboard; sourceTree = "<group>"; };
+		4BE086DD1E08738F00BEA0E4 /* NutriSliceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutriSliceViewController.swift; sourceTree = "<group>"; };
 		744CB7DE37186867DC47DBFC /* Pods-Pattonville-School-District-AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-AppTests/Pods-Pattonville-School-District-AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		94EB10DCC58D641E498FA421 /* Pods-Pattonville-School-District-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-AppTests/Pods-Pattonville-School-District-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		A8A1980D33A0CDF1093BA0BB /* Pods-Pattonville-School-District-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-App/Pods-Pattonville-School-District-App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -303,6 +305,8 @@
 				42B933581DFAEEF300514B73 /* Peachjar.storyboard */,
 				42B933591DFAEEF300514B73 /* Peachjar~.storyboard */,
 				42B9335A1DFAEEF300514B73 /* PeachjarViewController.swift */,
+				4BE086DD1E08738F00BEA0E4 /* NutriSliceViewController.swift */,
+				4B4299A71E087F7200A202F9 /* 6NutriSliceLinks.storyboard */,
 			);
 			name = More;
 			sourceTree = "<group>";
@@ -310,7 +314,6 @@
 		42B933A91DFAF79F00514B73 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				42B933A01DFAEF1B00514B73 /* Settings.storyboard */,
 				42B933641DFAEEF400514B73 /* SelectSchoolsTableViewController.swift */,
 				42B933651DFAEEF400514B73 /* Settings.storyboard */,
 				42B933631DFAEEF400514B73 /* SelectSchoolsTableCell.swift */,
@@ -450,7 +453,7 @@
 				TargetAttributes = {
 					42B932FD1DFAEDC500514B73 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = EL5EGW5Z8R;
+						DevelopmentTeam = ZPVDW8LQL8;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -500,6 +503,7 @@
 				42B933771DFAEEF400514B73 /* DateView.xib in Resources */,
 				42B933BF1DFB022B00514B73 /* diamond.jpg in Resources */,
 				42B933C01DFB022B00514B73 /* illusion.jpg in Resources */,
+				4B4299A81E087F7200A202F9 /* 6NutriSliceLinks.storyboard in Resources */,
 				42B9330B1DFAEDC500514B73 /* Assets.xcassets in Resources */,
 				42B933091DFAEDC500514B73 /* Main.storyboard in Resources */,
 				42B933851DFAEEF400514B73 /* News.storyboard in Resources */,
@@ -518,7 +522,6 @@
 				42B933691DFAEEF400514B73 /* Assets.xcassets in Resources */,
 				42B933A21DFAEF1B00514B73 /* Calendar.storyboard in Resources */,
 				42B933761DFAEEF400514B73 /* DateCell.xib in Resources */,
-				42B933A51DFAEF1B00514B73 /* Settings.storyboard in Resources */,
 				42B933BE1DFB022B00514B73 /* circle.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -686,6 +689,7 @@
 				42B933921DFAEEF400514B73 /* PSDViewController.swift in Sources */,
 				42B933731DFAEEF400514B73 /* CalendarViewController.swift in Sources */,
 				42B933751DFAEEF400514B73 /* DateCell.swift in Sources */,
+				4BE086DE1E08738F00BEA0E4 /* NutriSliceViewController.swift in Sources */,
 				42B933721DFAEEF400514B73 /* CalendarPinnedListViewController.swift in Sources */,
 				42B9339A1DFAEEF400514B73 /* SettingsViewController.swift in Sources */,
 				42B933711DFAEEF400514B73 /* CalendarListViewController.swift in Sources */,
@@ -863,9 +867,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = EL5EGW5Z8R;
+				DEVELOPMENT_TEAM = ZPVDW8LQL8;
 				INFOPLIST_FILE = "Pattonville-School-District-App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.joshuazahner.Pattonville-School-District-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -881,9 +885,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = EL5EGW5Z8R;
+				DEVELOPMENT_TEAM = ZPVDW8LQL8;
 				INFOPLIST_FILE = "Pattonville-School-District-App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.joshuazahner.Pattonville-School-District-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
