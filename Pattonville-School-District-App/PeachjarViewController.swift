@@ -45,7 +45,7 @@ class PeachjarViewController: UITableViewController{
         
     }
     
-    /// Method for opening a webview with the link to peachjar for each individual school by using SchoolsEnum
+    /// Method for opening a webview with the link to peachjar for each individual school by using SchoolsEnum, if statement to allow for iOS 9 compatibility
     ///
     /// - parameter tableView: the Peachjar Tableview
     /// - parameter indexPath: the row of the peachjar tableview selected to send to peachjar URL of school

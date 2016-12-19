@@ -36,6 +36,7 @@ class School: NSObject {
     /// - parameter faxNumber:        Fax Number of School being initialized
     /// - parameter //schoolPicture:  School Picture to be used in Directory of School being initialized
     /// - parameter peachjarURL:      PeachJar URL used in the PeachJar Feature of School being initialized
+    /// - parameter nutriSliceURL:    NutriSlice URL used in the NutriSlice Feature, being intialized
     /// - parameter isSubscribedTo:   Boolean to determine whether or not a user is subscribed to a schools news feed, will be set based upon the switch in the SelectSchools feautre in Settings and then accessed for the news feed
     ///
     

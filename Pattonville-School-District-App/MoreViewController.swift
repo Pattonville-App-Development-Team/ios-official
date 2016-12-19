@@ -28,7 +28,7 @@ class MoreViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    /// Sends the user to a webview if user selects one of these link options
+    /// Sends the user to a webview if user selects one of these link options, if statement to allow for iOS 9 compatibility
     ///
     /// - parameter tableView: the More tab table view that contains options below and other options that arent links
     /// - parameter indexPath: the row of the More table view that the user selects that the user selects
