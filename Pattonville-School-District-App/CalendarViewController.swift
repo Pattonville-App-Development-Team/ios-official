@@ -8,6 +8,7 @@
 
 import UIKit
 import JTAppleCalendar
+import MXLCalendarManager
 
 class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate, UITableViewDelegate, UITableViewDataSource{
     
@@ -24,12 +25,16 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     /// Sets up look of view controller upon loading. Completes basic setup of Calendar and TableView appearances and sorts the events list for pinned events
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-19", startTime: "10:00 AM", endTime: "2:00 PM", location: "PHS Cafeteria"))
         calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-19", startTime: "10:00 AM", endTime: "2:00 PM", location: "PHS Cafeteria"))
         calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-19", startTime: "10:00 AM", endTime: "2:00 PM", location: "PHS Cafeteria"))
         calendarList.addDate(event: Event(name: "Winter Orchestra Concert", dateString: "2016-12-08", startTime: "7:00 PM", endTime: "9:00 PM", location: "PHS Auditorium"))
+        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-29", startTime: "10:00 AM", endTime: "2:00 PM", location: "PHS Cafeteria"))
+        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-29", startTime: "10:00 AM", endTime: "2:00 PM", location: "PHS Cafeteria"))
+
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -208,7 +213,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     
     /// Defines the functionality of a selected cell in the table
     /// - tableeView: the instance of teh teableview onscreen
-    /// - indexPath: teh indexPath of the selected cell
+    /// - indexPath: the indexPath of the selected cell
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "EventDetail", sender: self)
@@ -216,7 +221,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     
     /// Defines preparation steps for segues leaving this view controller
     /// - segue: the segue that was triggered
-    /// - sender: teh object that triggered teh segue
+    /// - sender: the object that triggered teh segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CalendarListViewSegue"{
@@ -280,6 +285,9 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
                 $0 != event
             })
         }
+        
+        calendar.reloadData()
+        tableView.reloadData()
         
     }
     

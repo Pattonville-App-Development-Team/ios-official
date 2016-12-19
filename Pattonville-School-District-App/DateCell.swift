@@ -33,6 +33,8 @@ class DateCell: UITableViewCell{
         
         if event.pinned{
             pinButton.isSelected = true
+        }else{
+            pinButton.isSelected = false
         }
         
     }
@@ -50,7 +52,5 @@ class DateCell: UITableViewCell{
         
         
     }
-    
-    //func setSchools(schools: [School])
     
 }
