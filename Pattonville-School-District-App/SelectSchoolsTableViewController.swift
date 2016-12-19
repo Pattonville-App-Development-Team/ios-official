@@ -9,7 +9,6 @@ import UIKit
 
 /// The TableViewController for selecting which schools a user wants to be subscribed to
 class SelectSchoolsTableViewController: UITableViewController{
-    var merge: String = "Doing this to merge"
     var schools: SchoolsArray! = SchoolsArray.init()
     
     /// Set up how the tableView appears on screen
