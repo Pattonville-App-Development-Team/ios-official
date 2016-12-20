@@ -11,6 +11,7 @@ import JTAppleCalendar
 class CalendarDateView: JTAppleDayCellView{
     
     @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var dateDelineater: UIView!
     
     var normalDayColor = UIColor.black
     var weekendDayColor = UIColor.gray
@@ -22,6 +23,7 @@ class CalendarDateView: JTAppleDayCellView{
     func setupCellBeforeDisplay(cellState: CellState, date: Date) {
         // Setup Cell text
         dateLabel.text = cellState.text
+        dateDelineater.backgroundColor = .black
         // Setup text color
         configureTextColor(cellState: cellState)
         

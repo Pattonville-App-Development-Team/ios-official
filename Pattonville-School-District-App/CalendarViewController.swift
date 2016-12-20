@@ -1,3 +1,4 @@
+
 //
 //  SecondViewController.swift
 //  Pattonville School District App
@@ -17,11 +18,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     
     var calendarList: Calendar!
     
-    var selectedDate: Date!{
-        didSet{
-            print(selectedDate)
-        }
-    }
+    var selectedDate: Date = Date()
     
     var selectedDateEvents = [Event]()
     var pinnedDateEvents = [Event]()
@@ -74,7 +71,9 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         filterCalendarData(for: selectedDate)
         calendar.selectDates([Date(), selectedDate])
-        //selectDateCell(cell: )
+        
+        print("VIEW DID APPEAR")
+        
         
     }
     
@@ -177,7 +176,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
         (cell as? CalendarDateView)?.setUnselected(cellState: cellState)
         
-        calendar.selectDates([Date(), selectedDate])
+        calendar.selectDates([Date()])
     }
     
 
@@ -214,7 +213,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     }
     
     /// Defines the functionality of a selected cell in the table
-    /// - tableeView: the instance of the tableview onscreen
+    /// - tableeView: the instance of teh teableview onscreen
     /// - indexPath: the indexPath of the selected cell
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -288,14 +287,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
             })
         }
         
-        calendar.reloadData()
         tableView.reloadData()
-        
-    }
-    
-    func selectDateCell(cell: JTAppleDayCell){
-        
-        (cell as? CalendarDateView)?.setSelected(color: UIColor(red: 150/255.0, green: 150/255.0, blue: 150/255.0, alpha: 1))
         
     }
     
