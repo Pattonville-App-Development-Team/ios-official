@@ -222,7 +222,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     
     /// Defines preparation steps for segues leaving this view controller
     /// - segue: the segue that was triggered
-    /// - sender: the object that triggered teh segue
+    /// - sender: the object that triggered the segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CalendarListViewSegue"{

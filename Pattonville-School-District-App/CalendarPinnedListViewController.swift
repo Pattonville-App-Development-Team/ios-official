@@ -15,13 +15,20 @@ class CalendarPinnedListViewController: UITableViewController{
     override func viewDidLoad(){
         super.viewDidLoad()
         tableView.register(UINib(nibName: "DateCell", bundle:nil), forCellReuseIdentifier: "DateCell")
-
     }
     
     override func viewDidAppear(_ animated: Bool){
         super.viewDidAppear(animated)
         
         tableView.reloadData()
+    }
+    
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
+        if parent == nil {
+            // The back button was pressed or interactive gesture used
+            ((self.parent as! UINavigationController).viewControllers[0] as! CalendarViewController).pinnedDateEvents = eventsList
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,6 +70,7 @@ class CalendarPinnedListViewController: UITableViewController{
         eventsList = eventsList.filter({
             $0 != event
         })
+        
         tableView.reloadData()
     }
     

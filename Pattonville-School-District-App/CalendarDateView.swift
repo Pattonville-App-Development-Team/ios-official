@@ -23,7 +23,7 @@ class CalendarDateView: JTAppleDayCellView{
     func setupCellBeforeDisplay(cellState: CellState, date: Date) {
         // Setup Cell text
         dateLabel.text = cellState.text
-        dateDelineater.backgroundColor = .black
+        dateDelineater.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
         // Setup text color
         configureTextColor(cellState: cellState)
         
@@ -32,6 +32,7 @@ class CalendarDateView: JTAppleDayCellView{
         }else{
             setUnselected(cellState: cellState)
         }
+        
     }
     
     /// Defines the text color of a given cell
@@ -80,6 +81,10 @@ class CalendarDateView: JTAppleDayCellView{
             return false
         }
         
+    }
+    
+    func showDelineator(){
+        dateDelineater.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
     }
     
     
