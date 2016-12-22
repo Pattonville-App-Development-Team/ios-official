@@ -29,8 +29,8 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         super.viewDidLoad()
         
-        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-19", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
-        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-19", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
+        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-17", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
+        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-18", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
         calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-19", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
         calendarList.addDate(event: Event(name: "Winter Orchestra Concert", dateString: "2016-12-08", start: "7:00 PM", end: "9:00 PM", location: "PHS Auditorium"))
         calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-29", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
@@ -54,10 +54,6 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         calendar.scrollToDate(Date(), triggerScrollToDateDelegate: true, animateScroll: false)
         
-        pinnedDateEvents = calendarList.datesList.filter({
-            return $0.pinned
-        })
-        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -65,6 +61,10 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        pinnedDateEvents = calendarList.datesList.filter({
+            return $0.pinned
+        })
         
         calendar.reloadData()
         tableView.reloadData()
@@ -247,9 +247,8 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         let theDateString = dateFormatter.string(from: date)
         
-        selectedDateEvents = calendarList.datesList.filter({
-            return $0.dateString == theDateString
-        })
+        selectedDateEvents = calendarList.eventsForDate(date: theDateString)
+        
     }
     
     /// Compares two dates to check for equality

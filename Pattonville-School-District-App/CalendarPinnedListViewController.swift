@@ -23,6 +23,14 @@ class CalendarPinnedListViewController: UITableViewController{
         tableView.reloadData()
     }
     
+    /// Determines functionality when the view controller stack is modified. If parent = nil then the view controller was popped
+    /// OFF the stack, otherwise the view controller was added to the stack
+    ///
+    /// This function is specifically used to keep the eventsList associated with this view controller and the pinnedDateEvents 
+    /// associated with the CalendarViewController in sync when modifications are made in this controller.
+    ///
+    /// - parent: the parent of the current view controller
+    
     override func willMove(toParentViewController parent: UIViewController?) {
         super.willMove(toParentViewController: parent)
         if parent == nil {
