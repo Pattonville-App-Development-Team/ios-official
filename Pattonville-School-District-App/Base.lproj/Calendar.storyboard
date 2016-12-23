@@ -199,22 +199,38 @@
                                 <color key="textColor" white="0.4070033482" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVu-hh-RcL">
-                                <rect key="frame" x="172" y="202" width="30" height="30"/>
-                                <state key="normal" title="Add"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ksi-9Y-7rq">
+                                <rect key="frame" x="323" y="75" width="26" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="huC-eW-CZg"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="pin-black-1.png"/>
+                                <state key="selected" image="pin-green.png"/>
+                                <connections>
+                                    <action selector="setPinned" destination="3t2-u7-U6r" eventType="touchDown" id="0de-bD-0F3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVu-hh-RcL">
+                                <rect key="frame" x="325" y="114" width="22" height="22"/>
+                                <connections>
+                                    <action selector="addWithSender:" destination="3t2-u7-U6r" eventType="touchDown" id="XPx-fv-MyB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MLb-KE-uqm" firstAttribute="top" secondItem="c80-z5-GID" secondAttribute="bottom" constant="4" id="0EH-4L-dVl"/>
+                            <constraint firstItem="cVu-hh-RcL" firstAttribute="top" secondItem="Ksi-9Y-7rq" secondAttribute="bottom" constant="13" id="0e5-Yc-pnN"/>
                             <constraint firstItem="hqu-QC-F5d" firstAttribute="top" secondItem="kHo-KF-eri" secondAttribute="bottom" constant="8" id="28i-je-QW3"/>
-                            <constraint firstItem="cVu-hh-RcL" firstAttribute="leading" secondItem="o53-37-wSK" secondAttribute="leadingMargin" constant="156" id="CYQ-b2-XNI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ksi-9Y-7rq" secondAttribute="trailing" constant="10" id="5lo-y8-hFR"/>
                             <constraint firstItem="hqu-QC-F5d" firstAttribute="leading" secondItem="kHo-KF-eri" secondAttribute="leading" id="DXv-q2-2kX"/>
                             <constraint firstAttribute="leadingMargin" secondItem="kHo-KF-eri" secondAttribute="leading" id="G99-jW-qZx"/>
                             <constraint firstItem="MLb-KE-uqm" firstAttribute="leading" secondItem="c80-z5-GID" secondAttribute="leading" id="Nm7-jh-6yH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cVu-hh-RcL" secondAttribute="trailing" constant="157" id="Vip-Ry-BII"/>
-                            <constraint firstItem="cVu-hh-RcL" firstAttribute="top" secondItem="MLb-KE-uqm" secondAttribute="bottom" constant="21" id="bYV-qR-PPQ"/>
+                            <constraint firstItem="cVu-hh-RcL" firstAttribute="leading" secondItem="o53-37-wSK" secondAttribute="leadingMargin" constant="309" id="X2I-W3-W96"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cVu-hh-RcL" secondAttribute="trailing" constant="12" id="pna-MX-dMw"/>
                             <constraint firstItem="c80-z5-GID" firstAttribute="leading" secondItem="hqu-QC-F5d" secondAttribute="leading" id="pnz-vk-ydv"/>
+                            <constraint firstItem="Ksi-9Y-7rq" firstAttribute="top" secondItem="clR-FN-oiE" secondAttribute="bottom" constant="11" id="ser-Wk-bON"/>
+                            <constraint firstItem="Ksi-9Y-7rq" firstAttribute="leading" secondItem="o53-37-wSK" secondAttribute="leadingMargin" constant="307" id="uDf-Fa-bB7"/>
                             <constraint firstItem="kHo-KF-eri" firstAttribute="top" secondItem="clR-FN-oiE" secondAttribute="bottom" constant="15" id="xrh-nl-Z32"/>
                             <constraint firstItem="c80-z5-GID" firstAttribute="top" secondItem="hqu-QC-F5d" secondAttribute="bottom" constant="15" id="zs6-I6-g0t"/>
                         </constraints>
@@ -222,10 +238,12 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addToCalendar" destination="cVu-hh-RcL" id="lfV-HO-eaX"/>
                         <outlet property="eventDate" destination="c80-z5-GID" id="pjV-uP-74I"/>
                         <outlet property="eventLocation" destination="hqu-QC-F5d" id="hAe-cW-V0P"/>
                         <outlet property="eventName" destination="kHo-KF-eri" id="kQV-e0-5fy"/>
                         <outlet property="eventTime" destination="MLb-KE-uqm" id="fB0-lp-Pgt"/>
+                        <outlet property="pinButton" destination="Ksi-9Y-7rq" id="YCC-Ad-aSR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7lr-xE-13D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -235,6 +253,8 @@
     </scenes>
     <resources>
         <image name="calendar" width="30" height="30"/>
+        <image name="pin-black-1.png" width="48" height="48"/>
+        <image name="pin-green.png" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Iyk-31-r9T"/>

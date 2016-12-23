@@ -16,6 +16,14 @@ class CalendarEventDetailController: UIViewController{
     @IBOutlet var eventDate: UILabel!
     @IBOutlet var eventTime: UILabel!
     @IBOutlet var addToCalendar: UIButton!
+    @IBOutlet var pinButton: UIButton!
+    
+    @IBAction func setPinned(){
+        
+        pinButton.isSelected = !pinButton.isSelected
+        event.pinned = !event.pinned
+        
+    }
     
     @IBAction func add(sender: UIButton){
         let store = EKEventStore()
@@ -48,6 +56,12 @@ class CalendarEventDetailController: UIViewController{
         eventLocation.text = event.location
         eventDate.text = event.dateString
         eventTime.text = event.timeString
+        
+        if event.pinned{
+            pinButton.isSelected = true
+        }else{
+            pinButton.isSelected = false
+        }
         
     }
     
