@@ -116,6 +116,16 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         (cell as! CalendarDateView).setupCellBeforeDisplay(cellState: cellState, date: date)
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        
+        let dateString = dateFormatter.string(from: date)
+        let theDate = dateFormatter.date(from: dateString)
+        
+        if calendarList.dates.keys.contains(theDate!){
+            (cell as! CalendarDateView).showDelineator()
+        }
+        
     }
     
     /// Sets the size of the header of the clanedar
@@ -156,7 +166,14 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         if compareDates(date1: date, date2: Date()) && cellState.dateBelongsTo == .thisMonth{
             (cell as? CalendarDateView)?.setSelected(color: UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0))
         }else{
+            //calendar.scrollToDate(date)
             (cell as? CalendarDateView)?.setSelected(color: UIColor(red: 150/255.0, green: 150/255.0, blue: 150/255.0, alpha: 1))
+        }
+        
+        if !calendarList.eventsForDate(date: formatDate(date: date)).isEmpty{
+            (cell as? CalendarDateView)?.dateDelineater.backgroundColor = .white
+        }else{
+            (cell as? CalendarDateView)?.dateDelineater.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 0)
         }
         
         selectedDate = date
@@ -176,11 +193,15 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
         (cell as? CalendarDateView)?.setUnselected(cellState: cellState)
         
+        if !calendarList.eventsForDate(date: formatDate(date: date)).isEmpty{
+            (cell as? CalendarDateView)?.dateDelineater.backgroundColor = .black
+        }else{
+            (cell as? CalendarDateView)?.hideDelineator()
+        }
+
+        
         calendar.selectDates([Date()])
     }
-    
-
-    
     
     
     /// Establishes the number of cells to show in the tableview section
@@ -199,15 +220,11 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
         
-        if selectedDateEvents.count > 0{
-            let event = selectedDateEvents[indexPath.row]
-            
-            cell.event = event
-            cell.setUp()
-            cell.pinButton.tag = indexPath.row;
-            cell.pinButton.addTarget(self, action: #selector(CalendarViewController.nowPinned(sender:)), for: UIControlEvents.touchUpInside);
-            
-        }
+        let event = calendarList.eventsForDate(date: formatDate(date: selectedDate))[indexPath.row]
+        cell.event = event
+        cell.setUp()
+        cell.pinButton.tag = indexPath.row;
+        cell.pinButton.addTarget(self, action: #selector(CalendarViewController.nowPinned(sender:)), for: UIControlEvents.touchUpInside);
         
         return cell
     }
@@ -287,6 +304,16 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         }
         
         tableView.reloadData()
+        
+    }
+    
+    private func formatDate(date: Date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        
+        let theDateString = dateFormatter.string(from: date)
+        
+        return theDateString
         
     }
     

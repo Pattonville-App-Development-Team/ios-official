@@ -23,11 +23,11 @@ class CalendarDateView: JTAppleDayCellView{
     func setupCellBeforeDisplay(cellState: CellState, date: Date) {
         // Setup Cell text
         dateLabel.text = cellState.text
-        dateDelineater.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
+        hideDelineator()
         // Setup text color
         configureTextColor(cellState: cellState)
         
-        if compareDates(date1: date, date2: Date()){
+        if isToday(date1: date, date2: Date()){
             setSelected(color: UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0))
         }else{
             setUnselected(cellState: cellState)
@@ -56,7 +56,7 @@ class CalendarDateView: JTAppleDayCellView{
     }
     
     /// Sets the look for the cell when it is unselected
-    /// - cellState: the CellState of the given cell (used to ensure the cell returns to its weekday/weekend) state
+    /// - cellState: the CellState of the given cell (used to ensure the cell returns to its weekday/weekend state)
     
     func setUnselected(cellState: CellState){
         self.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
@@ -67,7 +67,7 @@ class CalendarDateView: JTAppleDayCellView{
     /// - date1: the first date
     /// - date2: the date to compare to
     
-    private func compareDates(date1: Date, date2: Date) -> Bool{
+    private func isToday(date1: Date, date2: Date) -> Bool{
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
@@ -84,6 +84,10 @@ class CalendarDateView: JTAppleDayCellView{
     }
     
     func showDelineator(){
+        dateDelineater.backgroundColor = .black
+    }
+    
+    func hideDelineator(){
         dateDelineater.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
     }
     
