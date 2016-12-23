@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EventKit
 
 class CalendarEventDetailController: UIViewController{
     
@@ -14,6 +15,28 @@ class CalendarEventDetailController: UIViewController{
     @IBOutlet var eventLocation: UILabel!
     @IBOutlet var eventDate: UILabel!
     @IBOutlet var eventTime: UILabel!
+    @IBOutlet var addToCalendar: UIButton!
+    
+    @IBAction func add(sender: UIButton){
+        let store = EKEventStore()
+        store.requestAccess(to: .event) {(granted, error) in
+            if !granted { return }
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM dd, YYY h:m a"
+            
+            let ekEvent = EKEvent(eventStore: store)
+            ekEvent.title = self.event.name
+            ekEvent.startDate = self.event.startTime
+            ekEvent.endDate = self.event.endTime
+            ekEvent.calendar = store.defaultCalendarForNewEvents
+            do {
+                try store.save(ekEvent, span: .thisEvent, commit: true)
+            } catch {
+                print(error)
+            }
+        }
+    }
     
     var event: Event!
     

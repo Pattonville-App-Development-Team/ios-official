@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zAo-hx-RnD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zAo-hx-RnD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -199,14 +199,21 @@
                                 <color key="textColor" white="0.4070033482" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVu-hh-RcL">
+                                <rect key="frame" x="172" y="202" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MLb-KE-uqm" firstAttribute="top" secondItem="c80-z5-GID" secondAttribute="bottom" constant="4" id="0EH-4L-dVl"/>
                             <constraint firstItem="hqu-QC-F5d" firstAttribute="top" secondItem="kHo-KF-eri" secondAttribute="bottom" constant="8" id="28i-je-QW3"/>
+                            <constraint firstItem="cVu-hh-RcL" firstAttribute="leading" secondItem="o53-37-wSK" secondAttribute="leadingMargin" constant="156" id="CYQ-b2-XNI"/>
                             <constraint firstItem="hqu-QC-F5d" firstAttribute="leading" secondItem="kHo-KF-eri" secondAttribute="leading" id="DXv-q2-2kX"/>
                             <constraint firstAttribute="leadingMargin" secondItem="kHo-KF-eri" secondAttribute="leading" id="G99-jW-qZx"/>
                             <constraint firstItem="MLb-KE-uqm" firstAttribute="leading" secondItem="c80-z5-GID" secondAttribute="leading" id="Nm7-jh-6yH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cVu-hh-RcL" secondAttribute="trailing" constant="157" id="Vip-Ry-BII"/>
+                            <constraint firstItem="cVu-hh-RcL" firstAttribute="top" secondItem="MLb-KE-uqm" secondAttribute="bottom" constant="21" id="bYV-qR-PPQ"/>
                             <constraint firstItem="c80-z5-GID" firstAttribute="leading" secondItem="hqu-QC-F5d" secondAttribute="leading" id="pnz-vk-ydv"/>
                             <constraint firstItem="kHo-KF-eri" firstAttribute="top" secondItem="clR-FN-oiE" secondAttribute="bottom" constant="15" id="xrh-nl-Z32"/>
                             <constraint firstItem="c80-z5-GID" firstAttribute="top" secondItem="hqu-QC-F5d" secondAttribute="bottom" constant="15" id="zs6-I6-g0t"/>

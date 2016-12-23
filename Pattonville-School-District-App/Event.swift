@@ -34,10 +34,10 @@ class Event: Equatable{
         self.date = date!
         
         let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "h:mm a"
+        timeFormatter.dateFormat = "YYYY-MM-dd h:mm a"
         
-        let startTime = timeFormatter.date(from: start)
-        let endTime = timeFormatter.date(from: end)
+        let startTime = timeFormatter.date(from: "\(dateString) \(start)")
+        let endTime = timeFormatter.date(from: "\(dateString) \(end)")
         
         self.startTime = startTime!
         self.endTime = endTime!
