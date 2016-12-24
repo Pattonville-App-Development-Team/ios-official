@@ -10,11 +10,11 @@ import UIKit
 
 class DirectoryViewController: UITableViewController {
     
-    var schools: SchoolsArray! = SchoolsArray.init()
+   // var schools: SchoolsArray! = SchoolsArray.init()
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return schools.allSchools.count
+        return SchoolsArray.allSchools.count
         
     }
     
@@ -22,7 +22,7 @@ class DirectoryViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         
-        let school = schools.allSchools[indexPath.row]
+        let school = SchoolsArray.allSchools[indexPath.row]
         
         cell.textLabel?.text = school.name
         

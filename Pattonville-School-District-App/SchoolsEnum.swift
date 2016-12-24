@@ -11,7 +11,7 @@ import UIKit
 
 /// The Enum that stores all the information about the schools in School Objections, used to create the Schools array and then furhter used throughout the app through that array.
 class SchoolsEnum {
-
+    
 static var earlyChildhood = School(name: "Early Childhood",
                             address: "11097 St. Charles Rock Rd", city: "St. Ann", state: "MO", zip: "63074",
                             mainNumber: "(314)-213-8500",
@@ -121,6 +121,17 @@ static var pattonvilleHighSchool = School(name: "Pattonville High School",
                             nutriSliceURL: "http://psdr3.nutrislice.com/menu/pattonville-high",
                             isSubscribedTo: false,
                             color: UIColor.green)
+    
+    static func setIsSubscribedToSchoolValue(row: Int, isSubscribedToValue: Bool){
+        let school = SchoolsArray.allSchools[row]
+        school.isSubscribedTo = isSubscribedToValue
+        print(SchoolsArray.allSchools[row].isSubscribedTo)
+        
+    }
+    static func getIsSubscribedToSchoolValue(row: Int) -> Bool{
+        let school = SchoolsArray.allSchools[row]
+        return school.isSubscribedTo
+    }
 
 }
 

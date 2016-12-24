@@ -12,22 +12,22 @@ import UIKit
 class SchoolsArray {
     
     /// The array that belongs to SchoolsArray to be used as array that is iterated over
-    var allSchools: [School] = [School]()
+    static var allSchools: [School] = [School]()
     
     /// The initializer that adds in all the schools from the Schools.Enum
     init() {
         
-        allSchools.append(SchoolsEnum.earlyChildhood)
-        allSchools.append(SchoolsEnum.bridgewayElementary)
-        allSchools.append(SchoolsEnum.drummondElementary)
-        allSchools.append(SchoolsEnum.parkwoodElementary)
-        allSchools.append(SchoolsEnum.remingtonTraditional)
-        allSchools.append(SchoolsEnum.roseAcresElementary)
-        allSchools.append(SchoolsEnum.willowBrookElementary)
-        allSchools.append(SchoolsEnum.holmanMiddleSchool)
-        allSchools.append(SchoolsEnum.heightsMiddleSchool)
-        allSchools.append(SchoolsEnum.pattonvilleHighSchool)
+        SchoolsArray.allSchools.append(SchoolsEnum.earlyChildhood)
+        SchoolsArray.allSchools.append(SchoolsEnum.bridgewayElementary)
+        SchoolsArray.allSchools.append(SchoolsEnum.drummondElementary)
+        SchoolsArray.allSchools.append(SchoolsEnum.parkwoodElementary)
+        SchoolsArray.allSchools.append(SchoolsEnum.remingtonTraditional)
+        SchoolsArray.allSchools.append(SchoolsEnum.roseAcresElementary)
+        SchoolsArray.allSchools.append(SchoolsEnum.willowBrookElementary)
+        SchoolsArray.allSchools.append(SchoolsEnum.holmanMiddleSchool)
+        SchoolsArray.allSchools.append(SchoolsEnum.heightsMiddleSchool)
+        SchoolsArray.allSchools.append(SchoolsEnum.pattonvilleHighSchool)
         
     }
-    
+   
 }
