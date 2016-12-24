@@ -12,12 +12,24 @@ class Calendar{
     
     var datesList = [Event]()
     
+    var dates = [Date:[Event]]()
+    
     /// adds a date to to the dates list array
     /// - event: the event to add to the list
     /// - returns: the event that was added
     
     func addDate(event: Event) -> Event{
         datesList.append(event);
+        
+        if dates.keys.contains(event.date){
+            dates[event.date]?.append(event)
+        }else{
+            dates[event.date] = [event]
+        }
+        
+        print("DATES LIST: \(datesList) \n")
+        print("DATES: \(dates) \n")
+        
         return event
     }
     
@@ -25,14 +37,17 @@ class Calendar{
     /// - date: the date to look for
     /// - returns: an array of events that occur on the specified date
     
-    func eventsForDate(date: Date) -> [Event]{
+    func eventsForDate(date: String) -> [Event]{
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        
+        let theDate = dateFormatter.date(from: date)
         
         var eventsList = [Event]()
         
-        for event in datesList{
-            if event.date == date{
-                eventsList.append(event)
-            }
+        if dates.keys.contains(theDate!){
+            eventsList = dates[theDate!]!
         }
         
         return eventsList

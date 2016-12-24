@@ -55,7 +55,6 @@
 		42B9339A1DFAEEF400514B73 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933661DFAEEF400514B73 /* SettingsViewController.swift */; };
 		42B933A21DFAEF1B00514B73 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B9339D1DFAEF1B00514B73 /* Calendar.storyboard */; };
 		42B933A31DFAEF1B00514B73 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B9339E1DFAEF1B00514B73 /* Home.storyboard */; };
-		42B933A51DFAEF1B00514B73 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B933A01DFAEF1B00514B73 /* Settings.storyboard */; };
 		42B933BE1DFB022B00514B73 /* circle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933B61DFB022B00514B73 /* circle.jpg */; };
 		42B933BF1DFB022B00514B73 /* diamond.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933B71DFB022B00514B73 /* diamond.jpg */; };
 		42B933C01DFB022B00514B73 /* illusion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933B81DFB022B00514B73 /* illusion.jpg */; };
@@ -146,7 +145,6 @@
 		42B933661DFAEEF400514B73 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		42B9339D1DFAEF1B00514B73 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Calendar.storyboard; path = Base.lproj/Calendar.storyboard; sourceTree = "<group>"; };
 		42B9339E1DFAEF1B00514B73 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
-		42B933A01DFAEF1B00514B73 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		42B933B61DFB022B00514B73 /* circle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = circle.jpg; sourceTree = "<group>"; };
 		42B933B71DFB022B00514B73 /* diamond.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = diamond.jpg; sourceTree = "<group>"; };
 		42B933B81DFB022B00514B73 /* illusion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = illusion.jpg; sourceTree = "<group>"; };
@@ -312,7 +310,6 @@
 		42B933A91DFAF79F00514B73 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				42B933A01DFAEF1B00514B73 /* Settings.storyboard */,
 				42B933641DFAEEF400514B73 /* SelectSchoolsTableViewController.swift */,
 				42B933651DFAEEF400514B73 /* Settings.storyboard */,
 				42B933631DFAEEF400514B73 /* SelectSchoolsTableCell.swift */,
@@ -529,6 +526,7 @@
 				42B933771DFAEEF400514B73 /* DateView.xib in Resources */,
 				42B933BF1DFB022B00514B73 /* diamond.jpg in Resources */,
 				42B933C01DFB022B00514B73 /* illusion.jpg in Resources */,
+				4B4299A81E087F7200A202F9 /* 6NutriSliceLinks.storyboard in Resources */,
 				42B9330B1DFAEDC500514B73 /* Assets.xcassets in Resources */,
 				42B933091DFAEDC500514B73 /* Main.storyboard in Resources */,
 				42B933851DFAEEF400514B73 /* News.storyboard in Resources */,
@@ -548,7 +546,6 @@
 				42B933691DFAEEF400514B73 /* Assets.xcassets in Resources */,
 				42B933A21DFAEF1B00514B73 /* Calendar.storyboard in Resources */,
 				42B933761DFAEEF400514B73 /* DateCell.xib in Resources */,
-				42B933A51DFAEF1B00514B73 /* Settings.storyboard in Resources */,
 				42B933BE1DFB022B00514B73 /* circle.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -718,6 +715,7 @@
 				42B933731DFAEEF400514B73 /* CalendarViewController.swift in Sources */,
 				55A31F0A1E01B8180094056E /* StaffMember.swift in Sources */,
 				42B933751DFAEEF400514B73 /* DateCell.swift in Sources */,
+				4BE086DE1E08738F00BEA0E4 /* NutriSliceViewController.swift in Sources */,
 				42B933721DFAEEF400514B73 /* CalendarPinnedListViewController.swift in Sources */,
 				42B9339A1DFAEEF400514B73 /* SettingsViewController.swift in Sources */,
 				42B933711DFAEEF400514B73 /* CalendarListViewController.swift in Sources */,
@@ -897,7 +895,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = ZPVDW8LQL8;
 				INFOPLIST_FILE = "Pattonville-School-District-App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bowersk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -915,7 +913,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = ZPVDW8LQL8;
 				INFOPLIST_FILE = "Pattonville-School-District-App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bowersk;
 				PRODUCT_NAME = "$(TARGET_NAME)";

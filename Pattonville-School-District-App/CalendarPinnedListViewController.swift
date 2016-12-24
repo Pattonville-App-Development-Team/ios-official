@@ -15,13 +15,28 @@ class CalendarPinnedListViewController: UITableViewController{
     override func viewDidLoad(){
         super.viewDidLoad()
         tableView.register(UINib(nibName: "DateCell", bundle:nil), forCellReuseIdentifier: "DateCell")
-
     }
     
     override func viewDidAppear(_ animated: Bool){
         super.viewDidAppear(animated)
         
         tableView.reloadData()
+    }
+    
+    /// Determines functionality when the view controller stack is modified. If parent = nil then the view controller was popped
+    /// OFF the stack, otherwise the view controller was added to the stack
+    ///
+    /// This function is specifically used to keep the eventsList associated with this view controller and the pinnedDateEvents 
+    /// associated with the CalendarViewController in sync when modifications are made in this controller.
+    ///
+    /// - parent: the parent of the current view controller
+    
+    override func willMove(toParentViewController parent: UIViewController?) {
+        super.willMove(toParentViewController: parent)
+        if parent == nil {
+            // The back button was pressed or interactive gesture used
+            ((self.parent as! UINavigationController).viewControllers[0] as! CalendarViewController).pinnedDateEvents = eventsList
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,6 +78,7 @@ class CalendarPinnedListViewController: UITableViewController{
         eventsList = eventsList.filter({
             $0 != event
         })
+        
         tableView.reloadData()
     }
     

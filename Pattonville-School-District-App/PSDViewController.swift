@@ -58,9 +58,19 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         tableView.delegate = self
         tableView.dataSource = self
+        var CarouselTimer: Timer!
+        
+        CarouselTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
         
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    func scroll(){
+        homeCarousel.scroll(byNumberOfItems: 1, duration: 2.0)
+        
+        
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

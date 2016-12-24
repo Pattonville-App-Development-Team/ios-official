@@ -22,6 +22,7 @@ class School: NSObject {
     var peachjarURL: String
     var isSubscribedTo: Bool
     var color: UIColor
+    var nutriSliceURL: String
     
     /// The School Object initializer, to be used in the Schools Enum
     ///
@@ -35,6 +36,7 @@ class School: NSObject {
     /// - parameter faxNumber:        Fax Number of School being initialized
     /// - parameter //schoolPicture:  School Picture to be used in Directory of School being initialized
     /// - parameter peachjarURL:      PeachJar URL used in the PeachJar Feature of School being initialized
+    /// - parameter nutriSliceURL:    NutriSlice URL used in the NutriSlice Feature, being intialized
     /// - parameter isSubscribedTo:   Boolean to determine whether or not a user is subscribed to a schools news feed, will be set based upon the switch in the SelectSchools feautre in Settings and then accessed for the news feed
     ///
     
@@ -44,6 +46,7 @@ class School: NSObject {
          mainNumber: String, attendanceNumber: String, faxNumber: String,
          schoolPicture: String,
          peachjarURL: String,
+         nutriSliceURL: String,
          isSubscribedTo: Bool, color: UIColor) {
         
             self.name = name
@@ -56,6 +59,7 @@ class School: NSObject {
             self.faxNumber = faxNumber
             self.schoolPicture = schoolPicture
             self.peachjarURL = peachjarURL
+            self.nutriSliceURL = nutriSliceURL
             self.isSubscribedTo = isSubscribedTo
             self.color = color
         

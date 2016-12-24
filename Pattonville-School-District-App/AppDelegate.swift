@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         homeController.newsReel = newsReel
         newsController.newsReel = newsReel
         calendarController.calendarList = calendarList
+        calendarController.selectedDate = Date()
         
         
         
