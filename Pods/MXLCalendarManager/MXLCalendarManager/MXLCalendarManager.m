@@ -187,9 +187,9 @@
             
             if (!startDateTimeString) {
                 eventScanner = [NSScanner scannerWithString:event];
-                [eventScanner scanUpToString:@"DTSTART;VALUE=DATE:" intoString:nil];
+                [eventScanner scanUpToString:@"DTSTART;VALUE=DATE-TIME:" intoString:nil];
                 [eventScanner scanUpToString:@"\n" intoString:&startDateTimeString];
-                startDateTimeString = [[startDateTimeString stringByReplacingOccurrencesOfString:@"DTSTART;VALUE=DATE:" withString:@""] stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+                startDateTimeString = [[startDateTimeString stringByReplacingOccurrencesOfString:@"DTSTART;VALUE=DATE-TIME:" withString:@""] stringByReplacingOccurrencesOfString:@"\r" withString:@""];
             }
         }
         

@@ -34,9 +34,9 @@ class CalendarEventDetailController: UIViewController{
             dateFormatter.dateFormat = "MM dd, YYY h:m a"
             
             let ekEvent = EKEvent(eventStore: store)
-            ekEvent.title = self.event.name
-            ekEvent.startDate = self.event.startTime
-            ekEvent.endDate = self.event.endTime
+            ekEvent.title = self.event.name!
+            ekEvent.startDate = self.event.startTime!
+            ekEvent.endDate = self.event.endTime!
             ekEvent.calendar = store.defaultCalendarForNewEvents
             do {
                 try store.save(ekEvent, span: .thisEvent, commit: true)

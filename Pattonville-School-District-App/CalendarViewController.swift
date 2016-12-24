@@ -23,19 +23,33 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     var selectedDateEvents = [Event]()
     var pinnedDateEvents = [Event]()
     
-    /// Sets up look of view controller upon loading. Completes basic setup of Calendar and TableView appearances and sorts the events list for pinned events
     
+    var mxlCalendarManager = MXLCalendarManager()
+    
+    /// Sets up look of view controller upon loading. Completes basic setup of Calendar and TableView appearances and sorts the events list for pinned events
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-17", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
+        /*calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-17", start: "10:00 AM", end: "2:00 PM", /location: "PHS Cafeteria"))
         calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-18", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
         calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-19", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
         calendarList.addDate(event: Event(name: "Winter Orchestra Concert", dateString: "2016-12-08", start: "7:00 PM", end: "9:00 PM", location: "PHS Auditorium"))
         calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-29", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
-        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-29", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
-
+        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-29", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))*/
+        
+        mxlCalendarManager.scanICSFile(atRemoteURL: URL(string: "http://drummond.psdr3.org/ical/High%20School.ics"), withCompletionHandler: {
+            (calendar, error) -> Void in
+            
+            if !(error != nil){
+                self.calendarList = Calendar(mxlCalendar: calendar!)
+                print(self.calendarList.dates)
+            }else{
+                print(error!)
+            }
+            
+        })
+        
         
         tableView.dataSource = self
         tableView.delegate = self
