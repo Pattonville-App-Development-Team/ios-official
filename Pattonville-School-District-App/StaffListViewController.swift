@@ -82,10 +82,6 @@ class StaffListViewController: UIViewController, UISearchResultsUpdating, UITabl
         
         if searchController.isActive && searchController.searchBar.text != ""{
             staffMember = filteredStaffList[indexPath.row]
-        } else {
-            staffMember = staffList[indexPath.row]
-        }
-        
             cell.nameLabel.text = staffMember.firstName + " " + staffMember.lastName
             
             cell.departmentLabel.text = staffMember.department
@@ -93,6 +89,17 @@ class StaffListViewController: UIViewController, UISearchResultsUpdating, UITabl
             cell.extLabel.text = "x" + staffMember.ext
             
             cell.emailButton.tag = indexPath.row
+        } else {
+            staffMember = staffList[indexPath.row]
+            cell.nameLabel.text = staffMember.firstName + " " + staffMember.lastName
+            
+            cell.departmentLabel.text = staffMember.department
+            
+            cell.extLabel.text = "x" + staffMember.ext
+            
+            cell.emailButton.tag = indexPath.row
+        }
+        
             
             //add code to make email button do stuff
         

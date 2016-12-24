@@ -76,7 +76,7 @@
         <scene sceneID="wM2-TK-9pc">
             <objects>
                 <tableViewController id="QSc-bt-Q38" userLabel="Select Schools Table View Controller" customClass="SelectSchoolsTableViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="HTL-Sl-aow">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="HTL-Sl-aow">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -85,7 +85,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QTo-ij-HO9" id="i4f-by-knF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuK-ch-w1z">
@@ -127,6 +127,9 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <nil key="separatorColor"/>
+                        </variation>
                         <connections>
                             <outlet property="dataSource" destination="QSc-bt-Q38" id="LYr-WP-11p"/>
                             <outlet property="delegate" destination="QSc-bt-Q38" id="fTj-El-PIo"/>
