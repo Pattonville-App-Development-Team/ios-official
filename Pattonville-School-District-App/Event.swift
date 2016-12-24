@@ -18,8 +18,9 @@ class Event: Equatable{
     var timeString: String
     var location: String
     var pinned: Bool = false
-    var eventID: String    
-    init(name: String, dateString: String, startTime: String, endTime: String, location: String){
+    var eventID: String
+    
+    init(name: String, dateString: String, start: String, end: String, location: String){
         
         self.name = name
         self.dateString = dateString
