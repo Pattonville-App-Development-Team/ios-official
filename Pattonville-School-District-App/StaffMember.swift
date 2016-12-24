@@ -14,15 +14,15 @@ class StaffMember {
     var lastName: String
     var department: String
     var email: String
-    var phoneExt: String
+    var ext: String
     
-    init(firstName: String, lastName: String, department: String, email: String, phoneExt: String) {
+    init(firstName: String, lastName: String, department: String, email: String, ext: String) {
         
         self.firstName = firstName
         self.lastName = lastName
         self.department = department
         self.email = email
-        self.phoneExt = phoneExt
+        self.ext = ext
         
     }
     
