@@ -52,6 +52,8 @@ class CalendarEventDetailController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = event.name
+        
         eventName.text = event.name
         eventLocation.text = event.location
         eventDate.text = event.dateString

@@ -23,6 +23,7 @@ class CalendarDateView: JTAppleDayCellView{
     func setupCellBeforeDisplay(cellState: CellState, date: Date) {
         // Setup Cell text
         dateLabel.text = cellState.text
+        dateDelineater.layer.cornerRadius = dateDelineater.frame.width/2
         hideDelineator()
         // Setup text color
         configureTextColor(cellState: cellState)
@@ -84,7 +85,7 @@ class CalendarDateView: JTAppleDayCellView{
     }
     
     func showDelineator(){
-        dateDelineater.backgroundColor = .black
+        dateDelineater.backgroundColor = UIColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1)
     }
     
     func hideDelineator(){

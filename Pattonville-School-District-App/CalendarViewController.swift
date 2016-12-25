@@ -208,7 +208,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         (cell as? CalendarDateView)?.setUnselected(cellState: cellState)
         
         if !calendarList.eventsForDate(date: formatDate(date: date)).isEmpty{
-            (cell as? CalendarDateView)?.dateDelineater.backgroundColor = .black
+            (cell as? CalendarDateView)?.dateDelineater.backgroundColor = UIColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1)
         }else{
             (cell as? CalendarDateView)?.hideDelineator()
         }

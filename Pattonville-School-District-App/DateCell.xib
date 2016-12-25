@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SrO-26-U2d" id="7KG-XW-aWS">
-                <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iN-Ii-h0z">
@@ -36,15 +36,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Robotics Meet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h89-i5-JsU">
-                        <rect key="frame" x="74" y="4" width="99" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Robotics Meet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h89-i5-JsU">
+                        <rect key="frame" x="74" y="4" width="226" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="226" id="FRg-CN-yZs"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HS  HT  HO  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5H7-og-XtC">
-                        <rect key="frame" x="181" y="9" width="61.5" height="12"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -76,8 +73,6 @@
                     <constraint firstItem="4iN-Ii-h0z" firstAttribute="top" secondItem="7KG-XW-aWS" secondAttribute="topMargin" constant="-2" id="QWb-Ab-l5A"/>
                     <constraint firstAttribute="trailingMargin" secondItem="OKW-fX-wth" secondAttribute="trailing" id="Umh-cV-9RY"/>
                     <constraint firstItem="jCE-sp-E1W" firstAttribute="top" secondItem="4iN-Ii-h0z" secondAttribute="bottom" constant="8" id="YBP-Y9-3R1"/>
-                    <constraint firstItem="5H7-og-XtC" firstAttribute="top" secondItem="7KG-XW-aWS" secondAttribute="topMargin" constant="1" id="eY1-Og-HGK"/>
-                    <constraint firstItem="5H7-og-XtC" firstAttribute="leading" secondItem="h89-i5-JsU" secondAttribute="trailing" constant="8" id="pdF-AH-mt9"/>
                     <constraint firstItem="KOe-fa-g8h" firstAttribute="centerY" secondItem="jCE-sp-E1W" secondAttribute="centerY" id="rQT-UO-7IG"/>
                     <constraint firstItem="jCE-sp-E1W" firstAttribute="leading" secondItem="4iN-Ii-h0z" secondAttribute="leading" id="vek-Wd-ajY"/>
                 </constraints>
@@ -86,7 +81,6 @@
                 <outlet property="endTime" destination="jCE-sp-E1W" id="8tm-9y-brt"/>
                 <outlet property="location" destination="KOe-fa-g8h" id="f11-9I-eF9"/>
                 <outlet property="pinButton" destination="OKW-fX-wth" id="cxT-Bt-IcX"/>
-                <outlet property="schools" destination="5H7-og-XtC" id="urM-yF-yTj"/>
                 <outlet property="startTime" destination="4iN-Ii-h0z" id="FUt-2k-sEq"/>
                 <outlet property="title" destination="h89-i5-JsU" id="ens-LE-Vkh"/>
             </connections>

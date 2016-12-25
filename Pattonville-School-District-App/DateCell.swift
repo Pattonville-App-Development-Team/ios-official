@@ -39,7 +39,7 @@ class DateCell: UITableViewCell{
         
     }
     
-    func setTimes(start: Date, end: Date){
+    private func setTimes(start: Date, end: Date){
         
         let formatter = DateFormatter()
         formatter.dateFormat = "h:mm a"
