@@ -37,6 +37,10 @@ class DateCell: UITableViewCell{
             pinButton.isSelected = false
         }
         
+        if(title.frame.height > 18){
+            location.isHidden = true
+        }
+        
     }
     
     private func setTimes(start: Date, end: Date){

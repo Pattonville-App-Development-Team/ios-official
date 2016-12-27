@@ -42,13 +42,25 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
             (calendar, error) -> Void in
             
             if !(error != nil){
-                self.calendarList = Calendar(mxlCalendar: calendar!)
+                self.calendarList.appendDates(mxlCalendar: calendar!)
                 print(self.calendarList.dates)
             }else{
                 print(error!)
             }
             
         })
+        
+        /*mxlCalendarManager.scanICSFile(atRemoteURL: URL(string: "http://drummond.psdr3.org/ical/Briar%20Crest.ics"), withCompletionHandler: {
+            (calendar, error) -> Void in
+            
+            if !(error != nil){
+                self.calendarList.appendDates(mxlCalendar: calendar!)
+                print(self.calendarList.dates)
+            }else{
+                print(error!)
+            }
+            
+        })*/
         
         
         tableView.dataSource = self
@@ -150,7 +162,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     
     func calendar(_ calendar: JTAppleCalendarView, sectionHeaderSizeFor range: (start: Date, end: Date), belongingTo month: Int) -> CGSize {
         
-        return CGSize(width: UIScreen.main.bounds.size.width, height: 75)
+        return CGSize(width: UIScreen.main.bounds.size.width, height: 65)
         
     }
     
@@ -166,6 +178,12 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         
         header.setupCellBeforeDisplay(date: range.end)
+        
+        header.forwardOneMonth.tag = 1
+        header.backOneMonth.tag = 0
+        
+        header.forwardOneMonth.addTarget(self, action: #selector(CalendarViewController.forwardMonth(sender:)), for: UIControlEvents.touchUpInside)
+        header.backOneMonth.addTarget(self, action: #selector(CalendarViewController.backMonth(sender:)), for: UIControlEvents.touchUpInside)
         
     }
     
@@ -235,6 +253,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
         
         let event = calendarList.eventsForDate(date: formatDate(date: selectedDate))[indexPath.row]
+        
         cell.event = event
         cell.setUp()
         cell.pinButton.tag = indexPath.row;
@@ -319,6 +338,23 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         tableView.reloadData()
         
+    }
+    
+    func forwardMonth(sender: UIView){
+        
+        var dateComponent = DateComponents()
+        dateComponent.month = 1
+        
+        calendar.scrollToDate((NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: calendar.visibleDates().monthDates[0], options: []))!)
+    }
+    
+    func backMonth(sender: UIView){
+
+        var dateComponent = DateComponents()
+        dateComponent.month = -1
+        
+        calendar.scrollToDate((NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: calendar.visibleDates().monthDates[0], options: []))!)
+
     }
     
     private func formatDate(date: Date) -> String{

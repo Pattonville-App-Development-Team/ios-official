@@ -11,9 +11,8 @@ import MXLCalendarManager
 
 class Calendar{
     
-    var datesList: [Event]
-    
-    var dates: [Date:[Event]]
+    var datesList = [Event]()
+    var dates = [Date:[Event]]()
     
     init(){
         datesList = [Event]()
@@ -21,9 +20,6 @@ class Calendar{
     }
     
     init(mxlCalendar: MXLCalendar){
-        
-        datesList = [Event]()
-        dates = [Date:[Event]]()
         
         for event in mxlCalendar.events{
             
@@ -44,6 +40,30 @@ class Calendar{
             }
         }
         
+    }
+    
+    func appendDates(mxlCalendar: MXLCalendar){
+        
+        for event in mxlCalendar.events{
+            
+            let theEvent = Event(mxlEvent: (event as! MXLCalendarEvent))
+            
+            datesList.append(theEvent);
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "YYYY-MM-dd"
+            
+            let theDateString = dateFormatter.string(from: theEvent.date!)
+            let theDate = dateFormatter.date(from: theDateString)
+            
+            if dates.keys.contains(theEvent.date!){
+                dates[theDate!]?.append(theEvent)
+            }else{
+                dates[theDate!] = [theEvent]
+            }
+        }
+        
+
     }
     
     /// adds a date to to the dates list array
