@@ -125,6 +125,9 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <nil key="separatorColor"/>
+                        </variation>
                         <connections>
                             <outlet property="dataSource" destination="QSc-bt-Q38" id="LYr-WP-11p"/>
                             <outlet property="delegate" destination="QSc-bt-Q38" id="fTj-El-PIo"/>
