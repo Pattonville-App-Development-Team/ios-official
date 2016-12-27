@@ -48,6 +48,9 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
                 print(error!)
             }
             
+            self.calendar.reloadData()
+            self.tableView.reloadData()
+            
         })
         
         /*mxlCalendarManager.scanICSFile(atRemoteURL: URL(string: "http://drummond.psdr3.org/ical/Briar%20Crest.ics"), withCompletionHandler: {
