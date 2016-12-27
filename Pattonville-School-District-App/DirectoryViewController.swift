@@ -30,4 +30,17 @@ class DirectoryViewController: UITableViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SSDSegue" {
+            
+            let row = tableView.indexPathForSelectedRow?.row
+            
+            let destination = segue.destination as! SSDViewController
+            
+            destination.indexOfSchool = row
+            
+        }
+        
+    }
+    
 }
