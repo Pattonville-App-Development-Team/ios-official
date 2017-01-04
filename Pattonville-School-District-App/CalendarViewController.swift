@@ -343,6 +343,9 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
     }
     
+    /// Scrolls calendar forward one month
+    /// - sender: the button that triggers the function
+    
     func forwardMonth(sender: UIView){
         
         var dateComponent = DateComponents()
@@ -351,6 +354,9 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         calendar.scrollToDate((NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: calendar.visibleDates().monthDates[0], options: []))!)
     }
     
+    /// Scrolls calendar backward one month
+    /// - sender: the button that triggers the function
+    
     func backMonth(sender: UIView){
 
         var dateComponent = DateComponents()
@@ -358,7 +364,11 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         calendar.scrollToDate((NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: calendar.visibleDates().monthDates[0], options: []))!)
 
+    
     }
+    
+    /// Formats date a given date object as a string (useful for date comparison and formatting dates to have the same time)
+    /// - date: the date object to format as a string
     
     private func formatDate(date: Date) -> String{
         let dateFormatter = DateFormatter()
