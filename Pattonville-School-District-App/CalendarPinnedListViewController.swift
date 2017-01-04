@@ -21,6 +21,7 @@ class CalendarPinnedListViewController: UITableViewController{
         super.viewDidAppear(animated)
         
         tableView.reloadData()
+        
     }
     
     /// Determines functionality when the view controller stack is modified. If parent = nil then the view controller was popped

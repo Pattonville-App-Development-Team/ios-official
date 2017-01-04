@@ -7,16 +7,17 @@
 //
 
 import UIKit
+import MXLCalendarManager
 
 class Event: Equatable{
     
-    var name: String
-    var date: Date
-    var startTime: Date = Date.init()
-    var endTime: Date = Date.init()
-    var dateString: String
-    var timeString: String
-    var location: String
+    var name: String?
+    var date: Date?
+    var startTime: Date?
+    var endTime: Date?
+    var dateString: String?
+    var timeString: String?
+    var location: String?
     var pinned: Bool = false
     var eventID: String
     
@@ -34,15 +35,42 @@ class Event: Equatable{
         self.date = date!
         
         let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "h:mm a"
+        timeFormatter.dateFormat = "YYYY-MM-dd h:mm a"
         
-        let startTime = timeFormatter.date(from: start)
-        let endTime = timeFormatter.date(from: end)
+        let startTime = timeFormatter.date(from: "\(dateString) \(start)")
+        let endTime = timeFormatter.date(from: "\(dateString) \(end)")
         
         self.startTime = startTime!
         self.endTime = endTime!
         
         self.eventID = NSUUID().uuidString
+        
+    }
+    
+    init(mxlEvent: MXLCalendarEvent){
+        self.name = mxlEvent.eventSummary
+        self.date = mxlEvent.eventStartDate
+        
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "hh:mm a"
+
+        let startTimeString = timeFormatter.string(from: mxlEvent.eventStartDate)
+        let endTimeString = timeFormatter.string(from: mxlEvent.eventStartDate)
+        
+        let theStartTime = timeFormatter.date(from: startTimeString)
+        let theEndTime = timeFormatter.date(from: endTimeString)
+        
+        self.startTime = theStartTime!
+        self.endTime = theEndTime!
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd h:mm a"
+        
+        self.dateString = dateFormatter.string(from: mxlEvent.eventStartDate)
+        self.timeString = dateFormatter.string(from: mxlEvent.eventStartDate)
+        
+        self.location = mxlEvent.eventLocation
+        self.eventID = mxlEvent.eventUniqueID
         
     }
     

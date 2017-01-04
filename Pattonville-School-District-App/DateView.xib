@@ -16,23 +16,23 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skh-vb-HmD">
-                    <rect key="frame" x="170" y="323" width="34.5" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="171.5" y="7" width="32.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="INP-Fh-AfQ">
-                    <rect key="frame" x="180" y="345.5" width="15" height="0.5"/>
+                    <rect key="frame" x="185" y="28" width="4" height="4"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="1" id="96r-x6-CfP"/>
-                        <constraint firstAttribute="width" constant="15" id="ff6-09-cwd"/>
+                        <constraint firstAttribute="height" constant="4" id="96r-x6-CfP"/>
+                        <constraint firstAttribute="width" constant="4" id="ff6-09-cwd"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="skh-vb-HmD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="7CI-UF-c2e"/>
                 <constraint firstItem="skh-vb-HmD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Hom-cJ-FDL"/>
-                <constraint firstItem="skh-vb-HmD" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="I7L-Sj-u92"/>
                 <constraint firstItem="INP-Fh-AfQ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="XvP-yL-BiZ"/>
                 <constraint firstItem="INP-Fh-AfQ" firstAttribute="top" secondItem="skh-vb-HmD" secondAttribute="bottom" constant="2" id="yI2-RA-5NX"/>
             </constraints>

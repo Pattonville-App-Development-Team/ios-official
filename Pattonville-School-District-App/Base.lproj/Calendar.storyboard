@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zAo-hx-RnD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zAo-hx-RnD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jS1-D6-lMC" id="MAN-fm-nzR">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -68,7 +68,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UT1-9I-x2E" id="DEj-he-8mt">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -127,7 +127,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mZz-Gc-0Dj" id="crf-Mu-6F8">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -175,8 +175,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Robotics Meet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHo-KF-eri">
-                                <rect key="frame" x="16" y="79" width="118" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Robotics Meet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHo-KF-eri">
+                                <rect key="frame" x="16" y="79" width="295" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="295" id="RtQ-Y9-yzl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -199,35 +202,62 @@
                                 <color key="textColor" white="0.4070033482" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cVu-hh-RcL">
+                                <rect key="frame" x="325" y="111" width="22" height="22"/>
+                                <connections>
+                                    <action selector="addWithSender:" destination="3t2-u7-U6r" eventType="touchDown" id="XPx-fv-MyB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ksi-9Y-7rq">
+                                <rect key="frame" x="323" y="77" width="26" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="Izk-bK-Ily"/>
+                                    <constraint firstAttribute="height" constant="26" id="g0w-yd-2Ot"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="pin-black-1.png"/>
+                                <state key="selected" image="pin-green.png"/>
+                                <connections>
+                                    <action selector="setPinned" destination="3t2-u7-U6r" eventType="touchDown" id="0de-bD-0F3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MLb-KE-uqm" firstAttribute="top" secondItem="c80-z5-GID" secondAttribute="bottom" constant="4" id="0EH-4L-dVl"/>
-                            <constraint firstItem="hqu-QC-F5d" firstAttribute="top" secondItem="kHo-KF-eri" secondAttribute="bottom" constant="8" id="28i-je-QW3"/>
-                            <constraint firstItem="hqu-QC-F5d" firstAttribute="leading" secondItem="kHo-KF-eri" secondAttribute="leading" id="DXv-q2-2kX"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="kHo-KF-eri" secondAttribute="leading" id="G99-jW-qZx"/>
                             <constraint firstItem="MLb-KE-uqm" firstAttribute="leading" secondItem="c80-z5-GID" secondAttribute="leading" id="Nm7-jh-6yH"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="kHo-KF-eri" secondAttribute="leading" id="TRG-Oz-okO"/>
+                            <constraint firstItem="kHo-KF-eri" firstAttribute="top" secondItem="clR-FN-oiE" secondAttribute="bottom" constant="15" id="WDs-dZ-ZQS"/>
+                            <constraint firstItem="cVu-hh-RcL" firstAttribute="leading" secondItem="o53-37-wSK" secondAttribute="leadingMargin" constant="309" id="X2I-W3-W96"/>
+                            <constraint firstItem="Ksi-9Y-7rq" firstAttribute="leading" secondItem="kHo-KF-eri" secondAttribute="trailing" constant="12" id="gBL-3o-Oq9"/>
+                            <constraint firstItem="Ksi-9Y-7rq" firstAttribute="centerY" secondItem="kHo-KF-eri" secondAttribute="centerY" id="hcT-T3-Ec6"/>
+                            <constraint firstItem="hqu-QC-F5d" firstAttribute="top" secondItem="kHo-KF-eri" secondAttribute="bottom" constant="8" id="k8u-8W-Q79"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cVu-hh-RcL" secondAttribute="trailing" constant="12" id="pna-MX-dMw"/>
                             <constraint firstItem="c80-z5-GID" firstAttribute="leading" secondItem="hqu-QC-F5d" secondAttribute="leading" id="pnz-vk-ydv"/>
-                            <constraint firstItem="kHo-KF-eri" firstAttribute="top" secondItem="clR-FN-oiE" secondAttribute="bottom" constant="15" id="xrh-nl-Z32"/>
+                            <constraint firstItem="hqu-QC-F5d" firstAttribute="leading" secondItem="kHo-KF-eri" secondAttribute="leading" id="qkh-Xk-5vk"/>
+                            <constraint firstItem="cVu-hh-RcL" firstAttribute="top" secondItem="Ksi-9Y-7rq" secondAttribute="bottom" constant="8" id="s28-9g-w05"/>
                             <constraint firstItem="c80-z5-GID" firstAttribute="top" secondItem="hqu-QC-F5d" secondAttribute="bottom" constant="15" id="zs6-I6-g0t"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addToCalendar" destination="cVu-hh-RcL" id="lfV-HO-eaX"/>
                         <outlet property="eventDate" destination="c80-z5-GID" id="pjV-uP-74I"/>
                         <outlet property="eventLocation" destination="hqu-QC-F5d" id="hAe-cW-V0P"/>
                         <outlet property="eventName" destination="kHo-KF-eri" id="kQV-e0-5fy"/>
                         <outlet property="eventTime" destination="MLb-KE-uqm" id="fB0-lp-Pgt"/>
+                        <outlet property="pinButton" destination="Ksi-9Y-7rq" id="YCC-Ad-aSR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7lr-xE-13D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="382" y="2382"/>
+            <point key="canvasLocation" x="381.60000000000002" y="2381.5592203898054"/>
         </scene>
     </scenes>
     <resources>
         <image name="calendar" width="30" height="30"/>
+        <image name="pin-black-1.png" width="48" height="48"/>
+        <image name="pin-green.png" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Iyk-31-r9T"/>

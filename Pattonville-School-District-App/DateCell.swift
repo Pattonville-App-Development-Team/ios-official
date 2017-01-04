@@ -29,7 +29,7 @@ class DateCell: UITableViewCell{
     func setUp(){
         title.text = event.name
         location.text = event.location
-        setTimes(start: event.startTime, end: event.endTime)
+        setTimes(start: event.startTime!, end: event.endTime!)
         
         if event.pinned{
             pinButton.isSelected = true
@@ -37,9 +37,13 @@ class DateCell: UITableViewCell{
             pinButton.isSelected = false
         }
         
+        if(title.frame.height > 18){
+            location.isHidden = true
+        }
+        
     }
     
-    func setTimes(start: Date, end: Date){
+    private func setTimes(start: Date, end: Date){
         
         let formatter = DateFormatter()
         formatter.dateFormat = "h:mm a"
