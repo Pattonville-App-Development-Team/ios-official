@@ -65,6 +65,8 @@ class CalendarEventDetailController: UIViewController{
             pinButton.isSelected = false
         }
         
+        print(event.school.name)
+        
     }
     
 }

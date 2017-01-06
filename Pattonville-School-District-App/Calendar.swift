@@ -19,7 +19,7 @@ class Calendar{
         dates = [Date:[Event]]()
     }
     
-    init(mxlCalendar: MXLCalendar){
+    /*init(mxlCalendar: MXLCalendar){
         
         for event in mxlCalendar.events{
             
@@ -40,13 +40,13 @@ class Calendar{
             }
         }
         
-    }
+    }*/
     
-    func appendDates(mxlCalendar: MXLCalendar){
+    func appendDates(mxlCalendar: MXLCalendar, school: School){
         
         for event in mxlCalendar.events{
             
-            let theEvent = Event(mxlEvent: (event as! MXLCalendarEvent))
+            let theEvent = Event(mxlEvent: (event as! MXLCalendarEvent), school: school)
             
             datesList.append(theEvent);
             

@@ -27,7 +27,13 @@ class SchoolsArray {
         SchoolsArray.allSchools.append(SchoolsEnum.holmanMiddleSchool)
         SchoolsArray.allSchools.append(SchoolsEnum.heightsMiddleSchool)
         SchoolsArray.allSchools.append(SchoolsEnum.pattonvilleHighSchool)
-        
+      
+    }
+    
+    static func getSubscribedSchools() -> [School]{
+        return allSchools.filter({
+            $0.isSubscribedTo
+        })
     }
    
 }

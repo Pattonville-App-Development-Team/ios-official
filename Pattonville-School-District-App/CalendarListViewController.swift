@@ -19,10 +19,6 @@ class CalendarListViewController: UITableViewController{
         
         tableView.register(UINib(nibName: "DateCell", bundle:nil), forCellReuseIdentifier: "DateCell")
         
-        /*calendarList.datesList.sort{
-            $0.date.compare($1.date) == ComparisonResult.orderedAscending
-        }*/
-        
     }
     
     ///Sets up the look of the ViewController upon appearing on screen.
@@ -118,5 +114,6 @@ class CalendarListViewController: UITableViewController{
         
         return keys[index]
     }
+    
     
 }

@@ -82,6 +82,7 @@
                 <outlet property="endTime" destination="jCE-sp-E1W" id="8tm-9y-brt"/>
                 <outlet property="location" destination="KOe-fa-g8h" id="f11-9I-eF9"/>
                 <outlet property="pinButton" destination="OKW-fX-wth" id="cxT-Bt-IcX"/>
+                <outlet property="schoolColorLine" destination="kM9-TO-ZUQ" id="L26-zF-fOc"/>
                 <outlet property="startTime" destination="4iN-Ii-h0z" id="FUt-2k-sEq"/>
                 <outlet property="title" destination="h89-i5-JsU" id="ens-LE-Vkh"/>
             </connections>
