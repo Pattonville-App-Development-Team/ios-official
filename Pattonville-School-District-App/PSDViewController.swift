@@ -29,10 +29,17 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     let diamond = #imageLiteral(resourceName: "diamond.jpg")
     
     
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore  {
+            print("Not first launch.")
+        } else {
+            print("First launch, setting UserDefault.")
+            SchoolsArray.init()
+        }
+        
         
         //Width of height of the carousel. Used in later calculations
         carouselWidth = UIScreen.main.bounds.size.width;
