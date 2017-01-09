@@ -8,15 +8,14 @@
 
 import UIKit
 
-class StaffListViewController: UIViewController, UISearchResultsUpdating, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate {
+class StaffListViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate {
 
     var staffList = StaffArray.init().staffList
     var filteredStaffList = [StaffMember]()
     
+    let searchController = UISearchController(searchResultsController: nil)
     
-    @IBOutlet weak var staffListTableView: UITableView!
-
-    @IBOutlet var searchController: UISearchController!
+    
     
     
     
@@ -28,23 +27,23 @@ class StaffListViewController: UIViewController, UISearchResultsUpdating, UITabl
         
         self.navigationController?.isNavigationBarHidden = true
         
+        searchController.searchResultsUpdater = self
         
+        searchController.dimsBackgroundDuringPresentation = false
+        
+        definesPresentationContext = true
+        
+        tableView.tableHeaderView = searchController.searchBar
         
         searchController.delegate = self
         
-        searchController = UISearchController(searchResultsController: nil)
-        
         searchController.searchBar.sizeToFit()
-        
-        searchController.definesPresentationContext = true
         
         searchText = searchController.searchBar.text?.lowercased()
         
         searchController.searchBar.showsCancelButton = true
         
-        searchController.dimsBackgroundDuringPresentation = false
-        
-        staffListTableView.reloadData()
+        tableView.reloadData()
         
     }
 
@@ -66,7 +65,7 @@ class StaffListViewController: UIViewController, UISearchResultsUpdating, UITabl
     
     // MARK: - Table View
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.isActive && searchController.searchBar.text != "" {
             return filteredStaffList.count
         } else {
@@ -74,9 +73,9 @@ class StaffListViewController: UIViewController, UISearchResultsUpdating, UITabl
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = staffListTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SSDTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ssdTableViewCell", for: indexPath) as! SSDTableViewCell
 
         let staffMember: StaffMember
         
@@ -86,7 +85,7 @@ class StaffListViewController: UIViewController, UISearchResultsUpdating, UITabl
             
             cell.departmentLabel.text = staffMember.department
             
-            cell.extLabel.text = "x" + staffMember.ext
+            cell.extensionLabel.text = "x" + staffMember.ext
             
             cell.emailButton.tag = indexPath.row
         } else {
@@ -95,7 +94,7 @@ class StaffListViewController: UIViewController, UISearchResultsUpdating, UITabl
             
             cell.departmentLabel.text = staffMember.department
             
-            cell.extLabel.text = "x" + staffMember.ext
+            cell.extensionLabel.text = "x" + staffMember.ext
             
             cell.emailButton.tag = indexPath.row
         }
@@ -112,19 +111,14 @@ class StaffListViewController: UIViewController, UISearchResultsUpdating, UITabl
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredStaffList.removeAll()
         filteredStaffList = staffList.filter{ staffMember in
-            return staffMember.firstName.lowercased().contains(self.searchText) /* || staffMember.lastName.lowercased().contains(searchText.lowercased()) || staffMember.department.lowercased().contains(searchText.lowercased()) */
+            return staffMember.firstName.lowercased().contains(self.searchText) || staffMember.lastName.lowercased().contains(searchText.lowercased()) || staffMember.department.lowercased().contains(searchText.lowercased())
         }
-        
-        for staff in filteredStaffList {
-            print(staff.firstName + "\n")
-        }
-        
+        tableView.reloadData()
     }
     
     func updateSearchResults(for searchController: UISearchController) {
         
         filterContentForSearchText(searchText: searchController.searchBar.text!)
-        staffListTableView.reloadData()
     }
     
     @IBAction func emailAction(sender: UIButton) {

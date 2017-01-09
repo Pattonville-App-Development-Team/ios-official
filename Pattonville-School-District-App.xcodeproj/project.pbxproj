@@ -371,6 +371,8 @@
 		55A31EFE1E01B3660094056E /* School-Specific-Directory */ = {
 			isa = PBXGroup;
 			children = (
+				1B040D761E0E399200D69069 /* SSD.storyboard */,
+				1B040D771E0E399200D69069 /* SSDViewController.swift */,
 				1B8333A81E038B2800776DBC /* SSDTableViewCell.swift */,
 				1B8333AA1E0391BA00776DBC /* StaffListViewController.swift */,
 			);
@@ -380,8 +382,6 @@
 		55A31F051E01B7FC0094056E /* Staff */ = {
 			isa = PBXGroup;
 			children = (
-				1B040D761E0E399200D69069 /* SSD.storyboard */,
-				1B040D771E0E399200D69069 /* SSDViewController.swift */,
 				1B040D781E0E399200D69069 /* StaffArray.swift */,
 				1B040D791E0E399200D69069 /* StaffMember.swift */,
 			);
