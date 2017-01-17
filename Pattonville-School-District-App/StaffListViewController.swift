@@ -7,20 +7,23 @@
 //
 
 import UIKit
+import MessageUI
 
-class StaffListViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate {
+class StaffListViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, MFMailComposeViewControllerDelegate {
 
-    var staffList = StaffArray.init().staffList
+    var staffList = phsStaffArray.init().phsStaffList
     var filteredStaffList = [StaffMember]()
-    
-    let searchController = UISearchController(searchResultsController: nil)
-    
-    
-    
-    
-    
     var searchText: String!
+    let searchController = UISearchController(searchResultsController: nil)
+    var staffMember: StaffMember!
     
+    @IBAction func sendEmailButton(_ sender: UIButton) {
+        self.staffMember = staffList[sender.tag]
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +43,6 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
         searchController.searchBar.sizeToFit()
         
         searchText = searchController.searchBar.text?.lowercased()
-        
-        searchController.searchBar.showsCancelButton = true
         
         tableView.reloadData()
         
@@ -66,6 +67,7 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
     // MARK: - Table View
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if searchController.isActive && searchController.searchBar.text != "" {
             return filteredStaffList.count
         } else {
@@ -79,50 +81,48 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
 
         let staffMember: StaffMember
         
-        if searchController.isActive && searchController.searchBar.text != ""{
+        if searchController.isActive && searchController.searchBar.text != "" {
             staffMember = filteredStaffList[indexPath.row]
-            cell.nameLabel.text = staffMember.firstName + " " + staffMember.lastName
-            
-            cell.departmentLabel.text = staffMember.department
-            
-            cell.extensionLabel.text = "x" + staffMember.ext
-            
-            cell.emailButton.tag = indexPath.row
         } else {
             staffMember = staffList[indexPath.row]
-            cell.nameLabel.text = staffMember.firstName + " " + staffMember.lastName
-            
-            cell.departmentLabel.text = staffMember.department
-            
-            cell.extensionLabel.text = "x" + staffMember.ext
-            
-            cell.emailButton.tag = indexPath.row
         }
         
-            
-            //add code to make email button do stuff
+        cell.nameLabel.text = staffMember.firstName + " " + staffMember.lastName
+        cell.departmentLabel.text = staffMember.department
+        cell.extensionLabel.text = "x" + staffMember.ext
+        cell.emailButton.tag = indexPath.row
         
         return cell
-        
-        
-        
+    
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredStaffList.removeAll()
+        
         filteredStaffList = staffList.filter{ staffMember in
-            return staffMember.firstName.lowercased().contains(self.searchText) || staffMember.lastName.lowercased().contains(searchText.lowercased()) || staffMember.department.lowercased().contains(searchText.lowercased())
+            return staffMember.firstName.appending(" ").appending(staffMember.lastName).lowercased().contains(searchText.lowercased()) || staffMember.lastName.appending(" ").lowercased().contains(searchText.lowercased()) || staffMember.department.lowercased().contains(searchText.lowercased())
         }
+        
         tableView.reloadData()
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        
         filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
     
-    @IBAction func emailAction(sender: UIButton) {
-        _ = staffList[sender.tag].email
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        mailComposerVC.setToRecipients([self.staffMember.email])
+        mailComposerVC.setSubject("")
+        mailComposerVC.setMessageBody("", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 
 }

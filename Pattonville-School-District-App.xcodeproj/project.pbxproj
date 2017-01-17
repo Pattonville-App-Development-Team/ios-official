@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		1B040D7A1E0E399200D69069 /* SSD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B040D761E0E399200D69069 /* SSD.storyboard */; };
 		1B040D7B1E0E399200D69069 /* SSDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D771E0E399200D69069 /* SSDViewController.swift */; };
-		1B040D7C1E0E399200D69069 /* StaffArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D781E0E399200D69069 /* StaffArray.swift */; };
+		1B040D7C1E0E399200D69069 /* phsStaffArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D781E0E399200D69069 /* phsStaffArray.swift */; };
 		1B040D7D1E0E399200D69069 /* StaffMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D791E0E399200D69069 /* StaffMember.swift */; };
+		1B5E11031E27C51D0038A33C /* email-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B5E11021E27C51D0038A33C /* email-icon.png */; };
 		1B8333A91E038B2800776DBC /* SSDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8333A81E038B2800776DBC /* SSDTableViewCell.swift */; };
 		1B8333AB1E0391BA00776DBC /* StaffListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8333AA1E0391BA00776DBC /* StaffListViewController.swift */; };
+		1BA8DFA41E2958A500F32F91 /* htStaffList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8DFA31E2958A500F32F91 /* htStaffList.swift */; };
 		1EF42C89FC923992795CC182 /* Pods_Pattonville_School_District_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E570B5805DCAA04D255A00EA /* Pods_Pattonville_School_District_AppUITests.framework */; };
 		42617B431E00A61C00BB5992 /* pin-black-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 42617B421E00A61C00BB5992 /* pin-black-1.png */; };
 		42B933021DFAEDC500514B73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933011DFAEDC500514B73 /* AppDelegate.swift */; };
@@ -93,10 +95,12 @@
 		0D8EF0D216F1277F7CB9E3C2 /* Pods-Pattonville-School-District-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-App/Pods-Pattonville-School-District-App.release.xcconfig"; sourceTree = "<group>"; };
 		1B040D761E0E399200D69069 /* SSD.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SSD.storyboard; sourceTree = "<group>"; };
 		1B040D771E0E399200D69069 /* SSDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDViewController.swift; sourceTree = "<group>"; };
-		1B040D781E0E399200D69069 /* StaffArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffArray.swift; sourceTree = "<group>"; };
+		1B040D781E0E399200D69069 /* phsStaffArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = phsStaffArray.swift; sourceTree = "<group>"; };
 		1B040D791E0E399200D69069 /* StaffMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffMember.swift; sourceTree = "<group>"; };
+		1B5E11021E27C51D0038A33C /* email-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-icon.png"; sourceTree = "<group>"; };
 		1B8333A81E038B2800776DBC /* SSDTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDTableViewCell.swift; sourceTree = "<group>"; };
 		1B8333AA1E0391BA00776DBC /* StaffListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffListViewController.swift; sourceTree = "<group>"; };
+		1BA8DFA31E2958A500F32F91 /* htStaffList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = htStaffList.swift; sourceTree = "<group>"; };
 		3425B2670BFD642C6C90BF2B /* Pods-Pattonville-School-District-AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-AppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-AppUITests/Pods-Pattonville-School-District-AppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		42617B421E00A61C00BB5992 /* pin-black-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin-black-1.png"; sourceTree = "<group>"; };
 		42A9ABCDF3EE610FB5F3DDB8 /* Pods-Pattonville-School-District-AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-AppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-AppUITests/Pods-Pattonville-School-District-AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 		42B933001DFAEDC500514B73 /* Pattonville-School-District-App */ = {
 			isa = PBXGroup;
 			children = (
+				1B5E11021E27C51D0038A33C /* email-icon.png */,
 				42617B421E00A61C00BB5992 /* pin-black-1.png */,
 				42B9330F1DFAEDC500514B73 /* Info.plist */,
 				42B933B61DFB022B00514B73 /* circle.jpg */,
@@ -382,8 +387,9 @@
 		55A31F051E01B7FC0094056E /* Staff */ = {
 			isa = PBXGroup;
 			children = (
-				1B040D781E0E399200D69069 /* StaffArray.swift */,
+				1B040D781E0E399200D69069 /* phsStaffArray.swift */,
 				1B040D791E0E399200D69069 /* StaffMember.swift */,
+				1BA8DFA31E2958A500F32F91 /* htStaffList.swift */,
 			);
 			name = Staff;
 			sourceTree = "<group>";
@@ -541,6 +547,7 @@
 				42B933C11DFB022B00514B73 /* java.jpg in Resources */,
 				42B933C51DFB022B00514B73 /* pin-green.png in Resources */,
 				42B933991DFAEEF400514B73 /* Settings.storyboard in Resources */,
+				1B5E11031E27C51D0038A33C /* email-icon.png in Resources */,
 				42B933691DFAEEF400514B73 /* Assets.xcassets in Resources */,
 				42B933A21DFAEF1B00514B73 /* Calendar.storyboard in Resources */,
 				42B933761DFAEEF400514B73 /* DateCell.xib in Resources */,
@@ -719,7 +726,7 @@
 				42B933831DFAEEF400514B73 /* MoreViewController.swift in Sources */,
 				42B933871DFAEEF400514B73 /* NewsItem.swift in Sources */,
 				42B933931DFAEEF400514B73 /* School.swift in Sources */,
-				1B040D7C1E0E399200D69069 /* StaffArray.swift in Sources */,
+				1B040D7C1E0E399200D69069 /* phsStaffArray.swift in Sources */,
 				1B040D7B1E0E399200D69069 /* SSDViewController.swift in Sources */,
 				42B933971DFAEEF400514B73 /* SelectSchoolsTableCell.swift in Sources */,
 				42B933981DFAEEF400514B73 /* SelectSchoolsTableViewController.swift in Sources */,
@@ -731,6 +738,7 @@
 				42B933951DFAEEF400514B73 /* SchoolsArray.swift in Sources */,
 				1B8333AB1E0391BA00776DBC /* StaffListViewController.swift in Sources */,
 				42B9337A1DFAEEF400514B73 /* DirectoryViewController.swift in Sources */,
+				1BA8DFA41E2958A500F32F91 /* htStaffList.swift in Sources */,
 				42B9338E1DFAEEF400514B73 /* PeachjarViewController.swift in Sources */,
 				42B9336B1DFAEEF400514B73 /* Calendar.swift in Sources */,
 				1B040D7D1E0E399200D69069 /* StaffMember.swift in Sources */,
