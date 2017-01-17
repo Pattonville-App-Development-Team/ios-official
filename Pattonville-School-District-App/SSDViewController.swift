@@ -14,8 +14,7 @@ class SSDViewController: UIViewController{
     
     //var schools = SchoolsArray.init().allSchools
     
-    var staffList = phsStaffArray.init()
-    
+    var staffList = StaffArray.init().staffList
     @IBOutlet weak var schoolName: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var location: UILabel!
