@@ -19,6 +19,8 @@ class DateCell: UITableViewCell{
     @IBOutlet var schools: UILabel!
     @IBOutlet var pinButton: UIButton!
     
+    @IBOutlet var schoolColorLine: UIView!
+    
     @IBAction func setPinned(){
         
         pinButton.isSelected = !pinButton.isSelected
@@ -40,6 +42,8 @@ class DateCell: UITableViewCell{
         if(title.frame.height > 18){
             location.isHidden = true
         }
+        
+        schoolColorLine.backgroundColor = event.school.color
         
     }
     

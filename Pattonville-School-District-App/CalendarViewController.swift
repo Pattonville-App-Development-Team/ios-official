@@ -31,14 +31,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         super.viewDidLoad()
         
-        /*calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-17", start: "10:00 AM", end: "2:00 PM", /location: "PHS Cafeteria"))
-        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-18", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
-        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-19", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
-        calendarList.addDate(event: Event(name: "Winter Orchestra Concert", dateString: "2016-12-08", start: "7:00 PM", end: "9:00 PM", location: "PHS Auditorium"))
-        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-29", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
-        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-29", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))*/
-        
-        mxlCalendarManager.scanICSFile(atRemoteURL: URL(string: "http://drummond.psdr3.org/ical/High%20School.ics"), withCompletionHandler: {
+        /*mxlCalendarManager.scanICSFile(atRemoteURL: URL(string: "http://drummond.psdr3.org/ical/High%20School.ics"), withCompletionHandler: {
             (calendar, error) -> Void in
             
             if !(error != nil){
@@ -51,19 +44,25 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
             self.calendar.reloadData()
             self.tableView.reloadData()
             
-        })
-        
-        /*mxlCalendarManager.scanICSFile(atRemoteURL: URL(string: "http://drummond.psdr3.org/ical/Briar%20Crest.ics"), withCompletionHandler: {
-            (calendar, error) -> Void in
-            
-            if !(error != nil){
-                self.calendarList.appendDates(mxlCalendar: calendar!)
-                print(self.calendarList.dates)
-            }else{
-                print(error!)
-            }
-            
         })*/
+        
+        let schools = SchoolsArray.getSubscribedSchools()
+        
+        print(schools)
+        
+        
+        for school in schools{
+            school.getCalendarData(onSucces: {
+                (calendar) -> Void in
+                self.calendarList.appendDates(mxlCalendar: calendar!, school: school)
+            }, onError: {
+                (error) -> Void in
+                print(error ?? "Error")
+            })
+            //print(mxlCal)
+            self.calendar.reloadData()
+            self.tableView.reloadData()
+        }
         
         
         tableView.dataSource = self
@@ -343,6 +342,9 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
     }
     
+    /// Scrolls calendar forward one month
+    /// - sender: the button that triggers the function
+    
     func forwardMonth(sender: UIView){
         
         var dateComponent = DateComponents()
@@ -351,6 +353,9 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         calendar.scrollToDate((NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: calendar.visibleDates().monthDates[0], options: []))!)
     }
     
+    /// Scrolls calendar backward one month
+    /// - sender: the button that triggers the function
+    
     func backMonth(sender: UIView){
 
         var dateComponent = DateComponents()
@@ -358,7 +363,11 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         calendar.scrollToDate((NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: calendar.visibleDates().monthDates[0], options: []))!)
 
+    
     }
+    
+    /// Formats date a given date object as a string (useful for date comparison and formatting dates to have the same time)
+    /// - date: the date object to format as a string
     
     private func formatDate(date: Date) -> String{
         let dateFormatter = DateFormatter()

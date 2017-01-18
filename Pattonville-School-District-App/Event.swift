@@ -20,8 +20,9 @@ class Event: Equatable{
     var location: String?
     var pinned: Bool = false
     var eventID: String
+    var school: School
     
-    init(name: String, dateString: String, start: String, end: String, location: String){
+    init(name: String, dateString: String, start: String, end: String, location: String, school: School){
         
         self.name = name
         self.dateString = dateString
@@ -43,11 +44,16 @@ class Event: Equatable{
         self.startTime = startTime!
         self.endTime = endTime!
         
+        self.school = school
+        
         self.eventID = NSUUID().uuidString
         
     }
     
-    init(mxlEvent: MXLCalendarEvent){
+    init(mxlEvent: MXLCalendarEvent, school: School){
+        
+        self.school = school
+        
         self.name = mxlEvent.eventSummary
         self.date = mxlEvent.eventStartDate
         

@@ -60,17 +60,15 @@ class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelega
         tableView.dataSource = self
         
         
-        var CarouselTimer: Timer!
+        var carouselTimer: Timer!
         
-        CarouselTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
+        carouselTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
         
         
     }
     
     func scroll(){
         vwCarousel.scroll(byNumberOfItems: 1, duration: 2.0)
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {

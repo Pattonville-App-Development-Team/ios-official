@@ -24,6 +24,6 @@ class StaffMember {
         self.email = email
         self.ext = ext
         
+        
     }
-    
 }
