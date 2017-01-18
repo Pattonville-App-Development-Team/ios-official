@@ -31,27 +31,10 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         super.viewDidLoad()
         
-        /*mxlCalendarManager.scanICSFile(atRemoteURL: URL(string: "http://drummond.psdr3.org/ical/High%20School.ics"), withCompletionHandler: {
-            (calendar, error) -> Void in
-            
-            if !(error != nil){
-                self.calendarList.appendDates(mxlCalendar: calendar!)
-                print(self.calendarList.dates)
-            }else{
-                print(error!)
-            }
-            
-            self.calendar.reloadData()
-            self.tableView.reloadData()
-            
-        })*/
-        
         let schools = SchoolsArray.getSubscribedSchools()
         
-        print(schools)
-        
-        
         for school in schools{
+            
             school.getCalendarData(onSucces: {
                 (calendar) -> Void in
                 self.calendarList.appendDates(mxlCalendar: calendar!, school: school)
@@ -59,11 +42,10 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
                 (error) -> Void in
                 print(error ?? "Error")
             })
-            //print(mxlCal)
+            
             self.calendar.reloadData()
             self.tableView.reloadData()
         }
-        
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -83,6 +65,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         calendar.scrollToDate(Date(), triggerScrollToDateDelegate: true, animateScroll: false)
         
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
     
     /// Establishes appearance of view controller upon appearance on screen. Reloads calendar and tableview data and filter calendar events for teh current date.
@@ -200,7 +183,6 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         if compareDates(date1: date, date2: Date()) && cellState.dateBelongsTo == .thisMonth{
             (cell as? CalendarDateView)?.setSelected(color: UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0))
         }else{
-            //calendar.scrollToDate(date)
             (cell as? CalendarDateView)?.setSelected(color: UIColor(red: 150/255.0, green: 150/255.0, blue: 150/255.0, alpha: 1))
         }
         
@@ -362,7 +344,6 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         dateComponent.month = -1
         
         calendar.scrollToDate((NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: calendar.visibleDates().monthDates[0], options: []))!)
-
     
     }
     

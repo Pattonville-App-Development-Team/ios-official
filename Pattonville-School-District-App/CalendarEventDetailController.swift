@@ -30,16 +30,19 @@ class CalendarEventDetailController: UIViewController{
         store.requestAccess(to: .event) {(granted, error) in
             if !granted { return }
             
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM dd, YYY h:m a"
-            
             let ekEvent = EKEvent(eventStore: store)
             ekEvent.title = self.event.name!
-            ekEvent.startDate = self.event.startTime!
-            ekEvent.endDate = self.event.endTime!
+            ekEvent.startDate = self.event.date!
+            ekEvent.endDate = self.event.date!
             ekEvent.calendar = store.defaultCalendarForNewEvents
+            
             do {
                 try store.save(ekEvent, span: .thisEvent, commit: true)
+                
+                let alert = UIAlertController(title: "Event Added to Calendar", message: "The event \(ekEvent.title) was added to your calendar!", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
             } catch {
                 print(error)
             }

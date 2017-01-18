@@ -19,48 +19,13 @@ class Calendar{
         dates = [Date:[Event]]()
     }
     
-    /*init(mxlCalendar: MXLCalendar){
-        
-        for event in mxlCalendar.events{
-            
-            let theEvent = Event(mxlEvent: (event as! MXLCalendarEvent))
-            
-            datesList.append(theEvent);
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "YYYY-MM-dd"
-            
-            let theDateString = dateFormatter.string(from: theEvent.date!)
-            let theDate = dateFormatter.date(from: theDateString)
-            
-            if dates.keys.contains(theEvent.date!){
-                dates[theDate!]?.append(theEvent)
-            }else{
-                dates[theDate!] = [theEvent]
-            }
-        }
-        
-    }*/
-    
     func appendDates(mxlCalendar: MXLCalendar, school: School){
         
         for event in mxlCalendar.events{
             
             let theEvent = Event(mxlEvent: (event as! MXLCalendarEvent), school: school)
             
-            datesList.append(theEvent);
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "YYYY-MM-dd"
-            
-            let theDateString = dateFormatter.string(from: theEvent.date!)
-            let theDate = dateFormatter.date(from: theDateString)
-            
-            if dates.keys.contains(theEvent.date!){
-                dates[theDate!]?.append(theEvent)
-            }else{
-                dates[theDate!] = [theEvent]
-            }
+            addDate(event: theEvent)
         }
         
 
@@ -70,19 +35,21 @@ class Calendar{
     /// - event: the event to add to the list
     /// - returns: the event that was added
     
-    func addDate(event: Event) -> Event{
+    func addDate(event: Event){
         datesList.append(event);
         
-        if dates.keys.contains(event.date!){
-            dates[event.date!]?.append(event)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        
+        let theDateString = dateFormatter.string(from: event.date!)
+        let theDate = dateFormatter.date(from: theDateString)
+        
+        if dates.keys.contains(theDate!){
+            dates[theDate!]?.append(event)
         }else{
-            dates[event.date!] = [event]
+            dates[theDate!] = [event]
         }
         
-        print("DATES LIST: \(datesList) \n")
-        print("DATES: \(dates) \n")
-        
-        return event
     }
     
     /// Gets the events from the dates list that are for a given date

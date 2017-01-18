@@ -25,7 +25,7 @@ class School: NSObject {
     var color: UIColor
     var nutriSliceURL: String
     var calendarURL: String
-    var eventsList: [Event]
+    var newsURL: String
     
     /// The School Object initializer, to be used in the Schools Enum
     ///
@@ -41,7 +41,7 @@ class School: NSObject {
     /// - parameter peachjarURL:      PeachJar URL used in the PeachJar Feature of School being initialized
     /// - parameter nutriSliceURL:    NutriSlice URL used in the NutriSlice Feature, being intialized
     /// - parameter isSubscribedTo:   Boolean to determine whether or not a user is subscribed to a schools news feed, will be set based upon the switch in the SelectSchools feautre in Settings and then accessed for the news feed
-    ///
+    /// - parameter calendarURL:      .ics calendar file remote location
     
     init(name: String,
          address: String,
@@ -51,7 +51,8 @@ class School: NSObject {
          peachjarURL: String,
          nutriSliceURL: String,
          isSubscribedTo: Bool, color: UIColor,
-         calendarURL: String) {
+         calendarURL: String,
+         newsURL: String) {
         
             self.name = name
             self.address = address
@@ -67,10 +68,14 @@ class School: NSObject {
             self.isSubscribedTo = isSubscribedTo
             self.color = color
             self.calendarURL = calendarURL
+            self.newsURL = newsURL
         
-            self.eventsList = []
         
     }
+    
+    /// Gets calendar data from calendarURL for the school
+    /// - onSuccess: completion handler called upon succesful downloading of calendar data from the URL (the '@escaping' syntax id required for nested closures as of Swift 3.0)
+    /// - onFailure: completion handler called upon the rendering of an error in the downloading process (the '@escaping' syntax id required for nested closures as of Swift 3.0)
     
     func getCalendarData(onSucces: @escaping (MXLCalendar?) -> Void, onError: @escaping (Error?) -> Void){
         
@@ -90,6 +95,7 @@ class School: NSObject {
                 print("ERROR: \(error)")
                 theCalendar = nil
                 onError(error)
+                
             }
             
         })
