@@ -20,7 +20,7 @@ static var earlyChildhood = School(name: "Early Childhood",
                             schoolPicture: "circle.jpg",
                             peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=93233",
                             nutriSliceURL: "http://psdr3.nutrislice.com/menu/bridgeway",
-                            isSubscribedTo: false,
+                            isSubscribedTo: true,
                             color: UIColor.red)
 
 static var bridgewayElementary = School(name: "Bridgeway Elementary",
@@ -42,7 +42,7 @@ static var drummondElementary = School(name: "Drummond Elementary",
                             schoolPicture: "illusion.jpg",
                             peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94976",
                             nutriSliceURL: "http://psdr3.nutrislice.com/menu/drummond",
-                            isSubscribedTo: false,
+                            isSubscribedTo: true,
                             color: UIColor.black)
 
 static var parkwoodElementary = School(name: "Parkwood Elementary",

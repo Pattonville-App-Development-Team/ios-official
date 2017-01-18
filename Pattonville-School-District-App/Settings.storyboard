@@ -98,7 +98,7 @@
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zat-3U-geI">
                                             <rect key="frame" x="316" y="7" width="51" height="31"/>
                                             <connections>
-                                                <action selector="switchingOnIsSchoolSubscribedTo:" destination="QTo-ij-HO9" eventType="valueChanged" id="Ejx-rY-1pz"/>
+                                                <action selector="schoolEnabledSwitchValueChanged:" destination="QTo-ij-HO9" eventType="valueChanged" id="Vq5-yn-yNM"/>
                                             </connections>
                                         </switch>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="paB-bR-UDn">
@@ -124,6 +124,7 @@
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="schoolColorView" destination="paB-bR-UDn" id="pAt-vm-Swe"/>
+                                    <outlet property="schoolEnabledSwitch" destination="zat-3U-geI" id="M0H-QF-w7x"/>
                                     <outlet property="schoolNameLabel" destination="JuK-ch-w1z" id="xR7-dj-V62"/>
                                 </connections>
                             </tableViewCell>

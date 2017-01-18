@@ -24,6 +24,7 @@ class School: NSObject {
     var color: UIColor
     var nutriSliceURL: String
     
+    
     /// The School Object initializer, to be used in the Schools Enum
     ///
     /// - parameter name:             Name of School being initialized
@@ -62,6 +63,7 @@ class School: NSObject {
             self.nutriSliceURL = nutriSliceURL
             self.isSubscribedTo = isSubscribedTo
             self.color = color
+            
         
     }
     
