@@ -19,10 +19,6 @@ class CalendarListViewController: UITableViewController{
         
         tableView.register(UINib(nibName: "DateCell", bundle:nil), forCellReuseIdentifier: "DateCell")
         
-        /*calendarList.datesList.sort{
-            $0.date.compare($1.date) == ComparisonResult.orderedAscending
-        }*/
-        
     }
     
     ///Sets up the look of the ViewController upon appearing on screen.
@@ -105,8 +101,8 @@ class CalendarListViewController: UITableViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EventDetail"{
             let destination = segue.destination as! CalendarEventDetailController
-            let event = tableView.indexPathForSelectedRow?.row
-            destination.event = calendarList.datesList[event!]
+            let event = tableView.indexPathForSelectedRow
+            destination.event = calendarList.dates[getKeyForIndex(index: (event?.section)!)]?[(event?.row)!]
         }
     }
     
@@ -118,5 +114,6 @@ class CalendarListViewController: UITableViewController{
         
         return keys[index]
     }
+    
     
 }

@@ -23,19 +23,47 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     var selectedDateEvents = [Event]()
     var pinnedDateEvents = [Event]()
     
-    /// Sets up look of view controller upon loading. Completes basic setup of Calendar and TableView appearances and sorts the events list for pinned events
     
+    var mxlCalendarManager = MXLCalendarManager()
+    
+    /// Sets up look of view controller upon loading. Completes basic setup of Calendar and TableView appearances and sorts the events list for pinned events
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-17", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
-        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-18", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
-        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-19", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
-        calendarList.addDate(event: Event(name: "Winter Orchestra Concert", dateString: "2016-12-08", start: "7:00 PM", end: "9:00 PM", location: "PHS Auditorium"))
-        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-29", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
-        calendarList.addDate(event: Event(name: "Robotics Meet", dateString: "2016-12-29", start: "10:00 AM", end: "2:00 PM", location: "PHS Cafeteria"))
-
+        /*mxlCalendarManager.scanICSFile(atRemoteURL: URL(string: "http://drummond.psdr3.org/ical/High%20School.ics"), withCompletionHandler: {
+            (calendar, error) -> Void in
+            
+            if !(error != nil){
+                self.calendarList.appendDates(mxlCalendar: calendar!)
+                print(self.calendarList.dates)
+            }else{
+                print(error!)
+            }
+            
+            self.calendar.reloadData()
+            self.tableView.reloadData()
+            
+        })*/
+        
+        let schools = SchoolsArray.getSubscribedSchools()
+        
+        print(schools)
+        
+        
+        for school in schools{
+            school.getCalendarData(onSucces: {
+                (calendar) -> Void in
+                self.calendarList.appendDates(mxlCalendar: calendar!, school: school)
+            }, onError: {
+                (error) -> Void in
+                print(error ?? "Error")
+            })
+            //print(mxlCal)
+            self.calendar.reloadData()
+            self.tableView.reloadData()
+        }
+        
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -116,6 +144,16 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         (cell as! CalendarDateView).setupCellBeforeDisplay(cellState: cellState, date: date)
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        
+        let dateString = dateFormatter.string(from: date)
+        let theDate = dateFormatter.date(from: dateString)
+        
+        if calendarList.dates.keys.contains(theDate!){
+            (cell as! CalendarDateView).showDelineator()
+        }
+        
     }
     
     /// Sets the size of the header of the clanedar
@@ -126,7 +164,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     
     func calendar(_ calendar: JTAppleCalendarView, sectionHeaderSizeFor range: (start: Date, end: Date), belongingTo month: Int) -> CGSize {
         
-        return CGSize(width: UIScreen.main.bounds.size.width, height: 75)
+        return CGSize(width: UIScreen.main.bounds.size.width, height: 65)
         
     }
     
@@ -143,6 +181,12 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         header.setupCellBeforeDisplay(date: range.end)
         
+        header.forwardOneMonth.tag = 1
+        header.backOneMonth.tag = 0
+        
+        header.forwardOneMonth.addTarget(self, action: #selector(CalendarViewController.forwardMonth(sender:)), for: UIControlEvents.touchUpInside)
+        header.backOneMonth.addTarget(self, action: #selector(CalendarViewController.backMonth(sender:)), for: UIControlEvents.touchUpInside)
+        
     }
     
     /// Defines the actions to undertake when a given cell is selected
@@ -156,7 +200,14 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         if compareDates(date1: date, date2: Date()) && cellState.dateBelongsTo == .thisMonth{
             (cell as? CalendarDateView)?.setSelected(color: UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0))
         }else{
+            //calendar.scrollToDate(date)
             (cell as? CalendarDateView)?.setSelected(color: UIColor(red: 150/255.0, green: 150/255.0, blue: 150/255.0, alpha: 1))
+        }
+        
+        if !calendarList.eventsForDate(date: formatDate(date: date)).isEmpty{
+            (cell as? CalendarDateView)?.dateDelineater.backgroundColor = .white
+        }else{
+            (cell as? CalendarDateView)?.dateDelineater.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 0)
         }
         
         selectedDate = date
@@ -176,11 +227,15 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
         (cell as? CalendarDateView)?.setUnselected(cellState: cellState)
         
+        if !calendarList.eventsForDate(date: formatDate(date: date)).isEmpty{
+            (cell as? CalendarDateView)?.dateDelineater.backgroundColor = UIColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1)
+        }else{
+            (cell as? CalendarDateView)?.hideDelineator()
+        }
+
+        
         calendar.selectDates([Date()])
     }
-    
-
-    
     
     
     /// Establishes the number of cells to show in the tableview section
@@ -199,15 +254,12 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
         
-        if selectedDateEvents.count > 0{
-            let event = selectedDateEvents[indexPath.row]
-            
-            cell.event = event
-            cell.setUp()
-            cell.pinButton.tag = indexPath.row;
-            cell.pinButton.addTarget(self, action: #selector(CalendarViewController.nowPinned(sender:)), for: UIControlEvents.touchUpInside);
-            
-        }
+        let event = calendarList.eventsForDate(date: formatDate(date: selectedDate))[indexPath.row]
+        
+        cell.event = event
+        cell.setUp()
+        cell.pinButton.tag = indexPath.row;
+        cell.pinButton.addTarget(self, action: #selector(CalendarViewController.nowPinned(sender:)), for: UIControlEvents.touchUpInside);
         
         return cell
     }
@@ -287,6 +339,43 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         }
         
         tableView.reloadData()
+        
+    }
+    
+    /// Scrolls calendar forward one month
+    /// - sender: the button that triggers the function
+    
+    func forwardMonth(sender: UIView){
+        
+        var dateComponent = DateComponents()
+        dateComponent.month = 1
+        
+        calendar.scrollToDate((NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: calendar.visibleDates().monthDates[0], options: []))!)
+    }
+    
+    /// Scrolls calendar backward one month
+    /// - sender: the button that triggers the function
+    
+    func backMonth(sender: UIView){
+
+        var dateComponent = DateComponents()
+        dateComponent.month = -1
+        
+        calendar.scrollToDate((NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: calendar.visibleDates().monthDates[0], options: []))!)
+
+    
+    }
+    
+    /// Formats date a given date object as a string (useful for date comparison and formatting dates to have the same time)
+    /// - date: the date object to format as a string
+    
+    private func formatDate(date: Date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        
+        let theDateString = dateFormatter.string(from: date)
+        
+        return theDateString
         
     }
     

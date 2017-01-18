@@ -11,7 +11,7 @@ import MessageUI
 
 class StaffListViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, MFMailComposeViewControllerDelegate {
 
-    var staffList = phsStaffArray.init().phsStaffList
+    var staffList = StaffArray.init().staffList
     var filteredStaffList = [StaffMember]()
     var searchText: String!
     let searchController = UISearchController(searchResultsController: nil)

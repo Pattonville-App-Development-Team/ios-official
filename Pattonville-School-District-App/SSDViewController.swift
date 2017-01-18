@@ -12,10 +12,9 @@ import UIKit
 
 class SSDViewController: UIViewController{
     
-    var schools = SchoolsArray.init().allSchools
+    //var schools = SchoolsArray.init().allSchools
     
-    var staffList = phsStaffArray.init()
-    
+    var staffList = StaffArray.init().staffList
     @IBOutlet weak var schoolName: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var location: UILabel!
@@ -32,8 +31,7 @@ class SSDViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let school = schools[indexOfSchool]
+        let school = SchoolsArray.allSchools[indexOfSchool]
         
         schoolName.text = school.name
         address.text = school.address

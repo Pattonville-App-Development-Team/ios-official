@@ -9,7 +9,7 @@ import UIKit
 
 /// The TableViewController for selecting which schools a user wants to be subscribed to
 class SelectSchoolsTableViewController: UITableViewController{
-    var schools: SchoolsArray! = SchoolsArray.init()
+   //var schools: SchoolsArray! = SchoolsArray.init()
     
     /// Set up how the tableView appears on screen
     override func viewDidLoad() {
@@ -40,7 +40,7 @@ class SelectSchoolsTableViewController: UITableViewController{
     /// - returns: A count from the schools array that gives the number of schools.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return schools.allSchools.count
+        return SchoolsArray.allSchools.count
         
     }
     
@@ -56,7 +56,7 @@ class SelectSchoolsTableViewController: UITableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "SelectSchoolsCell",
                                                  for: indexPath) as! SelectSchoolsTableCell
         
-        let school = schools.allSchools[indexPath.row]
+        let school = SchoolsArray.allSchools[indexPath.row]
         cell.schoolNameLabel.text = school.name
         cell.schoolColorView.backgroundColor = school.color
         cell.selectionStyle = UITableViewCellSelectionStyle.none

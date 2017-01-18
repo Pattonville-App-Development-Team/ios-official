@@ -11,6 +11,18 @@ import UIKit
 
 /// The Enum that stores all the information about the schools in School Objections, used to create the Schools array and then furhter used throughout the app through that array.
 class SchoolsEnum {
+    
+    static var earlyChildhood = School(name: "Early Childhood",
+                                address: "11097 St. Charles Rock Rd", city: "St. Ann", state: "MO", zip: "63074",
+                                mainNumber: "(314)-213-8500",
+                                attendanceNumber: "N/A",
+                                faxNumber: "(314)-213-8696",
+                                schoolPicture: "circle.jpg",
+                                peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=93233",
+                                nutriSliceURL: "http://psdr3.nutrislice.com/menu/bridgeway",
+                                isSubscribedTo: true,
+                                color: UIColor.red,
+                                calendarURL: "http://drummond.psdr3.org/ical/Early%20Childhood.ics")
 
 static var earlyChildhood = School(name: "Early Childhood",
                             address: "11097 St. Charles Rock Rd", city: "St. Ann", state: "MO", zip: "63074",

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B040D7A1E0E399200D69069 /* SSD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B040D761E0E399200D69069 /* SSD.storyboard */; };
 		1B040D7B1E0E399200D69069 /* SSDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D771E0E399200D69069 /* SSDViewController.swift */; };
-		1B040D7C1E0E399200D69069 /* phsStaffArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D781E0E399200D69069 /* phsStaffArray.swift */; };
+		1B040D7C1E0E399200D69069 /* StaffArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D781E0E399200D69069 /* StaffArray.swift */; };
 		1B040D7D1E0E399200D69069 /* StaffMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D791E0E399200D69069 /* StaffMember.swift */; };
 		1B5E11031E27C51D0038A33C /* email-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B5E11021E27C51D0038A33C /* email-icon.png */; };
 		1B8333A91E038B2800776DBC /* SSDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8333A81E038B2800776DBC /* SSDTableViewCell.swift */; };
@@ -95,7 +95,7 @@
 		0D8EF0D216F1277F7CB9E3C2 /* Pods-Pattonville-School-District-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-App/Pods-Pattonville-School-District-App.release.xcconfig"; sourceTree = "<group>"; };
 		1B040D761E0E399200D69069 /* SSD.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SSD.storyboard; sourceTree = "<group>"; };
 		1B040D771E0E399200D69069 /* SSDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDViewController.swift; sourceTree = "<group>"; };
-		1B040D781E0E399200D69069 /* phsStaffArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = phsStaffArray.swift; sourceTree = "<group>"; };
+		1B040D781E0E399200D69069 /* StaffArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffArray.swift; sourceTree = "<group>"; };
 		1B040D791E0E399200D69069 /* StaffMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffMember.swift; sourceTree = "<group>"; };
 		1B5E11021E27C51D0038A33C /* email-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-icon.png"; sourceTree = "<group>"; };
 		1B8333A81E038B2800776DBC /* SSDTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDTableViewCell.swift; sourceTree = "<group>"; };
@@ -387,7 +387,7 @@
 		55A31F051E01B7FC0094056E /* Staff */ = {
 			isa = PBXGroup;
 			children = (
-				1B040D781E0E399200D69069 /* phsStaffArray.swift */,
+				1B040D781E0E399200D69069 /* StaffArray.swift */,
 				1B040D791E0E399200D69069 /* StaffMember.swift */,
 				1BA8DFA31E2958A500F32F91 /* htStaffList.swift */,
 			);
@@ -726,7 +726,7 @@
 				42B933831DFAEEF400514B73 /* MoreViewController.swift in Sources */,
 				42B933871DFAEEF400514B73 /* NewsItem.swift in Sources */,
 				42B933931DFAEEF400514B73 /* School.swift in Sources */,
-				1B040D7C1E0E399200D69069 /* phsStaffArray.swift in Sources */,
+				1B040D7C1E0E399200D69069 /* StaffArray.swift in Sources */,
 				1B040D7B1E0E399200D69069 /* SSDViewController.swift in Sources */,
 				42B933971DFAEEF400514B73 /* SelectSchoolsTableCell.swift in Sources */,
 				42B933981DFAEEF400514B73 /* SelectSchoolsTableViewController.swift in Sources */,
@@ -903,7 +903,7 @@
 				INFOPLIST_FILE = "Pattonville-School-District-App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bowersk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joshuazahner.psd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pattonville-School-District-App/Pattonville-School-District-App-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -921,7 +921,7 @@
 				INFOPLIST_FILE = "Pattonville-School-District-App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bowersk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joshuazahner.psd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pattonville-School-District-App/Pattonville-School-District-App-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

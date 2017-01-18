@@ -19,6 +19,8 @@ class DateCell: UITableViewCell{
     @IBOutlet var schools: UILabel!
     @IBOutlet var pinButton: UIButton!
     
+    @IBOutlet var schoolColorLine: UIView!
+    
     @IBAction func setPinned(){
         
         pinButton.isSelected = !pinButton.isSelected
@@ -29,7 +31,7 @@ class DateCell: UITableViewCell{
     func setUp(){
         title.text = event.name
         location.text = event.location
-        setTimes(start: event.startTime, end: event.endTime)
+        setTimes(start: event.startTime!, end: event.endTime!)
         
         if event.pinned{
             pinButton.isSelected = true
@@ -37,9 +39,15 @@ class DateCell: UITableViewCell{
             pinButton.isSelected = false
         }
         
+        if(title.frame.height > 18){
+            location.isHidden = true
+        }
+        
+        schoolColorLine.backgroundColor = event.school.color
+        
     }
     
-    func setTimes(start: Date, end: Date){
+    private func setTimes(start: Date, end: Date){
         
         let formatter = DateFormatter()
         formatter.dateFormat = "h:mm a"
