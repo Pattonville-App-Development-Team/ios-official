@@ -67,7 +67,33 @@ class School: NSObject {
             self.nutriSliceURL = nutriSliceURL
             self.isSubscribedTo = isSubscribedTo
             self.color = color
+            self.calendarURL = calendarURL
+        
+            self.eventsList = []
+        
+    }
+    
+    func getCalendarData(onSucces: @escaping (MXLCalendar?) -> Void, onError: @escaping (Error?) -> Void){
+        
+        let mxlCalendarManager = MXLCalendarManager()
+        
+        var theCalendar: MXLCalendar?
+        
+        mxlCalendarManager.scanICSFile(atRemoteURL: URL(string: calendarURL), withCompletionHandler: {
+            (calendar, error) -> Void in
             
+            if error == nil{
+                theCalendar = calendar
+                print("THE CALENDAR: \(theCalendar)")
+                onSucces(calendar)
+                
+            }else{
+                print("ERROR: \(error)")
+                theCalendar = nil
+                onError(error)
+            }
+            
+        })
         
     }
     
