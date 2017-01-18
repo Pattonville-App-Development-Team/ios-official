@@ -2,6 +2,8 @@
 //  SSDViewController.swift
 //  Pattonville School District App
 //
+
+
 //  Created by Kevin Bowers on 11/30/16.
 //  Copyright © 2016 Pattonville School Distrcit. All rights reserved.
 //
@@ -12,8 +14,7 @@ class SSDViewController: UIViewController{
     
     //var schools = SchoolsArray.init().allSchools
     
-    var staffList = StaffArray.init()
-    
+    var staffList = StaffArray.init().staffList
     @IBOutlet weak var schoolName: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var location: UILabel!

@@ -12,7 +12,7 @@ class SSDTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var departmentLabel: UILabel!
-    @IBOutlet weak var extLabel: UILabel!
+    @IBOutlet weak var extensionLabel: UILabel!
     @IBOutlet weak var emailButton: UIButton!
     
     override func awakeFromNib() {
