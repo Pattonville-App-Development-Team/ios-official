@@ -24,6 +24,8 @@ class School: NSObject {
     var isSubscribedTo: Bool
     var color: UIColor
     var nutriSliceURL: String
+    var calendarURL: String
+    var eventsList: [Event]
     var staffArray: [StaffMember]
     
     /// The School Object initializer, to be used in the Schools Enum
@@ -51,6 +53,7 @@ class School: NSObject {
          peachjarURL: String,
          nutriSliceURL: String,
          isSubscribedTo: Bool, color: UIColor,
+         calendarURL: String,
          staffArray: [StaffMember]) {
         
             self.name = name
@@ -66,7 +69,34 @@ class School: NSObject {
             self.nutriSliceURL = nutriSliceURL
             self.isSubscribedTo = isSubscribedTo
             self.color = color
+            self.calendarURL = calendarURL
             self.staffArray = staffArray
+        
+            self.eventsList = []
+        
+    }
+    
+    func getCalendarData(onSucces: @escaping (MXLCalendar?) -> Void, onError: @escaping (Error?) -> Void){
+        
+        let mxlCalendarManager = MXLCalendarManager()
+        
+        var theCalendar: MXLCalendar?
+        
+        mxlCalendarManager.scanICSFile(atRemoteURL: URL(string: calendarURL), withCompletionHandler: {
+            (calendar, error) -> Void in
+            
+            if error == nil{
+                theCalendar = calendar
+                print("THE CALENDAR: \(theCalendar)")
+                onSucces(calendar)
+                
+            }else{
+                print("ERROR: \(error)")
+                theCalendar = nil
+                onError(error)
+            }
+            
+        })
         
     }
     
