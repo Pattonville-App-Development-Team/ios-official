@@ -260,10 +260,11 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CalendarListViewSegue"{
-            let destination = segue.destination as! CalendarListViewController
+            let destination = (segue.destination as! UINavigationController).viewControllers[0] as! CalendarListViewController
+            print(segue.destination)
             destination.calendarList = calendarList
         }else if segue.identifier == "CalendarPinnedViewSegue"{
-            let destination = segue.destination as! CalendarPinnedListViewController
+            let destination = (segue.destination as! UINavigationController).viewControllers[0] as! CalendarPinnedListViewController
             destination.eventsList = pinnedDateEvents
         }else if segue.identifier == "EventDetail"{
             let destination = segue.destination as! CalendarEventDetailController

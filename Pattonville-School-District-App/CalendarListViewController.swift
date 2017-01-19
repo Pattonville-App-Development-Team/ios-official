@@ -8,7 +8,16 @@
 
 import UIKit
 
-class CalendarListViewController: UITableViewController{
+class CalendarListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+    
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var filter: UIBarButtonItem!
+    @IBOutlet var exit: UIBarButtonItem!
+    
+    @IBAction func exitView(sender: UIBarButtonItem!){
+        self.dismiss(animated: true, completion: nil)
+        self.parent?.dismiss(animated: true, completion: nil)
+    }
     
     var calendarList: Calendar!
     
@@ -16,6 +25,9 @@ class CalendarListViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
         tableView.register(UINib(nibName: "DateCell", bundle:nil), forCellReuseIdentifier: "DateCell")
         
@@ -45,11 +57,11 @@ class CalendarListViewController: UITableViewController{
     }
     
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return calendarList.dates.count
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM dd, YYYY"
@@ -60,7 +72,7 @@ class CalendarListViewController: UITableViewController{
     /// Defines the number of rows in the tableview
     /// - returns: the number of rows for the tableview to display
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let theKey = getKeyForIndex(index: section)
         
@@ -73,7 +85,7 @@ class CalendarListViewController: UITableViewController{
     /// - indexPath: the indexPath for the given cell
     /// - returns: the established cell object
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
         
@@ -90,7 +102,7 @@ class CalendarListViewController: UITableViewController{
     /// - tableView: the tableView object
     /// - indexPath: the index path for the selected cell
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "EventDetail", sender: self)
     }
     
