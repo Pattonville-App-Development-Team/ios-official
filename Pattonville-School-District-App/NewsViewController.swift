@@ -178,22 +178,7 @@ class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelega
         return value
         
     }
-    
-    func getBackgroundData(){
-        
-        DispatchQueue.global(qos: .background).async {
-            
-            for school in self.schools{
-                self.parser.beginParseing(url: URL(string: school.newsURL)!)
-            }
 
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-            
-        }
-        
-    }
     
 }
 

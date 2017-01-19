@@ -72,5 +72,21 @@ class NewsParser: NSObject, XMLParserDelegate{
         
     }
     
+    func getDataInBackground(completionHandler: (() -> Void)?){
+        
+        DispatchQueue.global(qos: .background).async {
+            
+            for school in self.schools{
+                self.beginParseing(url: URL(string: school.newsURL)!)
+            }
+            
+            DispatchQueue.main.async {
+                completionHandler?()
+            }
+            
+        }
+        
+    }
+    
     
 }
