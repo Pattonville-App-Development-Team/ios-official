@@ -22,7 +22,8 @@ class SchoolsEnum {
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/bridgeway",
                                 isSubscribedTo: true,
                                 color: UIColor.red,
-                                calendarURL: "http://drummond.psdr3.org/ical/Early%20Childhood.ics")
+                                calendarURL: "http://drummond.psdr3.org/ical/Early%20Childhood.ics",
+                                staffArray: [])
 
     static var bridgewayElementary = School(name: "Bridgeway Elementary",
                                 address: "11635 Oakbury Court", city: "Bridgeton", state: "MO", zip: "63044",
@@ -34,7 +35,8 @@ class SchoolsEnum {
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/bridgeway",
                                 isSubscribedTo: true,
                                 color: UIColor.blue,
-                                calendarURL: "http://drummond.psdr3.org/ical/Bridgeway.ics")
+                                calendarURL: "http://drummond.psdr3.org/ical/Bridgeway.ics",
+                                staffArray: [])
 
     static var drummondElementary = School(name: "Drummond Elementary",
                                 address: "3721 St. Bridget Lane", city: "St. Ann", state: "MO", zip: "63074",
@@ -46,7 +48,8 @@ class SchoolsEnum {
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/drummond",
                                 isSubscribedTo: true,
                                 color: UIColor.black,
-                                calendarURL: "http://drummond.psdr3.org/ical/Drummond.ics")
+                                calendarURL: "http://drummond.psdr3.org/ical/Drummond.ics",
+                                staffArray: [])
 
     static var parkwoodElementary = School(name: "Parkwood Elementary",
                                 address: "3199 Parkwood Lane", city: "Maryland Heights", state: "MO", zip: "63043",
@@ -58,7 +61,8 @@ class SchoolsEnum {
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/parkwood",
                                 isSubscribedTo: true,
                                 color: UIColor.yellow,
-                                calendarURL: "http://drummond.psdr3.org/ical/Parkwood.ics")
+                                calendarURL: "http://drummond.psdr3.org/ical/Parkwood.ics",
+                                staffArray: [])
 
     static var remingtonTraditional = School(name: "Remington Traditional",
                                 address: "102 Fee Fee Rd", city: "Maryland Heights", state: "MO", zip: "63043",
@@ -70,7 +74,8 @@ class SchoolsEnum {
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/remington-traditional",
                                 isSubscribedTo: true,
                                 color: UIColor.magenta,
-                                calendarURL: "http://drummond.psdr3.org/ical/Remington.ics")
+                                calendarURL: "http://drummond.psdr3.org/ical/Remington.ics",
+                                staffArray: [])
 
     static var roseAcresElementary = School(name: "Rose Acres Elementary",
                                 address: "2905 Rose Acres Lane", city: "Maryland Heights", state: "MO", zip: "63043",
@@ -82,7 +87,8 @@ class SchoolsEnum {
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/rose-acres",
                                 isSubscribedTo: true,
                                 color: UIColor.purple,
-                                calendarURL: "http://drummond.psdr3.org/ical/Rose%20Acres.ics")
+                                calendarURL: "http://drummond.psdr3.org/ical/Rose%20Acres.ics",
+                                staffArray: [])
 
     static var willowBrookElementary = School(name: "Willow Brook Elementary",
                                 address: "11022 Schuetz Road", city: "Creve Coeur", state: "MO", zip: "63146",
@@ -94,7 +100,8 @@ class SchoolsEnum {
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/willow-brook",
                                 isSubscribedTo: true,
                                 color: UIColor.cyan,
-                                calendarURL: "http://drummond.psdr3.org/ical/Willow%20Brook.ics")
+                                calendarURL: "http://drummond.psdr3.org/ical/Willow%20Brook.ics",
+                                staffArray: [])
 
     static var holmanMiddleSchool = School(name: "Holman Middle School",
                                 address: "11055 St. Charles Rock Rd", city: "St. Ann", state: "MO", zip: "63074",
@@ -106,7 +113,8 @@ class SchoolsEnum {
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/holman",
                                 isSubscribedTo: true,
                                 color: UIColor.orange,
-                                calendarURL: "http://drummond.psdr3.org/ical/Holman.ics")
+                                calendarURL: "http://drummond.psdr3.org/ical/Holman.ics",
+                                staffArray: [])
 
     static var heightsMiddleSchool = School(name: "Heights Middle School",
                                 address: "195 Fee Fee Road", city: "Maryland Heights", state: "MO", zip: "63043",
@@ -118,7 +126,8 @@ class SchoolsEnum {
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/pattonville-heights,",
                                 isSubscribedTo: true,
                                 color: UIColor.gray,
-                                calendarURL: "http://drummond.psdr3.org/ical/Heights.ics")
+                                calendarURL: "http://drummond.psdr3.org/ical/Heights.ics",
+                                staffArray: [])
 
     static var pattonvilleHighSchool = School(name: "Pattonville High School",
                                 address: "2497 Creve Coeur Mill Road", city: "Maryland Heights", state: "MO", zip: "63074",
@@ -130,7 +139,8 @@ class SchoolsEnum {
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/pattonville-high",
                                 isSubscribedTo: true,
                                 color: UIColor.green,
-                                calendarURL: "http://drummond.psdr3.org/ical/High%20School.ics")
+                                calendarURL: "http://drummond.psdr3.org/ical/High%20School.ics",
+                                staffArray: [])
     
     static func setIsSubscribedToSchoolValue(school: School, isSubscribedToValue: Bool){
         school.isSubscribedTo = isSubscribedToValue
