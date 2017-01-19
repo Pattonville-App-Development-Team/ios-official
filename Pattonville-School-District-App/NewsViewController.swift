@@ -9,7 +9,7 @@
 import UIKit
 import iCarousel
 
-class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelegate, UITableViewDelegate, UITableViewDataSource {
+class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelegate, UITableViewDelegate, UITableViewDataSource, XMLParserDelegate {
     
     var none: Int!
     
@@ -20,6 +20,8 @@ class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelega
     var carouselHeight: CGFloat = 0
     
     var newsReel: NewsReel!
+    var schools: [School]!
+    var parser: NewsParser!
     
     var images : [[Any]] = []
     
@@ -29,7 +31,6 @@ class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelega
     let natureDear = #imageLiteral(resourceName: "nature- dear.jpg")
     let illusion = #imageLiteral(resourceName: "illusion.jpg")
     let diamond = #imageLiteral(resourceName: "diamond.jpg")
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,11 +52,6 @@ class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelega
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        newsReel.addNews(newsItem: NewsItem(title: "One", content: "Test", the_date: "01-02-2001"))
-        newsReel.addNews(newsItem: NewsItem(title: "Two", content: "Test", the_date: "01-02-2001"))
-        newsReel.addNews(newsItem: NewsItem(title: "Three", content: "Test", the_date: "01-02-2001"))
-        newsReel.addNews(newsItem: NewsItem(title: "Four", content: "Test", the_date: "01-02-2001"))
-        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -64,6 +60,12 @@ class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelega
         
         carouselTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
         
+        schools = SchoolsArray.getSubscribedSchools()
+        
+        parser = NewsParser(newsReel: newsReel)
+        parser.getDataInBackground(completionHandler: {
+            self.tableView.reloadData()
+        })
         
     }
     
@@ -101,7 +103,7 @@ class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelega
     /// - parameter tableView: the table view under the carousel in News
     /// - parameter indexPath: the row the user selects on the table view under the carousel in News
     ///
-    /// - returns: <#return value description#>
+    /// - returns: none
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsItemCell", for: indexPath) as! NewsItemCell
@@ -174,6 +176,22 @@ class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelega
             return 1.0
         }
         return value
+        
+    }
+    
+    func getBackgroundData(){
+        
+        DispatchQueue.global(qos: .background).async {
+            
+            for school in self.schools{
+                self.parser.beginParseing(url: URL(string: school.newsURL)!)
+            }
+
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+        }
         
     }
     

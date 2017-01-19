@@ -17,33 +17,25 @@ class NewsItem{
     var date: Date
     var dateString: String
     
-    let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .full
-        formatter.timeStyle = .none
-        return formatter
-    }()
-    
-    let dateStringFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM-DD-yyyy"
-        return formatter;
-    }()
-    
     /// Initializer to create individual NewsItems
     ///
     /// - parameter title:    the title of the given NewsItem
     /// - parameter content:  the news story for the reader to absorb
     /// - parameter the_date: the date of the news story
     ///
-    init(title: String, content: String, the_date: String){
+    init(title: String, the_date: String){
         self.title = title
-        self.content = content
-        self.date = dateStringFormatter.date(from: the_date)!
+        self.content = ""
         
-        print(self.date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE, dd MMM yyyy kk:mm:ss Z"
         
-        self.dateString = dateFormatter.string(from: date)
+        self.date = dateFormatter.date(from: the_date)!
+
+        let dateStringFormatter = DateFormatter()
+        dateStringFormatter.dateFormat = "EEE, MMMM dd, yyyy"
+        self.dateString = dateStringFormatter.string(from: date)
+        
         
     }
     

@@ -52,11 +52,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         images.append([illusion, "Illusion"])
         images.append([diamond, "Diamond"])
         
-        newsReel.addNews(newsItem: NewsItem(title: "One", content: "Test", the_date: "01-02-2001"))
-        newsReel.addNews(newsItem: NewsItem(title: "Two", content: "Test", the_date: "01-02-2001"))
-        newsReel.addNews(newsItem: NewsItem(title: "Three", content: "Test", the_date: "01-02-2001"))
-        newsReel.addNews(newsItem: NewsItem(title: "Four", content: "Test", the_date: "01-02-2001"))
-        
         homeCarousel.type = iCarouselType.linear
         homeCarousel.isPagingEnabled = true
         //homeCarousel.scroll(byNumberOfItems: 1, duration: 4)
@@ -68,8 +63,14 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         var CarouselTimer: Timer!
         
         CarouselTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
+
+        let parser = NewsParser(newsReel: newsReel)
         
-        // Do any additional setup after loading the view, typically from a nib.
+        parser.getDataInBackground(completionHandler: {
+            self.tableView.reloadData()
+        })
+        
+        
     }
     
     func scroll(){
@@ -131,11 +132,13 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsItemCell", for: indexPath) as! NewsItemCell
         
-        let newsItem = newsReel.news[indexPath.row]
-        
-        cell.title.text = newsItem.title
-        cell.date.text = newsItem.dateString
-        cell.image_view.image = UIImage(named: "flowers")
+        if newsReel.news.count > 0{
+            let newsItem = newsReel.news[indexPath.row]
+            
+            cell.title.text = newsItem.title
+            cell.date.text = newsItem.dateString
+            cell.image_view.image = UIImage(named: "flowers")
+        }
         
         return cell
         
