@@ -263,7 +263,6 @@
 				42B9330A1DFAEDC500514B73 /* Assets.xcassets */,
 				42B9330C1DFAEDC500514B73 /* LaunchScreen.storyboard */,
 				42B933331DFAEEF300514B73 /* Pattonville-School-District-App-Bridging-Header.h */,
-				4234D1C01E310B19005B3CA8 /* NewsParser.swift */,
 			);
 			path = "Pattonville-School-District-App";
 			sourceTree = "<group>";
@@ -353,6 +352,7 @@
 				42B933541DFAEEF300514B73 /* NewsItemCell.swift */,
 				42B933551DFAEEF300514B73 /* NewsReel.swift */,
 				42B933561DFAEEF300514B73 /* NewsViewController.swift */,
+				4234D1C01E310B19005B3CA8 /* NewsParser.swift */,
 			);
 			name = News;
 			sourceTree = "<group>";

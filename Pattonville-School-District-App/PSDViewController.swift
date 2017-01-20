@@ -32,6 +32,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore  {
             print("Not first launch.")
@@ -39,7 +40,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
             print("First launch, setting UserDefault.")
             SchoolsArray.init()
         }
-        
         
         //Width of height of the carousel. Used in later calculations
         carouselWidth = UIScreen.main.bounds.size.width;
@@ -57,16 +57,15 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         //homeCarousel.scroll(byNumberOfItems: 1, duration: 4)
         homeCarousel.reloadData()
         
-        
         tableView.delegate = self
         tableView.dataSource = self
-        var CarouselTimer: Timer!
         
-        CarouselTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
+        var carouselTimer: Timer!
+        carouselTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
 
-        let parser = NewsParser(newsReel: newsReel)
+        let newsParser = NewsParser(newsReel: newsReel)
         
-        parser.getDataInBackground(completionHandler: {
+        newsParser.getDataInBackground(completionHandler: {
             self.tableView.reloadData()
         })
         
@@ -75,8 +74,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     
     func scroll(){
         homeCarousel.scroll(byNumberOfItems: 1, duration: 2.0)
-        
-        
     }
     
 

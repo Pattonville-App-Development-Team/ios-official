@@ -11,7 +11,7 @@ import iCarousel
 
 class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelegate, UITableViewDelegate, UITableViewDataSource, XMLParserDelegate {
     
-    var none: Int!
+    var refreshControl: UIRefreshControl!
     
     @IBOutlet var vwCarousel: iCarousel!
     @IBOutlet var tableView: UITableView!
@@ -35,6 +35,9 @@ class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        schools = SchoolsArray.getSubscribedSchools()
+        parser = NewsParser(newsReel: newsReel)
+        
         carouselWidth = UIScreen.main.bounds.size.width;
         carouselHeight = vwCarousel.bounds.size.height;
         
@@ -55,17 +58,15 @@ class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelega
         tableView.delegate = self
         tableView.dataSource = self
         
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.backgroundColor = .red
+        self.refreshControl.tintColor = .white
+        self.refreshControl.addTarget(self, action: #selector(NewsViewController.refreshData), for: UIControlEvents.valueChanged)
+        
         
         var carouselTimer: Timer!
         
         carouselTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
-        
-        schools = SchoolsArray.getSubscribedSchools()
-        
-        parser = NewsParser(newsReel: newsReel)
-        parser.getDataInBackground(completionHandler: {
-            self.tableView.reloadData()
-        })
         
     }
     
@@ -177,6 +178,15 @@ class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelega
         }
         return value
         
+    }
+    
+    func refreshData(){
+        parser.getDataInBackground(completionHandler: {
+            print("REFRESHING")
+            self.tableView.reloadData()
+        })
+        
+        self.refreshControl.endRefreshing()
     }
 
     

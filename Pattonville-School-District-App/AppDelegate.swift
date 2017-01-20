@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        
         let navBarController = window!.rootViewController as! UITabBarController
         
         let navHomeController = navBarController.viewControllers![0] as! UINavigationController
@@ -35,8 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         newsController.newsReel = newsReel
         calendarController.calendarList = calendarList
         calendarController.selectedDate = Date()
-        
-        
         
         UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
         
