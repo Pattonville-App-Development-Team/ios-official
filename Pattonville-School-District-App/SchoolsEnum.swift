@@ -23,7 +23,8 @@ class SchoolsEnum {
                                 isSubscribedTo: true,
                                 color: UIColor.red,
                                 calendarURL: "http://drummond.psdr3.org/ical/Early%20Childhood.ics",
-                                newsURL: "http://fccms.psdr3.org/")
+                                newsURL: "http://fccms.psdr3.org/",
+                                staffArray: [])
 
     static var bridgewayElementary = School(name: "Bridgeway Elementary",
                                 address: "11635 Oakbury Court", city: "Bridgeton", state: "MO", zip: "63044",
@@ -36,7 +37,8 @@ class SchoolsEnum {
                                 isSubscribedTo: false,
                                 color: UIColor.blue,
                                 calendarURL: "http://drummond.psdr3.org/ical/Bridgeway.ics",
-                                newsURL: "http://fccms.psdr3.org/Bridgeway/news?plugin=xml&leaves")
+                                newsURL: "http://fccms.psdr3.org/Bridgeway/news?plugin=xml&leaves",
+                                staffArray: [])
 
     static var drummondElementary = School(name: "Drummond Elementary",
                                 address: "3721 St. Bridget Lane", city: "St. Ann", state: "MO", zip: "63074",
@@ -49,7 +51,8 @@ class SchoolsEnum {
                                 isSubscribedTo: false,
                                 color: UIColor.black,
                                 calendarURL: "http://drummond.psdr3.org/ical/Drummond.ics",
-                                newsURL: "http://fccms.psdr3.org/Drummond/news?plugin=xml&leaves")
+                                newsURL: "http://fccms.psdr3.org/Drummond/news?plugin=xml&leaves",
+                                staffArray: [])
 
     static var parkwoodElementary = School(name: "Parkwood Elementary",
                                 address: "3199 Parkwood Lane", city: "Maryland Heights", state: "MO", zip: "63043",
@@ -62,7 +65,8 @@ class SchoolsEnum {
                                 isSubscribedTo: true,
                                 color: UIColor.yellow,
                                 calendarURL: "http://drummond.psdr3.org/ical/Parkwood.ics",
-                                newsURL: "http://fccms.psdr3.org/Parkwood/news?plugin=xml&leaves")
+                                newsURL: "http://fccms.psdr3.org/Parkwood/news?plugin=xml&leaves",
+                                staffArray: [])
 
     static var remingtonTraditional = School(name: "Remington Traditional",
                                 address: "102 Fee Fee Rd", city: "Maryland Heights", state: "MO", zip: "63043",
@@ -75,7 +79,8 @@ class SchoolsEnum {
                                 isSubscribedTo: true,
                                 color: UIColor.magenta,
                                 calendarURL: "http://drummond.psdr3.org/ical/Remington.ics",
-                                newsURL: "http://fccms.psdr3.org/Remington/news?plugin=xml&leaves")
+                                newsURL: "http://fccms.psdr3.org/Remington/news?plugin=xml&leaves",
+                                staffArray: [])
 
     static var roseAcresElementary = School(name: "Rose Acres Elementary",
                                 address: "2905 Rose Acres Lane", city: "Maryland Heights", state: "MO", zip: "63043",
@@ -88,7 +93,8 @@ class SchoolsEnum {
                                 isSubscribedTo: false,
                                 color: UIColor.purple,
                                 calendarURL: "http://drummond.psdr3.org/ical/Rose%20Acres.ics",
-                                newsURL: "http://fccms.psdr3.org/RoseAcres/news?plugin=xml&leaves")
+                                newsURL: "http://fccms.psdr3.org/RoseAcres/news?plugin=xml&leaves",
+                                staffArray: [])
 
     static var willowBrookElementary = School(name: "Willow Brook Elementary",
                                 address: "11022 Schuetz Road", city: "Creve Coeur", state: "MO", zip: "63146",
@@ -101,7 +107,8 @@ class SchoolsEnum {
                                 isSubscribedTo: false,
                                 color: UIColor.cyan,
                                 calendarURL: "http://drummond.psdr3.org/ical/Willow%20Brook.ics",
-                                newsURL: "http://fccms.psdr3.org/WillowBrook/news?plugin=xml&leaves")
+                                newsURL: "http://fccms.psdr3.org/WillowBrook/news?plugin=xml&leaves",
+                                staffArray: [])
 
     static var holmanMiddleSchool = School(name: "Holman Middle School",
                                 address: "11055 St. Charles Rock Rd", city: "St. Ann", state: "MO", zip: "63074",
@@ -114,7 +121,8 @@ class SchoolsEnum {
                                 isSubscribedTo: false,
                                 color: UIColor.orange,
                                 calendarURL: "http://drummond.psdr3.org/ical/Holman.ics",
-                                newsURL: "http://fccms.psdr3.org/Holman/news?plugin=xml&leaves")
+                                newsURL: "http://fccms.psdr3.org/Holman/news?plugin=xml&leaves",
+                                staffArray: [])
 
     static var heightsMiddleSchool = School(name: "Heights Middle School",
                                 address: "195 Fee Fee Road", city: "Maryland Heights", state: "MO", zip: "63043",
@@ -127,7 +135,8 @@ class SchoolsEnum {
                                 isSubscribedTo: true,
                                 color: UIColor.gray,
                                 calendarURL: "http://drummond.psdr3.org/ical/Heights.ics",
-                                newsURL: "http://fccms.psdr3.org/Heights/news?plugin=xml&leaves")
+                                newsURL: "http://fccms.psdr3.org/Heights/news?plugin=xml&leaves",
+                                staffArray: [])
 
     static var pattonvilleHighSchool = School(name: "Pattonville High School",
                                 address: "2497 Creve Coeur Mill Road", city: "Maryland Heights", state: "MO", zip: "63074",
@@ -140,7 +149,8 @@ class SchoolsEnum {
                                 isSubscribedTo: true,
                                 color: UIColor.green,
                                 calendarURL: "http://drummond.psdr3.org/ical/High%20School.ics",
-                                newsURL: "http://fccms.psdr3.org/HighSchool/news?plugin=xml&leaves")
+                                newsURL: "http://fccms.psdr3.org/HighSchool/news?plugin=xml&leaves",
+                                staffArray: [])
     
     static func setIsSubscribedToSchoolValue(school: School, isSubscribedToValue: Bool){
         school.isSubscribedTo = isSubscribedToValue

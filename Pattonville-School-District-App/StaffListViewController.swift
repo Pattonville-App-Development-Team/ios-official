@@ -18,7 +18,11 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
     var staffMember: StaffMember!
     
     @IBAction func sendEmailButton(_ sender: UIButton) {
-        self.staffMember = staffList[sender.tag]
+        if filteredStaffList.count > 0 {
+            self.staffMember = filteredStaffList[sender.tag]
+        } else {
+            self.staffMember = staffList[sender.tag]
+        }
         let mailComposeViewController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
             self.present(mailComposeViewController, animated: true, completion: nil)
@@ -87,6 +91,7 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
             staffMember = staffList[indexPath.row]
         }
         
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         cell.nameLabel.text = staffMember.firstName + " " + staffMember.lastName
         cell.departmentLabel.text = staffMember.department
         cell.extensionLabel.text = "x" + staffMember.ext
@@ -114,7 +119,7 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
         mailComposerVC.setToRecipients([self.staffMember.email])
-        mailComposerVC.setSubject("")
+//        mailComposerVC.setSubject("")
         mailComposerVC.setMessageBody("", isHTML: false)
         
         return mailComposerVC
