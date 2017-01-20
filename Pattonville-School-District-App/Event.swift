@@ -85,7 +85,7 @@ class Event: Equatable{
     }
     
     static func == (lhs: Event, rhs: Event) -> Bool{
-        return lhs.eventID == rhs.eventID
+        return lhs.eventID == rhs.eventID && lhs.school == rhs.school
     }
     
 }

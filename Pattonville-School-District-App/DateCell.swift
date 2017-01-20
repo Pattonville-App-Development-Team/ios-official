@@ -28,7 +28,7 @@ class DateCell: UITableViewCell{
 
     }
     
-    func setUp(){
+    func setUp(indexPath: IndexPath){
         title.text = event.name
         location.text = event.location
         setTimes(start: event.startTime!, end: event.endTime!)
@@ -44,6 +44,9 @@ class DateCell: UITableViewCell{
         }
         
         schoolColorLine.backgroundColor = event.school.color
+        
+        pinButton.tag = indexPath.row;
+        pinButton.addTarget(self, action: #selector(CalendarViewController.nowPinned(sender:)), for: UIControlEvents.touchUpInside);
         
     }
     

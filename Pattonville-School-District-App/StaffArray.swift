@@ -18,6 +18,7 @@ class StaffArray {
         staffList.append(StaffMember(firstName: "Gay", lastName: "Lacy", department: "English", email: "glacy@psdr3.org", ext: "0002"))
         staffList.append(StaffMember(firstName: "Odetta", lastName: "Smith", department: "Assisstant Principle", email: "osmith@psdr3.org", ext: "0003"))
         staffList.append(StaffMember(firstName: "Justin", lastName: "Smiley", department: "Social Study", email: "jsmiley@psdr3.org", ext: "0004"))
+        
     }
     
 }

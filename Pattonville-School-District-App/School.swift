@@ -26,6 +26,9 @@ class School: NSObject {
     var nutriSliceURL: String
     var calendarURL: String
     var newsURL: String
+    var eventsList: [Event]
+    var staffArray: [StaffMember]
+    
     
     /// The School Object initializer, to be used in the Schools Enum
     ///
@@ -41,6 +44,8 @@ class School: NSObject {
     /// - parameter peachjarURL:      PeachJar URL used in the PeachJar Feature of School being initialized
     /// - parameter nutriSliceURL:    NutriSlice URL used in the NutriSlice Feature, being intialized
     /// - parameter isSubscribedTo:   Boolean to determine whether or not a user is subscribed to a schools news feed, will be set based upon the switch in the SelectSchools feautre in Settings and then accessed for the news feed
+    /// - parameter staffArray:       Array of staff members to be used in Directory of School being initialized
+    ///
     /// - parameter calendarURL:      .ics calendar file remote location
     
     init(name: String,
@@ -52,7 +57,8 @@ class School: NSObject {
          nutriSliceURL: String,
          isSubscribedTo: Bool, color: UIColor,
          calendarURL: String,
-         newsURL: String) {
+         newsURL: String,
+         staffArray: [StaffMember]) {
         
             self.name = name
             self.address = address
@@ -68,8 +74,10 @@ class School: NSObject {
             self.isSubscribedTo = isSubscribedTo
             self.color = color
             self.calendarURL = calendarURL
+            self.staffArray = staffArray
             self.newsURL = newsURL
-        
+
+            self.eventsList = []
         
     }
     
@@ -88,11 +96,9 @@ class School: NSObject {
             
             if error == nil{
                 theCalendar = calendar
-                print("THE CALENDAR: \(theCalendar)")
                 onSucces(calendar)
                 
             }else{
-                print("ERROR: \(error)")
                 theCalendar = nil
                 onError(error)
                 

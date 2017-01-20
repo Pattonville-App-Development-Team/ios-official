@@ -335,7 +335,6 @@
 		42B933AA1DFAF7B200514B73 /* DIrectory */ = {
 			isa = PBXGroup;
 			children = (
-				55A31F051E01B7FC0094056E /* Staff */,
 				55A31EFE1E01B3660094056E /* School-Specific-Directory */,
 				42B933441DFAEEF300514B73 /* Directory.storyboard */,
 				42B933451DFAEEF300514B73 /* DirectoryViewController.swift */,
@@ -369,6 +368,7 @@
 		42B933AD1DFAF83A00514B73 /* Schools */ = {
 			isa = PBXGroup;
 			children = (
+				55A31F051E01B7FC0094056E /* Staff */,
 				42B9335F1DFAEEF300514B73 /* School.swift */,
 				42B933611DFAEEF400514B73 /* SchoolsArray.swift */,
 				42B933621DFAEEF400514B73 /* SchoolsEnum.swift */,
