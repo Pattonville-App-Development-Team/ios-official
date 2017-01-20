@@ -25,7 +25,10 @@ class Calendar{
             
             let theEvent = Event(mxlEvent: (event as! MXLCalendarEvent), school: school)
             
-            addDate(event: theEvent)
+            if !datesList.contains(theEvent){
+                addDate(event: theEvent)
+            }
+            
         }
         
 
@@ -56,12 +59,13 @@ class Calendar{
     /// - date: the date to look for
     /// - returns: an array of events that occur on the specified date
     
-    func eventsForDate(date: String) -> [Event]{
+    func eventsForDate(date: Date) -> [Event]{
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
         
-        let theDate = dateFormatter.date(from: date)
+        let theDateString = dateFormatter.string(from: date)
+        let theDate = dateFormatter.date(from: theDateString)
         
         var eventsList = [Event]()
         
@@ -72,5 +76,15 @@ class Calendar{
         return eventsList
         
     }
+    
+    func hasEvents(for date: Date) -> Bool{
+        return eventsForDate(date: date).count > 0
+    }
+    
+    func resetEvents(){
+        datesList = []
+        dates = [:]
+    }
+    
     
 }

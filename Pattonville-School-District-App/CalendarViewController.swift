@@ -31,40 +31,22 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         super.viewDidLoad()
         
-        let schools = SchoolsArray.getSubscribedSchools()
-        
-        for school in schools{
-            
-            school.getCalendarData(onSucces: {
-                (calendar) -> Void in
-                self.calendarList.appendDates(mxlCalendar: calendar!, school: school)
-            }, onError: {
-                (error) -> Void in
-                print(error ?? "Error")
-            })
-            
-            self.calendar.reloadData()
-            self.tableView.reloadData()
-        }
-        
         tableView.dataSource = self
         tableView.delegate = self
         
         tableView.register(UINib(nibName: "DateCell", bundle: nil), forCellReuseIdentifier: "DateCell")
         
+        
         calendar.dataSource = self
         calendar.delegate = self
-        
         calendar.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
-        
         calendar.registerCellViewXib(file: "DateView")
         calendar.registerHeaderView(xibFileNames: ["CalendarHeaderView"])
-        
         calendar.cellInset = CGPoint(x: 0, y: 0.25)
-        
         calendar.scrollToDate(Date(), triggerScrollToDateDelegate: true, animateScroll: false)
         
         // Do any additional setup after loading the view, typically from a nib.
+        print("VIEW DID LOAD")
         
     }
     
@@ -73,14 +55,8 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        pinnedDateEvents = calendarList.datesList.filter({
-            return $0.pinned
-        })
+        getDatesInBackground()
         
-        calendar.reloadData()
-        tableView.reloadData()
-        
-        filterCalendarData(for: selectedDate)
         calendar.selectDates([Date(), selectedDate])
         
         print("VIEW DID APPEAR")
@@ -125,16 +101,21 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     
     func calendar(_ calendar: JTAppleCalendarView, willDisplayCell cell: JTAppleDayCellView, date: Date, cellState: CellState){
         
-        (cell as! CalendarDateView).setupCellBeforeDisplay(cellState: cellState, date: date)
+        let cell = (cell as! CalendarDateView)
+        
+        cell.setupCellBeforeDisplay(cellState: cellState, date: date)
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
         
-        let dateString = dateFormatter.string(from: date)
-        let theDate = dateFormatter.date(from: dateString)
+        let theDate = dateFormatter.date(from: formatDate(date: date))
         
-        if calendarList.dates.keys.contains(theDate!){
-            (cell as! CalendarDateView).showDelineator()
+        if calendarList.hasEvents(for: theDate!){
+            print("Events exist for \(theDate!)")
+            print("\(calendarList.eventsForDate(date: theDate!))\n")
+            cell.showDelineator()
+        }else{
+            cell.hideDelineator()
         }
         
     }
@@ -181,15 +162,15 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
         
         if compareDates(date1: date, date2: Date()) && cellState.dateBelongsTo == .thisMonth{
-            (cell as? CalendarDateView)?.setSelected(color: UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0))
+            (cell as? CalendarDateView)?.styleToday()
         }else{
-            (cell as? CalendarDateView)?.setSelected(color: UIColor(red: 150/255.0, green: 150/255.0, blue: 150/255.0, alpha: 1))
+            (cell as? CalendarDateView)?.select()
         }
         
-        if !calendarList.eventsForDate(date: formatDate(date: date)).isEmpty{
-            (cell as? CalendarDateView)?.dateDelineater.backgroundColor = .white
+        if calendarList.eventsForDate(date: date).count > 0{
+            (cell as? CalendarDateView)?.showDelineator()
         }else{
-            (cell as? CalendarDateView)?.dateDelineater.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 0)
+            (cell as? CalendarDateView)?.hideDelineator()
         }
         
         selectedDate = date
@@ -207,14 +188,13 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     /// - cellState: the state of the cell after being deselected
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
-        (cell as? CalendarDateView)?.setUnselected(cellState: cellState)
+        (cell as? CalendarDateView)?.unselect(cellState: cellState)
         
-        if !calendarList.eventsForDate(date: formatDate(date: date)).isEmpty{
-            (cell as? CalendarDateView)?.dateDelineater.backgroundColor = UIColor(red: 175/255, green: 175/255, blue: 175/255, alpha: 1)
-        }else{
+        if !calendarList.hasEvents(for: date){
             (cell as? CalendarDateView)?.hideDelineator()
+        }else{
+            (cell as? CalendarDateView)?.showDelineator()
         }
-
         
         calendar.selectDates([Date()])
     }
@@ -236,13 +216,11 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
         
-        let event = calendarList.eventsForDate(date: formatDate(date: selectedDate))[indexPath.row]
+        let event = calendarList.eventsForDate(date: selectedDate)[indexPath.row]
         
         cell.event = event
-        cell.setUp()
-        cell.pinButton.tag = indexPath.row;
-        cell.pinButton.addTarget(self, action: #selector(CalendarViewController.nowPinned(sender:)), for: UIControlEvents.touchUpInside);
-        
+        cell.setUp(indexPath: indexPath)
+    
         return cell
     }
     
@@ -281,8 +259,9 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         dateFormatter.dateFormat = "YYYY-MM-dd"
         
         let theDateString = dateFormatter.string(from: date)
+        let theDate = dateFormatter.date(from: theDateString)
         
-        selectedDateEvents = calendarList.eventsForDate(date: theDateString)
+        selectedDateEvents = calendarList.eventsForDate(date: theDate!)
         
     }
     
@@ -358,6 +337,52 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         let theDateString = dateFormatter.string(from: date)
         
         return theDateString
+        
+    }
+    
+    private func runOnMainThread(calendar: MXLCalendar, school: School){
+        
+        DispatchQueue.main.async {
+            
+            self.calendarList.appendDates(mxlCalendar: calendar, school: school)
+            
+            self.pinnedDateEvents = self.calendarList.datesList.filter({
+                return $0.pinned
+            })
+            
+            self.filterCalendarData(for: self.selectedDate)
+            
+            
+            self.calendar.reloadData()
+            self.tableView.reloadData()
+            
+        }
+        
+    }
+    
+    private func getDatesInBackground(){
+        
+        DispatchQueue.global(qos: .background).async{
+            
+            let schools = SchoolsArray.getSubscribedSchools()
+            self.calendarList.resetEvents()
+            
+            for school in schools{
+                
+                school.getCalendarData(onSucces: {
+                    (calendar) -> Void in
+                    
+                    self.runOnMainThread(calendar: calendar!, school: school)
+                    
+                }, onError: {
+                    (error) -> Void in
+                    print(error ?? "Error")
+                })
+            }
+            
+            print("async done")
+            
+        }
         
     }
     

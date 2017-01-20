@@ -88,7 +88,7 @@ class CalendarPinnedListViewController: UIViewController, UITableViewDelegate, U
         let event = eventsList[indexPath.row]
         
         cell.event = event
-        cell.setUp()
+        cell.setUp(indexPath: indexPath)
         
         cell.pinButton.tag = indexPath.row;
         cell.pinButton.addTarget(self, action: #selector(CalendarPinnedListViewController.unPinned(sender:)), for: UIControlEvents.touchUpInside);

@@ -96,11 +96,9 @@ class School: NSObject {
             
             if error == nil{
                 theCalendar = calendar
-                print("THE CALENDAR: \(theCalendar)")
                 onSucces(calendar)
                 
             }else{
-                print("ERROR: \(error)")
                 theCalendar = nil
                 onError(error)
                 
