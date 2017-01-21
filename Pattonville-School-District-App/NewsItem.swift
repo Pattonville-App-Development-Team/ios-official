@@ -17,13 +17,15 @@ class NewsItem{
     var date: Date
     var dateString: String
     
+    var url: String
+    
     /// Initializer to create individual NewsItems
     ///
     /// - parameter title:    the title of the given NewsItem
     /// - parameter content:  the news story for the reader to absorb
     /// - parameter the_date: the date of the news story
     ///
-    init(title: String, the_date: String){
+    init(title: String, the_date: String, url: String){
         self.title = title
         self.content = ""
         
@@ -36,6 +38,8 @@ class NewsItem{
         dateStringFormatter.dateFormat = "EEE, MMMM dd, yyyy"
         self.dateString = dateStringFormatter.string(from: date)
         
+        self.url = "http://fccms.psdr3.org/\(url)"
+        self.content = ""
         
     }
     

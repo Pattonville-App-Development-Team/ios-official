@@ -1,18 +1,24 @@
 PODS:
+  - Alamofire (4.1.0)
   - iCarousel (1.8.3)
   - JTAppleCalendar (6.0.2)
+  - Kanna (2.0.0)
   - MXLCalendarManager (1.0.4)
 
 DEPENDENCIES:
+  - Alamofire
   - iCarousel
   - JTAppleCalendar
+  - Kanna
   - MXLCalendarManager
 
 SPEC CHECKSUMS:
+  Alamofire: e266cf991b933498df791e645e0d8ac294492153
   iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
   JTAppleCalendar: d0f71bdd45105279fc59329a9c24017e7028e499
+  Kanna: 9a6637f72f5c77fe9c045b1efb2a5bb074754af8
   MXLCalendarManager: 3432fa4fb369d352f84a0874f69b198de70119ac
 
-PODFILE CHECKSUM: 54e71f9694885fc0d000cb799b58eecca367b4c8
+PODFILE CHECKSUM: b23d9051e1d5b3136424df97252fe97a7649db49
 
 COCOAPODS: 1.1.1

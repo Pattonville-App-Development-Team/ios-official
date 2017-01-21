@@ -119,6 +119,13 @@ class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelega
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "NewsDetailViewSegue"{
+            let destination = segue.destination as! NewsDetailViewController
+            destination.news = newsReel.news[(tableView.indexPathForSelectedRow?.row)!]
+        }
+    }
+    
     
     //CAROUSEL STUFF
     

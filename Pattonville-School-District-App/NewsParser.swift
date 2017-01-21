@@ -16,6 +16,7 @@ class NewsParser: NSObject, XMLParserDelegate{
     var element: String = ""
     var articleTitle: String = ""
     var articleDate: String = ""
+    var articleURL: String = ""
     
     init(newsReel: NewsReel){
         self.newsReel = newsReel
@@ -32,6 +33,7 @@ class NewsParser: NSObject, XMLParserDelegate{
         if (elementName as NSString).isEqual(to: "item"){
             articleTitle = ""
             articleDate = ""
+            articleURL = ""
         }
         
     }
@@ -42,6 +44,8 @@ class NewsParser: NSObject, XMLParserDelegate{
             articleTitle = string
         }else if element == "pubDate"{
             articleDate = string
+        }else if element == "link"{
+            articleURL = string
         }
         
     }
@@ -51,8 +55,8 @@ class NewsParser: NSObject, XMLParserDelegate{
         var newsItem: NewsItem?
         
         if (elementName as NSString).isEqual(to: "item") {
-            if !articleTitle.isEqual(nil) && !articleDate.isEqual(nil) {
-                newsItem = NewsItem(title: articleTitle, the_date: articleDate)
+            if !articleTitle.isEqual(nil) && !articleDate.isEqual(nil) && !articleURL.isEqual(nil) {
+                newsItem = NewsItem(title: articleTitle, the_date: articleDate, url: articleURL)
             }else{
                 newsItem = nil
             }
