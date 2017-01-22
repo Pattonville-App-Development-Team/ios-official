@@ -13,6 +13,7 @@ import UIKit
 class SchoolsEnum {
     
     static var earlyChildhood = School(name: "Early Childhood",
+                                shortname: "EC",
                                 address: "11097 St. Charles Rock Rd", city: "St. Ann", state: "MO", zip: "63074",
                                 mainNumber: "(314)-213-8500",
                                 attendanceNumber: "N/A",
@@ -27,6 +28,7 @@ class SchoolsEnum {
                                 staffArray: [])
 
     static var bridgewayElementary = School(name: "Bridgeway Elementary",
+                                shortname: "BW",
                                 address: "11635 Oakbury Court", city: "Bridgeton", state: "MO", zip: "63044",
                                 mainNumber: "(314)-213-8012",
                                 attendanceNumber: "(314)-213-8112",
@@ -41,6 +43,7 @@ class SchoolsEnum {
                                 staffArray: [])
 
     static var drummondElementary = School(name: "Drummond Elementary",
+                                shortname: "DR",
                                 address: "3721 St. Bridget Lane", city: "St. Ann", state: "MO", zip: "63074",
                                 mainNumber: "(314)-213-8419",
                                 attendanceNumber: "(314)-213-8519",
@@ -55,6 +58,7 @@ class SchoolsEnum {
                                 staffArray: [])
 
     static var parkwoodElementary = School(name: "Parkwood Elementary",
+                                shortname: "PW",
                                 address: "3199 Parkwood Lane", city: "Maryland Heights", state: "MO", zip: "63043",
                                 mainNumber: "(314)-213-8015",
                                 attendanceNumber: "(314)-213-8115",
@@ -69,6 +73,7 @@ class SchoolsEnum {
                                 staffArray: [])
 
     static var remingtonTraditional = School(name: "Remington Traditional",
+                                shortname: "RE",
                                 address: "102 Fee Fee Rd", city: "Maryland Heights", state: "MO", zip: "63043",
                                 mainNumber: "(314)-213-8016",
                                 attendanceNumber: "(314)-213-8116",
@@ -83,6 +88,7 @@ class SchoolsEnum {
                                 staffArray: [])
 
     static var roseAcresElementary = School(name: "Rose Acres Elementary",
+                                shortname: "RA",
                                 address: "2905 Rose Acres Lane", city: "Maryland Heights", state: "MO", zip: "63043",
                                 mainNumber: "(314)-213-8017",
                                 attendanceNumber: "(314)-213-8117",
@@ -97,6 +103,7 @@ class SchoolsEnum {
                                 staffArray: [])
 
     static var willowBrookElementary = School(name: "Willow Brook Elementary",
+                                shortname: "WB",
                                 address: "11022 Schuetz Road", city: "Creve Coeur", state: "MO", zip: "63146",
                                 mainNumber: "(314)-213-8018",
                                 attendanceNumber: "(314)-213-8118",
@@ -111,6 +118,7 @@ class SchoolsEnum {
                                 staffArray: [])
 
     static var holmanMiddleSchool = School(name: "Holman Middle School",
+                                shortname: "HO",
                                 address: "11055 St. Charles Rock Rd", city: "St. Ann", state: "MO", zip: "63074",
                                 mainNumber: "(314)-213-8032",
                                 attendanceNumber: "(314)-213-8132",
@@ -125,6 +133,7 @@ class SchoolsEnum {
                                 staffArray: [])
 
     static var heightsMiddleSchool = School(name: "Heights Middle School",
+                                shortname: "HT",
                                 address: "195 Fee Fee Road", city: "Maryland Heights", state: "MO", zip: "63043",
                                 mainNumber: "(314)-213-8033",
                                 attendanceNumber: "(314)-213-8333",
@@ -139,6 +148,7 @@ class SchoolsEnum {
                                 staffArray: [])
 
     static var pattonvilleHighSchool = School(name: "Pattonville High School",
+                                shortname: "HS",
                                 address: "2497 Creve Coeur Mill Road", city: "Maryland Heights", state: "MO", zip: "63074",
                                 mainNumber: "(314)-213-8051",
                                 attendanceNumber: "(314)-213-8351",

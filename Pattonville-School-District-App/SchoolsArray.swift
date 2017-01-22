@@ -33,6 +33,14 @@ class SchoolsArray {
       
     }
     
+    static func getSchoolByName(name: String) -> School{
+        
+        return allSchools.filter({
+            $0.name.contains(name)
+        }).first!
+        
+    }
+    
     static func getSubscribedSchools() -> [School]{
         return allSchools.filter({
             $0.isSubscribedTo

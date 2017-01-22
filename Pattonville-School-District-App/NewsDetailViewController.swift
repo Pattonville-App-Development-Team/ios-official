@@ -17,17 +17,26 @@ class NewsDetailViewController: UIViewController{
     
     /// The image at the top of the news article before the text
     @IBOutlet var ivDisplayImage: UIImageView!
-    @IBOutlet var content: UILabel!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var date: UILabel!
+    @IBOutlet var webView: UIWebView!
+    
+    //@IBOutlet var content: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         ivDisplayImage.image = UIImage(named: "flowers")
+        titleLabel.text = news.title
+        date.text = news.dateString
+        
         getHTML()
         
         print(news.content)
-        content.text = news.content
+        //content.text = news.content
         // Do any additional setup after loading the view.
     }
+
+    /// Submits a GET request to a URL and is returned the HTML of the webpage
 
     func getHTML(){
         
@@ -40,6 +49,10 @@ class NewsDetailViewController: UIViewController{
         
     }
     
+    /// Parses the supplied HTML for all the text contained within <font></font> tags
+    ///
+    /// - html: the html string to parse (supploed by getHTML())
+    ///
     func parseHTML(html: String){
         if let doc = Kanna.HTML(html: html, encoding: String.Encoding.utf8) {
             
@@ -49,12 +62,13 @@ class NewsDetailViewController: UIViewController{
             
             var contentString = "";
             for text in doc.css("font"){
-                contentString.append(text.text!)
+                contentString.append(text.innerHTML!)
+                contentString.append("<br /><br />")
             }
             
             print(contentString)
             
-            news.content = contentString
+            webView.loadHTMLString(contentString, baseURL: nil)
 
             
         }
