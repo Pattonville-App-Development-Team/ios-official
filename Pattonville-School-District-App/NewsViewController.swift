@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLParserDelegate {
+class NewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLParserDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
     
     var refreshControl: UIRefreshControl!
     
@@ -18,27 +18,23 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     var carouselHeight: CGFloat = 0
     
     var newsReel: NewsReel!
+    var filteredNewsReel: NewsReel!
+    
     var schools: [School]!
     var parser: NewsParser!
     
-    var images : [[Any]] = []
-    
-    let circle = #imageLiteral(resourceName: "circle.jpg")
-    let java = #imageLiteral(resourceName: "java.jpg")
-    let lines = #imageLiteral(resourceName: "lines.jpg")
-    let natureDear = #imageLiteral(resourceName: "nature- dear.jpg")
-    let illusion = #imageLiteral(resourceName: "illusion.jpg")
-    let diamond = #imageLiteral(resourceName: "diamond.jpg")
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        images.append([circle, "Circle"])
-        images.append([java, "java"])
-        images.append([lines, "lines"])
-        images.append([natureDear, "Deer"])
-        images.append([illusion, "Illusion"])
-        images.append([diamond, "Diamond"])
+        filteredNewsReel = NewsReel()
+        
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
         
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -92,7 +88,11 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     ///
     /// - returns: the number of news stories in the newsReel used to populated the TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsReel.news.count
+        if searchController.isActive && searchController.searchBar.text != ""{
+            return filteredNewsReel.news.count
+        }else{
+            return newsReel.news.count
+        }
     }
     
    
@@ -106,7 +106,14 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsItemCell", for: indexPath) as! NewsItemCell
         
-        let newsItem = newsReel.news[indexPath.row]
+        let newsItem: NewsItem
+        
+        if searchController.isActive && searchController.searchBar.text != ""{
+            newsItem = filteredNewsReel.news[indexPath.row]
+        }else{
+            newsItem = newsReel.news[indexPath.row]
+        }
+        
         
         cell.title.text = newsItem.title
         cell.date.text = newsItem.dateString
@@ -116,6 +123,17 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.schoolName.text = newsItem.school.shortName
         
         return cell
+        
+    }
+    
+    
+    func updateSearchResults(for: UISearchController) {
+        
+        print(filteredNewsReel.news.count)
+        
+        filterNewsForSearchText(searchText: searchController.searchBar.text!)
+        
+        print(filteredNewsReel.news.count)
         
     }
     
@@ -138,6 +156,16 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         self.refreshControl.endRefreshing()
+    }
+    
+    private func filterNewsForSearchText(searchText: String){
+        
+        filteredNewsReel.news = newsReel.news.filter({ newsItem in
+            return newsItem.title.lowercased().contains(searchText.lowercased())
+        })
+        
+        tableView.reloadData()
+        
     }
 
     

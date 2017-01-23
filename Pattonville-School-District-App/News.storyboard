@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UXM-ll-ri2" id="3u9-fK-ARd">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Atc-Vv-V0m">
@@ -44,7 +44,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGY-sW-EMG">
-                                                    <rect key="frame" x="77" y="28" width="26.5" height="21"/>
+                                                    <rect key="frame" x="77" y="28" width="27" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="8cB-Mi-Sd2"/>
                                                     </constraints>
@@ -103,7 +103,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="QQ7-ld-LYh" secondAttribute="trailing" constant="-16" id="qBM-1q-AQm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="News" id="9Fx-xT-C4e"/>
+                    <navigationItem key="navigationItem" title="News" id="9Fx-xT-C4e">
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="ddb-Bk-cb2"/>
+                        <barButtonItem key="rightBarButtonItem" title="Search" id="miW-3K-OCQ"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="QQ7-ld-LYh" id="Gc6-J0-lcK"/>
                     </connections>
