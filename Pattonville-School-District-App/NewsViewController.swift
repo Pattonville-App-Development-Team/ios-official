@@ -46,9 +46,16 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         
         self.refreshControl = UIRefreshControl()
-        self.refreshControl.backgroundColor = .red
+        self.refreshControl.backgroundColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
         self.refreshControl.tintColor = .white
         self.refreshControl.addTarget(self, action: #selector(NewsViewController.refreshData), for: UIControlEvents.valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            // Fallback on earlier versions
+            tableView.addSubview(refreshControl)
+        }
         
     }
     
@@ -121,12 +128,14 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         parser.getDataInBackground(completionHandler: {
             print("REFRESHING")
+            
+            self.newsReel.news.sort(by: {
+                return $0.date > $1.date
+            })
+            
             self.tableView.reloadData()
         })
         
-        newsReel.news.sort(by: {
-            return $0.date > $1.date
-        })
         
         self.refreshControl.endRefreshing()
     }
