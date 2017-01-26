@@ -12,7 +12,6 @@ import UIKit
 class NewsItem: Equatable{
     
     var title: String
-    var content: String
     
     var date: Date
     var dateString: String
@@ -34,7 +33,6 @@ class NewsItem: Equatable{
         self.id = id
         
         self.title = title
-        self.content = ""
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEE, dd MMM yyyy kk:mm:ss Z"
@@ -46,7 +44,6 @@ class NewsItem: Equatable{
         self.dateString = dateStringFormatter.string(from: date)
         
         self.url = "http://fccms.psdr3.org/\(url)"
-        self.content = ""
         self.school = school
         
     }

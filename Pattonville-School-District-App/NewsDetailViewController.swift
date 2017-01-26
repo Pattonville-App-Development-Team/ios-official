@@ -16,7 +16,6 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
     var news: NewsItem!
     
     /// The image at the top of the news article before the text
-    @IBOutlet var ivDisplayImage: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var date: UILabel!
     @IBOutlet var webView: UIWebView!
@@ -24,6 +23,7 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
     @IBOutlet var schoolName: UILabel!
     
     @IBOutlet var webviewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var headerViewHeightConstraint: NSLayoutConstraint!
     
     //@IBOutlet var content: UILabel!
     
@@ -31,8 +31,7 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
         super.viewDidLoad()
         
         self.title = news.title
-        
-        ivDisplayImage.image = UIImage(named: "flowers")
+
         titleLabel.text = news.title
         date.text = news.dateString
         
@@ -43,9 +42,10 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
         webView.scrollView.isScrollEnabled = false;
         webView.delegate = self
         
-        getHTML()
+        headerViewHeightConstraint.constant = titleLabel.frame.height + date.frame.height + 30
         
-        print(news.content)
+        getHTML()
+
         //content.text = news.content
         // Do any additional setup after loading the view.
     }
@@ -84,27 +84,16 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
     func parseHTML(html: String){
         if let doc = Kanna.HTML(html: html, encoding: String.Encoding.utf8) {
             
-            let readmore = "<div align='left' style='line-height:115%;vertical-align:115%;text-align:left;'><font face='Arial' size='+0' color='#000000' style='font-family:Arial;font-size:8pt;color:#000000;'>-Read-More-</font></div>"
+            var contentString = "<style> font{font-family: 'Arial' !important; font-size: 0.85em !important;} img{width: 100% !important; height: auto !important;}</style>";
             
-            print("Parsing HTML")
-            // Search for nodes by CSS selector
-            print(doc.css("font"))
-            
-            var contentString = "<style> font{font-family: 'Arial' !important; font-size: 0.85em !important;}</style>";
-            for text in doc.css("table").dropFirst(){
-                
-                print(text.innerHTML! + "\n\n")
-                
-                if text.innerHTML == readmore{
-                    print("NO READ MORE")
-                    continue
-                }
-                
+            for text in doc.css("td").dropFirst(4).dropLast(2){
                 contentString.append(text.innerHTML!)
                 contentString.append("<br /><br />")
             }
             
             print(contentString)
+            
+            contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "")
             
             webView.loadHTMLString(contentString, baseURL: nil)
 

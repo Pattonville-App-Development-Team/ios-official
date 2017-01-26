@@ -17,6 +17,7 @@ class SchoolsArray {
     /// The initializer that adds in all the schools from the Schools.Enum
     init() {
         
+        SchoolsArray.allSchools.append(SchoolsEnum.district)
         SchoolsArray.allSchools.append(SchoolsEnum.pattonvilleHighSchool)
         SchoolsArray.allSchools.append(SchoolsEnum.heightsMiddleSchool)
         SchoolsArray.allSchools.append(SchoolsEnum.holmanMiddleSchool)
@@ -44,6 +45,12 @@ class SchoolsArray {
     static func getSubscribedSchools() -> [School]{
         return allSchools.filter({
             $0.isSubscribedTo
+        })
+    }
+    
+    static func getSchools() -> [School]{
+        return allSchools.filter({
+            $0 != SchoolsEnum.district
         })
     }
    

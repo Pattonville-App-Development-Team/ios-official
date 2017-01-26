@@ -34,6 +34,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.definesPresentationContext = true
+        searchController.searchBar.scopeButtonTitles = []
         tableView.tableHeaderView = searchController.searchBar
         
         // Do any additional setup after loading the view, typically from a nib.
