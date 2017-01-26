@@ -25,7 +25,7 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
     @IBOutlet var webviewHeightConstraint: NSLayoutConstraint!
     @IBOutlet var headerViewHeightConstraint: NSLayoutConstraint!
     
-    //@IBOutlet var content: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,14 +52,7 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         
-        print("Web view did finish")
-        
-        print(webviewHeightConstraint.constant)
-        
         webviewHeightConstraint.constant = webView.scrollView.contentSize.height
-        
-        print(webView.scrollView.contentSize.height)
-        print(webviewHeightConstraint.constant)
         
     }
     
@@ -73,6 +66,7 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
             if let html = response.result.value {
                 self.parseHTML(html: html)
             }
+            
         })
         
     }
@@ -90,8 +84,6 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
                 contentString.append(text.innerHTML!)
                 contentString.append("<br /><br />")
             }
-            
-            print(contentString)
             
             contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "")
             
