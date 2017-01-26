@@ -32,6 +32,12 @@ class SchoolsArray {
         
       
     }
+    init(isSubscribedToBooleanArray: Array<Any>){
+        for (i, isSubscribedToValue) in isSubscribedToBooleanArray.enumerated(){
+            SchoolsArray.allSchools[i].isSubscribedTo = isSubscribedToValue as! Bool
+            print("Setting \(SchoolsArray.allSchools[i].name)'s isSubscribedTo value to \(isSubscribedToValue)")
+        }
+    }
     
     static func getSubscribedSchools() -> [School]{
         return allSchools.filter({
