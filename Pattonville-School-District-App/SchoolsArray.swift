@@ -14,8 +14,14 @@ class SchoolsArray {
     /// The array that belongs to SchoolsArray to be used as array that is iterated over
     static var allSchools: [School] = [SchoolsEnum.pattonvilleHighSchool, SchoolsEnum.heightsMiddleSchool, SchoolsEnum.holmanMiddleSchool, SchoolsEnum.remingtonTraditional, SchoolsEnum.bridgewayElementary, SchoolsEnum.drummondElementary, SchoolsEnum.parkwoodElementary, SchoolsEnum.roseAcresElementary, SchoolsEnum.willowBrookElementary, SchoolsEnum.earlyChildhood]
     
-    /// The initializer that adds in all the schools from the Schools.Enum
-  
+    
+    static func getSchoolByName(name: String) -> School{
+        
+        return allSchools.filter({
+            $0.name.contains(name)
+        }).first!
+        
+    }
     
     static func getSubscribedSchools() -> [School]{
         return allSchools.filter({
