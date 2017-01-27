@@ -25,8 +25,6 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
     @IBOutlet var webviewHeightConstraint: NSLayoutConstraint!
     @IBOutlet var headerViewHeightConstraint: NSLayoutConstraint!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +32,9 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
 
         titleLabel.text = news.title
         date.text = news.dateString
+        
+        titleLabel.layoutIfNeeded()
+        date.layoutIfNeeded()
         
         schoolView.layer.cornerRadius = schoolView.frame.height/2
         schoolView.backgroundColor = news.school.color
@@ -61,10 +62,16 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
 
     func getHTML(){
         
+        var contentString = "<style> font{font-family: 'Arial' !important; font-size: 0.85em !important;} img{width: 100% !important; height: auto !important;} tr:first-of-type, tr:last-of-type{display: none !important}</style>";
+        
         Alamofire.request(news.url).responseString(completionHandler: { response in
             
             if let html = response.result.value {
-                self.parseHTML(html: html)
+                
+                contentString.append(html)
+                contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "")
+                
+                self.webView.loadHTMLString(contentString, baseURL: nil)
             }
             
         })
@@ -73,7 +80,7 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
     
     /// Parses the supplied HTML for all the text contained within <font></font> tags
     ///
-    /// - html: the html string to parse (supploed by getHTML())
+    /// - html: the html string to parse (supplied by getHTML())
     ///
     func parseHTML(html: String){
         if let doc = Kanna.HTML(html: html, encoding: String.Encoding.utf8) {
