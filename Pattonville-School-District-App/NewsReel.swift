@@ -13,10 +13,14 @@ class NewsReel{
     
     var news: [NewsItem] = [NewsItem]()
     
+    /// Adds a news item to the news array
+    ///
+    /// - newsItem: the news item to add
+    ///
     func addNews(newsItem: NewsItem) {
-        news.append(newsItem)
-    }
-    
-    
+        if !news.contains(newsItem){
+            news.append(newsItem)
+        }
+    }    
     
 }

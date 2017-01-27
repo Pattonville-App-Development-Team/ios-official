@@ -22,5 +22,11 @@ class SchoolsArray {
             $0.isSubscribedTo
         })
     }
+    
+    static func getSchools() -> [School]{
+        return allSchools.filter({
+            $0 != SchoolsEnum.district
+        })
+    }
    
 }

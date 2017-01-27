@@ -43,7 +43,7 @@ class SelectSchoolsTableViewController: UITableViewController{
     /// - returns: A count from the schools array that gives the number of schools.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return SchoolsArray.allSchools.count
+        return SchoolsArray.getSchools().count
         
     }
     
@@ -59,7 +59,7 @@ class SelectSchoolsTableViewController: UITableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "SelectSchoolsCell",
                                                  for: indexPath) as! SelectSchoolsTableCell
         
-        let school = SchoolsArray.allSchools[indexPath.row]
+        let school = SchoolsArray.getSchools()[indexPath.row]
         cell.schoolNameLabel.text = school.name
         cell.schoolColorView.backgroundColor = school.color
         cell.schoolEnabledSwitch.setOn(school.isSubscribedTo, animated: false)
@@ -75,7 +75,7 @@ class SelectSchoolsTableViewController: UITableViewController{
     ///
     /// - Parameter sender: The school selescted switch
     func switchIsChanged(sender: UISwitch){
-        let school = SchoolsArray.allSchools[sender.tag]
+        let school = SchoolsArray.getSchools()[sender.tag]
         school.isSubscribedTo = !school.isSubscribedTo
         print("switchIsChanged method is being called")
         UserDefaults.standard.set(school.isSubscribedTo, forKey: school.name)

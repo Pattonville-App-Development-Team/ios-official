@@ -28,7 +28,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     let illusion = #imageLiteral(resourceName: "illusion.jpg")
     let diamond = #imageLiteral(resourceName: "diamond.jpg")
     
-    
+    var schools: [School] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         homeCarousel.type = iCarouselType.linear
         homeCarousel.isPagingEnabled = true
-        //homeCarousel.scroll(byNumberOfItems: 1, duration: 4)
         homeCarousel.reloadData()
         
         tableView.delegate = self
@@ -56,7 +55,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         var carouselTimer: Timer!
         carouselTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
 
-        let newsParser = NewsParser(newsReel: newsReel)
+        let newsParser = NewsParser(newsReel: newsReel, schools: schools)
         
         newsParser.getDataInBackground(completionHandler: {
             self.tableView.reloadData()
@@ -127,7 +126,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
             
             cell.title.text = newsItem.title
             cell.date.text = newsItem.dateString
-            cell.image_view.image = UIImage(named: "flowers")
+            cell.school.backgroundColor = newsItem.school.color
         }
         
         return cell

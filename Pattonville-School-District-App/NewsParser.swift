@@ -11,20 +11,36 @@ import UIKit
 class NewsParser: NSObject, XMLParserDelegate{
     
     var newsReel: NewsReel!
-    var schools = SchoolsArray.getSubscribedSchools()
     
     var element: String = ""
     var articleTitle: String = ""
     var articleDate: String = ""
+    var articleURL: String = ""
+    var id: String = ""
     
-    init(newsReel: NewsReel){
+    var schools: [School]
+    var school: School? = nil
+    
+    init(newsReel: NewsReel, schools: [School]){
         self.newsReel = newsReel
+        self.schools = schools
     }
     
-    func addNewsReel(newsReel: NewsReel){
-        self.newsReel = newsReel
+    /// Updates the school list for the parser to parse from
+    ///
+    /// - schools: the array of schools to parse from (SchoolsArray.getSubscribedSchools())
+    func updateSchools(schools: [School]){
+        self.schools = schools
     }
     
+    /// When the parser finds the beginning of an element in XML
+    ///
+    /// - parser: the parser to use
+    /// - elementName: the name of the XML element you are looking for
+    /// - nameSpaceURI: the XML namespace to use
+    /// - qName: 
+    /// - attributeDict: a dictionary of XML attributes associated with the current element
+    ///
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         
         element = elementName
@@ -32,27 +48,60 @@ class NewsParser: NSObject, XMLParserDelegate{
         if (elementName as NSString).isEqual(to: "item"){
             articleTitle = ""
             articleDate = ""
+            articleURL = ""
+            id = ""
+        }else if (elementName as NSString).isEqual(to: "source"){
+            
+            //Build up a three letter identifier for the school being parsed from
+            
+            let sourceURL = attributeDict["url"]
+            
+            var name = ""
+            let indexOne = sourceURL?.index(articleURL.startIndex, offsetBy: 23)
+            let indexTwo = sourceURL?.index(articleURL.startIndex, offsetBy: 24)
+            let indexThree = sourceURL?.index(articleURL.startIndex, offsetBy: 25)
+            
+            name.append((sourceURL?.characters[indexOne!])!)
+            name.append((sourceURL?.characters[indexTwo!])!)
+            name.append((sourceURL?.characters[indexThree!])!)
+            
+            school = SchoolsArray.getSchoolByName(name: name)
         }
         
     }
     
+    /// When the parser is between start and end XML tags
+    ///
+    /// - parser: the parser to use
+    /// - string: the string between the start and end element tags
+    ///
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         
         if element == "title"{
             articleTitle = string
         }else if element == "pubDate"{
             articleDate = string
+        }else if element == "link"{
+            articleURL = string
+        }else if element == "guid"{
+            id = string
         }
-        
     }
     
+    /// When the parse finds the end of an element
+    ///
+    /// - parser: the parser to use
+    /// - elementName: the name of the XML element you are looking for
+    /// - nameSpaceURI: the XML namespace to use
+    /// - qName:
+    ///
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         
         var newsItem: NewsItem?
         
         if (elementName as NSString).isEqual(to: "item") {
-            if !articleTitle.isEqual(nil) && !articleDate.isEqual(nil) {
-                newsItem = NewsItem(title: articleTitle, the_date: articleDate)
+            if !articleTitle.isEqual(nil) && !articleDate.isEqual(nil) && !articleURL.isEqual(nil) {
+                newsItem = NewsItem(id: id, title: articleTitle, the_date: articleDate, url: articleURL, school: school!)
             }else{
                 newsItem = nil
             }
@@ -61,7 +110,10 @@ class NewsParser: NSObject, XMLParserDelegate{
         }
     }
     
-    
+    /// Start the process of processing an XML file (parser.parse() handles this ability)
+    ///
+    /// - url: the external URL to parse from
+    ///
     func beginParseing(url: URL){
         
         var parser = XMLParser()
@@ -69,9 +121,12 @@ class NewsParser: NSObject, XMLParserDelegate{
         parser.delegate = self
         parser.parse()
         
-        
     }
     
+    /// Parses news events on the background thread
+    ///
+    /// - completionHandler: function to undertake after completeing background tasks
+    ///
     func getDataInBackground(completionHandler: (() -> Void)?){
         
         DispatchQueue.global(qos: .background).async {
@@ -79,6 +134,10 @@ class NewsParser: NSObject, XMLParserDelegate{
             for school in self.schools{
                 self.beginParseing(url: URL(string: school.newsURL)!)
             }
+            
+            self.newsReel.news = self.newsReel.news.filter({
+                return SchoolsArray.getSubscribedSchools().contains($0.school)
+            })
             
             DispatchQueue.main.async {
                 completionHandler?()
