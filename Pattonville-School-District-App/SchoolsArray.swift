@@ -12,32 +12,10 @@ import UIKit
 class SchoolsArray {
     
     /// The array that belongs to SchoolsArray to be used as array that is iterated over
-    static var allSchools: [School] = [School]()
+    static var allSchools: [School] = [SchoolsEnum.pattonvilleHighSchool, SchoolsEnum.heightsMiddleSchool, SchoolsEnum.holmanMiddleSchool, SchoolsEnum.remingtonTraditional, SchoolsEnum.bridgewayElementary, SchoolsEnum.drummondElementary, SchoolsEnum.parkwoodElementary, SchoolsEnum.roseAcresElementary, SchoolsEnum.willowBrookElementary, SchoolsEnum.earlyChildhood]
     
     /// The initializer that adds in all the schools from the Schools.Enum
-    init() {
-        
-        SchoolsArray.allSchools.append(SchoolsEnum.pattonvilleHighSchool)
-        SchoolsArray.allSchools.append(SchoolsEnum.heightsMiddleSchool)
-        SchoolsArray.allSchools.append(SchoolsEnum.holmanMiddleSchool)
-        SchoolsArray.allSchools.append(SchoolsEnum.remingtonTraditional)
-        SchoolsArray.allSchools.append(SchoolsEnum.bridgewayElementary)
-        SchoolsArray.allSchools.append(SchoolsEnum.drummondElementary)
-        SchoolsArray.allSchools.append(SchoolsEnum.parkwoodElementary)
-        SchoolsArray.allSchools.append(SchoolsEnum.roseAcresElementary)
-        SchoolsArray.allSchools.append(SchoolsEnum.willowBrookElementary)
-        SchoolsArray.allSchools.append(SchoolsEnum.earlyChildhood)
-        
-        
-        
-      
-    }
-    init(isSubscribedToBooleanArray: Array<Any>){
-        for (i, isSubscribedToValue) in isSubscribedToBooleanArray.enumerated(){
-            SchoolsArray.allSchools[i].isSubscribedTo = isSubscribedToValue as! Bool
-            print("Setting \(SchoolsArray.allSchools[i].name)'s isSubscribedTo value to \(isSubscribedToValue)")
-        }
-    }
+  
     
     static func getSubscribedSchools() -> [School]{
         return allSchools.filter({

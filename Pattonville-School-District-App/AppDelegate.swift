@@ -16,19 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let newsReel = NewsReel()
     let calendarList = Calendar()
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if launchedBefore  {
+            let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+            if launchedBefore  {
             NSLog("not first launch is ithis working")
-            // var readingSavedIsSubcribedToBooleanValueArray: Array<Any>
             for school in SchoolsArray.allSchools{
-                school.isSubscribedTo =  UserDefaults.standard.bool(forKey: school.name)
+                school.isSubscribedTo = UserDefaults.standard.bool(forKey: school.name)
                 print("\(school.name) launched with bool value \(school.isSubscribedTo)")
             }
             print("Not first launch.")
         } else {
             print("First launch, setting UserDefault.")
-            //NSLog("First launch, setting UserDefault. NSLog")
-            SchoolsArray.init()
+           
         }
         return true
     }
@@ -54,20 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         calendarController.selectedDate = Date()
         
         UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
-       /* let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if launchedBefore  {
-            NSLog("not first launch is ithis working")
-           // var readingSavedIsSubcribedToBooleanValueArray: Array<Any>
-            for school in SchoolsArray.allSchools{
-                school.isSubscribedTo =  UserDefaults.standard.bool(forKey: school.name)
-                print("\(school.name) launched with bool value \(school.isSubscribedTo)")
-            }
-            print("Not first launch.")
-        } else {
-            print("First launch, setting UserDefault.")
-            //NSLog("First launch, setting UserDefault. NSLog")
-            SchoolsArray.init()
-        }*/
+      
         
         
         return true
@@ -81,19 +66,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-       /* if PropertyListSerialization.propertyList(SchoolsArray.allSchools, isValidFormat: .XMLFormat_v1_0){
-            do{
-                let data = try PropertyListSerialization.datawithPropertyList(SchoolsArray.allSchools, format: .XMLFormat_v_1_0, options: 0)
-                data.writeToUrl(url, atomically: true)
-            }
-            catch{
-                print("Error writing plist:\(error)")
-            }*/
-        for school in SchoolsArray.allSchools{
+       ///keeping this just in case the method in SelectSchoolsTableViewController proves faulty
+        /*for school in SchoolsArray.allSchools{
             UserDefaults.standard.set(school.isSubscribedTo, forKey: school.name)
             print("\(school.name) saved with bool value \(school.isSubscribedTo)")
            // NSLog("\(school.name) saved with bool value \(school.isSubscribedTo). NSLogTAG0123")
-        }
+        }*/
+        
+       
+        UserDefaults.standard.set(true, forKey: "launchedBefore")
+        
+        
     }
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
