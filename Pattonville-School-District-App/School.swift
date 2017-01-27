@@ -12,6 +12,7 @@ import MXLCalendarManager
 class School: NSObject {
  
     var name: String
+    var shortName: String
     var address: String
     var city: String
     var state: String
@@ -49,6 +50,7 @@ class School: NSObject {
     /// - parameter calendarURL:      .ics calendar file remote location
     
     init(name: String,
+         shortname: String,
          address: String,
          city: String, state: String, zip: String,
          mainNumber: String, attendanceNumber: String, faxNumber: String,
@@ -61,6 +63,7 @@ class School: NSObject {
          staffArray: [StaffMember]) {
         
             self.name = name
+            self.shortName = shortname
             self.address = address
             self.city = city
             self.state = state

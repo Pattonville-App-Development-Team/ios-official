@@ -7,51 +7,35 @@
 //
 
 import UIKit
-import iCarousel
 
-class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelegate, UITableViewDelegate, UITableViewDataSource, XMLParserDelegate {
+class NewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, XMLParserDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
     
     var refreshControl: UIRefreshControl!
     
-    @IBOutlet var vwCarousel: iCarousel!
     @IBOutlet var tableView: UITableView!
     
     var carouselWidth: CGFloat = 0
     var carouselHeight: CGFloat = 0
     
     var newsReel: NewsReel!
+    var filteredNewsReel: NewsReel!
+    
     var schools: [School]!
     var parser: NewsParser!
     
-    var images : [[Any]] = []
-    
-    let circle = #imageLiteral(resourceName: "circle.jpg")
-    let java = #imageLiteral(resourceName: "java.jpg")
-    let lines = #imageLiteral(resourceName: "lines.jpg")
-    let natureDear = #imageLiteral(resourceName: "nature- dear.jpg")
-    let illusion = #imageLiteral(resourceName: "illusion.jpg")
-    let diamond = #imageLiteral(resourceName: "diamond.jpg")
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        schools = SchoolsArray.getSubscribedSchools()
-        parser = NewsParser(newsReel: newsReel)
+        filteredNewsReel = NewsReel()
         
-        carouselWidth = UIScreen.main.bounds.size.width;
-        carouselHeight = vwCarousel.bounds.size.height;
-        
-        images.append([circle, "Circle"])
-        images.append([java, "java"])
-        images.append([lines, "lines"])
-        images.append([natureDear, "Deer"])
-        images.append([illusion, "Illusion"])
-        images.append([diamond, "Diamond"])
-        
-        
-        vwCarousel.type = iCarouselType.linear
-        vwCarousel.isPagingEnabled = true
-        vwCarousel.reloadData()
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.definesPresentationContext = true
+        searchController.searchBar.scopeButtonTitles = []
+        tableView.tableHeaderView = searchController.searchBar
         
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -59,23 +43,26 @@ class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelega
         tableView.dataSource = self
         
         self.refreshControl = UIRefreshControl()
-        self.refreshControl.backgroundColor = .red
+        self.refreshControl.backgroundColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
         self.refreshControl.tintColor = .white
         self.refreshControl.addTarget(self, action: #selector(NewsViewController.refreshData), for: UIControlEvents.valueChanged)
         
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            // Fallback on earlier versions
+            tableView.addSubview(refreshControl)
+        }
         
-        var carouselTimer: Timer!
-        
-        carouselTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
-        
-    }
-    
-    func scroll(){
-        vwCarousel.scroll(byNumberOfItems: 1, duration: 2.0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        schools = SchoolsArray.getSubscribedSchools()
+        parser = NewsParser(newsReel: newsReel, schools: schools)
+        
+        refreshData()
         
         tableView.reloadData()
         
@@ -86,7 +73,14 @@ class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelega
         // Dispose of any resources that can be recreated.
     }
     
-    //TABLE VIEW STUFF
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "NewsDetailViewSegue"{
+            let destination = segue.destination as! NewsDetailViewController
+            destination.news = newsReel.news[(tableView.indexPathForSelectedRow?.row)!]
+        }
+    }
+    
+    // TABLE VIEW STUFF
     
     /// Gives the number of rows needed for the table view under the carousel
     ///
@@ -95,7 +89,11 @@ class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelega
     ///
     /// - returns: the number of news stories in the newsReel used to populated the TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsReel.news.count
+        if searchController.isActive && searchController.searchBar.text != ""{
+            return filteredNewsReel.news.count
+        }else{
+            return newsReel.news.count
+        }
     }
     
    
@@ -109,84 +107,66 @@ class NewsViewController: UIViewController, iCarouselDataSource, iCarouselDelega
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsItemCell", for: indexPath) as! NewsItemCell
         
-        let newsItem = newsReel.news[indexPath.row]
+        let newsItem: NewsItem
+        
+        if searchController.isActive && searchController.searchBar.text != ""{
+            newsItem = filteredNewsReel.news[indexPath.row]
+        }else{
+            newsItem = newsReel.news[indexPath.row]
+        }
+        
         
         cell.title.text = newsItem.title
         cell.date.text = newsItem.dateString
-        cell.image_view.image = UIImage(named: "flowers")
+        
+        cell.school.layer.cornerRadius = cell.school.frame.height/2
+        cell.school.backgroundColor = newsItem.school.color
+        cell.schoolName.text = newsItem.school.shortName
         
         return cell
         
     }
     
     
-    //CAROUSEL STUFF
-    
-    /// Defines the number of elements present in the carousel
-    ///
-    /// - parameter carousel: The news screen carousel used to display clickable stories
-    ///
-    /// - returns: the number of images to have in the carousel from the images array
-    func numberOfItems(in carousel: iCarousel) -> Int{
-        return images.count
-    }
-    
-    func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView
-    {
+    func updateSearchResults(for: UISearchController) {
         
-        var view: UIView
-        var imageView: UIImageView
-        var captionView: UIView
-        var captionLabel: UILabel
+        print(filteredNewsReel.news.count)
         
-        // Create new UIView the same dimensions as the carousel view
-        view = UIView(frame: CGRect(x: 0, y: 0, width: carouselWidth, height: 200));
-        let viewHeight = view.bounds.size.height
+        filterNewsForSearchText(searchText: searchController.searchBar.text!)
         
-        //Create new UIImageView 30 units shorter than the main view. Set image content mode to Aspect Fill. Clip to bounds.
-        imageView = UIImageView(frame: CGRect(x:0, y:0, width: carouselWidth, height: viewHeight))
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
-        imageView.clipsToBounds = true
-        
-        captionView = UIView(frame: CGRect(x: 0, y: imageView.bounds.size.height - 30, width: carouselWidth, height: 30))
-        captionView.backgroundColor = .black;
-        captionView.alpha = 0.5
-        
-        //Create new UILabel at the bottom of the view. Set textColor to black.
-        captionLabel = UILabel(frame: CGRect(x: 10, y: 0, width: carouselWidth, height: 30))
-        captionLabel.textColor = UIColor.white
-        
-        
-        imageView.image = images[index][0] as? UIImage
-        captionLabel.text = images[index][1] as? String
-        
-        //Add imageView and label to main view as subviews
-        
-        vwCarousel.addSubview(view)
-        
-        view.addSubview(imageView)
-        imageView.addSubview(captionView)
-        captionView.addSubview(captionLabel)
-        
-        //return main view as the
-        return view;
-    }
-    
-    func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
-        if(option == iCarouselOption.wrap){
-            return 1.0
-        }
-        return value
+        print(filteredNewsReel.news.count)
         
     }
     
-    func refreshData(){
+    // PRIVATE FUNCTIONS
+    
+    //Refreshes the list of news articles
+    @objc private func refreshData(){
+        
+        parser.updateSchools(schools: schools)
+        
         parser.getDataInBackground(completionHandler: {
             print("REFRESHING")
+            
+            self.newsReel.news.sort(by: {
+                return $0.date > $1.date
+            })
+            
             self.tableView.reloadData()
         })
         
+        
         self.refreshControl.endRefreshing()
+    }
+    
+    private func filterNewsForSearchText(searchText: String){
+        
+        filteredNewsReel.news = newsReel.news.filter({ newsItem in
+            return newsItem.title.lowercased().contains(searchText.lowercased())
+        })
+        
+        tableView.reloadData()
+        
     }
 
     

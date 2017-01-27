@@ -13,7 +13,8 @@ class NewsItemCell: UITableViewCell{
     
     @IBOutlet var title: UILabel!
     @IBOutlet var date: UILabel!
-    @IBOutlet var image_view: UIImageView!
+    @IBOutlet var school: UIView!
+    @IBOutlet var schoolName: UILabel!
     
     
 }
