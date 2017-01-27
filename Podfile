@@ -9,6 +9,8 @@ target 'Pattonville-School-District-App' do
   pod 'JTAppleCalendar'
   pod 'iCarousel'
   pod 'MXLCalendarManager'
+  pod 'Kanna'
+  pod 'Alamofire'
 
   target 'Pattonville-School-District-AppTests' do
     inherit! :search_paths
