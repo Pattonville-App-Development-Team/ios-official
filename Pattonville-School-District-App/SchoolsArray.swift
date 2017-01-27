@@ -28,9 +28,6 @@ class SchoolsArray {
         SchoolsArray.allSchools.append(SchoolsEnum.roseAcresElementary)
         SchoolsArray.allSchools.append(SchoolsEnum.willowBrookElementary)
         SchoolsArray.allSchools.append(SchoolsEnum.earlyChildhood)
-        
-        
-        
       
     }
     
