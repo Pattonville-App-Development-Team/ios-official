@@ -15,6 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let newsReel = NewsReel()
     let calendarList = Calendar()
+    /// Method called as the app is launching, checks to see if the application is launched before, if so sets the isSubscribedTo values in SchoolsArray.allSchools 
+    ///
+    /// - Parameters:
+    ///   - application: The PSD App
+    ///   - launchOptions: the launching options used
+    /// - Returns: true
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
             let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
             if launchedBefore  {
@@ -63,6 +69,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
     
+    /// Method called when application enters the background, sets the launched before bool value to equal true, in order to activate the persistence
+    ///
+    /// - Parameter application: the application being quit
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.

@@ -71,6 +71,9 @@ class SelectSchoolsTableViewController: UITableViewController{
         
     }
     
+    /// The method that activates when the schoolEnabledSwithc is activated in SelectSchoolsTableView. Gets the school from the tableVeiw cellForRowAt method with the tag and then sets the School's isSubscribedTo value to the opposite of its current value. Then saves the data using UserDefaults and the key of the school name.
+    ///
+    /// - Parameter sender: The school selescted switch
     func switchIsChanged(sender: UISwitch){
         let school = SchoolsArray.allSchools[sender.tag]
         school.isSubscribedTo = !school.isSubscribedTo
