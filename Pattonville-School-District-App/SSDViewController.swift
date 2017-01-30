@@ -5,7 +5,7 @@
 
 
 //  Created by Kevin Bowers on 11/30/16.
-//  Copyright © 2016 Pattonville School Distrcit. All rights reserved.
+//  Copyright © 2017 Pattonville School District. All rights reserved.
 //
 
 import UIKit
