@@ -15,6 +15,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     @IBOutlet var tableView: UITableView!
     
     var newsReel: NewsReel!
+    var calendarList: Calendar!
     
     var carouselWidth: CGFloat = 0
     var carouselHeight: CGFloat = 0
@@ -52,6 +53,9 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         tableView.delegate = self
         tableView.dataSource = self
         
+        //tableView.register(UINib(nibName: "NewsItemCell", bundle: nil), forCellReuseIdentifier: "NewsItemCell")
+        
+        
         var carouselTimer: Timer!
         carouselTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
 
@@ -80,7 +84,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     //***************************** TABLE VIEW STUFF *****************************\\
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
     
     /*func sectionIndexTitles(for tableView: UITableView) -> [String]? {
@@ -89,7 +93,9 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
        
-        let sectionTitles = ["Recent News", "Upcoming Events", "Pinned Events"]
+        //let sectionTitles = ["Recent News", "Upcoming Events", "Pinned Events"]
+        let sectionTitles = ["Recent News", "Upcoming Events"]
+        
         
         var view: UIView
         var label: UILabel
@@ -120,14 +126,31 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsItemCell", for: indexPath) as! NewsItemCell
+        let x = indexPath.section
         
-        if newsReel.news.count > 0{
+            if x == 0{
+                if newsReel.news.count > 0 {
             let newsItem = newsReel.news[indexPath.row]
             
             cell.title.text = newsItem.title
             cell.date.text = newsItem.dateString
             cell.school.backgroundColor = newsItem.school.color
-        }
+                }
+            } else /*x == 1 */{
+                if calendarList.datesList.count > 0 {
+                let recentEventItem = calendarList.datesList[indexPath.row]
+                cell.title.text = recentEventItem.name
+                cell.date.text = recentEventItem.dateString
+                cell.school.backgroundColor = recentEventItem.school.color
+                }
+            } /*else {
+                let newsItem = newsReel.news[indexPath.row]
+                
+                cell.title.text = newsItem.title
+                cell.date.text = newsItem.dateString
+                cell.school.backgroundColor = newsItem.school.color
+            }*/
+        
         
         return cell
         
