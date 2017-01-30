@@ -24,7 +24,7 @@ class CalendarPinnedListViewController: UIViewController, UITableViewDelegate, U
     override func viewDidLoad(){
         super.viewDidLoad()
         tableView.register(UINib(nibName: "DateCell", bundle:nil), forCellReuseIdentifier: "DateCell")
-        //eventsDictionary = makeEventDictionary(list: eventsList)
+        eventsDictionary = makeEventDictionary(list: eventsList)
     }
     
     override func viewDidAppear(_ animated: Bool){
@@ -56,7 +56,7 @@ class CalendarPinnedListViewController: UIViewController, UITableViewDelegate, U
     /// - returns: the number of sections in the tableview
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return eventsDictionary.count
     }
     
     /// sets the title for a given section
@@ -66,7 +66,11 @@ class CalendarPinnedListViewController: UIViewController, UITableViewDelegate, U
     /// - returns: the title for the section
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM dd, YYYY"
+        
+        return dateFormatter.string(from: getKeyForIndex(index: section))
     }
     
     /// the number of rows in a given section
@@ -76,16 +80,16 @@ class CalendarPinnedListViewController: UIViewController, UITableViewDelegate, U
     /// - returns: the number of rows to show for the given section
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return (eventsDictionary[getKeyForIndex(index: section)]?.count)!
-        return eventsList.count
+        return (eventsDictionary[getKeyForIndex(index: section)]?.count)!
+        //return eventsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
         
-        //let event = eventsDictionary[getKeyForIndex(index: indexPath.section)]?[indexPath.row]
-        let event = eventsList[indexPath.row]
+        let event = eventsDictionary[getKeyForIndex(index: indexPath.section)]?[indexPath.row]
+        //let event = eventsList[indexPath.row]
         
         cell.event = event
         cell.setUp(indexPath: indexPath)
@@ -124,7 +128,7 @@ class CalendarPinnedListViewController: UIViewController, UITableViewDelegate, U
         print(eventsList.count)
         print(eventsDictionary.count)
         
-        //eventsDictionary = makeEventDictionary(list: eventsList)
+        eventsDictionary = makeEventDictionary(list: eventsList)
         
         tableView.reloadData()
         

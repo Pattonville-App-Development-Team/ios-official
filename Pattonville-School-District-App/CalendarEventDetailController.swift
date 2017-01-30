@@ -11,6 +11,8 @@ import EventKit
 
 class CalendarEventDetailController: UIViewController{
     
+        var event: Event!
+    
     @IBOutlet var eventName: UILabel!
     @IBOutlet var eventLocation: UILabel!
     @IBOutlet var eventDate: UILabel!
@@ -49,8 +51,6 @@ class CalendarEventDetailController: UIViewController{
         }
     }
     
-    var event: Event!
-    
     ///Sets up the look of the ViewController upon loading. Sets the eventName, eventLocation, eventDate, and eventTime UILabels to the corresponding values of the event variable.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +67,8 @@ class CalendarEventDetailController: UIViewController{
         }else{
             pinButton.isSelected = false
         }
+        
+        pinButton.isHidden = true
         
         print(event.school.name)
         
