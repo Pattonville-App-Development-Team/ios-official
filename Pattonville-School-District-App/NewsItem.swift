@@ -3,7 +3,7 @@
 //  Pattonville School District App
 //
 //  Created by Developer on 10/4/16.
-//  Copyright © 2016 Pattonville School Distrcit. All rights reserved.
+//  Copyright © 2017 Pattonville School District. All rights reserved.
 //
 
 import UIKit
@@ -11,15 +11,15 @@ import UIKit
 /// Class used to create NewsItems in NewsViewController
 class NewsItem: Equatable{
     
+    var id: String
     var title: String
+    var content: String?
     
     var date: Date
     var dateString: String
     
     var url: String
     var school: School
-    
-    var id: String
     
     /// Initializer to create individual NewsItems
     ///
@@ -31,8 +31,9 @@ class NewsItem: Equatable{
     init(id: String, title: String, the_date: String, url: String, school: School){
         
         self.id = id
-        
         self.title = title
+        
+        self.content = nil
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEE, dd MMM yyyy kk:mm:ss Z"

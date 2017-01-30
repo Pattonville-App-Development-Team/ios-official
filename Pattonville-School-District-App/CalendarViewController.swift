@@ -4,7 +4,7 @@
 //  Pattonville School District App
 //
 //  Created by Developer on 9/27/16.
-//  Copyright © 2016 Pattonville School Distrcit. All rights reserved.
+//  Copyright © 2017 Pattonville School District. All rights reserved.
 //
 
 import UIKit
@@ -45,6 +45,8 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         calendar.cellInset = CGPoint(x: 0, y: 0.25)
         calendar.scrollToDate(Date(), triggerScrollToDateDelegate: true, animateScroll: false)
         
+        getDatesInBackground()
+        
         // Do any additional setup after loading the view, typically from a nib.
         print("VIEW DID LOAD")
         
@@ -54,8 +56,6 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        getDatesInBackground()
         
         calendar.selectDates([Date(), selectedDate])
         
@@ -220,7 +220,11 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         cell.event = event
         cell.setUp(indexPath: indexPath)
+        
+        cell.pinButton.addTarget(self, action: #selector(CalendarViewController.nowPinned), for: UIControlEvents.touchUpInside);
     
+        cell.pinButton.isHidden = true
+        
         return cell
     }
     

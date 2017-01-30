@@ -3,7 +3,7 @@
 //  Pattonville School District App
 //
 //  Created by Developer on 9/28/16.
-//  Copyright © 2016 Pattonville School Distrcit. All rights reserved.
+//  Copyright © 2017 Pattonville School District. All rights reserved.
 //
 
 import UIKit
@@ -38,6 +38,8 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.tableHeaderView = searchController.searchBar
         
         // Do any additional setup after loading the view, typically from a nib.
+        
+        tableView.register(UINib(nibName: "NewsItemCell", bundle: nil), forCellReuseIdentifier: "NewsItemCell")
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -74,7 +76,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "NewsDetailViewSegue"{
+        if segue.identifier == "NewsDetailSegue"{
             let destination = segue.destination as! NewsDetailViewController
             destination.news = newsReel.news[(tableView.indexPathForSelectedRow?.row)!]
         }
@@ -115,16 +117,15 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             newsItem = newsReel.news[indexPath.row]
         }
         
-        
-        cell.title.text = newsItem.title
-        cell.date.text = newsItem.dateString
-        
-        cell.school.layer.cornerRadius = cell.school.frame.height/2
-        cell.school.backgroundColor = newsItem.school.color
-        cell.schoolName.text = newsItem.school.shortName
+        cell.newsItem = newsItem
+        cell.setUp()
         
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "NewsDetailSegue", sender: self)
     }
     
     
