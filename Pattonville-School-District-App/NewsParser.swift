@@ -3,7 +3,7 @@
 //  Pattonville-School-District-App
 //
 //  Created by Joshua Zahner on 1/19/17.
-//  Copyright © 2017 Joshua Zahner. All rights reserved.
+//  Copyright © 2017 Pattonville School District. All rights reserved.
 //
 
 import UIKit

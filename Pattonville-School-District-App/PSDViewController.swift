@@ -2,8 +2,8 @@
 //  FirstViewController.swift
 //  Pattonville School District App
 //
-//  Created by Developer on 9/27/16.
-//  Copyright © 2016 Pattonville School Distrcit. All rights reserved.
+//  Created by Joshua Zahner on 9/27/16.
+//  Copyright © 2017 Pattonville School District. All rights reserved.
 //
 
 import UIKit
@@ -33,7 +33,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         ///Width of height of the carousel. Used in later calculations
         carouselWidth = UIScreen.main.bounds.size.width;
         carouselHeight = homeCarousel.bounds.size.height;

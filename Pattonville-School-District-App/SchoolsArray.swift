@@ -3,7 +3,7 @@
 //  Pattonville School District App
 //
 //  Created by Kevin Bowers on 11/14/16.
-//  Copyright © 2016 Pattonville School Distrcit. All rights reserved.
+//  Copyright © 2017 Pattonville School District. All rights reserved.
 //
 
 import UIKit

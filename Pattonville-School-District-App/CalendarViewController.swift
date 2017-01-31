@@ -4,7 +4,7 @@
 //  Pattonville School District App
 //
 //  Created by Developer on 9/27/16.
-//  Copyright © 2016 Pattonville School Distrcit. All rights reserved.
+//  Copyright © 2017 Pattonville School District. All rights reserved.
 //
 
 import UIKit
@@ -23,8 +23,10 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     var selectedDateEvents = [Event]()
     var pinnedDateEvents = [Event]()
     
+    var prevSchools: [School]! = []
+    var currentSchools: [School]!
+    var parser: CalendarParser!
     
-    var mxlCalendarManager = MXLCalendarManager()
     
     /// Sets up look of view controller upon loading. Completes basic setup of Calendar and TableView appearances and sorts the events list for pinned events
     override func viewDidLoad() {
@@ -36,7 +38,6 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         tableView.register(UINib(nibName: "DateCell", bundle: nil), forCellReuseIdentifier: "DateCell")
         
-        
         calendar.dataSource = self
         calendar.delegate = self
         calendar.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
@@ -44,6 +45,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         calendar.registerHeaderView(xibFileNames: ["CalendarHeaderView"])
         calendar.cellInset = CGPoint(x: 0, y: 0.25)
         calendar.scrollToDate(Date(), triggerScrollToDateDelegate: true, animateScroll: false)
+        
         
         // Do any additional setup after loading the view, typically from a nib.
         print("VIEW DID LOAD")
@@ -55,7 +57,15 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        getDatesInBackground()
+        currentSchools = SchoolsArray.getSubscribedSchools()
+        parser = CalendarParser(calendar: calendarList, schools: currentSchools)
+        
+        if currentSchools != prevSchools{
+            print("New Schools")
+            refreshData()
+            prevSchools = currentSchools
+        }
+        
         
         calendar.selectDates([Date(), selectedDate])
         
@@ -220,7 +230,11 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         cell.event = event
         cell.setUp(indexPath: indexPath)
+        
+        cell.pinButton.addTarget(self, action: #selector(CalendarViewController.nowPinned), for: UIControlEvents.touchUpInside);
     
+        cell.pinButton.isHidden = true
+        
         return cell
     }
     
@@ -340,50 +354,17 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
     }
     
-    private func runOnMainThread(calendar: MXLCalendar, school: School){
+    private func refreshData(){
         
-        DispatchQueue.main.async {
-            
-            self.calendarList.appendDates(mxlCalendar: calendar, school: school)
-            
-            self.pinnedDateEvents = self.calendarList.datesList.filter({
-                return $0.pinned
-            })
-            
-            self.filterCalendarData(for: self.selectedDate)
-            
+        parser.updateSchools(schools: currentSchools)
+        
+        parser.getEventsInBackground(completionHandler: {
+            print("REFRESHING")
             
             self.calendar.reloadData()
             self.tableView.reloadData()
-            
-        }
-        
-    }
-    
-    private func getDatesInBackground(){
-        
-        DispatchQueue.global(qos: .background).async{
-            
-            let schools = SchoolsArray.getSubscribedSchools()
-            self.calendarList.resetEvents()
-            
-            for school in schools{
-                
-                school.getCalendarData(onSucces: {
-                    (calendar) -> Void in
-                    
-                    self.runOnMainThread(calendar: calendar!, school: school)
-                    
-                }, onError: {
-                    (error) -> Void in
-                    print(error ?? "Error")
-                })
-            }
-            
-            print("async done")
-            
-        }
-        
+        })
+
     }
     
 }

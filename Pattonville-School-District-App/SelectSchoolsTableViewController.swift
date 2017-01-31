@@ -3,7 +3,7 @@
 //  Pattonville School District App
 //
 //  Created by Micah Thompkins on 11/16/16.
-//  Copyright © 2016 Pattonville School Distrcit. All rights reserved.
+//  Copyright © 2017 Pattonville School District. All rights reserved.
 //
 import UIKit
 
@@ -75,9 +75,10 @@ class SelectSchoolsTableViewController: UITableViewController{
     ///
     /// - Parameter sender: The school selescted switch
     func switchIsChanged(sender: UISwitch){
-        let school = SchoolsArray.getSchools()[sender.tag]
+        let school = SchoolsArray.allSchools[sender.tag + 1]
         school.isSubscribedTo = !school.isSubscribedTo
         print("switchIsChanged method is being called")
+        
         UserDefaults.standard.set(school.isSubscribedTo, forKey: school.name)
         print("Saved \(school.name)'s isSubscribedTo bool val to \(UserDefaults.standard.bool(forKey: school.name))")
         for school in SchoolsArray.allSchools {

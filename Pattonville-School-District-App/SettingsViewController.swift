@@ -3,10 +3,11 @@
 //  Pattonville School District App
 //
 //  Created by Micah Thompkins on 11/16/16.
-//  Copyright © 2016 Pattonville School Distrcit. All rights reserved.
+//  Copyright © 2017 Pattonville School District. All rights reserved.
 //
 
 import UIKit
+/// The UITableViewController that is used to display the list of application settings
 class SettingsViewController: UITableViewController{
     
     override func viewDidLoad() {

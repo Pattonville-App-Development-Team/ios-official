@@ -3,7 +3,7 @@
 //  Pattonville School District App
 //
 //  Created by Developer on 10/5/16.
-//  Copyright © 2016 Pattonville School Distrcit. All rights reserved.
+//  Copyright © 2017 Pattonville School District. All rights reserved.
 //
 
 import UIKit
@@ -15,6 +15,18 @@ class NewsItemCell: UITableViewCell{
     @IBOutlet var date: UILabel!
     @IBOutlet var school: UIView!
     @IBOutlet var schoolName: UILabel!
+    
+    var newsItem: NewsItem!
+    
+    func setUp(){
+        title.text = newsItem.title
+        date.text = newsItem.dateString
+        
+        school.backgroundColor = newsItem.school.color
+        school.layer.cornerRadius = school.frame.width/2
+        
+        schoolName.text = newsItem.school.shortName
+    }
     
     
 }

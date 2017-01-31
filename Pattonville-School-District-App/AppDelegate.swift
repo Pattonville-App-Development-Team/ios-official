@@ -3,7 +3,7 @@
 //  Pattonville School District App
 //
 //  Created by Developer on 9/27/16.
-//  Copyright © 2016 Pattonville School Distrcit. All rights reserved.
+//  Copyright © 2017 Pattonville School District. All rights reserved.
 //
 
 import UIKit
@@ -22,19 +22,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ///   - launchOptions: the launching options used
     /// - Returns: true
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-            let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-            if launchedBefore  {
+        
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        
+        if launchedBefore{
             NSLog("not first launch is ithis working")
             for school in SchoolsArray.allSchools{
                 school.isSubscribedTo = UserDefaults.standard.bool(forKey: school.name)
                 print("\(school.name) launched with bool value \(school.isSubscribedTo)")
             }
+            
+            SchoolsEnum.district.isSubscribedTo = true
+            
             print("Not first launch.")
         } else {
             print("First launch, setting UserDefault.")
            
         }
+        
+        
         return true
+        
     }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -50,12 +58,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navCalController = navBarController.viewControllers![2] as! UINavigationController
         let calendarController = navCalController.topViewController as! CalendarViewController
         
-        
+        let calendarParser = CalendarParser(calendar: calendarList, schools: SchoolsArray.getSubscribedSchools())
+        let newsParser = NewsParser(newsReel: newsReel, schools: SchoolsArray.getSubscribedSchools())
         
         homeController.newsReel = newsReel
-        newsController.newsReel = newsReel
-        calendarController.calendarList = calendarList
-        calendarController.selectedDate = Date()
+        newsController.newsReel = self.newsReel
+        calendarController.calendarList = self.calendarList
+        
+        newsParser.getDataInBackground(completionHandler: {
+            newsController.newsReel = self.newsReel
+            print("Done Parseing News")
+        })
+        
+        calendarParser.getEventsInBackground(completionHandler: {
+            calendarController.calendarList = self.calendarList
+            calendarController.selectedDate = Date()
+            print("Done Parseing Calendar")
+        })
         
         UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
       

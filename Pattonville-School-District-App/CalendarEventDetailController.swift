@@ -3,13 +3,15 @@
 //  Pattonville School District App
 //
 //  Created by Joshua Zahner on 11/21/16.
-//  Copyright © 2016 Pattonville School Distrcit. All rights reserved.
+//  Copyright © 2017 Pattonville School District. All rights reserved.
 //
 
 import UIKit
 import EventKit
 
 class CalendarEventDetailController: UIViewController{
+    
+        var event: Event!
     
     @IBOutlet var eventName: UILabel!
     @IBOutlet var eventLocation: UILabel!
@@ -49,8 +51,6 @@ class CalendarEventDetailController: UIViewController{
         }
     }
     
-    var event: Event!
-    
     ///Sets up the look of the ViewController upon loading. Sets the eventName, eventLocation, eventDate, and eventTime UILabels to the corresponding values of the event variable.
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +67,8 @@ class CalendarEventDetailController: UIViewController{
         }else{
             pinButton.isSelected = false
         }
+        
+        pinButton.isHidden = true
         
         print(event.school.name)
         
