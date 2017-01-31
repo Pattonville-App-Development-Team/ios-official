@@ -53,6 +53,8 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         tableView.dataSource = self
         
         //tableView.register(UINib(nibName: "NewsItemCell", bundle: nil), forCellReuseIdentifier: "NewsItemCell")
+        tableView.register(UINib(nibName: "DateCell", bundle: nil), forCellReuseIdentifier: "DateCell")
+        tableView.register(UINib(nibName: "NewsItemCell", bundle: nil), forCellReuseIdentifier: "NewsItemCell")
         
         
         var carouselTimer: Timer!
@@ -124,35 +126,41 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsItemCell", for: indexPath) as! NewsItemCell
+        /*let cell = tableView.dequeueReusableCell(withIdentifier: "NewsItemCell", for: indexPath) as! NewsItemCell*/
         let x = indexPath.section
+        //var cell: UITableViewCell
         
-            if x == 0{
-                if newsReel.news.count > 0 {
+        if x == 0{
+            if newsReel.news.count > 0 {
+                let newsItem = newsReel.news[indexPath.row]
+                let cell = tableView.dequeueReusableCell(withIdentifier: "NewsItemCell", for: indexPath) as! NewsItemCell
+                cell.title.text = newsItem.title
+                cell.date.text = newsItem.dateString
+                cell.school.backgroundColor = newsItem.school.color
+                return cell
+            
+            }
+        } else /*x == 1 */{
+            if calendarList.datesList.count > 0 {
+                let recentEventItem = calendarList.datesList[indexPath.row]
+                let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
+                
+                cell.event = recentEventItem
+                cell.setUp(indexPath: indexPath)
+                return cell
+                
+            }
+        } /*else {
             let newsItem = newsReel.news[indexPath.row]
             
             cell.title.text = newsItem.title
             cell.date.text = newsItem.dateString
             cell.school.backgroundColor = newsItem.school.color
-                }
-            } else /*x == 1 */{
-                if calendarList.datesList.count > 0 {
-                let recentEventItem = calendarList.datesList[indexPath.row]
-                cell.title.text = recentEventItem.name
-                cell.date.text = recentEventItem.dateString
-                cell.school.backgroundColor = recentEventItem.school.color
-                }
-            } /*else {
-                let newsItem = newsReel.news[indexPath.row]
-                
-                cell.title.text = newsItem.title
-                cell.date.text = newsItem.dateString
-                cell.school.backgroundColor = newsItem.school.color
-            }*/
+        }*/
         
         
-        return cell
-        
+       // return cell
+        return UITableViewCell()
     }
     
     //***************************** CAROUSEL STUFF *****************************\\
