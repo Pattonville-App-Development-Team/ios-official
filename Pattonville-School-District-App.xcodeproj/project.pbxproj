@@ -69,6 +69,12 @@
 		42B933C21DFB022B00514B73 /* lines.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933BA1DFB022B00514B73 /* lines.jpg */; };
 		42B933C31DFB022B00514B73 /* nature- dear.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933BB1DFB022B00514B73 /* nature- dear.jpg */; };
 		42B933C51DFB022B00514B73 /* pin-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 42B933BD1DFB022B00514B73 /* pin-green.png */; };
+		46244E581E40E082001A3B33 /* image5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46244E561E40E082001A3B33 /* image5.jpg */; };
+		46244E591E40E082001A3B33 /* image4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46244E571E40E082001A3B33 /* image4.jpg */; };
+		466B9FD71E3F9B2700FB007B /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 466B9FD31E3F9B2700FB007B /* image.jpg */; };
+		466B9FD81E3F9B2700FB007B /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 466B9FD41E3F9B2700FB007B /* image1.jpg */; };
+		466B9FD91E3F9B2700FB007B /* image2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 466B9FD51E3F9B2700FB007B /* image2.jpg */; };
+		466B9FDA1E3F9B2700FB007B /* image3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 466B9FD61E3F9B2700FB007B /* image3.jpg */; };
 		4B4299A81E087F7200A202F9 /* 6NutriSliceLinks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4299A71E087F7200A202F9 /* 6NutriSliceLinks.storyboard */; };
 		4BE086DE1E08738F00BEA0E4 /* NutriSliceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE086DD1E08738F00BEA0E4 /* NutriSliceViewController.swift */; };
 		6B4B6CFEFCAF92D0441078C0 /* Pods_Pattonville_School_District_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3997F7E4BE66858E7DB5202 /* Pods_Pattonville_School_District_AppTests.framework */; };
@@ -164,6 +170,12 @@
 		42B933BA1DFB022B00514B73 /* lines.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lines.jpg; sourceTree = "<group>"; };
 		42B933BB1DFB022B00514B73 /* nature- dear.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "nature- dear.jpg"; sourceTree = "<group>"; };
 		42B933BD1DFB022B00514B73 /* pin-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin-green.png"; sourceTree = "<group>"; };
+		46244E561E40E082001A3B33 /* image5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image5.jpg; path = ../../image5.jpg; sourceTree = "<group>"; };
+		46244E571E40E082001A3B33 /* image4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image4.jpg; path = ../../image4.jpg; sourceTree = "<group>"; };
+		466B9FD31E3F9B2700FB007B /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image.jpg; path = ../../image.jpg; sourceTree = "<group>"; };
+		466B9FD41E3F9B2700FB007B /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image1.jpg; path = ../../image1.jpg; sourceTree = "<group>"; };
+		466B9FD51E3F9B2700FB007B /* image2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image2.jpg; path = ../../image2.jpg; sourceTree = "<group>"; };
+		466B9FD61E3F9B2700FB007B /* image3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = image3.jpg; path = ../../image3.jpg; sourceTree = "<group>"; };
 		4B4299A71E087F7200A202F9 /* 6NutriSliceLinks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = 6NutriSliceLinks.storyboard; sourceTree = "<group>"; };
 		4BE086DD1E08738F00BEA0E4 /* NutriSliceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutriSliceViewController.swift; sourceTree = "<group>"; };
 		744CB7DE37186867DC47DBFC /* Pods-Pattonville-School-District-AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-AppTests/Pods-Pattonville-School-District-AppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -244,6 +256,12 @@
 				42617B421E00A61C00BB5992 /* pin-black-1.png */,
 				42B9330F1DFAEDC500514B73 /* Info.plist */,
 				42B933B61DFB022B00514B73 /* circle.jpg */,
+				466B9FD31E3F9B2700FB007B /* image.jpg */,
+				466B9FD41E3F9B2700FB007B /* image1.jpg */,
+				466B9FD51E3F9B2700FB007B /* image2.jpg */,
+				466B9FD61E3F9B2700FB007B /* image3.jpg */,
+				46244E561E40E082001A3B33 /* image5.jpg */,
+				46244E571E40E082001A3B33 /* image4.jpg */,
 				42B933B71DFB022B00514B73 /* diamond.jpg */,
 				42B933B81DFB022B00514B73 /* illusion.jpg */,
 				42B933B91DFB022B00514B73 /* java.jpg */,
@@ -534,15 +552,20 @@
 				42B933BF1DFB022B00514B73 /* diamond.jpg in Resources */,
 				42B933C01DFB022B00514B73 /* illusion.jpg in Resources */,
 				4B4299A81E087F7200A202F9 /* 6NutriSliceLinks.storyboard in Resources */,
+				46244E581E40E082001A3B33 /* image5.jpg in Resources */,
 				42B9330B1DFAEDC500514B73 /* Assets.xcassets in Resources */,
+				466B9FD71E3F9B2700FB007B /* image.jpg in Resources */,
 				42B933091DFAEDC500514B73 /* Main.storyboard in Resources */,
 				42B933851DFAEEF400514B73 /* News.storyboard in Resources */,
+				466B9FD81E3F9B2700FB007B /* image1.jpg in Resources */,
 				1B040D7A1E0E399200D69069 /* SSD.storyboard in Resources */,
 				42B933C21DFB022B00514B73 /* lines.jpg in Resources */,
 				42B933321DFAEEE300514B73 /* TabBarIcons in Resources */,
+				466B9FDA1E3F9B2700FB007B /* image3.jpg in Resources */,
 				42B9338C1DFAEEF400514B73 /* Peachjar.storyboard in Resources */,
 				42B933A31DFAEF1B00514B73 /* Home.storyboard in Resources */,
 				42B9336D1DFAEEF400514B73 /* CalendarEventDetailController.storyboard in Resources */,
+				46244E591E40E082001A3B33 /* image4.jpg in Resources */,
 				42B933791DFAEEF400514B73 /* Directory.storyboard in Resources */,
 				42617B431E00A61C00BB5992 /* pin-black-1.png in Resources */,
 				42B933701DFAEEF400514B73 /* CalendarHeaderView.xib in Resources */,
@@ -550,6 +573,7 @@
 				42B933C11DFB022B00514B73 /* java.jpg in Resources */,
 				42B933C51DFB022B00514B73 /* pin-green.png in Resources */,
 				42B933991DFAEEF400514B73 /* Settings.storyboard in Resources */,
+				466B9FD91E3F9B2700FB007B /* image2.jpg in Resources */,
 				1B5E11031E27C51D0038A33C /* email-icon.png in Resources */,
 				42B933691DFAEEF400514B73 /* Assets.xcassets in Resources */,
 				42B933A21DFAEF1B00514B73 /* Calendar.storyboard in Resources */,

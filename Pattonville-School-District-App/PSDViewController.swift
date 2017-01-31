@@ -21,12 +21,12 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     
     var images : [[Any]] = []
     
-    let circle = #imageLiteral(resourceName: "circle.jpg")
-    let java = #imageLiteral(resourceName: "java.jpg")
-    let lines = #imageLiteral(resourceName: "lines.jpg")
-    let natureDear = #imageLiteral(resourceName: "nature- dear.jpg")
-    let illusion = #imageLiteral(resourceName: "illusion.jpg")
-    let diamond = #imageLiteral(resourceName: "diamond.jpg")
+    let image0 = #imageLiteral(resourceName: "image.jpg")
+    let image1 = #imageLiteral(resourceName: "image1.jpg")
+    let image2 = #imageLiteral(resourceName: "image2.jpg")
+    let image3 = #imageLiteral(resourceName: "image3.jpg")
+    let image4 = #imageLiteral(resourceName: "image4.jpg")
+    let image5 = #imageLiteral(resourceName: "image5.jpg")
     
     var schools: [School] = []
 
@@ -38,12 +38,12 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         carouselWidth = UIScreen.main.bounds.size.width;
         carouselHeight = homeCarousel.bounds.size.height;
         
-        images.append([circle, "Circle"])
-        images.append([java, "java"])
-        images.append([lines, "lines"])
-        images.append([natureDear, "Deer"])
-        images.append([illusion, "Illusion"])
-        images.append([diamond, "Diamond"])
+        images.append([image0, ""])
+        images.append([image1, ""])
+        images.append([image2, ""])
+        images.append([image3, ""])
+        images.append([image4, ""])
+        images.append([image5, ""])
         
         homeCarousel.type = iCarouselType.linear
         homeCarousel.isPagingEnabled = true
