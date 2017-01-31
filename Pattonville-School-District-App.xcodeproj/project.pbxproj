@@ -19,6 +19,7 @@
 		4234D1C11E310B19005B3CA8 /* NewsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4234D1C01E310B19005B3CA8 /* NewsParser.swift */; };
 		4242FC231E3F96D800A43491 /* NewsItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4242FC221E3F96D800A43491 /* NewsItemCell.xib */; };
 		42617B431E00A61C00BB5992 /* pin-black-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 42617B421E00A61C00BB5992 /* pin-black-1.png */; };
+		42B014CD1E4001740062CBE0 /* CalendarParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B014CC1E4001740062CBE0 /* CalendarParser.swift */; };
 		42B933021DFAEDC500514B73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933011DFAEDC500514B73 /* AppDelegate.swift */; };
 		42B933091DFAEDC500514B73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B933071DFAEDC500514B73 /* Main.storyboard */; };
 		42B9330B1DFAEDC500514B73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42B9330A1DFAEDC500514B73 /* Assets.xcassets */; };
@@ -108,6 +109,7 @@
 		4242FC221E3F96D800A43491 /* NewsItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsItemCell.xib; sourceTree = "<group>"; };
 		42617B421E00A61C00BB5992 /* pin-black-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin-black-1.png"; sourceTree = "<group>"; };
 		42A9ABCDF3EE610FB5F3DDB8 /* Pods-Pattonville-School-District-AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-AppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-AppUITests/Pods-Pattonville-School-District-AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		42B014CC1E4001740062CBE0 /* CalendarParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarParser.swift; sourceTree = "<group>"; };
 		42B932FE1DFAEDC500514B73 /* Pattonville-School-District-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pattonville-School-District-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42B933011DFAEDC500514B73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42B933081DFAEDC500514B73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				42B933401DFAEEF300514B73 /* DateCell.swift */,
 				42B933411DFAEEF300514B73 /* DateCell.xib */,
 				42B933421DFAEEF300514B73 /* DateView.xib */,
+				42B014CC1E4001740062CBE0 /* CalendarParser.swift */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -739,6 +742,7 @@
 				42B933981DFAEEF400514B73 /* SelectSchoolsTableViewController.swift in Sources */,
 				4234D1C11E310B19005B3CA8 /* NewsParser.swift in Sources */,
 				42B933891DFAEEF400514B73 /* NewsReel.swift in Sources */,
+				42B014CD1E4001740062CBE0 /* CalendarParser.swift in Sources */,
 				42B933021DFAEDC500514B73 /* AppDelegate.swift in Sources */,
 				42B9336F1DFAEEF400514B73 /* CalendarHeaderView.swift in Sources */,
 				42B933961DFAEEF400514B73 /* SchoolsEnum.swift in Sources */,

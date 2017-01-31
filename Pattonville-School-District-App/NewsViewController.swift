@@ -20,15 +20,18 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     var newsReel: NewsReel!
     var filteredNewsReel: NewsReel!
     
-    var schools: [School]!
+    var prevSchools: [School]! = []
+    var currentSchools: [School]!
     var parser: NewsParser!
     
-    let searchController = UISearchController(searchResultsController: nil)
+    var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         filteredNewsReel = NewsReel()
+        
+        searchController = UISearchController(searchResultsController: nil)
         
         searchController.delegate = self
         searchController.searchResultsUpdater = self
@@ -36,6 +39,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         searchController.definesPresentationContext = true
         searchController.searchBar.scopeButtonTitles = []
         tableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.sizeToFit()
         
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -47,7 +51,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.refreshControl = UIRefreshControl()
         self.refreshControl.backgroundColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
         self.refreshControl.tintColor = .white
-        self.refreshControl.addTarget(self, action: #selector(NewsViewController.refreshData), for: UIControlEvents.valueChanged)
+        //self.refreshControl.addTarget(self, action: #selector(NewsViewController.refreshData), for: UIControlEvents.valueChanged)
         
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
@@ -61,10 +65,13 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        schools = SchoolsArray.getSubscribedSchools()
-        parser = NewsParser(newsReel: newsReel, schools: schools)
+        currentSchools = SchoolsArray.getSubscribedSchools()
+        parser = NewsParser(newsReel: newsReel, schools: currentSchools)
         
-        refreshData()
+        if currentSchools != prevSchools{
+            refreshData()
+            prevSchools = currentSchools
+        }
         
         tableView.reloadData()
         
@@ -118,6 +125,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         cell.newsItem = newsItem
+        
         cell.setUp()
         
         return cell
@@ -144,7 +152,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     //Refreshes the list of news articles
     @objc private func refreshData(){
         
-        parser.updateSchools(schools: schools)
+        parser.updateSchools(schools: currentSchools)
         
         parser.getDataInBackground(completionHandler: {
             print("REFRESHING")
@@ -163,7 +171,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     private func filterNewsForSearchText(searchText: String){
         
         filteredNewsReel.news = newsReel.news.filter({ newsItem in
-            return newsItem.title.lowercased().contains(searchText.lowercased())
+            return newsItem.title.lowercased().contains(searchText.lowercased()) || newsItem.school.name.lowercased().contains(searchText.lowercased())
         })
         
         tableView.reloadData()

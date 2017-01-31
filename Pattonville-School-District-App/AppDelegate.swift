@@ -31,6 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 school.isSubscribedTo = UserDefaults.standard.bool(forKey: school.name)
                 print("\(school.name) launched with bool value \(school.isSubscribedTo)")
             }
+            
+            SchoolsEnum.district.isSubscribedTo = true
+            
             print("Not first launch.")
         } else {
             print("First launch, setting UserDefault.")
@@ -55,12 +58,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navCalController = navBarController.viewControllers![2] as! UINavigationController
         let calendarController = navCalController.topViewController as! CalendarViewController
         
-        
+        let calendarParser = CalendarParser(calendar: calendarList, schools: SchoolsArray.getSubscribedSchools())
+        let newsParser = NewsParser(newsReel: newsReel, schools: SchoolsArray.getSubscribedSchools())
         
         homeController.newsReel = newsReel
-        newsController.newsReel = newsReel
-        calendarController.calendarList = calendarList
-        calendarController.selectedDate = Date()
+        newsController.newsReel = self.newsReel
+        calendarController.calendarList = self.calendarList
+        
+        newsParser.getDataInBackground(completionHandler: {
+            newsController.newsReel = self.newsReel
+            print("Done Parseing News")
+        })
+        
+        calendarParser.getEventsInBackground(completionHandler: {
+            calendarController.calendarList = self.calendarList
+            calendarController.selectedDate = Date()
+            print("Done Parseing Calendar")
+        })
         
         UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
       
