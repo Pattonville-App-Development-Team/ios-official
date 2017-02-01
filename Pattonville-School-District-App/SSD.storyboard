@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sHY-5E-0ja">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sHY-5E-0ja">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -79,18 +81,18 @@
                                 </connections>
                             </containerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bng-N1-qBO">
-                                <rect key="frame" x="27" y="63.5" width="152" height="86.5"/>
+                                <rect key="frame" x="27" y="63.5" width="135" height="77"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="152" id="UJH-N0-SGx"/>
+                                    <constraint firstAttribute="width" secondItem="bng-N1-qBO" secondAttribute="height" multiplier="76:43" id="Euf-VG-O77"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bng-N1-qBO" firstAttribute="top" secondItem="BmA-QR-mk7" secondAttribute="bottom" constant="17.5" id="4th-f8-kAO"/>
-                            <constraint firstItem="3pE-6Z-Ugy" firstAttribute="top" secondItem="bng-N1-qBO" secondAttribute="bottom" constant="17" id="Cv0-Vc-rL3"/>
                             <constraint firstAttribute="trailing" secondItem="3pE-6Z-Ugy" secondAttribute="trailing" id="JCZ-M0-uYP"/>
                             <constraint firstItem="BmA-QR-mk7" firstAttribute="top" secondItem="5Le-5m-v8a" secondAttribute="bottom" constant="5" id="T2S-Ix-sUb"/>
+                            <constraint firstItem="bng-N1-qBO" firstAttribute="width" secondItem="vZV-rc-Q1p" secondAttribute="width" multiplier="0.36" id="Wds-mG-PmW"/>
                             <constraint firstItem="jxy-nc-0ZM" firstAttribute="top" secondItem="5Le-5m-v8a" secondAttribute="bottom" constant="33" id="bYQ-qv-dll"/>
                             <constraint firstItem="3pE-6Z-Ugy" firstAttribute="centerX" secondItem="BmA-QR-mk7" secondAttribute="centerX" id="eF7-pe-5Sy"/>
                             <constraint firstAttribute="bottomMargin" secondItem="3pE-6Z-Ugy" secondAttribute="bottom" constant="43" id="iTz-hR-klD"/>
@@ -131,14 +133,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jeremiah Simmons" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qo-WA-mKb">
-                                            <rect key="frame" x="18" y="3" width="146" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teacher Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qo-WA-mKb">
+                                            <rect key="frame" x="18" y="3" width="111" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CTE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHj-sn-lAe">
-                                            <rect key="frame" x="28" y="27" width="22" height="14"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Department" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHj-sn-lAe">
+                                            <rect key="frame" x="28" y="27" width="63" height="14"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -150,7 +152,7 @@
                                                 <action selector="sendEmailButton:" destination="slO-Xc-K0z" eventType="touchUpInside" id="ESc-5X-U8g"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="x0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdT-w7-Cnz">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ext." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdT-w7-Cnz">
                                             <rect key="frame" x="237" y="8" width="51" height="27"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
