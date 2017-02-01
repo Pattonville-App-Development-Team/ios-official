@@ -187,7 +187,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         mainView.addSubview(imageView)
         
         //Add captionView to the imageView container
-        imageView.addSubview(captionView)
+        //imageView.addSubview(captionView)
         
         //Add captionLabel to the captionView container
         captionView.addSubview(captionLabel)
