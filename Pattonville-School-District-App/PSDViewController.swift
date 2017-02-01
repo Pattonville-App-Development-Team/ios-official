@@ -169,7 +169,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     /// - indexPath: the indexPath of the selected cell
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "EventDetail", sender: self)
+        performSegue(withIdentifier: "EventDetailFromHome", sender: self)
     }
     
    /* func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -180,7 +180,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     /// - sender: the object that triggered the segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EventDetail"{
+        if segue.identifier == "EventDetailFromHome"{
             let destination = segue.destination as! CalendarEventDetailController
             let event = tableView.indexPathForSelectedRow?.row
             destination.event = selectedDateEvents[event!]

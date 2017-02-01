@@ -63,6 +63,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="JXp-CH-aej" kind="show" identifier="EventDetailFromHome" id="SP9-X4-vmP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -92,6 +95,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NtR-gt-bGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1080" y="1580"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="REA-AV-A5a">
+            <objects>
+                <viewControllerPlaceholder id="JXp-CH-aej" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VeH-fB-bMr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-524" y="1542"/>
         </scene>
     </scenes>
     <resources>
