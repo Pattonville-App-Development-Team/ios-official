@@ -51,26 +51,30 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         tableView.delegate = self
         tableView.dataSource = self
         
-        var carouselTimer: Timer!
-        carouselTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
+        tableView.register(UINib(nibName: "NewsItemCell", bundle: nil), forCellReuseIdentifier: "NewsItemCell")
 
-        let newsParser = NewsParser(newsReel: newsReel, schools: schools)
-        
-        newsParser.getDataInBackground(completionHandler: {
-            self.tableView.reloadData()
-        })
-        
+        Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
         
     }
     
-    func scroll(){
-        homeCarousel.scroll(byNumberOfItems: 1, duration: 2.0)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let newsParser = NewsParser(newsReel: newsReel, schools: schools)
+        
+        newsParser.getDataInBackground(completionHandler: {
+            
+            self.newsReel.news.sort(by: {
+                 return $0.date > $1.date
+            })
+            
+            self.tableView.reloadData()
+        })
     }
     
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        tableView.reloadData()
+        
         // Dispose of any resources that can be recreated.
     }
     
@@ -123,9 +127,8 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         if newsReel.news.count > 0{
             let newsItem = newsReel.news[indexPath.row]
             
-            cell.title.text = newsItem.title
-            cell.date.text = newsItem.dateString
-            cell.school.backgroundColor = newsItem.school.color
+            cell.newsItem = newsItem
+            cell.setUp()
         }
         
         return cell
@@ -143,7 +146,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         return images.count
     }
     
-    //Defines the look of carousel items
     /// Builds a carousel of images for the Home Storyboard
     ///
     /// - parameter carousel: The home screen carousel used to display clickable stories
@@ -199,13 +201,24 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         return mainView;
     }
     
-    //Creates wrapping functionality for carousel
+    /// Creates wrapping functionality for carousel
+    ///
+    /// - carousel: the carousel object
+    /// - option: the option we want to modify on our carousel
+    /// - value: the default value of the option
+    ///
+    /// - returns the modified value/values of the carousel object
     func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
         if(option == iCarouselOption.wrap){
             return 1.0
         }
         return value
         
+    }
+    
+    /// Scrolls the carousel by one item over teh course of two seconds
+    @objc private func scroll(){
+        homeCarousel.scroll(byNumberOfItems: 1, duration: 2.0)
     }
 
 

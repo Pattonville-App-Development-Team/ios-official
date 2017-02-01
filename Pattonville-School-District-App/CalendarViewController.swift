@@ -62,7 +62,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         if currentSchools != prevSchools{
             print("New Schools")
-            refreshData()
+            //refreshData()
             prevSchools = currentSchools
         }
         

@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let newsReel = NewsReel()
     let calendarList = Calendar()
+    
     /// Method called as the app is launching, checks to see if the application is launched before, if so sets the isSubscribedTo values in SchoolsArray.allSchools 
     ///
     /// - Parameters:
@@ -26,15 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         
         if launchedBefore{
-            NSLog("not first launch is ithis working")
             for school in SchoolsArray.allSchools{
                 school.isSubscribedTo = UserDefaults.standard.bool(forKey: school.name)
-                print("\(school.name) launched with bool value \(school.isSubscribedTo)")
             }
             
             SchoolsEnum.district.isSubscribedTo = true
-            
-            print("Not first launch.")
+        
         } else {
             print("First launch, setting UserDefault.")
            
@@ -62,24 +60,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let newsParser = NewsParser(newsReel: newsReel, schools: SchoolsArray.getSubscribedSchools())
         
         homeController.newsReel = newsReel
-        newsController.newsReel = self.newsReel
-        calendarController.calendarList = self.calendarList
-        
-        newsParser.getDataInBackground(completionHandler: {
-            newsController.newsReel = self.newsReel
-            print("Done Parseing News")
-        })
+        newsController.newsReel = newsReel
+        calendarController.calendarList = calendarList
         
         calendarParser.getEventsInBackground(completionHandler: {
-            calendarController.calendarList = self.calendarList
-            calendarController.selectedDate = Date()
             print("Done Parseing Calendar")
+            
+            print(self.calendarList)
+            calendarController.calendarList = self.calendarList
+            print(calendarController.calendarList)
+            
+            calendarController.selectedDate = Date()
+        })
+        
+        newsParser.getDataInBackground(completionHandler: {
+            print("Done Parseing News")
+            
+            print(self.newsReel)
+            newsController.newsReel = self.newsReel
+            print(newsController.newsReel)
+            
         })
         
         UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
       
-        
-        
         return true
     }
     
