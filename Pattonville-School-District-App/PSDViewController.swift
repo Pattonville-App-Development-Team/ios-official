@@ -60,7 +60,8 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         var carouselTimer: Timer!
         carouselTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
 
-        let newsParser = NewsParser(newsReel: newsReel, schools: schools)
+        let newsParser = NewsParser(newsReel: newsReel, schools: SchoolsArray.getSubscribedSchools())
+        let calendarParser = CalendarParser(calendar: calendarList, schools: SchoolsArray.getSubscribedSchools())
         
         newsParser.getDataInBackground(completionHandler: {
             self.tableView.reloadData()
