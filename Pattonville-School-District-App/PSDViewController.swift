@@ -90,13 +90,8 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         return 2
     }
     
-    /*func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return ["Recent News", "Upcoming Events", "Pinned Events"]
-    }*/
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
        
-        //let sectionTitles = ["Recent News", "Upcoming Events", "Pinned Events"]
         let sectionTitles = ["Recent News", "Upcoming Events"]
         
         
@@ -107,7 +102,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         view.backgroundColor = UIColor(red:0.00, green:0.48, blue:0.20, alpha:1.0)
         
-        label = UILabel(frame: CGRect(x: 15, y: 0, width: view.bounds.size.width, height: view.bounds.size.height))
+        label = UILabel(frame: CGRect(x: 15, y: 2, width: view.bounds.size.width, height: view.bounds.size.height))
         label.text = sectionTitles[section]
         label.font = UIFont(name: "HelveticaNeue", size: 16)
         label.textColor = .white
@@ -119,7 +114,14 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 22
+        return 28
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0{
+            return 60
+        }
+        return 44
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -128,38 +130,33 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        /*let cell = tableView.dequeueReusableCell(withIdentifier: "NewsItemCell", for: indexPath) as! NewsItemCell*/
-        let x = indexPath.section
-        //var cell: UITableViewCell
+        let section = indexPath.section
         
-        if x == 0{
+        if section == 0{
             if newsReel.news.count > 0 {
                 let newsItem = newsReel.news[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NewsItemCell", for: indexPath) as! NewsItemCell
-                cell.title.text = newsItem.title
-                cell.date.text = newsItem.dateString
-                cell.school.backgroundColor = newsItem.school.color
+                
+                cell.newsItem = newsItem
+                cell.setUp()
+                
                 return cell
             
             }
-        } else /*x == 1 */{
+        } else{
             if calendarList.datesList.count > 0 {
-                let recentEventItem = calendarList.datesList[indexPath.row]
+                let event = calendarList.datesList[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
                 
-                cell.event = recentEventItem
+                cell.event = event
                 cell.setUp(indexPath: indexPath)
+                
+                cell.pinButton.isHidden = true
+                
                 return cell
                 
             }
-        } /*else {
-            let newsItem = newsReel.news[indexPath.row]
-            
-            cell.title.text = newsItem.title
-            cell.date.text = newsItem.dateString
-            cell.school.backgroundColor = newsItem.school.color
-        }*/
-        
+        }
         
        // return cell
         return UITableViewCell()
@@ -172,9 +169,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         performSegue(withIdentifier: "EventDetail", sender: self)
     }
     
-   /* func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "NewsDetailSegue", sender: self)
-    }*/
     /// Defines preparation steps for segues leaving this view controller
     /// - segue: the segue that was triggered
     /// - sender: the object that triggered the segue
@@ -184,14 +178,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
             let destination = segue.destination as! CalendarEventDetailController
             let event = tableView.indexPathForSelectedRow?.row
             destination.event = selectedDateEvents[event!]
-        }/*else if segue.identifier == "CalendarPinnedViewSegue"{
-            let destination = (segue.destination as! UINavigationController).viewControllers[0] as! CalendarPinnedListViewController
-            destination.eventsList = pinnedDateEvents
-        }else if segue.identifier == "EventDetail"{
-            let destination = segue.destination as! CalendarEventDetailController
-            let event = tableView.indexPathForSelectedRow?.row
-            destination.event = selectedDateEvents[event!]
-        }*/
+        }
     }
 
     //***************************** CAROUSEL STUFF *****************************\\

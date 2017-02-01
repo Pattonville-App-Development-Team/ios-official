@@ -65,22 +65,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         calendarController.calendarList = calendarList
         
         calendarParser.getEventsInBackground(completionHandler: {
-            print("Done Parseing Calendar")
-            
-            print(self.calendarList)
+            homeController.calendarList = self.calendarList
             calendarController.calendarList = self.calendarList
-            print(calendarController.calendarList)
-            
             calendarController.selectedDate = Date()
         })
         
         newsParser.getDataInBackground(completionHandler: {
-            print("Done Parseing News")
-            
-            print(self.newsReel)
+            homeController.newsReel = self.newsReel
             newsController.newsReel = self.newsReel
-            print(newsController.newsReel)
-            
         })
         
         UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
