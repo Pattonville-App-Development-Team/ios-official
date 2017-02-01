@@ -15,7 +15,12 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     @IBOutlet var tableView: UITableView!
     
     var newsReel: NewsReel!
-    var calendarList: Calendar!
+    var calendarList: Calendar!{
+        didSet{
+            print("RAN DID SET")
+            getUpcomingEvents()
+        }
+    }
     
     var selectedDateEvents = [Event]()
     
@@ -59,8 +64,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         tableView.register(UINib(nibName: "NewsItemCell", bundle: nil), forCellReuseIdentifier: "NewsItemCell")
         
         
-        var carouselTimer: Timer!
-        carouselTimer = Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 4.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
 
         let newsParser = NewsParser(newsReel: newsReel, schools: SchoolsArray.getSubscribedSchools())
         let calendarParser = CalendarParser(calendar: calendarList, schools: SchoolsArray.getSubscribedSchools())
@@ -71,6 +75,11 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
                  return $0.date > $1.date
             })
             
+            self.tableView.reloadData()
+        })
+        
+        calendarParser.getEventsInBackground(completionHandler: {
+            self.getUpcomingEvents()
             self.tableView.reloadData()
         })
     }
@@ -147,6 +156,8 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
             if calendarList.datesList.count > 0 {
                 let event = calendarList.datesList[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
+                
+                print(event.date)
                 
                 cell.event = event
                 cell.setUp(indexPath: indexPath)
@@ -265,6 +276,19 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     /// Scrolls the carousel by one item over teh course of two seconds
     @objc private func scroll(){
         homeCarousel.scroll(byNumberOfItems: 1, duration: 2.0)
+    }
+    
+    private func getUpcomingEvents(){
+        
+        calendarList.datesList = calendarList.datesList.filter({
+            return $0.date! > Date()
+        })
+        
+        calendarList.datesList = calendarList.datesList.sorted(by: {
+            $0.date! < $1.date!
+        })
+        
+        
     }
 
 
