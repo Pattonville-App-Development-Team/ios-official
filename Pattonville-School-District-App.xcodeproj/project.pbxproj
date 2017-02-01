@@ -508,7 +508,7 @@
 				TargetAttributes = {
 					42B932FD1DFAEDC500514B73 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 856G5PJJ67;
+						DevelopmentTeam = ZPVDW8LQL8;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -935,7 +935,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 856G5PJJ67;
+				DEVELOPMENT_TEAM = ZPVDW8LQL8;
 				INFOPLIST_FILE = "Pattonville-School-District-App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -953,7 +953,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 856G5PJJ67;
+				DEVELOPMENT_TEAM = ZPVDW8LQL8;
 				INFOPLIST_FILE = "Pattonville-School-District-App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
