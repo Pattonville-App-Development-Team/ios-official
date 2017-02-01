@@ -18,7 +18,9 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     
     var calendarList: Calendar!
     
+    
     var selectedDate: Date = Date()
+    
     
     var selectedDateEvents = [Event]()
     var pinnedDateEvents = [Event]()
@@ -62,7 +64,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         if currentSchools != prevSchools{
             print("New Schools")
-            //refreshData()
+            refreshData()
             prevSchools = currentSchools
         }
         

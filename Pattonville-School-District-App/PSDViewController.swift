@@ -17,6 +17,8 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     var newsReel: NewsReel!
     var calendarList: Calendar!
     
+    var selectedDateEvents = [Event]()
+    
     var carouselWidth: CGFloat = 0
     var carouselHeight: CGFloat = 0
     
@@ -162,7 +164,36 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
        // return cell
         return UITableViewCell()
     }
+    /// Defines the functionality of a selected cell in the table
+    /// - tableeView: the instance of teh teableview onscreen
+    /// - indexPath: the indexPath of the selected cell
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "EventDetail", sender: self)
+    }
+    
+   /* func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "NewsDetailSegue", sender: self)
+    }*/
+    /// Defines preparation steps for segues leaving this view controller
+    /// - segue: the segue that was triggered
+    /// - sender: the object that triggered the segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EventDetail"{
+            let destination = segue.destination as! CalendarEventDetailController
+            let event = tableView.indexPathForSelectedRow?.row
+            destination.event = selectedDateEvents[event!]
+        }/*else if segue.identifier == "CalendarPinnedViewSegue"{
+            let destination = (segue.destination as! UINavigationController).viewControllers[0] as! CalendarPinnedListViewController
+            destination.eventsList = pinnedDateEvents
+        }else if segue.identifier == "EventDetail"{
+            let destination = segue.destination as! CalendarEventDetailController
+            let event = tableView.indexPathForSelectedRow?.row
+            destination.event = selectedDateEvents[event!]
+        }*/
+    }
+
     //***************************** CAROUSEL STUFF *****************************\\
     
     /// Defines the number of elements present in the carousel
