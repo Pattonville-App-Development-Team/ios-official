@@ -22,12 +22,12 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     
     var images : [[Any]] = []
     
-    let circle = #imageLiteral(resourceName: "circle.jpg")
-    let java = #imageLiteral(resourceName: "java.jpg")
-    let lines = #imageLiteral(resourceName: "lines.jpg")
-    let natureDear = #imageLiteral(resourceName: "nature- dear.jpg")
-    let illusion = #imageLiteral(resourceName: "illusion.jpg")
-    let diamond = #imageLiteral(resourceName: "diamond.jpg")
+    let image0 = #imageLiteral(resourceName: "image.jpg")
+    let image1 = #imageLiteral(resourceName: "image1.jpg")
+    let image2 = #imageLiteral(resourceName: "image2.jpg")
+    let image3 = #imageLiteral(resourceName: "image3.jpg")
+    let image4 = #imageLiteral(resourceName: "image4.jpg")
+    let image5 = #imageLiteral(resourceName: "image5.jpg")
     
     var schools: [School] = []
 
@@ -38,12 +38,12 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         carouselWidth = UIScreen.main.bounds.size.width;
         carouselHeight = homeCarousel.bounds.size.height;
         
-        images.append([circle, "Circle"])
-        images.append([java, "java"])
-        images.append([lines, "lines"])
-        images.append([natureDear, "Deer"])
-        images.append([illusion, "Illusion"])
-        images.append([diamond, "Diamond"])
+        images.append([image0, ""])
+        images.append([image1, ""])
+        images.append([image2, ""])
+        images.append([image3, ""])
+        images.append([image4, ""])
+        images.append([image5, ""])
         
         homeCarousel.type = iCarouselType.linear
         homeCarousel.isPagingEnabled = true
@@ -64,20 +64,19 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         let calendarParser = CalendarParser(calendar: calendarList, schools: SchoolsArray.getSubscribedSchools())
         
         newsParser.getDataInBackground(completionHandler: {
+            
+            self.newsReel.news.sort(by: {
+                 return $0.date > $1.date
+            })
+            
             self.tableView.reloadData()
         })
-        
-        
-    }
-    
-    func scroll(){
-        homeCarousel.scroll(byNumberOfItems: 1, duration: 2.0)
     }
     
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        tableView.reloadData()
+        
         // Dispose of any resources that can be recreated.
     }
     
@@ -175,7 +174,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         return images.count
     }
     
-    //Defines the look of carousel items
     /// Builds a carousel of images for the Home Storyboard
     ///
     /// - parameter carousel: The home screen carousel used to display clickable stories
@@ -219,7 +217,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         mainView.addSubview(imageView)
         
         //Add captionView to the imageView container
-        imageView.addSubview(captionView)
+        //imageView.addSubview(captionView)
         
         //Add captionLabel to the captionView container
         captionView.addSubview(captionLabel)
@@ -231,13 +229,24 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         return mainView;
     }
     
-    //Creates wrapping functionality for carousel
+    /// Creates wrapping functionality for carousel
+    ///
+    /// - carousel: the carousel object
+    /// - option: the option we want to modify on our carousel
+    /// - value: the default value of the option
+    ///
+    /// - returns the modified value/values of the carousel object
     func carousel(_ carousel: iCarousel, valueFor option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
         if(option == iCarouselOption.wrap){
             return 1.0
         }
         return value
         
+    }
+    
+    /// Scrolls the carousel by one item over teh course of two seconds
+    @objc private func scroll(){
+        homeCarousel.scroll(byNumberOfItems: 1, duration: 2.0)
     }
 
 

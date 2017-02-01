@@ -75,9 +75,10 @@ class SelectSchoolsTableViewController: UITableViewController{
     ///
     /// - Parameter sender: The school selescted switch
     func switchIsChanged(sender: UISwitch){
-        let school = SchoolsArray.getSchools()[sender.tag]
+        let school = SchoolsArray.allSchools[sender.tag + 1]
         school.isSubscribedTo = !school.isSubscribedTo
         print("switchIsChanged method is being called")
+        
         UserDefaults.standard.set(school.isSubscribedTo, forKey: school.name)
         print("Saved \(school.name)'s isSubscribedTo bool val to \(UserDefaults.standard.bool(forKey: school.name))")
         for school in SchoolsArray.allSchools {
