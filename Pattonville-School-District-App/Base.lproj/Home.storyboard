@@ -64,7 +64,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="JXp-CH-aej" kind="show" identifier="EventDetailFromHome" id="SP9-X4-vmP"/>
+                                            <segue destination="1JI-Xq-iuB" kind="show" identifier="NewsDetailFromHome" id="5tq-b5-eNC"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DateCell" rowHeight="60" id="yBY-Lp-Sn4" userLabel="DateCell" customClass="DateCell" customModule="Pattonville_School_District_App" customModuleProvider="target">
@@ -74,6 +74,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="JXp-CH-aej" kind="show" identifier="EventDetailFromHome" id="FHc-PB-29m"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -103,6 +106,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NtR-gt-bGO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1080" y="1580"/>
+        </scene>
+        <!--NewsDetail-->
+        <scene sceneID="lSg-eP-4kE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewsDetail" id="1JI-Xq-iuB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9eu-nj-kVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-524" y="1482"/>
         </scene>
         <!--CalendarEventDetail-->
         <scene sceneID="REA-AV-A5a">

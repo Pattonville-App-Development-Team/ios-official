@@ -183,6 +183,9 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
             let destination = segue.destination as! CalendarEventDetailController
             let event = tableView.indexPathForSelectedRow?.row
             destination.event = calendarList.datesList[event!]
+        } else if segue.identifier == "NewsDetailFromHome" {
+            let destination = segue.destination as! NewsDetailViewController
+            destination.news = newsReel.news[(tableView.indexPathForSelectedRow?.row)!]
         }
     }
     /// Defines the functionality of a selected cell in the table
@@ -190,9 +193,11 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     /// - indexPath: the indexPath of the selected cell
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1{
+        if indexPath.section == 0{
             
-        performSegue(withIdentifier: "EventDetailFromHome", sender: self)
+            performSegue(withIdentifier: "NewsDetailFromHome", sender: self)
+        } else if indexPath.section == 1{
+            performSegue(withIdentifier: "EventDetailFromHome", sender: self)
         }
     }
     

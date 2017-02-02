@@ -78,6 +78,7 @@
 		4611185A1E4231CF005AA3A9 /* image4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 461118541E4231CF005AA3A9 /* image4.jpg */; };
 		4611185B1E4231CF005AA3A9 /* image5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 461118551E4231CF005AA3A9 /* image5.jpg */; };
 		4B4299A81E087F7200A202F9 /* 6NutriSliceLinks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4299A71E087F7200A202F9 /* 6NutriSliceLinks.storyboard */; };
+		4BA99DED1E42EDB700720112 /* NewsDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA99DEC1E42EDB700720112 /* NewsDetail.storyboard */; };
 		4BE086DE1E08738F00BEA0E4 /* NutriSliceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE086DD1E08738F00BEA0E4 /* NutriSliceViewController.swift */; };
 		4BFE3B401E427EE300902741 /* CalendarEventDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BFE3B3E1E427EE300902741 /* CalendarEventDetail.storyboard */; };
 		6B4B6CFEFCAF92D0441078C0 /* Pods_Pattonville_School_District_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3997F7E4BE66858E7DB5202 /* Pods_Pattonville_School_District_AppTests.framework */; };
@@ -182,6 +183,7 @@
 		461118541E4231CF005AA3A9 /* image4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image4.jpg; sourceTree = "<group>"; };
 		461118551E4231CF005AA3A9 /* image5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image5.jpg; sourceTree = "<group>"; };
 		4B4299A71E087F7200A202F9 /* 6NutriSliceLinks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = 6NutriSliceLinks.storyboard; sourceTree = "<group>"; };
+		4BA99DEC1E42EDB700720112 /* NewsDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewsDetail.storyboard; sourceTree = "<group>"; };
 		4BE086DD1E08738F00BEA0E4 /* NutriSliceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutriSliceViewController.swift; sourceTree = "<group>"; };
 		4BFE3B3F1E427EE300902741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CalendarEventDetail.storyboard; sourceTree = "<group>"; };
 		744CB7DE37186867DC47DBFC /* Pods-Pattonville-School-District-AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-AppTests/Pods-Pattonville-School-District-AppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				42B933511DFAEEF300514B73 /* News.storyboard */,
+				4BA99DEC1E42EDB700720112 /* NewsDetail.storyboard */,
 				42B933521DFAEEF300514B73 /* NewsDetailViewController.swift */,
 				42B933531DFAEEF300514B73 /* NewsItem.swift */,
 				42B933541DFAEEF300514B73 /* NewsItemCell.swift */,
@@ -581,6 +584,7 @@
 				42B9336A1DFAEEF400514B73 /* Base.lproj in Resources */,
 				461118571E4231CF005AA3A9 /* image1.jpg in Resources */,
 				42B933C11DFB022B00514B73 /* java.jpg in Resources */,
+				4BA99DED1E42EDB700720112 /* NewsDetail.storyboard in Resources */,
 				42B933C51DFB022B00514B73 /* pin-green.png in Resources */,
 				42B933991DFAEEF400514B73 /* Settings.storyboard in Resources */,
 				1B5E11031E27C51D0038A33C /* email-icon.png in Resources */,
