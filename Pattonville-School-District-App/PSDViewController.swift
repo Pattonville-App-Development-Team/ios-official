@@ -172,14 +172,8 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
        // return cell
         return UITableViewCell()
     }
-    /// Defines the functionality of a selected cell in the table
-    /// - tableeView: the instance of teh teableview onscreen
-    /// - indexPath: the indexPath of the selected cell
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "EventDetailFromHome", sender: self)
-    }
-    
+ 
     /// Defines preparation steps for segues leaving this view controller
     /// - segue: the segue that was triggered
     /// - sender: the object that triggered the segue
@@ -188,10 +182,26 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         if segue.identifier == "EventDetailFromHome"{
             let destination = segue.destination as! CalendarEventDetailController
             let event = tableView.indexPathForSelectedRow?.row
-            destination.event = selectedDateEvents[event!]
+            destination.event = calendarList.datesList[event!]
         }
     }
+    /// Defines the functionality of a selected cell in the table
+    /// - tableeView: the instance of the tableview onscreen
+    /// - indexPath: the indexPath of the selected cell
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1{
+            
+        performSegue(withIdentifier: "EventDetailFromHome", sender: self)
+        }
+    }
+    
+  
 
+    
+    
+    
+    
     //***************************** CAROUSEL STUFF *****************************\\
     
     /// Defines the number of elements present in the carousel
