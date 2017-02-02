@@ -13,7 +13,7 @@
         <!--News-->
         <scene sceneID="WvC-Iz-vsq">
             <objects>
-                <viewController id="cZa-8G-Igb" customClass="NewsViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="cZa-8G-Igb" customClass="NewsViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Chm-rN-0fy"/>
                         <viewControllerLayoutGuide type="bottom" id="fAR-mc-Icf"/>
@@ -23,14 +23,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QQ7-ld-LYh">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NewsItemCell" rowHeight="60" id="UXM-ll-ri2" customClass="NewsItemCell" customModule="Pattonville_School_District_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UXM-ll-ri2" id="3u9-fK-ARd">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -46,7 +46,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="QQ7-ld-LYh" firstAttribute="top" secondItem="Chm-rN-0fy" secondAttribute="bottom" constant="-64" id="P3M-ib-mGO"/>
+                            <constraint firstItem="QQ7-ld-LYh" firstAttribute="top" secondItem="Chm-rN-0fy" secondAttribute="bottom" id="P3M-ib-mGO"/>
                             <constraint firstItem="fAR-mc-Icf" firstAttribute="top" secondItem="QQ7-ld-LYh" secondAttribute="bottom" id="VwS-tB-pdJ"/>
                             <constraint firstItem="QQ7-ld-LYh" firstAttribute="leading" secondItem="c16-Ym-zgA" secondAttribute="leadingMargin" constant="-16" id="bfR-rR-O5G"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QQ7-ld-LYh" secondAttribute="trailing" constant="-16" id="qBM-1q-AQm"/>

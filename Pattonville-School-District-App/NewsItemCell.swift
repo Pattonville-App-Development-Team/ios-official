@@ -23,7 +23,7 @@ class NewsItemCell: UITableViewCell{
         date.text = newsItem.dateString
         
         school.backgroundColor = newsItem.school.color
-        school.layer.cornerRadius = school.frame.width/2
+        school.layer.cornerRadius = school.frame.height/2
         
         schoolName.text = newsItem.school.shortName
     }
