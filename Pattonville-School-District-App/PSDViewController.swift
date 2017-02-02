@@ -84,6 +84,11 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         })
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -157,7 +162,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
                 let event = calendarList.datesList[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
                 
-                print(event.date)
+                print(event.date!)
                 
                 cell.event = event
                 cell.setUp(indexPath: indexPath)
@@ -200,11 +205,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
             performSegue(withIdentifier: "EventDetailFromHome", sender: self)
         }
     }
-    
-  
-
-    
-    
     
     
     //***************************** CAROUSEL STUFF *****************************\\

@@ -70,7 +70,7 @@ class Event: Equatable{
         self.endTime = theEndTime!
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-dd h:mm a"
+        dateFormatter.dateFormat = "MMMM dd, YYYY h:mm a"
         
         self.dateString = dateFormatter.string(from: mxlEvent.eventStartDate)
         self.timeString = dateFormatter.string(from: mxlEvent.eventStartDate)

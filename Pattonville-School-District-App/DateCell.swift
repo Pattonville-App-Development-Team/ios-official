@@ -30,9 +30,7 @@ class DateCell: UITableViewCell{
     
     func setUp(indexPath: IndexPath){
         title.text = event.name
-        location.text = event.location
-        
-        location.isHidden = true
+        location.text = event.dateString
         
         setTimes(start: event.startTime!, end: event.endTime!)
         
@@ -40,10 +38,6 @@ class DateCell: UITableViewCell{
             pinButton.isSelected = true
         }else{
             pinButton.isSelected = false
-        }
-        
-        if(title.frame.height > 18){
-            location.isHidden = true
         }
         
         schoolColorLine.backgroundColor = event.school.color
