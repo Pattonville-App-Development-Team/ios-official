@@ -48,10 +48,10 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         
-        self.refreshControl = UIRefreshControl()
+        /*self.refreshControl = UIRefreshControl()
         self.refreshControl.backgroundColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1)
         self.refreshControl.tintColor = .white
-        //self.refreshControl.addTarget(self, action: #selector(NewsViewController.refreshData), for: UIControlEvents.valueChanged)
+        self.refreshControl.addTarget(self, action: #selector(NewsViewController.refreshData), for: UIControlEvents.valueChanged)*/
         
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
