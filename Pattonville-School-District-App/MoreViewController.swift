@@ -43,25 +43,31 @@ class MoreViewController: UITableViewController {
                     UIApplication.shared.open(URL(string: "http://pirates.psdr3.org")!, options: [:], completionHandler: nil)
                 } else {
                     UIApplication.shared.openURL(NSURL(string: "http://pirates.psdr3.org")! as URL)
-            }
+                }
             case 1:
                 if #available(iOS 10.0, *){
                     UIApplication.shared.open(URL(string: "http://psdr3.org")!, options: [:], completionHandler: nil)
                 } else {
                     UIApplication.shared.openURL(NSURL(string: "http://psdr3.org" )! as URL)
-            }
+                }
             case 3:
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(URL(string: "http://moodle.psdr3.org")!, options: [:], completionHandler: nil)
                 } else {
                     UIApplication.shared.openURL(NSURL(string: "http://moodle.psdr3.org")! as URL)
-            }
+                }
             case 6:
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(URL(string: "http://powerschool.psdr3.org")!, options: [:], completionHandler: nil)
                 } else {
                     UIApplication.shared.openURL(NSURL(string: "http://powerschool.psdr3.org")! as URL)
-            }
+                }
+            case 7:
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdqXNE4Wo8lsWuH9Ku8763B0NWqis3xoV4d5pNHoFfplJvMhw/viewform")!, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdqXNE4Wo8lsWuH9Ku8763B0NWqis3xoV4d5pNHoFfplJvMhw/viewform")! as URL)
+                }
             default:
                 print("ROW: \(row)")
         }

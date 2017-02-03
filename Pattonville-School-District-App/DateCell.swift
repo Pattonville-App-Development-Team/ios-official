@@ -32,6 +32,8 @@ class DateCell: UITableViewCell{
         title.text = event.name
         location.text = event.dateString
         
+        pinButton.isHidden = true
+        
         setTimes(start: event.startTime!, end: event.endTime!)
         
         if event.pinned{

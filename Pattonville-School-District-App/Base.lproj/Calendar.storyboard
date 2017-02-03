@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zAo-hx-RnD">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zAo-hx-RnD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -53,7 +53,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Calendar List" id="a2M-ui-pTK">
-                        <barButtonItem key="leftBarButtonItem" title="Filter" id="2Iv-Ud-dZ1"/>
                         <barButtonItem key="rightBarButtonItem" title="Done" id="MH7-dk-6UY">
                             <connections>
                                 <action selector="exitViewWithSender:" destination="mPG-si-8W5" id="cqy-K0-KZY"/>
@@ -62,7 +61,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="exit" destination="MH7-dk-6UY" id="Kf5-1D-qvq"/>
-                        <outlet property="filter" destination="2Iv-Ud-dZ1" id="vog-29-ELs"/>
                         <outlet property="tableView" destination="wzV-8g-ae4" id="TjJ-fL-KmR"/>
                     </connections>
                 </viewController>
@@ -261,6 +259,6 @@
         <image name="calendar" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sFN-a2-nAF"/>
+        <segue reference="ARG-YV-w2A"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -38,9 +38,8 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uP-vT-Tmw">
-                        <rect key="frame" x="78" y="8" width="259" height="21"/>
+                        <rect key="frame" x="78" y="8" width="264" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="259" id="FWw-JW-QpY"/>
                             <constraint firstAttribute="height" constant="21" id="esh-Zv-WdX"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -66,6 +65,9 @@
                     <constraint firstItem="0uP-vT-Tmw" firstAttribute="top" secondItem="1cc-3M-eye" secondAttribute="topMargin" id="whZ-Ld-ePt"/>
                 </constraints>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="0uP-vT-Tmw" secondAttribute="trailing" constant="33" id="3A2-3j-s0a"/>
+            </constraints>
             <connections>
                 <outlet property="date" destination="TQS-2M-bhT" id="aPi-pa-Wa2"/>
                 <outlet property="school" destination="82T-lF-wqD" id="Jm5-lv-Tpo"/>
