@@ -200,8 +200,9 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     /// - cellState: the state of the cell after being deselected
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
-        (cell as? CalendarDateView)?.unselect(cellState: cellState)
         
+        (cell as? CalendarDateView)?.unselect(cellState: cellState)
+
         if !calendarList.hasEvents(for: date){
             (cell as? CalendarDateView)?.hideDelineator()
         }else{
