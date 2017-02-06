@@ -144,6 +144,13 @@
                                 </segue>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Pin" id="gLM-eT-6LR">
+                            <connections>
+                                <segue destination="UuQ-Ez-sBD" kind="popoverPresentation" identifier="PinnedListSegue" popoverAnchorBarButtonItem="gLM-eT-6LR" id="16d-eV-6cj">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="calendar" destination="6gU-Ab-bVq" id="GGC-4f-FQq"/>
@@ -259,6 +266,6 @@
         <image name="calendar" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ARG-YV-w2A"/>
+        <segue reference="KRv-jj-Kom"/>
     </inferredMetricsTieBreakers>
 </document>

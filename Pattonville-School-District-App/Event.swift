@@ -82,6 +82,12 @@ class Event: Equatable{
     
     func setPinned(){
         pinned = true
+        Calendar.instance.pinEvent(event: self)
+    }
+    
+    func setUnpinned(){
+        pinned = false
+        Calendar.instance.unPinEvent(event: self)
     }
     
     static func == (lhs: Event, rhs: Event) -> Bool{

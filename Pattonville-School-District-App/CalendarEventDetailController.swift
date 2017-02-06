@@ -11,7 +11,7 @@ import EventKit
 
 class CalendarEventDetailController: UIViewController{
     
-        var event: Event!
+    var event: Event!
     
     @IBOutlet var eventName: UILabel!
     @IBOutlet var eventLocation: UILabel!
@@ -23,7 +23,12 @@ class CalendarEventDetailController: UIViewController{
     @IBAction func setPinned(){
         
         pinButton.isSelected = !pinButton.isSelected
-        event.pinned = !event.pinned
+        
+        if event.pinned{
+            event.setUnpinned()
+        }else{
+            event.setPinned()
+        }
         
     }
     
@@ -67,8 +72,6 @@ class CalendarEventDetailController: UIViewController{
         }else{
             pinButton.isSelected = false
         }
-        
-        pinButton.isHidden = true
         
         print(event.school.name)
         

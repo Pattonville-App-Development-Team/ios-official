@@ -16,7 +16,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     @IBOutlet var calendar: JTAppleCalendarView!
     @IBOutlet var tableView: UITableView!
     
-    var calendarList: Calendar!
+    var calendarList: Calendar! = Calendar.instance
     
     
     var selectedDate: Date = Date()
@@ -72,6 +72,8 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         calendar.selectDates([Date(), selectedDate])
         
         print("VIEW DID APPEAR")
+        
+        tableView.reloadData()
         
         
     }
@@ -230,13 +232,11 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
         
         let event = calendarList.eventsForDate(date: selectedDate)[indexPath.row]
+        print(event.pinned)
         
-        cell.event = event
-        cell.setUp(indexPath: indexPath)
+        cell.setUp(event: event, indexPath: indexPath)
         
-        cell.pinButton.addTarget(self, action: #selector(CalendarViewController.nowPinned), for: UIControlEvents.touchUpInside);
-    
-        cell.pinButton.isHidden = true
+        cell.pinButton.addTarget(self, action: #selector(CalendarViewController.changePinValue), for: UIControlEvents.touchUpInside);
         
         return cell
     }
@@ -256,11 +256,10 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CalendarListViewSegue"{
             let destination = (segue.destination as! UINavigationController).viewControllers[0] as! CalendarListViewController
-            print(segue.destination)
-            destination.calendarList = calendarList
-        }else if segue.identifier == "CalendarPinnedViewSegue"{
+            destination.calendar = calendarList
+        }else if segue.identifier == "PinnedListSegue"{
             let destination = (segue.destination as! UINavigationController).viewControllers[0] as! CalendarPinnedListViewController
-            destination.eventsList = pinnedDateEvents
+            destination.calendar = calendarList
         }else if segue.identifier == "EventDetail"{
             let destination = segue.destination as! CalendarEventDetailController
             let event = tableView.indexPathForSelectedRow?.row
@@ -306,15 +305,13 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     /// Establishes actions for when an event becomes pinned
     /// - sender: the event that was pinned
     
-    func nowPinned(sender: UIView){
+    func changePinValue(sender: UIView){
         let event = selectedDateEvents[sender.tag];
         
         if event.pinned && !pinnedDateEvents.contains(event){
-            pinnedDateEvents.append(event)
+            calendarList.pinEvent(event: event)
         }else if(!event.pinned && pinnedDateEvents.contains(event)){
-            pinnedDateEvents = pinnedDateEvents.filter({
-                $0 != event
-            })
+            calendarList.unPinEvent(event: event)
         }
         
         tableView.reloadData()
@@ -362,8 +359,6 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         parser.updateSchools(schools: currentSchools)
         
         parser.getEventsInBackground(completionHandler: {
-            print("REFRESHING")
-            
             self.calendar.reloadData()
             self.tableView.reloadData()
         })

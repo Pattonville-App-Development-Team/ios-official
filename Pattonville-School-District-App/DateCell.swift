@@ -24,15 +24,22 @@ class DateCell: UITableViewCell{
     @IBAction func setPinned(){
         
         pinButton.isSelected = !pinButton.isSelected
-        event.pinned = !event.pinned
+        //event.pinned = !event.pinned
+        
+        if event.pinned{
+            event.setUnpinned()
+        }else{
+            event.setPinned()
+        }
 
     }
     
-    func setUp(indexPath: IndexPath){
+    func setUp(event: Event, indexPath: IndexPath){
+        
+        self.event = event
+        
         title.text = event.name
         location.text = event.dateString
-        
-        pinButton.isHidden = true
         
         setTimes(start: event.startTime!, end: event.endTime!)
         

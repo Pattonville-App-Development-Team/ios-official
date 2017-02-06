@@ -158,16 +158,13 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
             
             }
         } else{
-            if calendarList.datesList.count > 0 {
-                let event = calendarList.datesList[indexPath.row]
+            if calendarList.allEvents.count > 0 {
+                let event = calendarList.allEvents[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
                 
                 print(event.date!)
                 
-                cell.event = event
-                cell.setUp(indexPath: indexPath)
-                
-                cell.pinButton.isHidden = true
+                cell.setUp(event: event, indexPath: indexPath)
                 
                 return cell
                 
@@ -187,7 +184,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         if segue.identifier == "EventDetailFromHome"{
             let destination = segue.destination as! CalendarEventDetailController
             let event = tableView.indexPathForSelectedRow?.row
-            destination.event = calendarList.datesList[event!]
+            destination.event = calendarList.allEvents[event!]
         } else if segue.identifier == "NewsDetailFromHome" {
             let destination = segue.destination as! NewsDetailViewController
             destination.news = newsReel.news[(tableView.indexPathForSelectedRow?.row)!]
@@ -295,11 +292,11 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     
     private func getUpcomingEvents(){
         
-        calendarList.datesList = calendarList.datesList.filter({
+        calendarList.allEvents = calendarList.allEvents.filter({
             return $0.date! > Date()
         })
         
-        calendarList.datesList = calendarList.datesList.sorted(by: {
+        calendarList.allEvents = calendarList.allEvents.sorted(by: {
             $0.date! < $1.date!
         })
         

@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     let newsReel = NewsReel()
-    let calendarList = Calendar()
+    let calendarList = Calendar.instance
     
     /// Method called as the app is launching, checks to see if the application is launched before, if so sets the isSubscribedTo values in SchoolsArray.allSchools 
     ///
