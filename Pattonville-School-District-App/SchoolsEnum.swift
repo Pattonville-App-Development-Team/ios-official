@@ -155,7 +155,7 @@ class SchoolsEnum {
                                 faxNumber: "(314)-213-8633",
                                 schoolPicture: "illusion.jpg",
                                 peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94968",
-                                nutriSliceURL: "http://psdr3.nutrislice.com/menu/pattonville-heights,",
+                                nutriSliceURL: "http://psdr3.nutrislice.com/menu/pattonville-heights",
                                 isSubscribedTo: false,
                                 color: UIColor(red: 231/255, green: 59/255, blue: 59/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Heights.ics",
