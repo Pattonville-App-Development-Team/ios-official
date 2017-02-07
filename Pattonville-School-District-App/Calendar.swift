@@ -41,6 +41,10 @@ class Calendar{
             
             let theEvent = Event(mxlEvent: (event as! MXLCalendarEvent), school: school)
             
+            if pinnedEvents.contains(theEvent){
+                theEvent.setPinned()
+            }
+            
             if !allEvents.contains(theEvent){
                 addDate(event: theEvent)
             }

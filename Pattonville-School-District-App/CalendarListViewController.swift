@@ -19,7 +19,7 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
         self.parent?.dismiss(animated: true, completion: nil)
     }
     
-    var calendar: Calendar!
+    var calendar: Calendar! = Calendar.instance
     
     ///Sets up the look of the ViewController upon loading.
     
@@ -47,14 +47,6 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
     /// associated with the CalendarViewController in sync when modifications are made in this controller.
     ///
     /// - parent: the parent of the current view controller
-    
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
-        if parent == nil {
-            // The back button was pressed or interactive gesture used
-            ((self.parent as! UINavigationController).viewControllers[0] as! CalendarViewController).calendarList = calendar
-        }
-    }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {

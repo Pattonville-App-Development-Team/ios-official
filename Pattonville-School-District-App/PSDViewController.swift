@@ -15,7 +15,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     @IBOutlet var tableView: UITableView!
     
     var newsReel: NewsReel!
-    var calendarList: Calendar!{
+    var calendar: Calendar! = Calendar.instance{
         didSet{
             print("RAN DID SET")
             getUpcomingEvents()
@@ -66,7 +66,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         Timer.scheduledTimer(timeInterval: 8.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
 
         let newsParser = NewsParser(newsReel: newsReel, schools: SchoolsArray.getSubscribedSchools())
-        let calendarParser = CalendarParser(calendar: calendarList, schools: SchoolsArray.getSubscribedSchools())
+        let calendarParser = CalendarParser()
         
         newsParser.getDataInBackground(completionHandler: {
             
@@ -158,8 +158,8 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
             
             }
         } else{
-            if calendarList.allEvents.count > 0 {
-                let event = calendarList.allEvents[indexPath.row]
+            if calendar.allEvents.count > 0 {
+                let event = calendar.allEvents[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
                 
                 print(event.date!)
@@ -184,7 +184,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         if segue.identifier == "EventDetailFromHome"{
             let destination = segue.destination as! CalendarEventDetailController
             let event = tableView.indexPathForSelectedRow?.row
-            destination.event = calendarList.allEvents[event!]
+            destination.event = calendar.allEvents[event!]
         } else if segue.identifier == "NewsDetailFromHome" {
             let destination = segue.destination as! NewsDetailViewController
             destination.news = newsReel.news[(tableView.indexPathForSelectedRow?.row)!]
@@ -292,11 +292,11 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     
     private func getUpcomingEvents(){
         
-        calendarList.allEvents = calendarList.allEvents.filter({
+        calendar.allEvents = calendar.allEvents.filter({
             return $0.date! > Date()
         })
         
-        calendarList.allEvents = calendarList.allEvents.sorted(by: {
+        calendar.allEvents = calendar.allEvents.sorted(by: {
             $0.date! < $1.date!
         })
         
