@@ -15,6 +15,10 @@ class SchoolsArray {
     static var allSchools: [School] = [SchoolsEnum.district, SchoolsEnum.pattonvilleHighSchool, SchoolsEnum.heightsMiddleSchool, SchoolsEnum.holmanMiddleSchool, SchoolsEnum.remingtonTraditional, SchoolsEnum.bridgewayElementary, SchoolsEnum.drummondElementary, SchoolsEnum.parkwoodElementary, SchoolsEnum.roseAcresElementary, SchoolsEnum.willowBrookElementary, SchoolsEnum.earlyChildhood]
     
     
+    /// Function that returns the School Object associated with the name passed to the method
+    ///
+    /// - Parameter name: The School name string
+    /// - Returns: the School that matches the name passed to it
     static func getSchoolByName(name: String) -> School{
         
         return allSchools.filter({
@@ -23,6 +27,9 @@ class SchoolsArray {
         
     }
     
+    /// The method that returns the Schools that the User is SubscribedTo which is based upon the isSubscribedTo bool set in the SelectSchoolsTableViewController
+    ///
+    /// - Returns: the schools that the user has subscribed to
     static func getSubscribedSchools() -> [School]{
         return allSchools.filter({
             $0.isSubscribedTo
