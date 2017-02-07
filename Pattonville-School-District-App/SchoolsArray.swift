@@ -36,6 +36,9 @@ class SchoolsArray {
         })
     }
     
+    /// Method to get an array of schools object
+    ///
+    /// - Returns: the array from Enumm with information
     static func getSchools() -> [School]{
         return allSchools.filter({
             $0 != SchoolsEnum.district
