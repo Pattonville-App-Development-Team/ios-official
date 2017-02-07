@@ -78,6 +78,7 @@
 		4611185A1E4231CF005AA3A9 /* image4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 461118541E4231CF005AA3A9 /* image4.jpg */; };
 		4611185B1E4231CF005AA3A9 /* image5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 461118551E4231CF005AA3A9 /* image5.jpg */; };
 		4B4299A81E087F7200A202F9 /* 6NutriSliceLinks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4299A71E087F7200A202F9 /* 6NutriSliceLinks.storyboard */; };
+		4B7D26DC1E4A19500097F0E6 /* SelectSchoolsTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B7D26DB1E4A19500097F0E6 /* SelectSchoolsTableViewController.storyboard */; };
 		4BA99DED1E42EDB700720112 /* NewsDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA99DEC1E42EDB700720112 /* NewsDetail.storyboard */; };
 		4BD53EF41E48B6EE001CB302 /* PowerSchoolTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BD53EF31E48B6EE001CB302 /* PowerSchoolTableViewController.storyboard */; };
 		4BD53EF61E48B74C001CB302 /* PowerSchoolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD53EF51E48B74C001CB302 /* PowerSchoolTableViewController.swift */; };
@@ -185,6 +186,7 @@
 		461118541E4231CF005AA3A9 /* image4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image4.jpg; sourceTree = "<group>"; };
 		461118551E4231CF005AA3A9 /* image5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image5.jpg; sourceTree = "<group>"; };
 		4B4299A71E087F7200A202F9 /* 6NutriSliceLinks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = 6NutriSliceLinks.storyboard; sourceTree = "<group>"; };
+		4B7D26DB1E4A19500097F0E6 /* SelectSchoolsTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SelectSchoolsTableViewController.storyboard; sourceTree = "<group>"; };
 		4BA99DEC1E42EDB700720112 /* NewsDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewsDetail.storyboard; sourceTree = "<group>"; };
 		4BD53EF31E48B6EE001CB302 /* PowerSchoolTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PowerSchoolTableViewController.storyboard; sourceTree = "<group>"; };
 		4BD53EF51E48B74C001CB302 /* PowerSchoolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerSchoolTableViewController.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 			children = (
 				42B933641DFAEEF400514B73 /* SelectSchoolsTableViewController.swift */,
 				42B933651DFAEEF400514B73 /* Settings.storyboard */,
+				4B7D26DB1E4A19500097F0E6 /* SelectSchoolsTableViewController.storyboard */,
 				42B933631DFAEEF400514B73 /* SelectSchoolsTableCell.swift */,
 				42B933661DFAEEF400514B73 /* SettingsViewController.swift */,
 			);
@@ -573,6 +576,7 @@
 				42B933C01DFB022B00514B73 /* illusion.jpg in Resources */,
 				4B4299A81E087F7200A202F9 /* 6NutriSliceLinks.storyboard in Resources */,
 				4611185B1E4231CF005AA3A9 /* image5.jpg in Resources */,
+				4B7D26DC1E4A19500097F0E6 /* SelectSchoolsTableViewController.storyboard in Resources */,
 				42B9330B1DFAEDC500514B73 /* Assets.xcassets in Resources */,
 				42B933091DFAEDC500514B73 /* Main.storyboard in Resources */,
 				4BFE3B401E427EE300902741 /* CalendarEventDetail.storyboard in Resources */,
