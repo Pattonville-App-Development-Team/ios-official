@@ -8,8 +8,10 @@
 
 import UIKit
 
+/// The array of Staff members for the Directory
 class StaffArray {
     
+    /// The array of Staff members used in the directory
     var staffList = [StaffMember]()
     
     init() {

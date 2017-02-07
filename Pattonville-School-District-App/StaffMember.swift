@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// The Model class for type StaffMember to be used in the Directory 
 class StaffMember {
     
     var firstName: String
