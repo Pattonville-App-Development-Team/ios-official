@@ -15,7 +15,7 @@ class SchoolsArray {
     static var allSchools: [School] = [SchoolsEnum.district, SchoolsEnum.pattonvilleHighSchool, SchoolsEnum.heightsMiddleSchool, SchoolsEnum.holmanMiddleSchool, SchoolsEnum.remingtonTraditional, SchoolsEnum.bridgewayElementary, SchoolsEnum.drummondElementary, SchoolsEnum.parkwoodElementary, SchoolsEnum.roseAcresElementary, SchoolsEnum.willowBrookElementary, SchoolsEnum.earlyChildhood]
     
     
-    /// Function that returns the School Object associated with the name passed to the method
+    /// Function that returns the School Object associated with the name passed to the method, used in news
     ///
     /// - Parameter name: The School name string
     /// - Returns: the School that matches the name passed to it
@@ -36,7 +36,7 @@ class SchoolsArray {
         })
     }
     
-    /// Method to get an array of schools object
+    /// Method to get an the array of schools objects that do not incude the District, used to populate the tableViews in More
     ///
     /// - Returns: the array from Enumm with information
     static func getSchools() -> [School]{
