@@ -177,11 +177,22 @@ class SchoolsEnum {
                                 newsURL: "http://fccms.psdr3.org/HighSchool/news?plugin=xml&leaves",
                                 staffArray: [])
     
+    
+    /// Method to set a schools Subscribtion staus
+    ///
+    /// - Parameters:
+    ///   - school: The School object that the isSubscribedTo value is being set
+    ///   - isSubscribedToValue: the bool value to set the Schools isSubsribedTo value equal to
     static func setIsSubscribedToSchoolValue(school: School, isSubscribedToValue: Bool){
         school.isSubscribedTo = isSubscribedToValue
         print(school.isSubscribedTo)
         
     }
+    
+    /// The method that returns the isSubscribedTo boolean value associated with the given school
+    ///
+    /// - Parameter school: the school passed to the method to find its isSubsribedTo value
+    /// - Returns: the current isSubsribedTo value of the school passed
     static func getIsSubscribedToSchoolValue(school: School) -> Bool{
         return school.isSubscribedTo
     }
