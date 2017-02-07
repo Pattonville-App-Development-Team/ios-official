@@ -31,21 +31,21 @@ class PowerSchoolTableViewController: UITableViewController{
         let row = indexPath.row
         print(row)
         switch row{
-            // Adminstrators
+            /// Adminstrators
             case 0:
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(URL(string: "https://powerschool.psdr3.org/admin/pw.html")!, options: [:], completionHandler: nil)
                 } else {
                     UIApplication.shared.openURL(NSURL(string: "https://powerschool.psdr3.org/admin/pw.html")! as URL)
                 }
-            //Students and Parents
+            /// Students and Parents
             case 1:
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(URL(string: "https://powerschool.psdr3.org/public/")!, options: [:], completionHandler: nil)
                 } else {
                     UIApplication.shared.openURL(NSURL(string: "https://powerschool.psdr3.org/public/")! as URL)
                 }
-            //Teachers
+            /// Teachers
             case 2:
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(URL(string: "https://powerschool.psdr3.org/teachers/pw.html")!, options: [:], completionHandler: nil)

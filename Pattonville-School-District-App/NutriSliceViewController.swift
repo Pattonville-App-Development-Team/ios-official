@@ -11,7 +11,7 @@ import UIKit
 /// TableViewControler for the nutriSlice links for the different schools
 class NutriSliceViewController: UITableViewController{
     
-   // var schools: SchoolsArray! = SchoolsArray.init()
+   
     
     
     

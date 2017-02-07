@@ -47,7 +47,7 @@ class SelectSchoolsTableViewController: UITableViewController{
         
     }
     
-    /// Populates the Prototype cells of the tableView with the School name
+    /// Populates the Prototype cells of the SelectSchoolsTableView with the School name, color, and switch value
     ///
     /// - parameter tableView: the SelectSchoolsTableView
     /// - parameter indexPath: the current row it is populating
