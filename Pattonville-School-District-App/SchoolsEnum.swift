@@ -37,7 +37,7 @@ class SchoolsEnum {
                                 peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=93233",
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/bridgeway",
                                 isSubscribedTo: false,
-                                color: UIColor(red: 198/255, green: 40/255, blue: 40/255, alpha: 1),
+                                color: UIColor(red: 163/255, green: 0/255, blue: 255/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Early%20Childhood.ics",
                                 newsURL: "http://fccms.psdr3.org/",
                                 staffArray: [])
@@ -52,7 +52,7 @@ class SchoolsEnum {
                                 peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94979",
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/bridgeway",
                                 isSubscribedTo: false,
-                                color: UIColor(red: 42/255, green: 32/255, blue: 146/255, alpha: 1),
+                                color: UIColor(red: 0/255, green: 1/255, blue: 120/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Bridgeway.ics",
                                 newsURL: "http://fccms.psdr3.org/Bridgeway/news?plugin=xml&leaves",
                                 staffArray: [])
@@ -67,7 +67,7 @@ class SchoolsEnum {
                                 peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94976",
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/drummond",
                                 isSubscribedTo: false,
-                                color: UIColor(red: 41/255, green: 135/255, blue: 133/255, alpha: 1),
+                                color: UIColor(red: 71/255, green: 95/255, blue: 210/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Drummond.ics",
                                 newsURL: "http://fccms.psdr3.org/Drummond/news?plugin=xml&leaves",
                                 staffArray: [])
@@ -82,7 +82,7 @@ class SchoolsEnum {
                                 peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94967",
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/parkwood",
                                 isSubscribedTo: false,
-                                color: UIColor(red: 144/255, green: 66/255, blue: 97/255, alpha: 1),
+                                color: UIColor(red: 115/255, green: 195/255, blue: 0/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Parkwood.ics",
                                 newsURL: "http://fccms.psdr3.org/Parkwood/news?plugin=xml&leaves",
                                 staffArray: [])
@@ -97,7 +97,7 @@ class SchoolsEnum {
                                 peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94971",
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/remington-traditional",
                                 isSubscribedTo: false,
-                                color: UIColor(red: 225/255, green: 217/255, blue: 43/255, alpha: 1),
+                                color: UIColor(red: 8/255, green: 225/255, blue: 176/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Remington.ics",
                                 newsURL: "http://fccms.psdr3.org/Remington/news?plugin=xml&leaves",
                                 staffArray: [])
@@ -112,7 +112,7 @@ class SchoolsEnum {
                                 peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94970",
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/rose-acres",
                                 isSubscribedTo: false,
-                                color: UIColor(red: 167/255, green: 56/255, blue: 208/255, alpha: 1),
+                                color: UIColor(red: 246/255, green: 237/255, blue: 4/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Rose%20Acres.ics",
                                 newsURL: "http://fccms.psdr3.org/RoseAcres/news?plugin=xml&leaves",
                                 staffArray: [])
@@ -127,7 +127,7 @@ class SchoolsEnum {
                                 peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94953",
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/willow-brook",
                                 isSubscribedTo: false,
-                                color: UIColor(red: 56/255, green: 78/255, blue: 246/255, alpha: 1),
+                                color: UIColor(red: 255/255, green: 141/255, blue: 0/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Willow%20Brook.ics",
                                 newsURL: "http://fccms.psdr3.org/WillowBrook/news?plugin=xml&leaves",
                                 staffArray: [])
@@ -142,7 +142,7 @@ class SchoolsEnum {
                                 peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94975",
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/holman",
                                 isSubscribedTo: false,
-                                color: UIColor(red: 236/255, green: 145/255, blue: 31/255, alpha: 1),
+                                color: UIColor(red: 229/255, green: 11/255, blue: 0/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Holman.ics",
                                 newsURL: "http://fccms.psdr3.org/Holman/news?plugin=xml&leaves",
                                 staffArray: [])
@@ -157,7 +157,7 @@ class SchoolsEnum {
                                 peachjarURL: "https://www.peachjar.com/index.php?a=28&b=138&region=94968",
                                 nutriSliceURL: "http://psdr3.nutrislice.com/menu/pattonville-heights",
                                 isSubscribedTo: false,
-                                color: UIColor(red: 231/255, green: 59/255, blue: 59/255, alpha: 1),
+                                color: UIColor(red: 114/255, green: 67/255, blue: 56/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Heights.ics",
                                 newsURL: "http://fccms.psdr3.org/Heights/news?plugin=xml&leaves",
                                 staffArray: [])

@@ -13,22 +13,20 @@ import MXLCalendarManager
 
 class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate, UITableViewDelegate, UITableViewDataSource{
     
-    @IBOutlet var calendar: JTAppleCalendarView!
+    @IBOutlet var calendarView: JTAppleCalendarView!
     @IBOutlet var tableView: UITableView!
     
-    var calendarList: Calendar!
-    
+    var calendar: Calendar! = Calendar.instance
     
     var selectedDate: Date = Date()
     
-    
     var selectedDateEvents = [Event]()
-    var pinnedDateEvents = [Event]()
     
     var prevSchools: [School]! = []
     var currentSchools: [School]!
     var parser: CalendarParser!
     
+    var todayCell: CalendarDateView! = CalendarDateView()
     
     /// Sets up look of view controller upon loading. Completes basic setup of Calendar and TableView appearances and sorts the events list for pinned events
     override func viewDidLoad() {
@@ -40,13 +38,13 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         tableView.register(UINib(nibName: "DateCell", bundle: nil), forCellReuseIdentifier: "DateCell")
         
-        calendar.dataSource = self
-        calendar.delegate = self
-        calendar.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
-        calendar.registerCellViewXib(file: "DateView")
-        calendar.registerHeaderView(xibFileNames: ["CalendarHeaderView"])
-        calendar.cellInset = CGPoint(x: 0, y: 0.25)
-        calendar.scrollToDate(Date(), triggerScrollToDateDelegate: true, animateScroll: false)
+        calendarView.dataSource = self
+        calendarView.delegate = self
+        calendarView.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
+        calendarView.registerCellViewXib(file: "DateView")
+        calendarView.registerHeaderView(xibFileNames: ["CalendarHeaderView"])
+        calendarView.cellInset = CGPoint(x: 0, y: 0.25)
+        calendarView.scrollToDate(Date(), triggerScrollToDateDelegate: true, animateScroll: false)
         
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -59,20 +57,20 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        print("VIEW DID APPEAR \n")
+        
         currentSchools = SchoolsArray.getSubscribedSchools()
-        parser = CalendarParser(calendar: calendarList, schools: currentSchools)
+        parser = CalendarParser()
         
         if currentSchools != prevSchools{
-            print("New Schools")
             refreshData()
             prevSchools = currentSchools
         }
         
         
-        calendar.selectDates([Date(), selectedDate])
+        calendarView.selectDates([Date(), selectedDate])
         
-        print("VIEW DID APPEAR")
-        
+        tableView.reloadData()
         
     }
     
@@ -115,21 +113,12 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         let cell = (cell as! CalendarDateView)
         
-        cell.setupCellBeforeDisplay(cellState: cellState, date: date)
+        cell.setup(cellState: cellState, date: date)
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-dd"
-        
-        let theDate = dateFormatter.date(from: formatDate(date: date))
-        
-        if calendarList.hasEvents(for: theDate!){
-            print("Events exist for \(theDate!)")
-            print("\(calendarList.eventsForDate(date: theDate!))\n")
-            cell.showDelineator()
-        }else{
-            cell.hideDelineator()
+        if compareDates(date1: date, date2: Date()){
+            todayCell = cell
         }
-        
+
     }
     
     /// Sets the size of the header of the clanedar
@@ -154,7 +143,6 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         let header = (header as! CalendarHeaderView)
         
-        
         header.setupCellBeforeDisplay(date: range.end)
         
         header.forwardOneMonth.tag = 1
@@ -173,19 +161,9 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
         
-        if compareDates(date1: date, date2: Date()) && cellState.dateBelongsTo == .thisMonth{
-            (cell as? CalendarDateView)?.styleToday()
-        }else{
-            (cell as? CalendarDateView)?.select()
-        }
+        let cell = (cell as? CalendarDateView)
         
-        if calendarList.eventsForDate(date: date).count > 0{
-            (cell as? CalendarDateView)?.showDelineator()
-        }else{
-            (cell as? CalendarDateView)?.hideDelineator()
-        }
-        
-        selectedDate = date
+        cell?.select(date: date, cellState: cellState)
         
         filterCalendarData(for: date)
         
@@ -201,15 +179,12 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
         
-        (cell as? CalendarDateView)?.unselect(cellState: cellState)
-
-        if !calendarList.hasEvents(for: date){
-            (cell as? CalendarDateView)?.hideDelineator()
-        }else{
-            (cell as? CalendarDateView)?.showDelineator()
-        }
+        let cell = (cell as? CalendarDateView)
         
-        calendar.selectDates([Date()])
+        cell?.deselect(date: date, cellState: cellState)
+        
+        todayCell.styleToday()
+    
     }
     
     
@@ -229,14 +204,11 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
         
-        let event = calendarList.eventsForDate(date: selectedDate)[indexPath.row]
+        let event = selectedDateEvents[indexPath.row]
         
-        cell.event = event
-        cell.setUp(indexPath: indexPath)
+        cell.setup(event: event, indexPath: indexPath, type: .normal)
         
-        cell.pinButton.addTarget(self, action: #selector(CalendarViewController.nowPinned), for: UIControlEvents.touchUpInside);
-    
-        cell.pinButton.isHidden = true
+        cell.pinButton.addTarget(self, action: #selector(CalendarViewController.changePinValue), for: UIControlEvents.touchUpInside);
         
         return cell
     }
@@ -256,11 +228,10 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CalendarListViewSegue"{
             let destination = (segue.destination as! UINavigationController).viewControllers[0] as! CalendarListViewController
-            print(segue.destination)
-            destination.calendarList = calendarList
-        }else if segue.identifier == "CalendarPinnedViewSegue"{
+            destination.calendar = calendar
+        }else if segue.identifier == "PinnedListSegue"{
             let destination = (segue.destination as! UINavigationController).viewControllers[0] as! CalendarPinnedListViewController
-            destination.eventsList = pinnedDateEvents
+            destination.calendar = calendar
         }else if segue.identifier == "EventDetail"{
             let destination = segue.destination as! CalendarEventDetailController
             let event = tableView.indexPathForSelectedRow?.row
@@ -278,7 +249,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         let theDateString = dateFormatter.string(from: date)
         let theDate = dateFormatter.date(from: theDateString)
         
-        selectedDateEvents = calendarList.eventsForDate(date: theDate!)
+        selectedDateEvents = calendar.eventsForDate(date: theDate!)
         
     }
     
@@ -306,15 +277,13 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     /// Establishes actions for when an event becomes pinned
     /// - sender: the event that was pinned
     
-    func nowPinned(sender: UIView){
+    func changePinValue(sender: UIView){
         let event = selectedDateEvents[sender.tag];
         
-        if event.pinned && !pinnedDateEvents.contains(event){
-            pinnedDateEvents.append(event)
-        }else if(!event.pinned && pinnedDateEvents.contains(event)){
-            pinnedDateEvents = pinnedDateEvents.filter({
-                $0 != event
-            })
+        if event.pinned && !calendar.pinnedEvents.contains(event){
+            calendar.pinEvent(event: event)
+        }else if(!event.pinned && calendar.pinnedEvents.contains(event)){
+            calendar.unPinEvent(event: event)
         }
         
         tableView.reloadData()
@@ -329,7 +298,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         var dateComponent = DateComponents()
         dateComponent.month = 1
         
-        calendar.scrollToDate((NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: calendar.visibleDates().monthDates[0], options: []))!)
+        calendarView.scrollToDate((NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: calendarView.visibleDates().monthDates[0], options: []))!)
     }
     
     /// Scrolls calendar backward one month
@@ -340,7 +309,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         var dateComponent = DateComponents()
         dateComponent.month = -1
         
-        calendar.scrollToDate((NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: calendar.visibleDates().monthDates[0], options: []))!)
+        calendarView.scrollToDate((NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: calendarView.visibleDates().monthDates[0], options: []))!)
     
     }
     
@@ -362,9 +331,10 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         parser.updateSchools(schools: currentSchools)
         
         parser.getEventsInBackground(completionHandler: {
-            print("REFRESHING")
             
-            self.calendar.reloadData()
+            self.selectedDateEvents = self.calendar.eventsForDate(date: self.selectedDate)
+            
+            self.calendarView.reloadData()
             self.tableView.reloadData()
         })
 

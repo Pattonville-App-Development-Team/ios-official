@@ -44,7 +44,7 @@ class NewsItem: Equatable{
         dateStringFormatter.dateFormat = "EEE, MMMM dd, yyyy"
         self.dateString = dateStringFormatter.string(from: date)
         
-        self.url = "http://fccms.psdr3.org/\(url)"
+        self.url = "http://fccms.psdr3.org\(url)"
         self.school = school
         
     }
