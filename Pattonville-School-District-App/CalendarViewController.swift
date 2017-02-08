@@ -206,7 +206,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         let event = selectedDateEvents[indexPath.row]
         
-        cell.setUp(event: event, indexPath: indexPath)
+        cell.setup(event: event, indexPath: indexPath, type: .normal)
         
         cell.pinButton.addTarget(self, action: #selector(CalendarViewController.changePinValue), for: UIControlEvents.touchUpInside);
         

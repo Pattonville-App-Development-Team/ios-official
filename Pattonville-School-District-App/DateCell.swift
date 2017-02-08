@@ -24,7 +24,6 @@ class DateCell: UITableViewCell{
     @IBAction func setPinned(){
         
         pinButton.isSelected = !pinButton.isSelected
-        //event.pinned = !event.pinned
         
         if event.pinned{
             event.setUnpinned()
@@ -34,14 +33,38 @@ class DateCell: UITableViewCell{
 
     }
     
-    func setUp(event: Event, indexPath: IndexPath){
+    func setup(event: Event, indexPath: IndexPath, type: SetupType){
+        
+        if type == .normal{
+            setupNormally(event: event, indexPath: indexPath)
+        }else{
+            setupEmpty()
+        }
+        
+    }
+    
+    func setupEmpty(){
+        
+        title.text = ""
+        location.text = ""
+        
+        startTime.text = ""
+        endTime.text = ""
+        pinButton.isHidden = true
+        
+        schoolColorLine.isHidden = true
+        
+        self.accessoryType = .none
+        self.selectionStyle = .none
+        
+    }
+    
+    func setupNormally(event: Event, indexPath: IndexPath){
         
         self.event = event
         
         title.text = event.name
         location.text = event.dateString
-        
-        setTimes(start: event.startTime!, end: event.endTime!)
         
         if event.pinned{
             pinButton.isSelected = true
@@ -49,9 +72,16 @@ class DateCell: UITableViewCell{
             pinButton.isSelected = false
         }
         
-        schoolColorLine.backgroundColor = event.school.color
+        setTimes(start: event.startTime!, end: event.endTime!)
+
+        schoolColorLine.isHidden = false
+        schoolColorLine.backgroundColor = event.school?.color
         
+        pinButton.isHidden = false
         pinButton.tag = indexPath.row;
+        
+        self.accessoryType = .disclosureIndicator
+        self.selectionStyle = .default
         
     }
     
@@ -68,4 +98,10 @@ class DateCell: UITableViewCell{
         
     }
     
+}
+
+
+enum SetupType{
+    case normal
+    case empty
 }

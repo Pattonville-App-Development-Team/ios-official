@@ -83,7 +83,7 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
         
         let event = calendar.allEventsDictionary[getKeyForIndex(index: indexPath.section)]?[indexPath.row]
         
-        cell.setUp(event: event!, indexPath: indexPath)
+        cell.setup(event: event!, indexPath: indexPath, type: .normal)
         
         return cell
         

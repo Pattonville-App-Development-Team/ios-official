@@ -22,8 +22,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         }
     }
     
-    var selectedDateEvents = [Event]()
-    
     var carouselWidth: CGFloat = 0
     var carouselHeight: CGFloat = 0
     
@@ -101,13 +99,12 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     //***************************** TABLE VIEW STUFF *****************************\\
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
        
-        let sectionTitles = ["Recent News", "Upcoming Events"]
-        
+        let sectionTitles = ["Recent News", "Upcoming Events", "Pinned Events"]
         
         var view: UIView
         var label: UILabel
@@ -148,6 +145,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         if section == 0{
             if newsReel.news.count > 0 {
+                
                 let newsItem = newsReel.news[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NewsItemCell", for: indexPath) as! NewsItemCell
                 
@@ -157,21 +155,43 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
                 return cell
             
             }
-        } else{
+        } else if section == 1{
             if calendar.allEvents.count > 0 {
+                
                 let event = calendar.allEvents[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
                 
                 print(event.date!)
                 
-                cell.setUp(event: event, indexPath: indexPath)
+                cell.setup(event: event, indexPath: indexPath, type: .normal)
+                
+                cell.pinButton.addTarget(self, action: #selector(PSDViewController.addEventToPinned), for: .touchUpInside)
+                
+                return cell
+                
+            }
+        }else{
+            if calendar.pinnedEvents.count > 0 {
+                
+                let event: Event!
+                let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
+                
+                if indexPath.row < calendar.pinnedEvents.count{
+                    event = calendar.pinnedEvents[indexPath.row]
+                    cell.setup(event: event, indexPath: indexPath, type: .normal)
+                }else{
+                    event = Event()
+                    cell.setup(event: event, indexPath: indexPath, type: .empty)
+                }
+                
+                cell.pinButton.addTarget(self, action: #selector(PSDViewController.removeEventFromPinned), for: .touchUpInside)
                 
                 return cell
                 
             }
         }
         
-       // return cell
+        // return cell
         return UITableViewCell()
     }
     
@@ -184,7 +204,12 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         if segue.identifier == "EventDetailFromHome"{
             let destination = segue.destination as! CalendarEventDetailController
             let event = tableView.indexPathForSelectedRow?.row
-            destination.event = calendar.allEvents[event!]
+            
+            if tableView.indexPathForSelectedRow?.section == 1{
+                destination.event = calendar.allEvents[event!]
+            }else{
+                destination.event = calendar.pinnedEvents[event!]
+            }
         } else if segue.identifier == "NewsDetailFromHome" {
             let destination = segue.destination as! NewsDetailViewController
             destination.news = newsReel.news[(tableView.indexPathForSelectedRow?.row)!]
@@ -196,15 +221,16 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0{
-            
             performSegue(withIdentifier: "NewsDetailFromHome", sender: self)
-        } else if indexPath.section == 1{
+        }else{
             performSegue(withIdentifier: "EventDetailFromHome", sender: self)
         }
     }
     
     
     //***************************** CAROUSEL STUFF *****************************\\
+    
+    
     
     /// Defines the number of elements present in the carousel
     ///
@@ -290,6 +316,24 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         homeCarousel.scroll(byNumberOfItems: 1, duration: 2.0)
     }
     
+    @objc private func addEventToPinned(){
+        
+        calendar.pinnedEvents = calendar.pinnedEvents.sorted(by: {
+            $0.date! < $1.date!
+        })
+        
+        tableView.reloadData()
+    }
+    
+    @objc private func removeEventFromPinned(){
+        
+        calendar.pinnedEvents = calendar.pinnedEvents.sorted(by: {
+            $0.date! < $1.date!
+        })
+        
+        tableView.reloadData()
+    }
+    
     private func getUpcomingEvents(){
         
         calendar.allEvents = calendar.allEvents.filter({
@@ -299,7 +343,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         calendar.allEvents = calendar.allEvents.sorted(by: {
             $0.date! < $1.date!
         })
-        
         
     }
 
