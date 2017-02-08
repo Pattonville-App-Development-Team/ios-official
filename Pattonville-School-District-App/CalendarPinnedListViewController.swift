@@ -16,38 +16,18 @@ class CalendarPinnedListViewController: UIViewController, UITableViewDelegate, U
     @IBAction func exit(sender: UIBarButtonItem!){
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
-    var eventsList: [Event]!
-    var eventsDictionary = [Date:[Event]]()
+
+    var calendar: Calendar!
     
     override func viewDidLoad(){
         super.viewDidLoad()
         tableView.register(UINib(nibName: "DateCell", bundle:nil), forCellReuseIdentifier: "DateCell")
-        eventsDictionary = makeEventDictionary(list: eventsList)
+        print(calendar.pinnedEvents.count)
     }
     
     override func viewDidAppear(_ animated: Bool){
         super.viewDidAppear(animated)
-        
         tableView.reloadData()
-        
-    }
-    
-    /// Determines functionality when the view controller stack is modified. If parent = nil then the view controller was popped
-    /// OFF the stack, otherwise the view controller was added to the stack
-    ///
-    /// This function is specifically used to keep the eventsList associated with this view controller and the pinnedDateEvents 
-    /// associated with the CalendarViewController in sync when modifications are made in this controller.
-    ///
-    /// - parent: the parent of the current view controller
-    
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
-        if parent == nil {
-            // The back button was pressed or interactive gesture used
-            ((self.parent as! UINavigationController).viewControllers[0] as! CalendarViewController).pinnedDateEvents = eventsList
-        }
     }
     
     /// the number of sections in the tableview
@@ -56,7 +36,7 @@ class CalendarPinnedListViewController: UIViewController, UITableViewDelegate, U
     /// - returns: the number of sections in the tableview
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return eventsDictionary.count
+        return calendar.pinnedEventsDictionary.count
     }
     
     /// sets the title for a given section
@@ -80,21 +60,21 @@ class CalendarPinnedListViewController: UIViewController, UITableViewDelegate, U
     /// - returns: the number of rows to show for the given section
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (eventsDictionary[getKeyForIndex(index: section)]?.count)!
+        return (calendar.pinnedEventsDictionary[getKeyForIndex(index: section)]?.count)!
         //return eventsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        print("CELL FOR ROW AT INDEX PATH")
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
         
-        let event = eventsDictionary[getKeyForIndex(index: indexPath.section)]?[indexPath.row]
-        //let event = eventsList[indexPath.row]
+        let event = calendar.pinnedEventsDictionary[getKeyForIndex(index: indexPath.section)]?[indexPath.row]
         
-        cell.event = event
-        cell.setUp(indexPath: indexPath)
+        cell.setup(event: event!, indexPath: indexPath, type: .normal)
         
-        cell.pinButton.tag = indexPath.row;
+        cell.pinButton.tag = calendar.getIndexOfEvent(event: event!)
         cell.pinButton.addTarget(self, action: #selector(CalendarPinnedListViewController.unPinned(sender:)), for: UIControlEvents.touchUpInside);
         
         return cell
@@ -109,7 +89,7 @@ class CalendarPinnedListViewController: UIViewController, UITableViewDelegate, U
         if segue.identifier == "EventDetail"{
             let destination = segue.destination as! CalendarEventDetailController
             let event = tableView.indexPathForSelectedRow
-            destination.event = eventsDictionary[getKeyForIndex(index: (event?.section)!)]?[(event?.row)!]
+            destination.event = calendar.pinnedEventsDictionary[getKeyForIndex(index: (event?.section)!)]?[(event?.row)!]
         }
     }
     
@@ -118,72 +98,7 @@ class CalendarPinnedListViewController: UIViewController, UITableViewDelegate, U
     
     func unPinned(sender: UIView){
         
-        let event = eventsList[sender.tag]
-        
-        print(eventsList.count)
-        eventsList = eventsList.filter({
-            $0 != event
-        })
-        
-        print(eventsList.count)
-        print(eventsDictionary.count)
-        
-        eventsDictionary = makeEventDictionary(list: eventsList)
-        
         tableView.reloadData()
-        
-    }
-    
-    /// Make a dictionary of events from a supplied list of events
-    /// - list: the list of events to create a dictionary for
-    
-    private func makeEventDictionary(list: [Event]) -> [Date: [Event]]{
-        
-        var dict = [Date: [Event]]()
-        
-        for event in list{
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "YYYY-MM-dd"
-            
-            let theDateString = dateFormatter.string(from: event.date!)
-            let theDate = dateFormatter.date(from: theDateString)
-            
-            if dict.keys.contains(theDate!){
-                
-                dict[theDate!]?.append(event)
-                
-            }else{
-                dict[theDate!] = [event]
-            }
-        }
-        
-        return dict
-
-    }
-    
-    private func removeEventFromDictionary(event: Event) -> [Date: [Event]]{
-        
-        print(eventsDictionary.count)
-        for (key, _) in eventsDictionary{
-            var events = eventsDictionary[key]
-
-            if (events?.contains(event))!{
-                events?.remove(at: (events?.index(of: event))!)
-                
-                if (events?.count)! < 1{
-                    eventsDictionary.removeValue(forKey: key)
-                }
-                
-                print("Removed")
-                break
-            }
-            
-        }
-        
-        print(eventsDictionary.count)
-        
-        return eventsDictionary
         
     }
     
@@ -193,12 +108,12 @@ class CalendarPinnedListViewController: UIViewController, UITableViewDelegate, U
     /// - returns: the key at the supplied index
     
     private func getKeyForIndex(index: Int) -> Date{
-        var keys = Array(eventsDictionary.keys)
+        var keys = Array(calendar.pinnedEventsDictionary.keys)
         keys = keys.sorted{
             $0 < $1
         }
         
         return keys[index]
     }
-    
+
 }

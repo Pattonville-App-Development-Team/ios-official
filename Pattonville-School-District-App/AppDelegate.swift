@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     let newsReel = NewsReel()
-    let calendarList = Calendar()
+    //let calendarList = Calendar.instance
     
     /// Method called as the app is launching, checks to see if the application is launched before, if so sets the isSubscribedTo values in SchoolsArray.allSchools 
     ///
@@ -56,17 +56,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navCalController = navBarController.viewControllers![2] as! UINavigationController
         let calendarController = navCalController.topViewController as! CalendarViewController
         
-        let calendarParser = CalendarParser(calendar: calendarList, schools: SchoolsArray.getSubscribedSchools())
+        let calendarParser = CalendarParser()
         let newsParser = NewsParser(newsReel: newsReel, schools: SchoolsArray.getSubscribedSchools())
         
         homeController.newsReel = newsReel
-        homeController.calendarList = calendarList
+        //homeController.navigationController?.navigationBar.tintColor = .green
+        //homeController.calendarList = calendarList
         newsController.newsReel = newsReel
-        calendarController.calendarList = calendarList
+        //calendarController.calendarList = calendarList
         
         calendarParser.getEventsInBackground(completionHandler: {
-            homeController.calendarList = self.calendarList
-            calendarController.calendarList = self.calendarList
+            homeController.calendar = Calendar.instance
+            calendarController.calendar = Calendar.instance
             calendarController.selectedDate = Date()
         })
         
