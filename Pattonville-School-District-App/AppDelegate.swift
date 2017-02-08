@@ -57,13 +57,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let calendarController = navCalController.topViewController as! CalendarViewController
         
         let calendarParser = CalendarParser()
-        let newsParser = NewsParser(newsReel: newsReel, schools: SchoolsArray.getSubscribedSchools())
+        let newsParser = NewsParser()
         
-        homeController.newsReel = newsReel
-        //homeController.navigationController?.navigationBar.tintColor = .green
-        //homeController.calendarList = calendarList
-        newsController.newsReel = newsReel
-        //calendarController.calendarList = calendarList
+        homeController.news = NewsReel.instance
+        homeController.calendar = Calendar.instance
+        newsController.news = NewsReel.instance
+        calendarController.calendar = Calendar.instance
         
         calendarParser.getEventsInBackground(completionHandler: {
             homeController.calendar = Calendar.instance
@@ -72,8 +71,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         
         newsParser.getDataInBackground(completionHandler: {
-            homeController.newsReel = self.newsReel
-            newsController.newsReel = self.newsReel
+            homeController.news = NewsReel.instance
+            newsController.news = NewsReel.instance
         })
         
         UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)

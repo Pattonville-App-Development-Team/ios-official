@@ -10,21 +10,15 @@ import UIKit
 
 class NewsParser: NSObject, XMLParserDelegate{
     
-    var newsReel: NewsReel!
+    var news: NewsReel! = NewsReel.instance
+    var schools: [School] = SchoolsArray.getSubscribedSchools()
+    var school: School? = nil
     
     var element: String = ""
     var articleTitle: String = ""
     var articleDate: String = ""
     var articleURL: String = ""
     var id: String = ""
-    
-    var schools: [School]
-    var school: School? = nil
-    
-    init(newsReel: NewsReel, schools: [School]){
-        self.newsReel = newsReel
-        self.schools = schools
-    }
     
     /// Updates the school list for the parser to parse from
     ///
@@ -106,7 +100,7 @@ class NewsParser: NSObject, XMLParserDelegate{
                 newsItem = nil
             }
             
-            newsReel.addNews(newsItem: newsItem!)
+            news.addNews(newsItem: newsItem!)
         }
     }
     
@@ -135,7 +129,7 @@ class NewsParser: NSObject, XMLParserDelegate{
                 self.beginParseing(url: URL(string: school.newsURL)!)
             }
             
-            self.newsReel.news = self.newsReel.news.filter({
+            self.news.allNews = self.news.allNews.filter({
                 return SchoolsArray.getSubscribedSchools().contains($0.school)
             })
             
