@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ylR-ud-n9g">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,11 +19,11 @@
                         <viewControllerLayoutGuide type="bottom" id="kgL-9P-FT2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WSA-dV-t2Y">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0x-i5-cOW">
-                                <rect key="frame" x="-4" y="64" width="379" height="554"/>
+                                <rect key="frame" x="-4" y="64" width="379" height="559"/>
                                 <subviews>
                                     <webView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84d-fw-qHx">
                                         <rect key="frame" x="16" y="66" width="343" height="20"/>
@@ -65,6 +69,14 @@
                                                     <constraint firstAttribute="height" constant="45" id="Tpp-Ct-eig"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZL-uO-2Ni">
+                                                <rect key="frame" x="172" y="47" width="35" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button" image="sharebutton-apple-ios.jpg"/>
+                                                <connections>
+                                                    <action selector="shareButtonClicked:" destination="ylR-ud-n9g" eventType="touchUpInside" id="Stn-UI-AvK"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -90,6 +102,13 @@
                                     <constraint firstItem="84d-fw-qHx" firstAttribute="top" secondItem="YAo-Rz-n7F" secondAttribute="bottom" constant="30" id="yDS-lp-nib"/>
                                 </constraints>
                             </scrollView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W1d-5k-2Un">
+                                <rect key="frame" x="0.0" y="8" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="NAn-PB-Kou"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -99,9 +118,9 @@
                             <constraint firstItem="kgL-9P-FT2" firstAttribute="top" secondItem="r0x-i5-cOW" secondAttribute="bottom" id="UnK-5i-FEg"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4_7.fullscreen"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="date" destination="yfk-kG-BJB" id="ALt-ue-ja7"/>
                         <outlet property="headerViewHeightConstraint" destination="kzp-2B-Fix" id="kVX-bl-mdU"/>
@@ -117,4 +136,7 @@
             <point key="canvasLocation" x="661.60000000000002" y="1458.6206896551726"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="sharebutton-apple-ios.jpg" width="120" height="173"/>
+    </resources>
 </document>

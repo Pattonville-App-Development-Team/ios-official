@@ -29,7 +29,7 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
         super.viewDidLoad()
         
         self.title = news.title
-
+        
         titleLabel.text = news.title
         date.text = news.dateString
         
@@ -46,7 +46,7 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
         headerViewHeightConstraint.constant = titleLabel.frame.height + date.frame.height + 30
         
         getHTML()
-
+        
         //content.text = news.content
         // Do any additional setup after loading the view.
     }
@@ -74,9 +74,9 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
         }
     }
     
-
+    
     /// Submits a GET request to a URL and is returned the HTML of the webpage
-
+    
     func getHTML(){
         
         var contentString = "<style> font{font-family: 'Arial' !important; font-size: 0.85em !important;} img{width: 100% !important; height: auto !important;} tr:first-of-type, tr:last-of-type{display: none !important}</style>";
@@ -112,9 +112,23 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
             contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "")
             
             webView.loadHTMLString(contentString, baseURL: nil)
-
+            
             
         }
     }
+    
+    @IBAction func shareButtonClicked(_ sender: UIButton) {
+        let textToShare = news.title
+        
+       // if let myWebsite = NSURL(string: "http://www.codingexplorer.com/"){
+        if let myWebsite = NSURL(string: news.url){
+            let objectsToShare = [textToShare, myWebsite] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            activityVC.popoverPresentationController?.sourceView = sender
+            self.present(activityVC, animated: true, completion: nil)
+        }
+    }
+    
     
 }
