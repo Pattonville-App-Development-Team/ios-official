@@ -45,6 +45,12 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
         
         headerViewHeightConstraint.constant = titleLabel.frame.height + date.frame.height + 30
         
+        let rightButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action, target: self, action: #selector(NewsDetailViewController.shareButtonClicked(_:)))
+        
+        
+        self.navigationItem.rightBarButtonItem = rightButton
+        
+        
         getHTML()
         
         //content.text = news.content
@@ -116,8 +122,10 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
             
         }
     }
+
+
     
-    @IBAction func shareButtonClicked(_ sender: UIButton) {
+     @objc func shareButtonClicked(_ sender: UIBarButtonItem) {
         let textToShare = news.title
         
        // if let myWebsite = NSURL(string: "http://www.codingexplorer.com/"){
@@ -125,7 +133,7 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
             let objectsToShare = [textToShare, myWebsite] as [Any]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
             
-            activityVC.popoverPresentationController?.sourceView = sender
+            activityVC.popoverPresentationController?.sourceView = schoolView
             self.present(activityVC, animated: true, completion: nil)
         }
     }

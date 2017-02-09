@@ -80,7 +80,6 @@
 		4B4299A81E087F7200A202F9 /* 6NutriSliceLinks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4299A71E087F7200A202F9 /* 6NutriSliceLinks.storyboard */; };
 		4B7D26DC1E4A19500097F0E6 /* SelectSchoolsTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B7D26DB1E4A19500097F0E6 /* SelectSchoolsTableViewController.storyboard */; };
 		4BA99DED1E42EDB700720112 /* NewsDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA99DEC1E42EDB700720112 /* NewsDetail.storyboard */; };
-		4BC9F0381E4B601D0060D123 /* sharebutton-apple-ios.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4BC9F0371E4B601D0060D123 /* sharebutton-apple-ios.jpg */; };
 		4BD53EF41E48B6EE001CB302 /* PowerSchoolTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BD53EF31E48B6EE001CB302 /* PowerSchoolTableViewController.storyboard */; };
 		4BD53EF61E48B74C001CB302 /* PowerSchoolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD53EF51E48B74C001CB302 /* PowerSchoolTableViewController.swift */; };
 		4BE086DE1E08738F00BEA0E4 /* NutriSliceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE086DD1E08738F00BEA0E4 /* NutriSliceViewController.swift */; };
@@ -189,7 +188,6 @@
 		4B4299A71E087F7200A202F9 /* 6NutriSliceLinks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = 6NutriSliceLinks.storyboard; sourceTree = "<group>"; };
 		4B7D26DB1E4A19500097F0E6 /* SelectSchoolsTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SelectSchoolsTableViewController.storyboard; sourceTree = "<group>"; };
 		4BA99DEC1E42EDB700720112 /* NewsDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewsDetail.storyboard; sourceTree = "<group>"; };
-		4BC9F0371E4B601D0060D123 /* sharebutton-apple-ios.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "sharebutton-apple-ios.jpg"; path = "../../../Desktop/sharebutton-apple-ios.jpg"; sourceTree = "<group>"; };
 		4BD53EF31E48B6EE001CB302 /* PowerSchoolTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PowerSchoolTableViewController.storyboard; sourceTree = "<group>"; };
 		4BD53EF51E48B74C001CB302 /* PowerSchoolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerSchoolTableViewController.swift; sourceTree = "<group>"; };
 		4BE086DD1E08738F00BEA0E4 /* NutriSliceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutriSliceViewController.swift; sourceTree = "<group>"; };
@@ -281,7 +279,6 @@
 				42B933B71DFB022B00514B73 /* diamond.jpg */,
 				42B933B81DFB022B00514B73 /* illusion.jpg */,
 				42B933B91DFB022B00514B73 /* java.jpg */,
-				4BC9F0371E4B601D0060D123 /* sharebutton-apple-ios.jpg */,
 				42B933BA1DFB022B00514B73 /* lines.jpg */,
 				42B933BB1DFB022B00514B73 /* nature- dear.jpg */,
 				42B933BD1DFB022B00514B73 /* pin-green.png */,
@@ -583,7 +580,6 @@
 				42B9330B1DFAEDC500514B73 /* Assets.xcassets in Resources */,
 				42B933091DFAEDC500514B73 /* Main.storyboard in Resources */,
 				4BFE3B401E427EE300902741 /* CalendarEventDetail.storyboard in Resources */,
-				4BC9F0381E4B601D0060D123 /* sharebutton-apple-ios.jpg in Resources */,
 				42B933851DFAEEF400514B73 /* News.storyboard in Resources */,
 				1B040D7A1E0E399200D69069 /* SSD.storyboard in Resources */,
 				4611185A1E4231CF005AA3A9 /* image4.jpg in Resources */,
