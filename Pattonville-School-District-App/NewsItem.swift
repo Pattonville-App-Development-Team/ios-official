@@ -51,7 +51,7 @@ class NewsItem: Equatable{
     
     /// Overrides the == method for comparison of news items
     static func == (lhs: NewsItem, rhs: NewsItem) -> Bool{
-        return lhs.id == rhs.id
+        return lhs.title == rhs.title && lhs.school == rhs.school
     }
     
 }

@@ -17,11 +17,17 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     var carouselWidth: CGFloat = 0
     var carouselHeight: CGFloat = 0
     
-    var news: NewsReel! = NewsReel.instance
+    var news: NewsReel! = NewsReel.instance{
+        didSet{
+            if let table = tableView{
+                table.reloadData()
+            }
+        }
+    }
     
-    var prevSchools: [School]! = []
-    var currentSchools: [School]!
     var parser: NewsParser!
+    
+    var prevSchools: [School] = []
     
     var searchController: UISearchController!
     
@@ -62,12 +68,15 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        currentSchools = SchoolsArray.getSubscribedSchools()
-        parser = NewsParser()
-        
-        if currentSchools != prevSchools{
-            refreshData()
-            prevSchools = currentSchools
+        if SchoolsArray.getSubscribedSchools() != prevSchools{
+         
+            NewsReel.instance.getNews(completionHandler: {
+                print("Pulling in background")
+                self.tableView.reloadData()
+            })
+            
+            prevSchools = SchoolsArray.getSubscribedSchools()
+            
         }
         
         tableView.reloadData()
@@ -149,7 +158,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     //Refreshes the list of news articles
     @objc private func refreshData(){
         
-        parser.updateSchools(schools: currentSchools)
+        parser.updateSchools(schools: SchoolsArray.getSubscribedSchools())
         
         parser.getDataInBackground(completionHandler: {
             print("REFRESHING")

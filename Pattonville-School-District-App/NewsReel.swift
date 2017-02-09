@@ -29,6 +29,21 @@ class NewsReel{
         if !allNews.contains(newsItem){
             allNews.append(newsItem)
         }
-    }    
+    }
+    
+    func getNews(completionHandler: (() -> Void)?){
+        
+        let parser = NewsParser()
+        
+        parser.getDataInBackground(completionHandler: {
+            completionHandler?()
+        })
+        
+    }
+    
+    func resetNews(){
+        allNews = []
+        filteredNews = []
+    }
     
 }

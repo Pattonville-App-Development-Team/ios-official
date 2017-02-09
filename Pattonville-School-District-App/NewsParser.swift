@@ -126,20 +126,23 @@ class NewsParser: NSObject, XMLParserDelegate{
         DispatchQueue.global(qos: .background).async {
             
             for school in self.schools{
+                
                 self.beginParseing(url: URL(string: school.newsURL)!)
-            }
-            
-            self.news.allNews = self.news.allNews.filter({
-                return SchoolsArray.getSubscribedSchools().contains($0.school)
-            })
-            
-            DispatchQueue.main.async {
-                completionHandler?()
+                
+                self.news.allNews = self.news.allNews.filter({
+                    return SchoolsArray.getSubscribedSchools().contains($0.school)
+                }).sorted(by: {
+                    $0.date > $1.date
+                })
+                
+                DispatchQueue.main.async {
+                    completionHandler?()
+                }
+                
             }
             
         }
         
     }
-    
     
 }

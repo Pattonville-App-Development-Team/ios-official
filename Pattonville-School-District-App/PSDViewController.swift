@@ -16,12 +16,18 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     
     var news: NewsReel! = NewsReel.instance{
         didSet{
-            
+            if let table = tableView{
+                getUpcomingNews()
+                table.reloadData()
+            }
         }
     }
     var calendar: Calendar! = Calendar.instance{
         didSet{
-            getUpcomingEvents()
+            if let table = tableView{
+                getUpcomingEvents()
+                table.reloadData()
+            }
         }
     }
     
@@ -37,7 +43,11 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     let image4 = #imageLiteral(resourceName: "image4.jpg")
     let image5 = #imageLiteral(resourceName: "image5.jpg")
     
-    var schools: [School] = []
+    var prevSchools: [School]! = []
+    var currentSchools: [School]!
+    
+    let newsParser = NewsParser()
+    let calendarParser = CalendarParser()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,28 +75,12 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         
         Timer.scheduledTimer(timeInterval: 8.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
-
-        let newsParser = NewsParser()
-        let calendarParser = CalendarParser()
         
-        newsParser.getDataInBackground(completionHandler: {
-            
-            self.news.allNews.sort(by: {
-                 return $0.date > $1.date
-            })
-            
-            self.tableView.reloadData()
-        })
-        
-        calendarParser.getEventsInBackground(completionHandler: {
-            self.getUpcomingEvents()
-            self.tableView.reloadData()
-        })
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        getUpcomingEvents()
+        
         tableView.reloadData()
     }
     
@@ -218,6 +212,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
             destination.news = news.allNews[(tableView.indexPathForSelectedRow?.row)!]
         }
     }
+    
     /// Defines the functionality of a selected cell in the table
     /// - tableeView: the instance of the tableview onscreen
     /// - indexPath: the indexPath of the selected cell
@@ -340,7 +335,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     private func getUpcomingNews(){
         
         news.allNews = news.allNews.sorted(by: {
-            $0.date < $1.date
+            $0.date > $1.date
         })
         
     }
