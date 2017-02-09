@@ -11,15 +11,10 @@ import MXLCalendarManager
 
 class CalendarParser{
     
-    var calendar: Calendar!
+    var calendar: Calendar! = Calendar.instance
     
-    var schools: [School]
+    var schools: [School] = SchoolsArray.getSubscribedSchools()
     var school: School? = nil
-    
-    init(calendar: Calendar, schools: [School]){
-        self.calendar = calendar
-        self.schools = schools
-    }
     
     /// Updates the school list for the parser to parse from
     ///

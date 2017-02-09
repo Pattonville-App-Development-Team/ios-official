@@ -25,9 +25,9 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0x-i5-cOW">
                                 <rect key="frame" x="-4" y="64" width="379" height="554"/>
                                 <subviews>
-                                    <webView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84d-fw-qHx">
+                                    <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84d-fw-qHx">
                                         <rect key="frame" x="16" y="66" width="343" height="20"/>
-                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="D0g-mc-Y7t"/>
                                         </constraints>

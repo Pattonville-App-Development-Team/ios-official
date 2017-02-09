@@ -20,7 +20,21 @@ class Event: Equatable{
     var location: String?
     var pinned: Bool = false
     var eventID: String
-    var school: School
+    var school: School?
+    
+    init(){
+        
+        name = ""
+        date = nil
+        startTime = nil
+        endTime = nil
+        dateString = ""
+        timeString = ""
+        location = ""
+        eventID = ""
+        school = nil
+        
+    }
     
     init(name: String, dateString: String, start: String, end: String, location: String, school: School){
         
@@ -82,6 +96,12 @@ class Event: Equatable{
     
     func setPinned(){
         pinned = true
+        Calendar.instance.pinEvent(event: self)
+    }
+    
+    func setUnpinned(){
+        pinned = false
+        Calendar.instance.unPinEvent(event: self)
     }
     
     static func == (lhs: Event, rhs: Event) -> Bool{

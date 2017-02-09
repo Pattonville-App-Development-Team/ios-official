@@ -40,20 +40,3 @@ class SelectSchoolsTableCell: UITableViewCell{
     
 }
 
-
-
-
-
-/* @IBAction func changeSchoolsIsSubscribedToValue(_ sender: Any) {
- print("is this working")
- if (schoolEnabledSwitch.isOn){
- schoolNameLabel.text = "on"
- let on: String = "switch tapped to on"
- print(on)
- }   else{
- schoolNameLabel.text = "off"
- let off: String = "switch tapped to off"
- print(off)
- }
- 
- }*/
