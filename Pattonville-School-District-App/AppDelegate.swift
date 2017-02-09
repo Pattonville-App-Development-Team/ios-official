@@ -45,6 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        let calendar = Calendar.instance
+        let news = NewsReel.instance
+        
         let navBarController = window!.rootViewController as! UITabBarController
         
         let navHomeController = navBarController.viewControllers![0] as! UINavigationController
@@ -56,24 +59,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navCalController = navBarController.viewControllers![2] as! UINavigationController
         let calendarController = navCalController.topViewController as! CalendarViewController
         
-        let calendarParser = CalendarParser()
-        let newsParser = NewsParser(newsReel: newsReel, schools: SchoolsArray.getSubscribedSchools())
+        homeController.news = news
+        homeController.calendar = calendar
+        newsController.news = news
+        calendarController.calendar = calendar
+        calendarController.selectedDate = Date()
         
-        homeController.newsReel = newsReel
-        //homeController.navigationController?.navigationBar.tintColor = .green
-        //homeController.calendarList = calendarList
-        newsController.newsReel = newsReel
-        //calendarController.calendarList = calendarList
-        
-        calendarParser.getEventsInBackground(completionHandler: {
-            homeController.calendar = Calendar.instance
-            calendarController.calendar = Calendar.instance
-            calendarController.selectedDate = Date()
+        Calendar.instance.getEvents(completionHandler: {
+            homeController.calendar = calendar
+            calendarController.calendar = calendar
         })
         
-        newsParser.getDataInBackground(completionHandler: {
-            homeController.newsReel = self.newsReel
-            newsController.newsReel = self.newsReel
+        NewsReel.instance.getNews(completionHandler: {
+            homeController.news = news
+            newsController.news = news
         })
         
         UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)

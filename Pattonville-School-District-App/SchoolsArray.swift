@@ -27,7 +27,7 @@ class SchoolsArray {
         
     }
     
-    /// The method that returns the Schools that the User is SubscribedTo which is based upon the isSubscribedTo bool set in the SelectSchoolsTableViewController
+    /// returns the Schools that the User is SubscribedTo which is based upon the isSubscribedTo bool set in the SelectSchoolsTableViewController
     ///
     /// - Returns: the schools that the user has subscribed to
     static func getSubscribedSchools() -> [School]{
@@ -38,7 +38,7 @@ class SchoolsArray {
     
     /// Method to get an the array of schools objects that do not incude the District, used to populate the tableViews in More
     ///
-    /// - Returns: the array from Enumm with information
+    /// - returns: the array from Enumm with information
     static func getSchools() -> [School]{
         return allSchools.filter({
             $0 != SchoolsEnum.district

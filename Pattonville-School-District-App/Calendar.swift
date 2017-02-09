@@ -159,6 +159,17 @@ class Calendar{
         
     }
     
+    
+    func getEvents(completionHandler: (() -> Void)?){
+        
+        let parser = CalendarParser()
+        
+        parser.getEventsInBackground(completionHandler: {
+            completionHandler?()
+        })
+        
+    }
+    
     /// Whether or not a given date has any events
     ///
     /// - date: the date to look at

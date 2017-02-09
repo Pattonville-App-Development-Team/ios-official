@@ -17,19 +17,22 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     var carouselWidth: CGFloat = 0
     var carouselHeight: CGFloat = 0
     
-    var newsReel: NewsReel!
-    var filteredNewsReel: NewsReel!
+    var news: NewsReel! = NewsReel.instance{
+        didSet{
+            if let table = tableView{
+                table.reloadData()
+            }
+        }
+    }
     
-    var prevSchools: [School]! = []
-    var currentSchools: [School]!
     var parser: NewsParser!
+    
+    var prevSchools: [School] = []
     
     var searchController: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        filteredNewsReel = NewsReel()
         
         searchController = UISearchController(searchResultsController: nil)
         
@@ -65,12 +68,15 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        currentSchools = SchoolsArray.getSubscribedSchools()
-        parser = NewsParser(newsReel: newsReel, schools: currentSchools)
-        
-        if currentSchools != prevSchools{
-            refreshData()
-            prevSchools = currentSchools
+        if SchoolsArray.getSubscribedSchools() != prevSchools{
+         
+            NewsReel.instance.getNews(completionHandler: {
+                print("Pulling in background")
+                self.tableView.reloadData()
+            })
+            
+            prevSchools = SchoolsArray.getSubscribedSchools()
+            
         }
         
         tableView.reloadData()
@@ -85,7 +91,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewsDetailSegue"{
             let destination = segue.destination as! NewsDetailViewController
-            destination.news = newsReel.news[(tableView.indexPathForSelectedRow?.row)!]
+            destination.news = news.allNews[(tableView.indexPathForSelectedRow?.row)!]
         }
     }
     
@@ -99,9 +105,9 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     /// - returns: the number of news stories in the newsReel used to populated the TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.isActive && searchController.searchBar.text != ""{
-            return filteredNewsReel.news.count
+            return news.filteredNews.count
         }else{
-            return newsReel.news.count
+            return news.allNews.count
         }
     }
     
@@ -119,9 +125,9 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         let newsItem: NewsItem
         
         if searchController.isActive && searchController.searchBar.text != ""{
-            newsItem = filteredNewsReel.news[indexPath.row]
+            newsItem = news.filteredNews[indexPath.row]
         }else{
-            newsItem = newsReel.news[indexPath.row]
+            newsItem = news.allNews[indexPath.row]
         }
         
         cell.newsItem = newsItem
@@ -139,11 +145,11 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func updateSearchResults(for: UISearchController) {
         
-        print(filteredNewsReel.news.count)
+        print(news.filteredNews.count)
         
         filterNewsForSearchText(searchText: searchController.searchBar.text!)
         
-        print(filteredNewsReel.news.count)
+        print(news.filteredNews.count)
         
     }
     
@@ -152,12 +158,12 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     //Refreshes the list of news articles
     @objc private func refreshData(){
         
-        parser.updateSchools(schools: currentSchools)
+        parser.updateSchools(schools: SchoolsArray.getSubscribedSchools())
         
         parser.getDataInBackground(completionHandler: {
             print("REFRESHING")
             
-            self.newsReel.news.sort(by: {
+            self.news.allNews.sort(by: {
                 return $0.date > $1.date
             })
             
@@ -170,7 +176,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     private func filterNewsForSearchText(searchText: String){
         
-        filteredNewsReel.news = newsReel.news.filter({ newsItem in
+        news.filteredNews = news.allNews.filter({ newsItem in
             return newsItem.title.lowercased().contains(searchText.lowercased()) || newsItem.school.name.lowercased().contains(searchText.lowercased())
         })
         
