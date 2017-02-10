@@ -98,6 +98,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="PSD" id="rAx-6R-ogE">
+                        <barButtonItem key="leftBarButtonItem" image="alert" id="vQG-fd-vnj"/>
                         <barButtonItem key="rightBarButtonItem" image="settings" style="plain" id="iRX-iK-Vsw">
                             <connections>
                                 <segue destination="Tol-cI-BaD" kind="show" id="p2H-nN-iGq"/>
@@ -139,6 +140,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="alert" width="30" height="30"/>
         <image name="logo" width="30" height="29"/>
         <image name="settings" width="30" height="30"/>
     </resources>
