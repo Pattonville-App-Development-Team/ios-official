@@ -8,10 +8,12 @@
 
 import UIKit
 import EventKit
+import EventKitUI
 
 class CalendarEventDetailController: UIViewController{
     
     var event: Event!
+    var editViewDelegate: EKEventEditViewDelegate!
     
     @IBOutlet var eventName: UILabel!
     @IBOutlet var eventLocation: UILabel!
@@ -72,9 +74,28 @@ class CalendarEventDetailController: UIViewController{
         }else{
             pinButton.isSelected = false
         }
+        let rightNavigationBarAddToCalendarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector (CalendarEventDetailController.addToDeviceCalendar(_:)))
         
+        
+        self.navigationItem.rightBarButtonItem = rightNavigationBarAddToCalendarButton
         print(event.school?.name)
         
     }
-    
+    func addToDeviceCalendar(_ sender: UIBarButtonItem){
+        print("accessed addToDeviceCalendar")
+      
+        let controller = EKEventEditViewController()
+        let store = EKEventStore()
+        store.requestAccess(to: .event) {(granted, error) in
+            if !granted { return }
+            
+            let ekEvent = EKEvent(eventStore: store)
+        controller.eventStore = store;
+        controller.editViewDelegate = self.editViewDelegate
+        controller.event = ekEvent
+        ekEvent.title = self.event.name!
+        ekEvent.startDate = self.event.startTime!
+        self.present(controller, animated: true, completion: nil)
+ }
+}
 }
