@@ -64,12 +64,6 @@
 		42B9339A1DFAEEF400514B73 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933661DFAEEF400514B73 /* SettingsViewController.swift */; };
 		42B933A21DFAEF1B00514B73 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B9339D1DFAEF1B00514B73 /* Calendar.storyboard */; };
 		42B933A31DFAEF1B00514B73 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B9339E1DFAEF1B00514B73 /* Home.storyboard */; };
-		42B933BE1DFB022B00514B73 /* circle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933B61DFB022B00514B73 /* circle.jpg */; };
-		42B933BF1DFB022B00514B73 /* diamond.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933B71DFB022B00514B73 /* diamond.jpg */; };
-		42B933C01DFB022B00514B73 /* illusion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933B81DFB022B00514B73 /* illusion.jpg */; };
-		42B933C11DFB022B00514B73 /* java.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933B91DFB022B00514B73 /* java.jpg */; };
-		42B933C21DFB022B00514B73 /* lines.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933BA1DFB022B00514B73 /* lines.jpg */; };
-		42B933C31DFB022B00514B73 /* nature- dear.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42B933BB1DFB022B00514B73 /* nature- dear.jpg */; };
 		42B933C51DFB022B00514B73 /* pin-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 42B933BD1DFB022B00514B73 /* pin-green.png */; };
 		461118561E4231CF005AA3A9 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 461118501E4231CF005AA3A9 /* image.jpg */; };
 		461118571E4231CF005AA3A9 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 461118511E4231CF005AA3A9 /* image1.jpg */; };
@@ -172,12 +166,6 @@
 		42B933661DFAEEF400514B73 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		42B9339D1DFAEF1B00514B73 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Calendar.storyboard; path = Base.lproj/Calendar.storyboard; sourceTree = "<group>"; };
 		42B9339E1DFAEF1B00514B73 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
-		42B933B61DFB022B00514B73 /* circle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = circle.jpg; sourceTree = "<group>"; };
-		42B933B71DFB022B00514B73 /* diamond.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = diamond.jpg; sourceTree = "<group>"; };
-		42B933B81DFB022B00514B73 /* illusion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = illusion.jpg; sourceTree = "<group>"; };
-		42B933B91DFB022B00514B73 /* java.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = java.jpg; sourceTree = "<group>"; };
-		42B933BA1DFB022B00514B73 /* lines.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lines.jpg; sourceTree = "<group>"; };
-		42B933BB1DFB022B00514B73 /* nature- dear.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "nature- dear.jpg"; sourceTree = "<group>"; };
 		42B933BD1DFB022B00514B73 /* pin-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin-green.png"; sourceTree = "<group>"; };
 		461118501E4231CF005AA3A9 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
 		461118511E4231CF005AA3A9 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
@@ -269,18 +257,12 @@
 				1B5E11021E27C51D0038A33C /* email-icon.png */,
 				42617B421E00A61C00BB5992 /* pin-black-1.png */,
 				42B9330F1DFAEDC500514B73 /* Info.plist */,
-				42B933B61DFB022B00514B73 /* circle.jpg */,
 				461118501E4231CF005AA3A9 /* image.jpg */,
 				461118511E4231CF005AA3A9 /* image1.jpg */,
 				461118521E4231CF005AA3A9 /* image2.jpg */,
 				461118531E4231CF005AA3A9 /* image3.jpg */,
 				461118541E4231CF005AA3A9 /* image4.jpg */,
 				461118551E4231CF005AA3A9 /* image5.jpg */,
-				42B933B71DFB022B00514B73 /* diamond.jpg */,
-				42B933B81DFB022B00514B73 /* illusion.jpg */,
-				42B933B91DFB022B00514B73 /* java.jpg */,
-				42B933BA1DFB022B00514B73 /* lines.jpg */,
-				42B933BB1DFB022B00514B73 /* nature- dear.jpg */,
 				42B933BD1DFB022B00514B73 /* pin-green.png */,
 				42B933341DFAEEF300514B73 /* Assets.xcassets */,
 				42B933351DFAEEF300514B73 /* Base.lproj */,
@@ -569,11 +551,8 @@
 				461118591E4231CF005AA3A9 /* image3.jpg in Resources */,
 				4242FC231E3F96D800A43491 /* NewsItemCell.xib in Resources */,
 				42B933821DFAEEF400514B73 /* More.storyboard in Resources */,
-				42B933C31DFB022B00514B73 /* nature- dear.jpg in Resources */,
 				42B9330E1DFAEDC500514B73 /* LaunchScreen.storyboard in Resources */,
 				42B933771DFAEEF400514B73 /* DateView.xib in Resources */,
-				42B933BF1DFB022B00514B73 /* diamond.jpg in Resources */,
-				42B933C01DFB022B00514B73 /* illusion.jpg in Resources */,
 				4B4299A81E087F7200A202F9 /* 6NutriSliceLinks.storyboard in Resources */,
 				4611185B1E4231CF005AA3A9 /* image5.jpg in Resources */,
 				4B7D26DC1E4A19500097F0E6 /* SelectSchoolsTableViewController.storyboard in Resources */,
@@ -583,7 +562,6 @@
 				42B933851DFAEEF400514B73 /* News.storyboard in Resources */,
 				1B040D7A1E0E399200D69069 /* SSD.storyboard in Resources */,
 				4611185A1E4231CF005AA3A9 /* image4.jpg in Resources */,
-				42B933C21DFB022B00514B73 /* lines.jpg in Resources */,
 				42B933321DFAEEE300514B73 /* TabBarIcons in Resources */,
 				42B9338C1DFAEEF400514B73 /* Peachjar.storyboard in Resources */,
 				42B933A31DFAEF1B00514B73 /* Home.storyboard in Resources */,
@@ -593,7 +571,6 @@
 				42B933701DFAEEF400514B73 /* CalendarHeaderView.xib in Resources */,
 				42B9336A1DFAEEF400514B73 /* Base.lproj in Resources */,
 				461118571E4231CF005AA3A9 /* image1.jpg in Resources */,
-				42B933C11DFB022B00514B73 /* java.jpg in Resources */,
 				4BA99DED1E42EDB700720112 /* NewsDetail.storyboard in Resources */,
 				42B933C51DFB022B00514B73 /* pin-green.png in Resources */,
 				42B933991DFAEEF400514B73 /* Settings.storyboard in Resources */,
@@ -601,7 +578,6 @@
 				42B933691DFAEEF400514B73 /* Assets.xcassets in Resources */,
 				42B933A21DFAEF1B00514B73 /* Calendar.storyboard in Resources */,
 				42B933761DFAEEF400514B73 /* DateCell.xib in Resources */,
-				42B933BE1DFB022B00514B73 /* circle.jpg in Resources */,
 				461118581E4231CF005AA3A9 /* image2.jpg in Resources */,
 				4BD53EF41E48B6EE001CB302 /* PowerSchoolTableViewController.storyboard in Resources */,
 				461118561E4231CF005AA3A9 /* image.jpg in Resources */,
