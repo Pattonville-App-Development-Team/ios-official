@@ -10,10 +10,27 @@ import UIKit
 import EventKit
 import EventKitUI
 
-class CalendarEventDetailController: UIViewController{
+class CalendarEventDetailController: UIViewController, EKEventEditViewDelegate{
+    /*!
+     @method     eventEditViewController:didCompleteWithAction:
+     @abstract   Called to let delegate know the controller is done editing.
+     @discussion When the user presses Cancel, presses Done, or deletes the event, this method
+     is called. Your delegate is responsible for dismissing the controller. If the editing
+     session is terminated programmatically using cancelEditing, 
+     this method will not be called.
+     
+     @param      controller          the controller in question
+     @param      action              the action that is causing the dismissal
+     */
+    @available(iOS 4.0, *)
+    public func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
     
     var event: Event!
-    var editViewDelegate: EKEventEditViewDelegate!
+    //var editViewDelegate: EKEventEditViewDelegate!
+    var editViewDelegate = self
     
     @IBOutlet var eventName: UILabel!
     @IBOutlet var eventLocation: UILabel!
@@ -91,11 +108,16 @@ class CalendarEventDetailController: UIViewController{
             
             let ekEvent = EKEvent(eventStore: store)
         controller.eventStore = store;
-        controller.editViewDelegate = self.editViewDelegate
+        controller.editViewDelegate = self
         controller.event = ekEvent
         ekEvent.title = self.event.name!
-        ekEvent.startDate = self.event.startTime!
+        ekEvent.startDate = self.event.date!
+            if self.event.location != nil{
+                ekEvent.location = self.event.location!
+            }
+            
         self.present(controller, animated: true, completion: nil)
- }
+             }
+        
 }
 }
