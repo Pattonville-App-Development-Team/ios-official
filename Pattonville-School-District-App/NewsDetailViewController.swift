@@ -13,12 +13,15 @@ import Kanna
 /// The ViewController for the View that appears after a user selects a news story in the main News page
 class NewsDetailViewController: UIViewController, UIWebViewDelegate{
     
+    /// The news story that is displayed on this page
     var news: NewsItem!
     
     /// The image at the top of the news article before the text
     @IBOutlet var titleLabel: UILabel!
+    /// The Label below the title that displays the date of the news article
     @IBOutlet var date: UILabel!
     @IBOutlet var webView: UIWebView!
+    /// The View used to create the identifying circle containing the schools abbreviation
     @IBOutlet var schoolView: UIView!
     @IBOutlet var schoolName: UILabel!
     
@@ -45,10 +48,12 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
         
         headerViewHeightConstraint.constant = titleLabel.frame.height + date.frame.height + 30
         
-        let rightButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action, target: self, action: #selector(NewsDetailViewController.shareButtonClicked(_:)))
+       
+        /// The button used to open the Action menu at the top right of the Navigation bar
+        let rightNavigationBarActionButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action, target: self, action: #selector(NewsDetailViewController.shareButtonClicked(_:)))
         
         
-        self.navigationItem.rightBarButtonItem = rightButton
+        self.navigationItem.rightBarButtonItem = rightNavigationBarActionButton
         
         
         getHTML()
@@ -117,10 +122,12 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
 
 
     
+     /// Opens Action activity that includes sharing options and copy and add to reading list actions
+     ///
+     /// - Parameter sender: the action icon at the top right of the NewsDetailView Navigation bar
      @objc func shareButtonClicked(_ sender: UIBarButtonItem) {
         let textToShare = news.title
         
-       // if let myWebsite = NSURL(string: "http://www.codingexplorer.com/"){
         if let myWebsite = NSURL(string: news.url){
             let objectsToShare = [textToShare, myWebsite] as [Any]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)

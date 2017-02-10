@@ -36,7 +36,8 @@ class SchoolsArray {
         })
     }
     
-    /// Method to get an the array of schools objects that do not incude the District, used to populate the tableViews in More
+    
+    /// Gets an the array of schools objects that do not incude the District, used to populate the tableViews in More
     ///
     /// - returns: the array from Enumm with information
     static func getSchools() -> [School]{
