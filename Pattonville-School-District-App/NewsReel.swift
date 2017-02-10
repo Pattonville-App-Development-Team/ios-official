@@ -11,16 +11,39 @@ import UIKit
 /// Class for the array of NewsItems used in NewsViewController to display news
 class NewsReel{
     
-    var news: [NewsItem] = [NewsItem]()
+    static var instance: NewsReel = NewsReel()
+    
+    var allNews: [NewsItem]
+    var filteredNews: [NewsItem]
+    
+    init(){
+        allNews = []
+        filteredNews = []
+    }
     
     /// Adds a news item to the news array
     ///
     /// - newsItem: the news item to add
     ///
     func addNews(newsItem: NewsItem) {
-        if !news.contains(newsItem){
-            news.append(newsItem)
+        if !allNews.contains(newsItem){
+            allNews.append(newsItem)
         }
-    }    
+    }
+    
+    func getNews(completionHandler: (() -> Void)?){
+        
+        let parser = NewsParser()
+        
+        parser.getDataInBackground(completionHandler: {
+            completionHandler?()
+        })
+        
+    }
+    
+    func resetNews(){
+        allNews = []
+        filteredNews = []
+    }
     
 }

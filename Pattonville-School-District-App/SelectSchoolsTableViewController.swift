@@ -9,7 +9,7 @@ import UIKit
 
 /// The TableViewController for selecting which schools a user wants to be subscribed to
 class SelectSchoolsTableViewController: UITableViewController{
-   //var schools: SchoolsArray! = SchoolsArray.init()
+   
     /// Set up how the tableView appears on screen
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +23,6 @@ class SelectSchoolsTableViewController: UITableViewController{
         tableView.reloadData()
         
         tableView.rowHeight = 44
-        
-        
-        
-        
         
     }
     
@@ -47,7 +43,7 @@ class SelectSchoolsTableViewController: UITableViewController{
         
     }
     
-    /// Populates the Prototype cells of the tableView with the School name
+    /// Populates the Prototype cells of the SelectSchoolsTableView with the School name, color, and switch value
     ///
     /// - parameter tableView: the SelectSchoolsTableView
     /// - parameter indexPath: the current row it is populating
@@ -77,14 +73,8 @@ class SelectSchoolsTableViewController: UITableViewController{
     func switchIsChanged(sender: UISwitch){
         let school = SchoolsArray.allSchools[sender.tag + 1]
         school.isSubscribedTo = !school.isSubscribedTo
-        print("switchIsChanged method is being called")
         
         UserDefaults.standard.set(school.isSubscribedTo, forKey: school.name)
-        print("Saved \(school.name)'s isSubscribedTo bool val to \(UserDefaults.standard.bool(forKey: school.name))")
-        for school in SchoolsArray.allSchools {
-            print(school.isSubscribedTo)
-            
-        }
         
     }
     

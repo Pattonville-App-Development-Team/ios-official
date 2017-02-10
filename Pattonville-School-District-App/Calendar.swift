@@ -11,13 +11,29 @@ import MXLCalendarManager
 
 class Calendar{
     
-    var datesList = [Event]()
-    var dates = [Date:[Event]]()
+    static var instance: Calendar = Calendar()
+    
+    var allEvents: [Event]!
+    var allEventsDictionary: [Date:[Event]]!
+    
+    var pinnedEvents: [Event]!
+    var pinnedEventsDictionary: [Date:[Event]]!
     
     init(){
-        datesList = [Event]()
-        dates = [Date:[Event]]()
+        
+        allEvents = []
+        allEventsDictionary = [:]
+        
+        pinnedEvents = []
+        pinnedEventsDictionary = [:]
+        
     }
+    
+    
+    /// appends dates to the list and dictionary
+    ///
+    /// - mxlCalendar: an MXLCalendar calendar to pull dates from
+    /// - school: the schools the event belongs to
     
     func appendDates(mxlCalendar: MXLCalendar, school: School){
         
@@ -25,12 +41,15 @@ class Calendar{
             
             let theEvent = Event(mxlEvent: (event as! MXLCalendarEvent), school: school)
             
-            if !datesList.contains(theEvent){
+            if pinnedEvents.contains(theEvent){
+                theEvent.setPinned()
+            }
+            
+            if !allEvents.contains(theEvent){
                 addDate(event: theEvent)
             }
             
         }
-        
 
     }
     
@@ -38,8 +57,43 @@ class Calendar{
     /// - event: the event to add to the list
     /// - returns: the event that was added
     
-    func addDate(event: Event){
-        datesList.append(event);
+    private func addDate(event: Event){
+        allEvents.append(event)
+        allEventsDictionary = addEventToDictionary(dict: allEventsDictionary, event: event)
+    }
+    
+    
+    func pinEvent(event: Event){
+        
+        if !pinnedEvents.contains(event){
+            pinnedEvents.append(event)
+            pinnedEventsDictionary = addEventToDictionary(dict: pinnedEventsDictionary, event: event)
+            
+            print(pinnedEvents.count)
+            
+        }
+        
+    }
+    
+    func unPinEvent(event: Event){
+        
+        pinnedEvents = pinnedEvents.filter({
+            return $0 != event
+        })
+        
+        pinnedEventsDictionary = removeEventFromDictionary(list: pinnedEvents, event: event)
+        
+        
+    }
+    
+    func getIndexOfEvent(event: Event) -> Int{
+        return pinnedEvents.index(of: event)!
+    }
+    
+    
+    private func addEventToDictionary(dict: [Date:[Event]], event: Event) -> [Date:[Event]]{
+        
+        var dictionary = dict
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
@@ -47,13 +101,41 @@ class Calendar{
         let theDateString = dateFormatter.string(from: event.date!)
         let theDate = dateFormatter.date(from: theDateString)
         
-        if dates.keys.contains(theDate!){
-            dates[theDate!]?.append(event)
+        if dictionary.keys.contains(theDate!){
+            dictionary[theDate!]?.append(event)
         }else{
-            dates[theDate!] = [event]
+            dictionary[theDate!] = [event]
         }
         
+        return dictionary
+
     }
+    
+    private func removeEventFromDictionary(list: [Event], event: Event) -> [Date: [Event]]{
+
+        var dict = [Date: [Event]]()
+        
+        for event in list{
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "YYYY-MM-dd"
+            
+            let theDateString = dateFormatter.string(from: event.date!)
+            let theDate = dateFormatter.date(from: theDateString)
+            
+            if dict.keys.contains(theDate!){
+                
+                dict[theDate!]?.append(event)
+                
+            }else{
+                dict[theDate!] = [event]
+            }
+        }
+        
+        return dict
+        
+    }
+    
     
     /// Gets the events from the dates list that are for a given date
     /// - date: the date to look for
@@ -69,21 +151,37 @@ class Calendar{
         
         var eventsList = [Event]()
         
-        if dates.keys.contains(theDate!){
-            eventsList = dates[theDate!]!
+        if allEventsDictionary.keys.contains(theDate!){
+            eventsList = allEventsDictionary[theDate!]!
         }
         
         return eventsList
         
     }
     
+    
+    func getEvents(completionHandler: (() -> Void)?){
+        
+        let parser = CalendarParser()
+        
+        parser.getEventsInBackground(completionHandler: {
+            completionHandler?()
+        })
+        
+    }
+    
+    /// Whether or not a given date has any events
+    ///
+    /// - date: the date to look at
+    /// - returns: Whether or not a given date has any events
     func hasEvents(for date: Date) -> Bool{
         return eventsForDate(date: date).count > 0
     }
     
+    ///Resets the events list and events dictionary to empty
     func resetEvents(){
-        datesList = []
-        dates = [:]
+        allEvents = []
+        allEventsDictionary = [:]
     }
     
     

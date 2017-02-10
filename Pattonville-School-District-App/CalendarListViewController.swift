@@ -19,7 +19,7 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
         self.parent?.dismiss(animated: true, completion: nil)
     }
     
-    var calendarList: Calendar!
+    var calendar: Calendar! = Calendar.instance
     
     ///Sets up the look of the ViewController upon loading.
     
@@ -48,17 +48,9 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
     ///
     /// - parent: the parent of the current view controller
     
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
-        if parent == nil {
-            // The back button was pressed or interactive gesture used
-            ((self.parent as! UINavigationController).viewControllers[0] as! CalendarViewController).calendarList = calendarList
-        }
-    }
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return calendarList.dates.count
+        return calendar.allEventsDictionary.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -76,7 +68,7 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
         
         let theKey = getKeyForIndex(index: section)
         
-        return calendarList.dates[theKey]!.count
+        return calendar.allEventsDictionary[theKey]!.count
         
     }
     
@@ -89,10 +81,9 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
         
-        let event = calendarList.dates[getKeyForIndex(index: indexPath.section)]?[indexPath.row]
+        let event = calendar.allEventsDictionary[getKeyForIndex(index: indexPath.section)]?[indexPath.row]
         
-        cell.event = event
-        cell.setUp(indexPath: indexPath)
+        cell.setup(event: event!, indexPath: indexPath, type: .normal)
         
         return cell
         
@@ -114,12 +105,12 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
         if segue.identifier == "EventDetail"{
             let destination = segue.destination as! CalendarEventDetailController
             let event = tableView.indexPathForSelectedRow
-            destination.event = calendarList.dates[getKeyForIndex(index: (event?.section)!)]?[(event?.row)!]
+            destination.event = calendar.allEventsDictionary[getKeyForIndex(index: (event?.section)!)]?[(event?.row)!]
         }
     }
     
     private func getKeyForIndex(index: Int) -> Date{
-        var keys = Array(calendarList.dates.keys)
+        var keys = Array(calendar.allEventsDictionary.keys)
         keys = keys.sorted{
             $0 < $1
         }

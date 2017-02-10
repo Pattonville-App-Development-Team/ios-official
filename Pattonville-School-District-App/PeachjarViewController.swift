@@ -11,7 +11,7 @@ import UIKit
 /// TableViewControler for the peachjar links for the different schools
 class PeachjarViewController: UITableViewController{
     
-    //var schools: SchoolsArray! = SchoolsArray.init()
+    
     @IBOutlet var webView: UIWebView!
     
     /// Gives the number of rows for the tableview

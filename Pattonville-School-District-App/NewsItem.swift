@@ -44,14 +44,14 @@ class NewsItem: Equatable{
         dateStringFormatter.dateFormat = "EEE, MMMM dd, yyyy"
         self.dateString = dateStringFormatter.string(from: date)
         
-        self.url = "http://fccms.psdr3.org/\(url)"
+        self.url = "http://fccms.psdr3.org\(url)"
         self.school = school
         
     }
     
     /// Overrides the == method for comparison of news items
     static func == (lhs: NewsItem, rhs: NewsItem) -> Bool{
-        return lhs.id == rhs.id
+        return lhs.title == rhs.title && lhs.school == rhs.school
     }
     
 }
