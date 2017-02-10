@@ -28,6 +28,7 @@ class NewsItem: Equatable{
     /// - parameter title:    the title of the given NewsItem
     /// - parameter content:  the news story for the reader to absorb
     /// - parameter the_date: the date of the news story
+    /// - parameter school:   the school that the news Story is about
     ///
     init(id: String, title: String, the_date: String, url: String, school: School){
         

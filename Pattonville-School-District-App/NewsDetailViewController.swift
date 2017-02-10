@@ -21,8 +21,9 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
     /// The Label below the title that displays the date of the news article
     @IBOutlet var date: UILabel!
     @IBOutlet var webView: UIWebView!
-    /// The View used to create the identifying circle containing the schools abbreviation
+    /// The View used to create the identifying circle containing the schools color
     @IBOutlet var schoolView: UIView!
+    /// Goes on top of school UIView and displays the shortName of the school associated with the news story
     @IBOutlet var schoolName: UILabel!
     
     @IBOutlet var webviewHeightConstraint: NSLayoutConstraint!
