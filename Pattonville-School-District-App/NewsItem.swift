@@ -20,6 +20,7 @@ class NewsItem: Equatable{
     
     var url: String
     var school: School
+    var sharingLinkURL: String
     
     /// Initializer to create individual NewsItems
     ///
@@ -46,6 +47,7 @@ class NewsItem: Equatable{
         
         self.url = "http://fccms.psdr3.org\(url)"
         self.school = school
+        self.sharingLinkURL = school.sharingLinksURL + url
         
     }
     

@@ -128,7 +128,7 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
      @objc func shareButtonClicked(_ sender: UIBarButtonItem) {
         let textToShare = news.title
         
-        if let myWebsite = NSURL(string: news.url){
+        if let myWebsite = NSURL(string: news.sharingLinkURL){
             let objectsToShare = [textToShare, myWebsite] as [Any]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
             
