@@ -146,8 +146,9 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         view.addSubview(label)
         
-        seeMore = UIButton(frame: CGRect(x: view.bounds.size.width/1.75, y: 2, width: view.bounds.size.width/1.75, height: view.bounds.size.height))
+        seeMore = UIButton(frame: CGRect(x: view.bounds.size.width/1.7, y: 2, width: view.bounds.size.width/1.65, height: view.bounds.size.height))
         seeMore.setTitle("See More >", for: .normal)
+        seeMore.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         
         seeMore.tag = section
         
