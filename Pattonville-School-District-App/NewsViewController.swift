@@ -91,7 +91,13 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewsDetailSegue"{
             let destination = segue.destination as! NewsDetailViewController
-            destination.news = news.allNews[(tableView.indexPathForSelectedRow?.row)!]
+            
+            if searchController.isActive && searchController.searchBar.text != ""{
+                destination.news = news.filteredNews[(tableView.indexPathForSelectedRow?.row)!]
+            }else{
+                destination.news = news.allNews[(tableView.indexPathForSelectedRow?.row)!]
+            }
+            
         }
     }
     

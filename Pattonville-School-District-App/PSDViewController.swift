@@ -14,6 +14,16 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     @IBOutlet var homeCarousel: iCarousel!
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var settings: UIBarButtonItem!
+    
+    @IBAction func goToSettings(sender: UIBarButtonItem!){
+        
+        self.tabBarController?.selectedIndex = 3
+        
+        ((self.tabBarController?.viewControllers?[3] as! UINavigationController).viewControllers[0] as! MoreViewController).tableView(tableView, didSelectRowAt: IndexPath(row: 8, section: 0))
+        
+    }
+    
     var news: NewsReel! = NewsReel.instance{
         didSet{
             if let table = tableView{
@@ -81,6 +91,24 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        if SchoolsArray.getSubscribedSchools() != prevSchools{
+            
+            news.getNews(completionHandler: {
+                self.tableView.reloadData()
+            })
+            
+            calendar.getEvents(completionHandler: {
+                self.tableView.reloadData()
+            })
+            
+            
+            
+            prevSchools = SchoolsArray.getSubscribedSchools()
+            
+        }
+        
+        tableView.reloadData()
+        
         tableView.reloadData()
     }
     
@@ -105,17 +133,28 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         var view: UIView
         var label: UILabel
+        var seeMore: UIButton
         
         view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 22))
         
         view.backgroundColor = UIColor(red:0.00, green:0.48, blue:0.20, alpha:1.0)
         
-        label = UILabel(frame: CGRect(x: 15, y: 2, width: view.bounds.size.width, height: view.bounds.size.height))
+        label = UILabel(frame: CGRect(x: 15, y: 2, width: view.bounds.size.width/2, height: view.bounds.size.height))
         label.text = sectionTitles[section]
         label.font = UIFont(name: "HelveticaNeue", size: 16)
         label.textColor = .white
         
         view.addSubview(label)
+        
+        seeMore = UIButton(frame: CGRect(x: view.bounds.size.width/1.75, y: 2, width: view.bounds.size.width/1.75, height: view.bounds.size.height))
+        seeMore.setTitle("See More >", for: .normal)
+        
+        seeMore.tag = section
+        
+        seeMore.addTarget(self, action: #selector(PSDViewController.goToView), for: .touchUpInside)
+        
+        view.addSubview(seeMore)
+
         
         return view
         
@@ -330,6 +369,12 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         })
         
         tableView.reloadData()
+    }
+    
+    @objc private func goToView(sender: UIButton){
+        
+        self.tabBarController?.selectedIndex = sender.tag + 1
+        
     }
     
     private func getUpcomingNews(){
