@@ -62,6 +62,7 @@ class NewsParser: NSObject, XMLParserDelegate{
             school = SchoolsArray.getSchoolByName(name: name)
         }
         
+        
     }
     
     /// When the parser is between start and end XML tags
@@ -74,7 +75,21 @@ class NewsParser: NSObject, XMLParserDelegate{
         if element == "title"{
             articleTitle = string
         }else if element == "pubDate"{
-            articleDate = string
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "EEE, dd MMM yyyy kk:mm:ss Z"
+            
+            var dateComponent = DateComponents()
+            dateComponent.year = -1
+            
+            let lastYear = NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: Date(), options: [])
+            
+            if formatter.date(from: string)! < lastYear!{
+                parser.abortParsing()
+            }else{
+                articleDate = string
+            }
+            
         }else if element == "link"{
             articleURL = string
         }else if element == "guid"{
