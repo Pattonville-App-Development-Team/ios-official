@@ -9,7 +9,7 @@
 import UIKit
 
 /// Class used to create NewsItems in NewsViewController
-class NewsItem: Equatable{
+class NewsItem: NSObject, NSCoding{
     
     var id: String
     var title: String
@@ -52,7 +52,7 @@ class NewsItem: Equatable{
         
     }
     
-    init(){
+    override init(){
         
         self.id = NSUUID().uuidString
         self.title = ""
@@ -67,9 +67,36 @@ class NewsItem: Equatable{
         
     }
     
+    required init(coder aDecoder: NSCoder){
+        
+        id = aDecoder.decodeObject(forKey: "id") as! String
+        title = aDecoder.decodeObject(forKey: "title") as! String
+        content = aDecoder.decodeObject(forKey: "content") as? String
+        date = aDecoder.decodeObject(forKey: "date") as! Date
+        dateString = aDecoder.decodeObject(forKey: "dateString") as! String
+        
+        url = aDecoder.decodeObject(forKey: "url") as! String
+        school = SchoolsArray.getSchoolByName(name: aDecoder.decodeObject(forKey: "school") as! String)
+        sharingLinkURL = aDecoder.decodeObject(forKey: "shareURL") as! String
+        
+        super.init()
+        
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(id, forKey: "id")
+        aCoder.encode(title, forKey: "title")
+        aCoder.encode(content, forKey: "content")
+        aCoder.encode(date, forKey: "date")
+        aCoder.encode(dateString, forKey: "dateString")
+        aCoder.encode(url, forKey: "url")
+        aCoder.encode(school.name, forKey: "school")
+        aCoder.encode(sharingLinkURL, forKey: "shareURL")
+    }
+    
     /// Overrides the == method for comparison of news items
     static func == (lhs: NewsItem, rhs: NewsItem) -> Bool{
-        return lhs.title == rhs.title && lhs.school == rhs.school
+        return lhs.id == rhs.id
     }
     
 }

@@ -22,7 +22,10 @@ class NewsItemCell: UITableViewCell{
     
     var newsItem: NewsItem!
     
-    func setUp(){
+    func setUp(news: NewsItem){
+        
+        self.newsItem = news
+        
         title.text = newsItem.title
         date.text = newsItem.dateString
         

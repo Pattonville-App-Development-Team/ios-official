@@ -71,10 +71,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if SchoolsArray.getSubscribedSchools() != prevSchools{
          
-            NewsReel.instance.getNews(beforeStartHandler: nil, onCompletionHandler: {
-                print("Pulling in background")
-                self.tableView.reloadData()
-            })
+            refreshData()
             
             prevSchools = SchoolsArray.getSubscribedSchools()
             
@@ -139,9 +136,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             newsItem = news.allNews[indexPath.row]
         }
         
-        cell.newsItem = newsItem
-        
-        cell.setUp()
+        cell.setUp(news: newsItem!)
         
         return cell
         
@@ -167,21 +162,14 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     //Refreshes the list of news articles
     func refreshData(){
         
-        print("Refreshing")
-        
         news.getNews(beforeStartHandler: {
             
             self.tableView.reloadData()
             
         }, onCompletionHandler: {
             
-            /*self.news.allNews.sort(by: {
-                return $0.date > $1.date
-            })*/
-            
-            print("Refresh Ended")
-            self.refreshControl.endRefreshing()
             self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
             
         })
         

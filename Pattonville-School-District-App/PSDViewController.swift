@@ -27,7 +27,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     var news: NewsReel! = NewsReel.instance{
         didSet{
             if let table = tableView{
-                getUpcomingNews()
                 table.reloadData()
             }
         }
@@ -54,7 +53,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     let image5 = #imageLiteral(resourceName: "image5.jpg")
     
     var prevSchools: [School]! = []
-    var currentSchools: [School]!
     
     let newsParser = NewsParser()
     let calendarParser = CalendarParser()
@@ -91,24 +89,22 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if SchoolsArray.getSubscribedSchools() != prevSchools{
+        let current = SchoolsArray.getSubscribedSchools()
+        
+        if current != prevSchools{
             
-            news.getNews(beforeStartHandler: nil, onCompletionHandler: {
+            /*calendar.getEvents(completionHandler: {
                 self.tableView.reloadData()
-            })
+            })*/
             
-            calendar.getEvents(completionHandler: {
+            /*news.getNews(beforeStartHandler: nil, onCompletionHandler: {
                 self.tableView.reloadData()
-            })
+            })*/
             
-            
-            
-            prevSchools = SchoolsArray.getSubscribedSchools()
+            prevSchools = current
             
         }
-        
-        tableView.reloadData()
-        
+
         tableView.reloadData()
     }
     
@@ -146,7 +142,8 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         view.addSubview(label)
         
-        seeMore = UIButton(frame: CGRect(x: view.bounds.size.width/1.7, y: 2, width: view.bounds.size.width/1.65, height: view.bounds.size.height))
+        seeMore = UIButton(frame: CGRect(x: view.bounds.size.width/1.75, y: 2, width: view.bounds.size.width/1.65, height: view.bounds.size.height))
+        
         seeMore.setTitle("See More >", for: .normal)
         seeMore.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         
@@ -186,8 +183,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
                 let newsItem = news.allNews[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NewsItemCell", for: indexPath) as! NewsItemCell
                 
-                cell.newsItem = newsItem
-                cell.setUp()
+                cell.setUp(news: newsItem)
                 
                 return cell
             
@@ -247,6 +243,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
             }else{
                 destination.event = calendar.pinnedEvents[event!]
             }
+            
         } else if segue.identifier == "NewsDetailFromHome" {
             let destination = segue.destination as! NewsDetailViewController
             destination.news = news.allNews[(tableView.indexPathForSelectedRow?.row)!]
@@ -254,7 +251,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     }
     
     /// Defines the functionality of a selected cell in the table
-    /// - tableeView: the instance of the tableview onscreen
+    /// - tableView: the instance of the tableview onscreen
     /// - indexPath: the indexPath of the selected cell
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -349,14 +346,14 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
     }
     
-    /// Scrolls the carousel by one item over teh course of two seconds
+    /// Scrolls the carousel by one item over the course of two seconds
     @objc private func scroll(){
         homeCarousel.scroll(byNumberOfItems: 1, duration: 2.0)
     }
     
     @objc private func addEventToPinned(){
         
-        calendar.pinnedEvents = calendar.pinnedEvents.sorted(by: {
+        calendar.pinnedEvents.sort(by: {
             $0.date! < $1.date!
         })
         
@@ -365,7 +362,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     
     @objc private func removeEventFromPinned(){
         
-        calendar.pinnedEvents = calendar.pinnedEvents.sorted(by: {
+        calendar.pinnedEvents.sort(by: {
             $0.date! < $1.date!
         })
         
@@ -380,7 +377,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     
     private func getUpcomingNews(){
         
-        news.allNews = news.allNews.sorted(by: {
+        news.allNews.sort(by: {
             $0.date > $1.date
         })
         
@@ -392,7 +389,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
             return $0.date! > Date()
         })
         
-        calendar.allEvents = calendar.allEvents.sorted(by: {
+        calendar.allEvents.sort(by: {
             $0.date! < $1.date!
         })
         

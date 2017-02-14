@@ -13,11 +13,19 @@ class Calendar{
     
     static var instance: Calendar = Calendar()
     
-    var allEvents: [Event]!
-    var allEventsDictionary: [Date:[Event]]!
+    var allEvents: [Event]
+    var allEventsDictionary: [Date:[Event]]
     
-    var pinnedEvents: [Event]!
-    var pinnedEventsDictionary: [Date:[Event]]!
+    var pinnedEvents: [Event]
+    var pinnedEventsDictionary: [Date:[Event]]
+    
+    let fileURL: NSURL = {
+        let directories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let document = directories.first!
+        
+        return document.appendingPathComponent("event.archive") as NSURL
+        
+    }()
     
     init(){
         
@@ -26,6 +34,12 @@ class Calendar{
         
         pinnedEvents = []
         pinnedEventsDictionary = [:]
+        
+        if let archived = NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path!) as? [Event]{
+            print("FROM ARCHIVED")
+            allEvents += archived
+        }
+
         
     }
     
@@ -168,6 +182,17 @@ class Calendar{
             completionHandler?()
         })
         
+        let success = saveToFile()
+        
+        if success{
+            UserDefaults.standard.set(Date(), forKey: "lastCalendarUpdate")
+        }
+        
+    }
+    
+    func saveToFile() -> Bool{
+        print("Saved to file \(fileURL.path!)")
+        return NSKeyedArchiver.archiveRootObject(allEvents, toFile: fileURL.path!)
     }
     
     /// Whether or not a given date has any events
