@@ -19,11 +19,7 @@ class SettingsViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        carouselStepper.wraps = true
-        carouselStepper.autorepeat = true
         carouselStepper.maximumValue = 3
-        newsStepper.wraps = true
-        newsStepper.autorepeat  = true
         newsStepper.maximumValue = 3
         
         tableView.delegate = self
