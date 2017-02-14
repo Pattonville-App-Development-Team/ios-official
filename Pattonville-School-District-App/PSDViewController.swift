@@ -105,17 +105,32 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         var view: UIView
         var label: UILabel
+        var seeMore: UIButton
         
         view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 22))
         
         view.backgroundColor = UIColor(red:0.00, green:0.48, blue:0.20, alpha:1.0)
         
-        label = UILabel(frame: CGRect(x: 15, y: 2, width: view.bounds.size.width, height: view.bounds.size.height))
+        label = UILabel(frame: CGRect(x: 15, y: 2, width: view.bounds.size.width/2, height: view.bounds.size.height))
         label.text = sectionTitles[section]
         label.font = UIFont(name: "HelveticaNeue", size: 16)
         label.textColor = .white
         
         view.addSubview(label)
+        
+        if section != 2{
+            seeMore = UIButton(frame: CGRect(x: view.bounds.size.width/1.75, y: 2, width: view.bounds.size.width/1.65, height: view.bounds.size.height))
+            
+            seeMore.setTitle("See More >", for: .normal)
+            seeMore.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+            
+            seeMore.tag = section
+            
+            seeMore.addTarget(self, action: #selector(PSDViewController.goToView), for: .touchUpInside)
+            
+            view.addSubview(seeMore)
+
+        }
         
         return view
         
@@ -357,6 +372,10 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
             $0.date! < $1.date!
         })
         
+    }
+    
+    @objc private func goToView(sender: UIButton){
+        self.tabBarController?.selectedIndex = sender.tag + 1
     }
 
 
