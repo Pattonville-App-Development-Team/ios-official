@@ -220,9 +220,16 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0{
             performSegue(withIdentifier: "NewsDetailFromHome", sender: self)
-        }else{
+        }else if indexPath.section == 1{
+             
             performSegue(withIdentifier: "EventDetailFromHome", sender: self)
+            
+        }else{
+            if calendar.pinnedEvents.count > indexPath.row{
+                performSegue(withIdentifier: "EventDetailFromHome", sender: self)
+            }
         }
+        
     }
     
     
