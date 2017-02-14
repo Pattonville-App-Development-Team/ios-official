@@ -71,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             calendarController.calendar = calendar
         })
         
-        NewsReel.instance.getNews(completionHandler: {
+        NewsReel.instance.getNews(beforeStartHandler: nil, onCompletionHandler: {
             homeController.news = news
             newsController.news = news
         })

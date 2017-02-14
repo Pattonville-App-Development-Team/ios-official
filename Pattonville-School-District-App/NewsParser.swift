@@ -136,22 +136,18 @@ class NewsParser: NSObject, XMLParserDelegate{
     ///
     /// - completionHandler: function to undertake after completeing background tasks
     ///
-    func getDataInBackground(completionHandler: (() -> Void)?){
+    func getDataInBackground(beforeStartHandler: (() -> Void)?, onCompletionHandler: (() -> Void)?){
         
         DispatchQueue.global(qos: .background).async {
             
-            for school in self.schools{
+            beforeStartHandler?()
+            
+            for school in SchoolsArray.getSubscribedSchools(){
                 
                 self.beginParseing(url: URL(string: school.newsURL)!)
                 
-                self.news.allNews = self.news.allNews.filter({
-                    return SchoolsArray.getSubscribedSchools().contains($0.school)
-                }).sorted(by: {
-                    $0.date > $1.date
-                })
-                
                 DispatchQueue.main.async {
-                    completionHandler?()
+                    onCompletionHandler?()
                 }
                 
             }

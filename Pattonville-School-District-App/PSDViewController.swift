@@ -93,7 +93,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         if SchoolsArray.getSubscribedSchools() != prevSchools{
             
-            news.getNews(completionHandler: {
+            news.getNews(beforeStartHandler: nil, onCompletionHandler: {
                 self.tableView.reloadData()
             })
             

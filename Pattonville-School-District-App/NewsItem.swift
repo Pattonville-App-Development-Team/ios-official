@@ -52,6 +52,21 @@ class NewsItem: Equatable{
         
     }
     
+    init(){
+        
+        self.id = NSUUID().uuidString
+        self.title = ""
+        self.content = nil
+        
+        self.date = Date()
+        self.dateString = ""
+        
+        self.url = ""
+        self.school = SchoolsEnum.district
+        self.sharingLinkURL = ""
+        
+    }
+    
     /// Overrides the == method for comparison of news items
     static func == (lhs: NewsItem, rhs: NewsItem) -> Bool{
         return lhs.title == rhs.title && lhs.school == rhs.school

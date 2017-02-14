@@ -31,12 +31,20 @@ class NewsReel{
         }
     }
     
-    func getNews(completionHandler: (() -> Void)?){
+    func getNews(beforeStartHandler: (() -> Void)?, onCompletionHandler: (() -> Void)?){
         
-        let parser = NewsParser()
-        
-        parser.getDataInBackground(completionHandler: {
-            completionHandler?()
+        NewsParser().getDataInBackground(beforeStartHandler: {
+            
+            self.resetNews()
+            beforeStartHandler?()
+            
+        }, onCompletionHandler: {
+            
+            self.allNews.sort(by: {
+                $0.date > $1.date
+            })
+            
+            onCompletionHandler?()
         })
         
     }

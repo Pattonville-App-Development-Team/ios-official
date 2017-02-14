@@ -20,6 +20,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     var news: NewsReel! = NewsReel.instance{
         didSet{
             if let table = tableView{
+                print("RELOADED IN DID SET")
                 table.reloadData()
             }
         }
@@ -56,12 +57,12 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.refreshControl.tintColor = .white
         self.refreshControl.addTarget(self, action: #selector(NewsViewController.refreshData), for: UIControlEvents.valueChanged)
         
-        /*if #available(iOS 10.0, *) {
+        if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
         } else {
             // Fallback on earlier versions
             tableView.addSubview(refreshControl)
-        }*/
+        }
         
     }
     
@@ -70,7 +71,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if SchoolsArray.getSubscribedSchools() != prevSchools{
          
-            NewsReel.instance.getNews(completionHandler: {
+            NewsReel.instance.getNews(beforeStartHandler: nil, onCompletionHandler: {
                 print("Pulling in background")
                 self.tableView.reloadData()
             })
@@ -128,7 +129,9 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsItemCell", for: indexPath) as! NewsItemCell
         
-        let newsItem: NewsItem
+        let newsItem: NewsItem?
+        
+        print("INDEXPATH: \(indexPath.row)\n NEWSREEL \(news.allNews.count)")
         
         if searchController.isActive && searchController.searchBar.text != ""{
             newsItem = news.filteredNews[indexPath.row]
@@ -162,22 +165,26 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     // PRIVATE FUNCTIONS
     
     //Refreshes the list of news articles
-    @objc private func refreshData(){
+    func refreshData(){
         
-        parser.updateSchools(schools: SchoolsArray.getSubscribedSchools())
+        print("Refreshing")
         
-        parser.getDataInBackground(completionHandler: {
-            print("REFRESHING")
-            
-            self.news.allNews.sort(by: {
-                return $0.date > $1.date
-            })
+        news.getNews(beforeStartHandler: {
             
             self.tableView.reloadData()
+            
+        }, onCompletionHandler: {
+            
+            /*self.news.allNews.sort(by: {
+                return $0.date > $1.date
+            })*/
+            
+            print("Refresh Ended")
+            self.refreshControl.endRefreshing()
+            self.tableView.reloadData()
+            
         })
         
-        
-        self.refreshControl.endRefreshing()
     }
     
     private func filterNewsForSearchText(searchText: String){
