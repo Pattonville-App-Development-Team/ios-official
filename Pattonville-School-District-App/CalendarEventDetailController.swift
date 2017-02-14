@@ -16,7 +16,7 @@ class CalendarEventDetailController: UIViewController, EKEventEditViewDelegate{
      @abstract   Called to let delegate know the controller is done editing.
      @discussion When the user presses Cancel, presses Done, or deletes the event, this method
      is called. Your delegate is responsible for dismissing the controller. If the editing
-     session is terminated programmatically using cancelEditing, 
+     session is terminated programmatically using cancelEditing,
      this method will not be called.
      
      @param      controller          the controller in question
@@ -26,7 +26,7 @@ class CalendarEventDetailController: UIViewController, EKEventEditViewDelegate{
     public func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
         self.dismiss(animated: true, completion: nil)
     }
-
+    
     
     var event: Event!
     //var editViewDelegate: EKEventEditViewDelegate!
@@ -100,24 +100,45 @@ class CalendarEventDetailController: UIViewController, EKEventEditViewDelegate{
     }
     func addToDeviceCalendar(_ sender: UIBarButtonItem){
         print("accessed addToDeviceCalendar")
-      
+        
         let controller = EKEventEditViewController()
         let store = EKEventStore()
         store.requestAccess(to: .event) {(granted, error) in
             if !granted { return }
             
             let ekEvent = EKEvent(eventStore: store)
-        controller.eventStore = store;
-        controller.editViewDelegate = self
-        controller.event = ekEvent
-        ekEvent.title = self.event.name!
-        ekEvent.startDate = self.event.date!
+            controller.eventStore = store;
+            controller.editViewDelegate = self
+            controller.event = ekEvent
+            ekEvent.title = self.event.name!
+            ekEvent.startDate = self.event.date!
             if self.event.location != nil{
                 ekEvent.location = self.event.location!
             }
-            
-        self.present(controller, animated: true, completion: nil)
-             }
+            var status = EKEventStore.authorizationStatus(for: .event)
+            switch status {
+            case .authorized:
+                
+                DispatchQueue.main.async(execute: { () -> Void in
+                    self.present(controller, animated: true, completion: nil)
+                })
+            case .notDetermined:
+                store.requestAccess(to: .event, completion: { (granted, error) -> Void in
+                    if granted == true {
+                        
+                        DispatchQueue.main.async(execute: { () -> Void in
+                            self.present(controller, animated: true, completion: nil)
+                        })
+                    }
+                })
+            case .denied, .restricted:
+                let alert = UIAlertController(title: "Access Denied", message: "Permission is needed to access the calendar. Go to Settings > Privacy > Calendars to allow access for the Be Collective app.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            //self.present(controller, animated: true, completion: nil)
+        }
         
-}
+    }
 }
