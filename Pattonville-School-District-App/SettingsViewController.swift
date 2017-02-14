@@ -10,8 +10,21 @@ import UIKit
 /// The UITableViewController that is used to display the list of application settings
 class SettingsViewController: UITableViewController{
     
+    @IBOutlet weak var carouselStepper: UIStepper!
+    
+    
+    @IBOutlet weak var newsStepper: UIStepper!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        carouselStepper.wraps = true
+        carouselStepper.autorepeat = true
+        carouselStepper.maximumValue = 3
+        newsStepper.wraps = true
+        newsStepper.autorepeat  = true
+        newsStepper.maximumValue = 3
         
         tableView.delegate = self
         
