@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// Custom cell class for the TableView that displays the short info about each news story on the News Page under the News carousel
+/// Custom cell class for the TableView that displays the short info about each news story wherever there listed
 class NewsItemCell: UITableViewCell{
     
     /// Title of the news story
@@ -22,6 +22,7 @@ class NewsItemCell: UITableViewCell{
     
     var newsItem: NewsItem!
     
+    /// The function used to set up news cells with information throughout the app
     func setUp(){
         title.text = newsItem.title
         date.text = newsItem.dateString

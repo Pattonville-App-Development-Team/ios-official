@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import Kanna
 
-/// The ViewController for the View that appears after a user selects a news story in the main News page
+/// The ViewController for the View that appears after a user selects a news story in the main News page or from the home page
 class NewsDetailViewController: UIViewController, UIWebViewDelegate{
     
     /// The news story that is displayed on this page
