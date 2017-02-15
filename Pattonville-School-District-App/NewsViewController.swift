@@ -71,7 +71,11 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if SchoolsArray.getSubscribedSchools() != prevSchools{
          
-            refreshData()
+            news.getNews(beforeStartHandler: {
+                self.tableView.reloadData()
+            }, onCompletionHandler: {
+                self.tableView.reloadData()
+            })
             
             prevSchools = SchoolsArray.getSubscribedSchools()
             
@@ -128,8 +132,6 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let newsItem: NewsItem?
         
-        print("INDEXPATH: \(indexPath.row)\n NEWSREEL \(news.allNews.count)")
-        
         if searchController.isActive && searchController.searchBar.text != ""{
             newsItem = news.filteredNews[indexPath.row]
         }else{
@@ -161,16 +163,12 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //Refreshes the list of news articles
     func refreshData(){
-        
-        news.getNews(beforeStartHandler: {
-            
+    
+        news.getInBackground(beforeStartHandler: {
             self.tableView.reloadData()
-            
         }, onCompletionHandler: {
-            
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
-            
         })
         
     }

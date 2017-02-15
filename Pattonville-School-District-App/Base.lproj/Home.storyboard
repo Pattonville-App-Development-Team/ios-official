@@ -16,7 +16,7 @@
                 <navigationController id="icj-Gk-duq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Pattonville" image="logo" id="Vxd-xn-jL5"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hkm-1s-Zrb">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hkm-1s-Zrb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

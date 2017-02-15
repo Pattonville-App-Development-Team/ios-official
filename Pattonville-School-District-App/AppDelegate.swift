@@ -64,15 +64,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         calendarController.calendar = calendar
         calendarController.selectedDate = Date()
         
-        /*Calendar.instance.getEvents(completionHandler: {
+        calendar.getEvents(completionHandler: {
             homeController.calendar = calendar
             calendarController.calendar = calendar
-        })*/
+        })
         
-        /*NewsReel.instance.getNews(beforeStartHandler: nil, onCompletionHandler: {
+        news.getNews(beforeStartHandler: nil, onCompletionHandler: {
             homeController.news = news
             newsController.news = news
-        })*/
+        })
         
         UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
       

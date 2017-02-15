@@ -35,12 +35,8 @@ class Calendar{
         pinnedEvents = []
         pinnedEventsDictionary = [:]
         
-        if let archived = NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path!) as? [Event]{
-            print("FROM ARCHIVED")
-            allEvents += archived
-        }
+        readFromFile()
 
-        
     }
     
     
@@ -65,6 +61,20 @@ class Calendar{
             
         }
 
+    }
+    
+    func appendDates(dates: [Event]){
+        
+        for event in dates{
+            if pinnedEvents.contains(event){
+                event.setPinned()
+            }
+            
+            if !allEvents.contains(event){
+                addDate(event: event)
+            }
+        }
+        
     }
     
     /// adds a date to to the dates list array
@@ -96,7 +106,6 @@ class Calendar{
         })
         
         pinnedEventsDictionary = removeEventFromDictionary(list: pinnedEvents, event: event)
-        
         
     }
     
@@ -173,19 +182,43 @@ class Calendar{
         
     }
     
-    
-    func getEvents(completionHandler: (() -> Void)?){
+    func getInBackground(completionHandler: (() -> Void)?){
         
         let parser = CalendarParser()
         
         parser.getEventsInBackground(completionHandler: {
+            
+            let success = self.saveToFile()
+            
+            if success{
+                UserDefaults.standard.set(Date(), forKey: "lastCalendarUpdate")
+            }
+            
             completionHandler?()
         })
         
-        let success = saveToFile()
+    }
+    
+    
+    func getEvents(completionHandler: (() -> Void)?){
         
-        if success{
-            UserDefaults.standard.set(Date(), forKey: "lastCalendarUpdate")
+        let mostRecentSave = UserDefaults.standard.object(forKey: "lastCalendarUpdate") as! Date
+        print("RECENT: \(mostRecentSave)")
+        print("CURRENT: \(Date())")
+        
+        
+        var dateComponent = DateComponents()
+        dateComponent.weekOfYear = -1
+        
+        let lastHour = NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: Date(), options: [])
+        
+        
+        if mostRecentSave < lastHour! || (!readFromFile() || allEvents.count == 0){
+        
+            getInBackground(completionHandler: {
+                completionHandler?()
+            })
+            
         }
         
     }
@@ -193,6 +226,19 @@ class Calendar{
     func saveToFile() -> Bool{
         print("Saved to file \(fileURL.path!)")
         return NSKeyedArchiver.archiveRootObject(allEvents, toFile: fileURL.path!)
+    }
+    
+    func readFromFile() -> Bool{
+        if let archived = NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path!) as? [Event]{
+            print("FROM ARCHIVED")
+            
+            if allEvents.count < 1{
+                appendDates(dates: archived)
+            }
+            
+            return true
+        }
+        return false
     }
     
     /// Whether or not a given date has any events

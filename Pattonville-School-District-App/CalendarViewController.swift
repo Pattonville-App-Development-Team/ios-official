@@ -55,14 +55,16 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if SchoolsArray.getSubscribedSchools() != prevSchools{
+        let currentSchools = SchoolsArray.getSubscribedSchools()
+        
+        if currentSchools != prevSchools{
             
-            Calendar.instance.getEvents(completionHandler: {
+            calendar.getEvents(completionHandler: {
                 self.tableView.reloadData()
                 self.calendarView.reloadData()
             })
             
-            prevSchools = SchoolsArray.getSubscribedSchools()
+            prevSchools = currentSchools
             
         }
 

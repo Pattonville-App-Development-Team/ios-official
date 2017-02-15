@@ -53,6 +53,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     let image5 = #imageLiteral(resourceName: "image5.jpg")
     
     var prevSchools: [School]! = []
+    var filteredEvents: [Event] = []
     
     let newsParser = NewsParser()
     let calendarParser = CalendarParser()
@@ -104,6 +105,8 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
             prevSchools = current
             
         }
+        
+        getUpcomingEvents()
 
         tableView.reloadData()
     }
@@ -189,9 +192,9 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
             
             }
         } else if section == 1{
-            if calendar.allEvents.count > 0 {
+            if filteredEvents.count > 0 {
                 
-                let event = calendar.allEvents[indexPath.row]
+                let event = filteredEvents[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
                 
                 print(event.date!)
@@ -385,11 +388,11 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     
     private func getUpcomingEvents(){
         
-        calendar.allEvents = calendar.allEvents.filter({
+        filteredEvents = calendar.allEvents.filter({
             return $0.date! > Date()
         })
         
-        calendar.allEvents.sort(by: {
+        filteredEvents.sort(by: {
             $0.date! < $1.date!
         })
         

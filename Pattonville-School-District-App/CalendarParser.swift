@@ -47,8 +47,6 @@ class CalendarParser{
                 })
             }
             
-            print("async done")
-            
         }
         
     }
