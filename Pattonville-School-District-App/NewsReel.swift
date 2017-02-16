@@ -70,6 +70,7 @@ class NewsReel{
         
             // Reset News to empty
             self.resetNews()
+            
             beforeStartHandler?()
             
         }, onCompletionHandler: {
@@ -88,7 +89,6 @@ class NewsReel{
             }
             
             onCompletionHandler?()
-            print("Done")
         })
     }
     
@@ -99,10 +99,7 @@ class NewsReel{
     func getNews(beforeStartHandler: (() -> Void)?, onCompletionHandler: (() -> Void)?){
         
         let mostRecentSave = UserDefaults.standard.object(forKey: "lastNewsUpdate") as! Date
-        print("RECENT: \(mostRecentSave)")
-        print("CURRENT: \(Date())")
-        
-        
+
         var dateComponent = DateComponents()
         dateComponent.hour = -1
         
