@@ -98,7 +98,13 @@ class NewsReel{
     /// - onCompletionHandler: function to run on completion of parsing
     func getNews(beforeStartHandler: (() -> Void)?, onCompletionHandler: (() -> Void)?){
         
-        let mostRecentSave = UserDefaults.standard.object(forKey: "lastNewsUpdate") as! Date
+        let mostRecentSave: Date
+        
+        if let recent = UserDefaults.standard.object(forKey: "lastNewsUpdate") as! Date?{
+            mostRecentSave = recent
+        }else{
+            mostRecentSave = Date()
+        }
 
         var dateComponent = DateComponents()
         dateComponent.hour = -1

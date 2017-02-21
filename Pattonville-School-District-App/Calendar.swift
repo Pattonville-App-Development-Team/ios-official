@@ -236,8 +236,14 @@ class Calendar{
     /// - onCompletionHandler: function to run on completion of parsing
     func getEvents(completionHandler: (() -> Void)?){
         
+        let mostRecentSave: Date
+        
         // Get most recent save Date()
-        let mostRecentSave = UserDefaults.standard.object(forKey: "lastCalendarUpdate") as! Date
+        if let recent = UserDefaults.standard.object(forKey: "lastCalendarUpdate") as! Date?{
+            mostRecentSave = recent
+        }else{
+            mostRecentSave = Date()
+        }
         
         var dateComponent = DateComponents()
         dateComponent.weekOfYear = -1
@@ -269,7 +275,7 @@ class Calendar{
     /// - returns: if reading from the file succeeded
     func readFromFile() -> Bool{
         if let archived = NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path!) as? [Event]{
-            print("FROM ARCHIVED")
+            print("FROM ARCHIVED \(fileURL.path!)")
             
             if allEvents.count < 1{
                 appendDates(dates: archived)

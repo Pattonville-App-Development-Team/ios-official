@@ -242,7 +242,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
             let event = tableView.indexPathForSelectedRow?.row
             
             if tableView.indexPathForSelectedRow?.section == 1{
-                destination.event = calendar.allEvents[event!]
+                destination.event = filteredEvents[event!]
             }else{
                 destination.event = calendar.pinnedEvents[event!]
             }

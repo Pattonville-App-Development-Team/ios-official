@@ -69,7 +69,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         }
 
         
-        calendarView.selectDates([Date(), selectedDate])
+        calendarView.selectDates([selectedDate])
         
         tableView.reloadData()
         calendarView.reloadData()
@@ -166,6 +166,8 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         let cell = (cell as? CalendarDateView)
         
         cell?.select(date: date, cellState: cellState)
+        
+        selectedDate = date
         
         filterCalendarData(for: date)
         

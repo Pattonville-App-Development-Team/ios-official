@@ -140,7 +140,9 @@ class NewsParser: NSObject, XMLParserDelegate{
         
         DispatchQueue.global(qos: .background).async {
             
-            beforeStartHandler?()
+            DispatchQueue.main.async {
+                beforeStartHandler?()
+            }
             
             for school in SchoolsArray.getSubscribedSchools(){
                 
