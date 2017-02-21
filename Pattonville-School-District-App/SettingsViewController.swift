@@ -10,30 +10,39 @@ import UIKit
 /// The UITableViewController that is used to display the list of application settings
 class SettingsViewController: UITableViewController{
     
-    @IBOutlet weak var newsStepper: UIStepper!
+    @IBOutlet weak var recentNewsStepper: UIStepper!
     
+    @IBOutlet weak var recentNewsCounter: UILabel!
     
-    @IBOutlet weak var carouselStepper: UIStepper!
-    
-    
-    @IBOutlet weak var newsCounter: UILabel!
-    
-    @IBOutlet weak var carouselCounter: UILabel!
-    
-    @IBAction func newsValueChanged(_ sender: UIStepper) {
+    @IBAction func recentNewsChanged(_ sender: UIStepper) {
         
-        newsCounter.text = Int(sender.value).description
+        
+        
     }
     
-    @IBAction func carouselValueChanged(_ sender: UIStepper) {
-        carouselCounter.text = Int(sender.value).description
+    @IBOutlet weak var upcomingNewsStepper: UIStepper!
+    
+    @IBOutlet weak var upcomingNewsCounter: UILabel!
+    
+    @IBAction func upcomingNewsChanged(_ sender: UIStepper) {
+        
+        
+        
+    }
+   
+    @IBOutlet weak var pinnedEventsStepper: UIStepper!
+    
+    @IBOutlet weak var pinnedEventsCounter: UILabel!
+    
+    @IBAction func pinnedEventsChanged(_ sender: UIStepper) {
+        
+        
+        
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        carouselStepper.maximumValue = 3
-        newsStepper.maximumValue = 3
         
         tableView.delegate = self
         
