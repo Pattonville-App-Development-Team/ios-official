@@ -37,6 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("First launch, setting UserDefault.")
            
         }
+        var value = 3
+        UserDefaults.standard.set(value, forKey:"recentNews")
+        UserDefaults.standard.set(value, forKey: "upcomingNews")
+        UserDefaults.standard.set(value, forKey: "pinnedEvents")
+        
         
         
         return true

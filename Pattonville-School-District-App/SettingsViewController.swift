@@ -15,9 +15,10 @@ class SettingsViewController: UITableViewController{
     @IBOutlet weak var recentNewsCounter: UILabel!
     
     @IBAction func recentNewsChanged(_ sender: UIStepper) {
-        
-        
-        
+        var value = sender.value
+        UserDefaults.standard.set(value, forKey:"recentNews")
+        recentNewsCounter.text = Int(sender.value).description
+
     }
     
     @IBOutlet weak var upcomingNewsStepper: UIStepper!
@@ -25,6 +26,9 @@ class SettingsViewController: UITableViewController{
     @IBOutlet weak var upcomingNewsCounter: UILabel!
     
     @IBAction func upcomingNewsChanged(_ sender: UIStepper) {
+        var value = sender.value
+        UserDefaults.standard.set(value, forKey: "upcomingNews")
+        upcomingNewsCounter.text = Int(sender.value).description
         
         
         
@@ -35,6 +39,9 @@ class SettingsViewController: UITableViewController{
     @IBOutlet weak var pinnedEventsCounter: UILabel!
     
     @IBAction func pinnedEventsChanged(_ sender: UIStepper) {
+        var value = sender.value
+        UserDefaults.standard.set(value, forKey: "pinnedEvents")
+        pinnedEventsCounter.text = Int(sender.value).description
         
         
         
@@ -43,6 +50,20 @@ class SettingsViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        recentNewsCounter.text = UserDefaults.standard.integer(forKey: "recentNews").description
+        recentNewsStepper.minimumValue = 3
+        recentNewsStepper.maximumValue = 6
+        upcomingNewsCounter.text = UserDefaults.standard.integer(forKey: "upcomingNews").description
+        upcomingNewsStepper.minimumValue = 3
+        upcomingNewsStepper.maximumValue = 6
+        pinnedEventsCounter.text = UserDefaults.standard.integer(forKey: "pinnedEvents").description
+        pinnedEventsStepper.minimumValue = 3
+        pinnedEventsStepper.maximumValue = 6
+        
+        
+        
+        
+        
         
         tableView.delegate = self
         
