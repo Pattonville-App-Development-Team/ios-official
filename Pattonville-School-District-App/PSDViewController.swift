@@ -145,17 +145,19 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         view.addSubview(label)
         
-        seeMore = UIButton(frame: CGRect(x: view.bounds.size.width/1.75, y: 2, width: view.bounds.size.width/1.65, height: view.bounds.size.height))
-        
-        seeMore.setTitle("See More >", for: .normal)
-        seeMore.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        
-        seeMore.tag = section
-        
-        seeMore.addTarget(self, action: #selector(PSDViewController.goToView), for: .touchUpInside)
-        
-        view.addSubview(seeMore)
-
+        if section != 2{
+            seeMore = UIButton(frame: CGRect(x: view.bounds.size.width/1.75, y: 2, width: view.bounds.size.width/1.65, height: view.bounds.size.height))
+            
+            seeMore.setTitle("See More >", for: .normal)
+            seeMore.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+            
+            seeMore.tag = section
+            
+            seeMore.addTarget(self, action: #selector(PSDViewController.goToView), for: .touchUpInside)
+            
+            view.addSubview(seeMore)
+            
+        }
         
         return view
         
