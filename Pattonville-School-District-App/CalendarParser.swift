@@ -29,7 +29,7 @@ class CalendarParser{
             
             self.calendar.resetEvents()
             
-            for school in self.schools{
+            for school in SchoolsArray.getSubscribedSchools(){
                 
                 school.getCalendarData(onSucces: {
                     (calendar) -> Void in
@@ -46,8 +46,6 @@ class CalendarParser{
                     print(error ?? "Error")
                 })
             }
-            
-            print("async done")
             
         }
         

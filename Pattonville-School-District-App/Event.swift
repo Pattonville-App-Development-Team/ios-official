@@ -9,7 +9,7 @@
 import UIKit
 import MXLCalendarManager
 
-class Event: Equatable{
+class Event: NSObject, NSCoding{
     
     var name: String?
     var date: Date?
@@ -22,7 +22,7 @@ class Event: Equatable{
     var eventID: String
     var school: School?
     
-    init(){
+    override init(){
         
         name = ""
         date = nil
@@ -33,6 +33,24 @@ class Event: Equatable{
         location = ""
         eventID = ""
         school = nil
+        
+    }
+    
+    required init(coder aDecoder: NSCoder){
+        
+        eventID = aDecoder.decodeObject(forKey: "id") as! String
+        name = aDecoder.decodeObject(forKey: "name") as? String
+        date = aDecoder.decodeObject(forKey: "date") as? Date
+        startTime = aDecoder.decodeObject(forKey: "startTime") as? Date
+        endTime = aDecoder.decodeObject(forKey: "endTime") as? Date
+        dateString = aDecoder.decodeObject(forKey: "dateString") as? String
+        timeString = aDecoder.decodeObject(forKey: "timeString") as? String
+        location = aDecoder.decodeObject(forKey: "location") as? String
+        pinned = aDecoder.decodeBool(forKey: "pinned")
+        
+        school = SchoolsArray.getSchoolByName(name: aDecoder.decodeObject(forKey: "school") as! String)
+        
+        super.init()
         
     }
     
@@ -66,6 +84,8 @@ class Event: Equatable{
     
     init(mxlEvent: MXLCalendarEvent, school: School){
         
+        print("END DATE: \(mxlEvent.eventEndDate)")
+        
         self.school = school
         
         self.name = mxlEvent.eventSummary
@@ -75,7 +95,7 @@ class Event: Equatable{
         timeFormatter.dateFormat = "hh:mm a"
 
         let startTimeString = timeFormatter.string(from: mxlEvent.eventStartDate)
-        let endTimeString = timeFormatter.string(from: mxlEvent.eventStartDate)
+        let endTimeString = timeFormatter.string(from: mxlEvent.eventEndDate)
         
         let theStartTime = timeFormatter.date(from: startTimeString)
         let theEndTime = timeFormatter.date(from: endTimeString)
@@ -87,11 +107,24 @@ class Event: Equatable{
         dateFormatter.dateFormat = "MMMM dd, YYYY h:mm a"
         
         self.dateString = dateFormatter.string(from: mxlEvent.eventStartDate)
-        self.timeString = dateFormatter.string(from: mxlEvent.eventStartDate)
+        self.timeString = "\(startTimeString) - \(endTimeString)"
         
         self.location = mxlEvent.eventLocation
         self.eventID = mxlEvent.eventUniqueID
         
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(school?.name, forKey: "school")
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(date, forKey: "date")
+        aCoder.encode(startTime, forKey: "startTime")
+        aCoder.encode(endTime, forKey: "endTime")
+        aCoder.encode(dateString, forKey: "dateString")
+        aCoder.encode(timeString, forKey: "timeString")
+        aCoder.encode(location, forKey: "location")
+        aCoder.encode(eventID, forKey: "id")
+        aCoder.encode(pinned, forKey: "pinned")
     }
     
     func setPinned(){

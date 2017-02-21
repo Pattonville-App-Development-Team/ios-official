@@ -207,9 +207,10 @@
             
             if (!endDateTimeString) {
                 eventScanner = [NSScanner scannerWithString:event];
-                [eventScanner scanUpToString:@"DTEND;VALUE=DATE:" intoString:nil];
+                [eventScanner scanUpToString:@"DTEND;VALUE=DATE-TIME:" intoString:nil];
                 [eventScanner scanUpToString:@"\n" intoString:&endDateTimeString];
-                endDateTimeString = [[endDateTimeString stringByReplacingOccurrencesOfString:@"DTEND;VALUE=DATE:" withString:@""] stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+                endDateTimeString = [[endDateTimeString stringByReplacingOccurrencesOfString:@"DTEND;VALUE=DATE-TIME:" withString:@""] stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+                
             }
         }
 
