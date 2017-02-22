@@ -22,8 +22,13 @@ class NewsItemCell: UITableViewCell{
     
     var newsItem: NewsItem!
     
-    /// The function used to set up news cells with information throughout the app
-    func setUp(){
+    /// Sets up newsCell items throughout the app
+    ///
+    /// - Parameter news: the news story that is being set up in the cell
+    func setUp(news: NewsItem){
+        
+        self.newsItem = news
+        
         title.text = newsItem.title
         date.text = newsItem.dateString
         

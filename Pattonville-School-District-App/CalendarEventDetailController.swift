@@ -95,10 +95,11 @@ class CalendarEventDetailController: UIViewController, EKEventEditViewDelegate{
             controller.event = ekEvent
             ekEvent.title = self.event.name!
             ekEvent.startDate = self.event.date!
+            //ekEvent.endDate = self.event.endTime!
             if self.event.location != nil{
                 ekEvent.location = self.event.location!
             }
-            var status = EKEventStore.authorizationStatus(for: .event)
+            let status = EKEventStore.authorizationStatus(for: .event)
             switch status {
             case .authorized:
                 
