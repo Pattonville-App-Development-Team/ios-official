@@ -15,9 +15,13 @@ class SettingsViewController: UITableViewController{
     @IBOutlet weak var recentNewsCounter: UILabel!
     
     @IBAction func recentNewsChanged(_ sender: UIStepper) {
+        
         var value = sender.value
-        UserDefaults.standard.set(value, forKey:"recentNews")
+        print(sender.value)
         recentNewsCounter.text = Int(sender.value).description
+        UserDefaults.standard.set(value, forKey:"recentNews")
+        UserDefaults.standard.set(value, forKey:"test")
+     
 
     }
     
@@ -53,17 +57,15 @@ class SettingsViewController: UITableViewController{
         recentNewsCounter.text = UserDefaults.standard.integer(forKey: "recentNews").description
         recentNewsStepper.minimumValue = 3
         recentNewsStepper.maximumValue = 6
+        recentNewsStepper.value = Double(Int(UserDefaults.standard.integer(forKey: "recentNews")))
         upcomingNewsCounter.text = UserDefaults.standard.integer(forKey: "upcomingNews").description
         upcomingNewsStepper.minimumValue = 3
         upcomingNewsStepper.maximumValue = 6
+        upcomingNewsStepper.value = Double(Int(UserDefaults.standard.integer(forKey:"upcomingNews")))
         pinnedEventsCounter.text = UserDefaults.standard.integer(forKey: "pinnedEvents").description
         pinnedEventsStepper.minimumValue = 3
         pinnedEventsStepper.maximumValue = 6
-        
-        
-        
-        
-        
+        pinnedEventsStepper.value = Double(Int(UserDefaults.standard.integer(forKey: "pinnedEvents")))
         
         tableView.delegate = self
         

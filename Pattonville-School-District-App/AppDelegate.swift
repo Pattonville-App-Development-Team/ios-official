@@ -37,14 +37,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("First launch, setting UserDefault.")
            
         }
+    
         var value = 3
         UserDefaults.standard.set(value, forKey:"recentNews")
         UserDefaults.standard.set(value, forKey: "upcomingNews")
         UserDefaults.standard.set(value, forKey: "pinnedEvents")
-        
-        
-        
-        return true
+       return true 
         
     }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -81,6 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         
         UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
+        
       
         return true
     }
