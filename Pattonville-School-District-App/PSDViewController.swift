@@ -135,7 +135,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0{
             return UserDefaults.standard.integer(forKey: "recentNews")
-        
+         
         
         }
         else if section == 1 {
