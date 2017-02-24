@@ -22,6 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// - Returns: true
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+        var initialViewController = UIViewController()
+        
+        self.window?.rootViewController = initialViewController
+        
+        self.window?.makeKeyAndVisible()
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         
         if launchedBefore{
@@ -29,12 +36,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             for school in SchoolsArray.allSchools{
                 school.isSubscribedTo = UserDefaults.standard.bool(forKey: school.name)
             }
-            
+            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "PSDViewController") as! PSDViewController
             SchoolsEnum.district.isSubscribedTo = true
+    
+            
         
         } else {
             print("First launch, setting UserDefault.")
-           
+            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "MoreViewController") as! MoreViewController
+            
+            
         }
         
         return true
