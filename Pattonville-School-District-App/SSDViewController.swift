@@ -14,7 +14,7 @@ class SSDViewController: UIViewController{
     
     //var schools = SchoolsArray.init().allSchools
     
-    var staffList = StaffArray.init().staffList
+    //var staffList = StaffArray.init().staffList
     @IBOutlet weak var schoolName: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var location: UILabel!
@@ -29,10 +29,14 @@ class SSDViewController: UIViewController{
     
     var indexOfSchool: Int!
     
+    static var staticSchoolIndex: Int!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        print(indexOfSchool)
+        SSDViewController.staticSchoolIndex = indexOfSchool
         let school = SchoolsArray.allSchools[indexOfSchool]
-        
         schoolName.text = school.name
         address.text = school.address
         location.text = school.city + ", " + school.state + " " + school.zip
@@ -41,7 +45,13 @@ class SSDViewController: UIViewController{
         faxNumber.text = "Fax - " + school.faxNumber
         schoolPicture.image = UIImage(named: school.schoolPicture)
         
-        
+    }
+    
+    func getSchoolShortName() -> String {
+        return SchoolsArray.allSchools[indexOfSchool].shortName
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
     

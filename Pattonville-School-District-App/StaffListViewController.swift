@@ -11,7 +11,10 @@ import MessageUI
 
 class StaffListViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, MFMailComposeViewControllerDelegate {
 
-    var staffList = StaffArray.init().staffList
+    var directory = Directory()
+    var directoryDictionary = Directory.directoryDictionary
+    var staffList: [StaffMember] = []
+    var indexOfSchool: Int!
     var filteredStaffList = [StaffMember]()
     var searchText: String!
     let searchController = UISearchController(searchResultsController: nil)
@@ -31,6 +34,16 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let indexOfSchool = SSDViewController.staticSchoolIndex
+        
+        let currentSchool = SchoolsArray.allSchools[indexOfSchool!]
+        
+        let currentSchoolShortName = currentSchool.shortName
+        
+        print("Current Staff List: " + String(describing: directoryDictionary[currentSchoolShortName]))
+        
+        staffList = directoryDictionary[currentSchoolShortName]!
         
         self.navigationController?.isNavigationBarHidden = true
         
@@ -92,9 +105,13 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
         }
         
         cell.selectionStyle = UITableViewCellSelectionStyle.none
-        cell.nameLabel.text = staffMember.firstName + " " + staffMember.lastName
-        cell.departmentLabel.text = staffMember.department
-        cell.extensionLabel.text = "x" + staffMember.ext
+        cell.nameLabel.text = staffMember.fName + " " + staffMember.lName
+        cell.departmentLabel.text = staffMember.long_desc
+        if(staffMember.ext1 != "") {
+            cell.extensionLabel.text = "Ext: " + staffMember.ext1
+        } else {
+            cell.extensionLabel.text = ""
+        }
         cell.emailButton.tag = indexPath.row
         
         return cell
@@ -104,7 +121,7 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         
         filteredStaffList = staffList.filter{ staffMember in
-            return staffMember.firstName.appending(" ").appending(staffMember.lastName).lowercased().contains(searchText.lowercased()) || staffMember.lastName.appending(" ").lowercased().contains(searchText.lowercased()) || staffMember.department.lowercased().contains(searchText.lowercased())
+            return staffMember.fName.appending(" ").appending(staffMember.lName).lowercased().contains(searchText.lowercased()) || staffMember.lName.appending(" ").lowercased().contains(searchText.lowercased()) || staffMember.long_desc.lowercased().contains(searchText.lowercased())
         }
         
         tableView.reloadData()

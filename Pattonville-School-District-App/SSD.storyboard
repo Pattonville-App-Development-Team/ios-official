@@ -77,11 +77,11 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3pE-6Z-Ugy">
                                 <rect key="frame" x="0.0" y="167" width="375" height="457"/>
                                 <connections>
-                                    <segue destination="yEb-Ni-OgK" kind="embed" id="U49-mI-wnu"/>
+                                    <segue destination="yEb-Ni-OgK" kind="embed" identifier="SSDDirectoryTableViewSegue" id="U49-mI-wnu"/>
                                 </connections>
                             </containerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bng-N1-qBO">
-                                <rect key="frame" x="27" y="63.5" width="135" height="77"/>
+                                <rect key="frame" x="27" y="63.5" width="135" height="76.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bng-N1-qBO" secondAttribute="height" multiplier="76:43" id="Euf-VG-O77"/>
                                 </constraints>
@@ -130,7 +130,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iqY-ZW-UMq" id="SzD-mC-LZZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teacher Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qo-WA-mKb">
@@ -146,15 +146,17 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgP-fa-Hmq">
-                                            <rect key="frame" x="341" y="10.5" width="25" height="25"/>
+                                            <rect key="frame" x="341" y="11" width="25" height="25"/>
                                             <state key="normal" title="" image="email-icon.png"/>
                                             <connections>
                                                 <action selector="sendEmailButton:" destination="slO-Xc-K0z" eventType="touchUpInside" id="ESc-5X-U8g"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ext." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdT-w7-Cnz">
-                                            <rect key="frame" x="237" y="8" width="51" height="27"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ext." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdT-w7-Cnz">
+                                            <rect key="frame" x="231" y="8" width="100" height="27"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="gGr-1I-NLO"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -162,11 +164,14 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="sgP-fa-Hmq" firstAttribute="centerY" secondItem="SzD-mC-LZZ" secondAttribute="centerY" constant="1.25" id="5L9-2i-3DQ"/>
+                                        <constraint firstItem="jdT-w7-Cnz" firstAttribute="bottom" secondItem="SzD-mC-LZZ" secondAttribute="bottomMargin" id="F2a-4j-b80"/>
                                         <constraint firstItem="iHj-sn-lAe" firstAttribute="leading" secondItem="SzD-mC-LZZ" secondAttribute="leadingMargin" constant="20" id="LFo-HA-dQp"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="5qo-WA-mKb" secondAttribute="leading" constant="-10" id="N6M-Ld-Qr7"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="sgP-fa-Hmq" secondAttribute="trailing" constant="1" id="OPk-Zm-uRq"/>
                                         <constraint firstItem="5qo-WA-mKb" firstAttribute="top" secondItem="SzD-mC-LZZ" secondAttribute="topMargin" constant="-5" id="SC4-Jz-tHY"/>
+                                        <constraint firstItem="jdT-w7-Cnz" firstAttribute="top" secondItem="SzD-mC-LZZ" secondAttribute="topMargin" id="UcB-B4-tXD"/>
                                         <constraint firstItem="iHj-sn-lAe" firstAttribute="top" secondItem="5qo-WA-mKb" secondAttribute="bottom" constant="3" id="txI-PE-m85"/>
+                                        <constraint firstItem="sgP-fa-Hmq" firstAttribute="leading" secondItem="jdT-w7-Cnz" secondAttribute="trailing" constant="10" id="uai-zR-twv"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -186,7 +191,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JW7-wO-oo2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3758" y="3702"/>
+            <point key="canvasLocation" x="4629.6000000000004" y="3250.5247376311845"/>
         </scene>
         <!--Staff List Navigation Controller-->
         <scene sceneID="QxU-T4-VW4">
@@ -204,7 +209,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6BV-jB-w9V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3758" y="3186"/>
+            <point key="canvasLocation" x="3841" y="3251"/>
         </scene>
     </scenes>
     <resources>
