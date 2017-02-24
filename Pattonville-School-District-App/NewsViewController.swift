@@ -71,7 +71,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if SchoolsArray.getSubscribedSchools() != prevSchools{
          
-            news.getNews(beforeStartHandler: {
+            news.getInBackground(beforeStartHandler: {
                 self.tableView.reloadData()
             }, onCompletionHandler: {
                 self.tableView.reloadData()

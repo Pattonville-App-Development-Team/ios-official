@@ -94,13 +94,13 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         if current != prevSchools{
             
-            /*calendar.getEvents(completionHandler: {
+            calendar.getInBackground(completionHandler: {
                 self.tableView.reloadData()
-            })*/
+            })
             
-            /*news.getNews(beforeStartHandler: nil, onCompletionHandler: {
+            news.getInBackground(beforeStartHandler: nil, onCompletionHandler: {
                 self.tableView.reloadData()
-            })*/
+            })
             
             prevSchools = current
             

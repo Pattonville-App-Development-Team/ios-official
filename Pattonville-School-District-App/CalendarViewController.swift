@@ -59,7 +59,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         if currentSchools != prevSchools{
             
-            calendar.getEvents(completionHandler: {
+            calendar.getInBackground(completionHandler: {
                 self.tableView.reloadData()
                 self.calendarView.reloadData()
             })
