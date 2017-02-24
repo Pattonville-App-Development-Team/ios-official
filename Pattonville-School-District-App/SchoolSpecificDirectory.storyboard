@@ -12,10 +12,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--SSD VIew Controller-->
+        <!--School Specific Directory VIew Controller-->
         <scene sceneID="UpS-op-cKh">
             <objects>
-                <viewController storyboardIdentifier="SSDVIewController" id="sHY-5E-0ja" userLabel="SSD VIew Controller" customClass="SSDViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SchoolSpecificDirectoryVIewController" id="sHY-5E-0ja" userLabel="School Specific Directory VIew Controller" customClass="schoolSpecificDirectoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Le-5m-v8a"/>
                         <viewControllerLayoutGuide type="bottom" id="tnM-ZR-b1P"/>
@@ -25,16 +25,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BmA-QR-mk7">
-                                <rect key="frame" x="137" y="25" width="102" height="21"/>
+                                <rect key="frame" x="136.5" y="25" width="102" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalCentering" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="jxy-nc-0ZM">
-                                <rect key="frame" x="279" y="53" width="71" height="106"/>
+                                <rect key="frame" x="279.5" y="53" width="70.5" height="106"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zws-cA-PQj">
-                                        <rect key="frame" x="0.0" y="0.0" width="71" height="14"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="70.5" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="1dj-hw-gmj"/>
                                         </constraints>
@@ -43,7 +43,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEv-Qa-AEs">
-                                        <rect key="frame" x="0.0" y="23" width="71" height="14"/>
+                                        <rect key="frame" x="0.0" y="23" width="70.5" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="DV5-Le-6dE"/>
                                         </constraints>
@@ -52,19 +52,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Main #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mW9-Cv-eJl">
-                                        <rect key="frame" x="0.0" y="46" width="71" height="14"/>
+                                        <rect key="frame" x="0.0" y="46.5" width="70.5" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" text="Attendance #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmK-Fs-o7d">
-                                        <rect key="frame" x="0.0" y="69" width="71" height="14"/>
+                                        <rect key="frame" x="0.0" y="69.5" width="70.5" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Fax #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYB-lc-24A">
-                                        <rect key="frame" x="0.0" y="92" width="71" height="14"/>
+                                        <rect key="frame" x="0.0" y="92.5" width="70.5" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -77,11 +77,11 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3pE-6Z-Ugy">
                                 <rect key="frame" x="0.0" y="167" width="375" height="457"/>
                                 <connections>
-                                    <segue destination="yEb-Ni-OgK" kind="embed" identifier="SSDDirectoryTableViewSegue" id="U49-mI-wnu"/>
+                                    <segue destination="yEb-Ni-OgK" kind="embed" identifier="SchoolSpecificDirectoryTableViewSegue" id="U49-mI-wnu"/>
                                 </connections>
                             </containerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bng-N1-qBO">
-                                <rect key="frame" x="27" y="64" width="135" height="76"/>
+                                <rect key="frame" x="27" y="63.5" width="135" height="76.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bng-N1-qBO" secondAttribute="height" multiplier="76:43" id="Euf-VG-O77"/>
                                 </constraints>
@@ -103,15 +103,6 @@
                         </constraints>
                     </view>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="address" destination="zws-cA-PQj" id="5rB-6d-I5Z"/>
-                        <outlet property="attendanceNumber" destination="LmK-Fs-o7d" id="Xnw-uN-THF"/>
-                        <outlet property="faxNumber" destination="LYB-lc-24A" id="W7b-aV-Ind"/>
-                        <outlet property="location" destination="mEv-Qa-AEs" id="jXF-iO-VO3"/>
-                        <outlet property="mainNumber" destination="mW9-Cv-eJl" id="xyz-h1-w6s"/>
-                        <outlet property="schoolName" destination="BmA-QR-mk7" id="skf-ZT-Bip"/>
-                        <outlet property="schoolPicture" destination="bng-N1-qBO" id="xs9-Wg-kOT"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5mM-Sf-7Ww" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -126,11 +117,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="schoolSpecificDirectoryTableViewCell" id="iqY-ZW-UMq" customClass="SchoolSpecificDirectoryTableViewCell" customModule="Pattonville_School_District_App" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="schoolSpecificDirectoryTableViewCell" id="iqY-ZW-UMq" customClass="SSDTableViewCell" customModule="Pattonville_School_District_App" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iqY-ZW-UMq" id="SzD-mC-LZZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teacher Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qo-WA-mKb">
