@@ -142,7 +142,7 @@ class Calendar{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
         
-        let theDateString = dateFormatter.string(from: event.date!)
+        let theDateString = dateFormatter.string(from: event.start!)
         let theDate = dateFormatter.date(from: theDateString)
         
         if dictionary.keys.contains(theDate!){
@@ -171,7 +171,7 @@ class Calendar{
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "YYYY-MM-dd"
             
-            let theDateString = dateFormatter.string(from: event.date!)
+            let theDateString = dateFormatter.string(from: event.start!)
             let theDate = dateFormatter.date(from: theDateString)
             
             if dict.keys.contains(theDate!){

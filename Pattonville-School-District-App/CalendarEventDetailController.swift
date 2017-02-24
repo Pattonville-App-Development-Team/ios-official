@@ -78,7 +78,8 @@ class CalendarEventDetailController: UIViewController, EKEventEditViewDelegate{
         
         
         self.navigationItem.rightBarButtonItem = rightNavigationBarAddToCalendarButton
-        print(event.school?.name)
+        print("START: \(event.dateString) \(event.start)")
+        print("END: \(event.dateString) \(event.end)")
         
     }
     func addToDeviceCalendar(_ sender: UIBarButtonItem){
@@ -94,32 +95,32 @@ class CalendarEventDetailController: UIViewController, EKEventEditViewDelegate{
             controller.editViewDelegate = self
             controller.event = ekEvent
             ekEvent.title = self.event.name!
-            ekEvent.startDate = self.event.date!
-            //ekEvent.endDate = self.event.endTime!
+            ekEvent.startDate = self.event.start!
+            ekEvent.endDate = self.event.end!
             if self.event.location != nil{
                 ekEvent.location = self.event.location!
             }
             let status = EKEventStore.authorizationStatus(for: .event)
             switch status {
-            case .authorized:
-                
-                DispatchQueue.main.async(execute: { () -> Void in
-                    self.present(controller, animated: true, completion: nil)
-                })
-            case .notDetermined:
-                store.requestAccess(to: .event, completion: { (granted, error) -> Void in
-                    if granted == true {
-                        
-                        DispatchQueue.main.async(execute: { () -> Void in
-                            self.present(controller, animated: true, completion: nil)
-                        })
-                    }
-                })
-            case .denied, .restricted:
-                let alert = UIAlertController(title: "Access Denied", message: "Permission is needed to access the calendar. Go to Settings > Privacy > Calendars to allow access for the Be Collective app.", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                return
+                case .authorized:
+                    
+                    DispatchQueue.main.async(execute: { () -> Void in
+                        self.present(controller, animated: true, completion: nil)
+                    })
+                case .notDetermined:
+                    store.requestAccess(to: .event, completion: { (granted, error) -> Void in
+                        if granted == true {
+                            
+                            DispatchQueue.main.async(execute: { () -> Void in
+                                self.present(controller, animated: true, completion: nil)
+                            })
+                        }
+                    })
+                case .denied, .restricted:
+                    let alert = UIAlertController(title: "Access Denied", message: "Permission is needed to access the calendar. Go to Settings > Privacy > Calendars to allow access for the Be Collective app.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    return
             }
             //self.present(controller, animated: true, completion: nil)
         }

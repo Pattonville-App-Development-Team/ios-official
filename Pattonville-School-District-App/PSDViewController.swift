@@ -198,8 +198,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
                 let event = filteredEvents[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
                 
-                print(event.date!)
-                
                 cell.setup(event: event, indexPath: indexPath, type: .normal)
                 
                 cell.pinButton.addTarget(self, action: #selector(PSDViewController.addEventToPinned), for: .touchUpInside)
@@ -365,7 +363,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     @objc private func addEventToPinned(){
         
         calendar.pinnedEvents.sort(by: {
-            $0.date! < $1.date!
+            $0.start! < $1.start!
         })
         
         tableView.reloadData()
@@ -374,7 +372,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     @objc private func removeEventFromPinned(){
         
         calendar.pinnedEvents.sort(by: {
-            $0.date! < $1.date!
+            $0.start! < $1.start!
         })
         
         tableView.reloadData()
@@ -397,11 +395,11 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     private func getUpcomingEvents(){
         
         filteredEvents = calendar.allEvents.filter({
-            return $0.date! > Date()
+            return $0.start! > Date()
         })
         
         filteredEvents.sort(by: {
-            $0.date! < $1.date!
+            $0.start! < $1.start!
         })
         
     }
