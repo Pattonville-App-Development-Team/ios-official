@@ -15,17 +15,12 @@ class SSDViewController: UIViewController{
     //var schools = SchoolsArray.init().allSchools
     
     //var staffList = StaffArray.init().staffList
-    @IBOutlet weak var schoolName: UILabel!
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var mainNumber: UILabel!
     @IBOutlet weak var attendanceNumber: UILabel!
     @IBOutlet weak var faxNumber: UILabel!
     @IBOutlet weak var schoolPicture: UIImageView!
-    
-    @IBAction func unwindSegue(forSegue: UIStoryboardSegue) {
-    }
-    
     
     var indexOfSchool: Int!
     
@@ -37,7 +32,7 @@ class SSDViewController: UIViewController{
 //        print(indexOfSchool)
         SSDViewController.staticSchoolIndex = indexOfSchool
         let school = SchoolsArray.allSchools[indexOfSchool]
-        schoolName.text = school.name
+        navigationItem.title = school.name
         address.text = school.address
         location.text = school.city + ", " + school.state + " " + school.zip
         mainNumber.text = "Main - " + school.mainNumber

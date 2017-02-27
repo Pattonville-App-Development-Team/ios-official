@@ -105,8 +105,8 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
         }
         
         cell.selectionStyle = UITableViewCellSelectionStyle.none
-        cell.nameLabel.text = staffMember.fName + " " + staffMember.lName
-        cell.departmentLabel.text = staffMember.long_desc
+        cell.nameLabel.text = (staffMember.fName + " " + staffMember.lName).capitalized(with: NSLocale.current)
+        cell.departmentLabel.text = staffMember.long_desc.capitalized(with: NSLocale.current)
         if(staffMember.ext1 != "") {
             cell.extensionLabel.text = "Ext: " + staffMember.ext1
         } else {

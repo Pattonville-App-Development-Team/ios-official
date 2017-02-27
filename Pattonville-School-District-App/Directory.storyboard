@@ -52,10 +52,10 @@
             </objects>
             <point key="canvasLocation" x="2841" y="3233"/>
         </scene>
-        <!--SSD-->
+        <!--SchoolSpecificDirectory-->
         <scene sceneID="kuV-D2-YeZ">
             <objects>
-                <viewControllerPlaceholder storyboardName="SSD" id="n20-RB-0j2" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="SchoolSpecificDirectory" id="n20-RB-0j2" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHw-J4-dGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3442" y="3232"/>
