@@ -35,7 +35,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="n20-RB-0j2" kind="show" identifier="SSDSegue" id="tpY-1T-sa9"/>
+                                    <segue destination="n20-RB-0j2" kind="show" identifier="schoolSpecificDirectorySegue" id="KTR-W2-U54"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
