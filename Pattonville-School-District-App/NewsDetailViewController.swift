@@ -56,8 +56,13 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
         
         self.navigationItem.rightBarButtonItem = rightNavigationBarActionButton
         
+        if news.content == nil{
+            getHTML()
+        }else{
+            webView.loadHTMLString(news.content!, baseURL: nil)
+        }
         
-        getHTML()
+        
         
         //content.text = news.content
         // Do any additional setup after loading the view.
@@ -91,6 +96,8 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
                 
                 contentString.append(html)
                 contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "")
+                
+                self.news.content = contentString
                 
                 self.webView.loadHTMLString(contentString, baseURL: nil)
             }
