@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import Kanna
 
 /// The ViewController for the View that appears after a user selects a news story in the main News page or from the home page
 class NewsDetailViewController: UIViewController, UIWebViewDelegate{
@@ -105,30 +104,6 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
         })
         
     }
-    
-    /// Parses the supplied HTML for all the text contained within <font></font> tags
-    ///
-    /// - html: the html string to parse (supplied by getHTML())
-    ///
-    func parseHTML(html: String){
-        if let doc = Kanna.HTML(html: html, encoding: String.Encoding.utf8) {
-            
-            var contentString = "<style> font{font-family: 'Arial' !important; font-size: 0.85em !important;} img{width: 100% !important; height: auto !important;}</style>";
-            
-            for text in doc.css("td").dropFirst(4).dropLast(2){
-                contentString.append(text.innerHTML!)
-                contentString.append("<br /><br />")
-            }
-            
-            contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "")
-            
-            webView.loadHTMLString(contentString, baseURL: nil)
-            
-            
-        }
-    }
-
-
     
      /// Opens Action activity that includes sharing options and copy and add to reading list actions
      ///
