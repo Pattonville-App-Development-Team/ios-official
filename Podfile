@@ -9,7 +9,7 @@ target 'Pattonville-School-District-App' do
   pod 'JTAppleCalendar'
   pod 'iCarousel'
   pod 'MXLCalendarManager'
-  pod 'Kanna'
+  pod ‘Firebase/Core’
   pod 'Alamofire'
 
   target 'Pattonville-School-District-AppTests' do
