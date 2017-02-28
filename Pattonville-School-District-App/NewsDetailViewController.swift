@@ -94,7 +94,7 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
             if let html = response.result.value {
                 
                 contentString.append(html)
-                contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "")
+                contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "").replacingOccurrences(of: "â", with: "\"")
                 
                 self.news.content = contentString
                 
