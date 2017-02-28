@@ -11,6 +11,8 @@ import UIKit
 /// The ViewController for the TableView of schools which have a directory the user can view
 class DirectoryViewController: UITableViewController {
     
+    static var directory = Directory()
+    
     /// Method to specify how many rows the TableView has
     ///
     /// - Parameters:
@@ -19,7 +21,7 @@ class DirectoryViewController: UITableViewController {
     /// - Returns: the number of schools in the allSchools array in the SchoolArray class
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return SchoolsArray.allSchools.count - 1
+        return SchoolsArray.allSchools.count
         
     }
     
@@ -33,7 +35,7 @@ class DirectoryViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         
-        let school = SchoolsArray.allSchools[indexPath.row + 1]
+        let school = SchoolsArray.allSchools[indexPath.row]
         
         cell.textLabel?.text = school.name
         
@@ -48,7 +50,7 @@ class DirectoryViewController: UITableViewController {
             
             let destination = segue.destination as! SSDViewController
             
-            destination.indexOfSchool = row! + 1
+            destination.indexOfSchool = row
             
         }
         

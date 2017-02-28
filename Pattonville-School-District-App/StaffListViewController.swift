@@ -11,7 +11,7 @@ import MessageUI
 
 class StaffListViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, MFMailComposeViewControllerDelegate {
 
-    var directory = Directory()
+    var directory = DirectoryViewController.directory
     var directoryDictionary = Directory.directoryDictionary
     var staffList: [StaffMember] = []
     var indexOfSchool: Int!
@@ -35,13 +35,15 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        for school in directoryDictionary.keys{
+            directoryDictionary[school] = directoryDictionary[school]?.sorted(by: Directory.sortStaffMembers)
+        }
+        
         let indexOfSchool = SSDViewController.staticSchoolIndex
         
         let currentSchool = SchoolsArray.allSchools[indexOfSchool!]
         
         let currentSchoolShortName = currentSchool.shortName
-        
-        print("Current Staff List: " + String(describing: directoryDictionary[currentSchoolShortName]))
         
         staffList = directoryDictionary[currentSchoolShortName]!
         
@@ -146,5 +148,5 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
-
+    
 }

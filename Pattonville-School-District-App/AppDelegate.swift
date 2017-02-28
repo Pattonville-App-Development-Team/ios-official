@@ -35,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         } else {
             print("First launch, setting UserDefault.")
+            
+            
            
         }
         

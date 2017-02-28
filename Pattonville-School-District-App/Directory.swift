@@ -8,49 +8,25 @@
 
 import UIKit
 
-/// The array of Staff members for the Directory
+
+/// Singleton class to read from the CSV directory file, create staff members, and create and populate a directoryDictionary
 class Directory {
     
+    /// Directory to be accessed in the StaffListViewController
     static var directoryDictionary = [String:[StaffMember]]()
     
     var studentDirectoryCSVContents = ""
     
-    var phsStaffArray = [StaffMember]()
-    var htStaffArray  = [StaffMember]()
-    var hoStaffArray  = [StaffMember]()
-    var reStaffArray  = [StaffMember]()
-    var bwStaffArray  = [StaffMember]()
-    var drStaffArray  = [StaffMember]()
-    var pwStaffArray  = [StaffMember]()
-    var raStaffArray  = [StaffMember]()
-    var wbStaffArray  = [StaffMember]()
-    var ecStaffArray  = [StaffMember]()
-    
-    var first = 0
-    
+    /// Reads data from file and populates the directory Dictionary
     init() {
         studentDirectoryCSVContents = readDataFromFile(file: "Student_Directory")
-        populateDictionary()
         createStaffMembers()
-        print("***Initiation Complete***")
-        
-    }
-
-    func populateDictionary() {
-        
-        Directory.directoryDictionary["HS"] = phsStaffArray
-        Directory.directoryDictionary["HT"]  = htStaffArray
-        Directory.directoryDictionary["HO"]  = hoStaffArray
-        Directory.directoryDictionary["RE"]  = reStaffArray
-        Directory.directoryDictionary["BW"]  = bwStaffArray
-        Directory.directoryDictionary["DR"]  = drStaffArray
-        Directory.directoryDictionary["PW"]  = pwStaffArray
-        Directory.directoryDictionary["RA"]  = raStaffArray
-        Directory.directoryDictionary["WB"]  = wbStaffArray
-        Directory.directoryDictionary["EC"]  = ecStaffArray
-        
     }
     
+    /// Reads and returns the contents of the directory CSV file
+    ///
+    /// - Parameter file: Name of the directory CSV file
+    /// - Returns: String value of the directory CSV file
     func readDataFromFile(file:String)-> String!{
         guard let filepath = Bundle.main.path(forResource: file, ofType: "csv")
             else {
@@ -64,66 +40,56 @@ class Directory {
         }
     }
 
+    /// Creates objects of type StaffMember from each line of the directory CSV file
     func createStaffMembers() {
 
         let input = studentDirectoryCSVContents
-        let lines: [String] = input.components(separatedBy: "\n")
-        //let fields: [String] = lines[0].trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).components(separatedBy: ",")
+        
+        // Separates each line of the directory CSV file
+        var lines: [String] = input.components(separatedBy: "\n")
+        
+        // Removes the first line which is the name of each category for a StaffMember
+        lines.removeFirst()
+        
+        // Creates a new StaffMember from each non-empty line of the data
         for line in lines{
             if line.characters.count > 0{
                 let staffParams: [String] = line.components(separatedBy: ",")
                 let staffMember = StaffMember(values: staffParams)
                 
-                assignStaffMembers(staffMember: staffMember)
+                    // Adds a new key, specifying location, to the directoryDictionary if one is not present
+                    if(Directory.directoryDictionary.index(forKey: staffMember.directoryKey) == nil){
+                        Directory.directoryDictionary[staffMember.directoryKey] = []
+                    }
                 
+                    // Adds the newly made StaffMember to its respective StaffMember array based on location
+                    Directory.directoryDictionary[staffMember.directoryKey]?.append(staffMember)
+    
             }
         }
     }
     
-    func assignStaffMembers(staffMember: StaffMember) {
+    /// Sorts all staff members by their rank
+    ///
+    /// - Parameters:
+    ///   - first: StaffMember to be compared to second
+    ///   - second: StaffMember to be compared to first
+    /// - Returns: Bool value: true if first and second are in correct order, false if first and second need to switch in the order
+    static func sortStaffMembers(first: StaffMember, second: StaffMember) -> Bool{
         
-        if first < 2 {
-        print(staffMember.fName + staffMember.location)
-        
-        }
-        var school: String = "";
-        switch staffMember.location {
-            case "POSITIVE SCHOOL":
-                school = "HS"
-            case "PATTONVILLE HIGH SCHOOL":
-                school = "HS"
-            case "PATTONVILLE HEIGHTS":
-               school = "HT"
-            case "HOLMAN MIDDLE SCHOOL":
-                school = "HO"
-            case "REMINGTON TRADITIONAL":
-                school = "RE"
-            case "BRIDGEWAY ELEMENTARY":
-                school = "BW"
-            case "ROBERT DRUMMOND ELEMENTARY":
-                school = "DR"
-            case "PARKWOOD ELEMENTARY":
-                school = "PW"
-            case "ROSE ACRES ELEMENTARY":
-                school = "RA"
-            case "WILLOW BROOK ELEMENTARY":
-                school = "WB"
-            case "EARLY CHILDHOOD SPECIAL ED":
-                school = "EC"
-            default: break
-        }
-        
-        print(school.characters.count)
-//        if(Directory.directoryDictionary.contains(where: { (<#(key: String, value: [StaffMember])#>) -> Bool in
-//            <#code#>
-//        }))
-        
-        if(school.characters.count > 0){
-            Directory.directoryDictionary[school]?.append(staffMember);
-        }
-        if first < 2 {
-        print(Directory.directoryDictionary)
-            first += 1
+        // Nested if statements to check rank, then location, then alphabetical placement
+        if first.rank == second.rank{
+            if first.long_desc == second.long_desc{
+                if first.lName == second.lName{
+                    return first.fName.compare(second.fName).rawValue < 0
+                }else{
+                    return first.lName.compare(second.lName).rawValue < 0
+                }
+            }else{
+                return first.long_desc.compare(second.long_desc).rawValue < 0
+            }
+        }else{
+            return first.rank < second.rank
         }
     }
     
