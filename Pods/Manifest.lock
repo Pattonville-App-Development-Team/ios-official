@@ -1,24 +1,61 @@
 PODS:
   - Alamofire (4.1.0)
+  - Firebase/Core (3.9.0):
+    - FirebaseAnalytics (= 3.5.1)
+    - FirebaseCore (= 3.4.4)
+  - Firebase/Messaging (3.9.0):
+    - Firebase/Core
+    - FirebaseMessaging (= 1.2.1)
+  - FirebaseAnalytics (3.5.1):
+    - FirebaseCore (~> 3.4)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseCore (3.4.4):
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseInstanceID (1.0.8)
+  - FirebaseMessaging (1.2.1):
+    - FirebaseAnalytics (~> 3.4)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+  - GoogleInterchangeUtilities (1.2.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - GoogleSymbolUtilities (1.1.2)
+  - GoogleToolboxForMac/Defines (2.1.0)
+  - GoogleToolboxForMac/Logger (2.1.0):
+    - GoogleToolboxForMac/Defines (= 2.1.0)
+  - GoogleToolboxForMac/NSData+zlib (2.1.0):
+    - GoogleToolboxForMac/Defines (= 2.1.0)
   - iCarousel (1.8.3)
   - JTAppleCalendar (6.0.2)
-  - Kanna (2.0.0)
   - MXLCalendarManager (1.0.4)
 
 DEPENDENCIES:
   - Alamofire
+  - Firebase/Core
+  - Firebase/Messaging
   - iCarousel
   - JTAppleCalendar
-  - Kanna
   - MXLCalendarManager
 
 SPEC CHECKSUMS:
   Alamofire: e266cf991b933498df791e645e0d8ac294492153
+  Firebase: ff77ffb77b317c3720fef57a60e9335cebf962e6
+  FirebaseAnalytics: 6e58fc9b397664369ac7617fb0ba93fab6ba7b5b
+  FirebaseCore: d0ed25f27b6f9158eccc439f1be6f92e81207e28
+  FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
+  FirebaseMessaging: acf66347e43c5637c697060c3001d25c809a4131
+  GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
+  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
+  GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
   JTAppleCalendar: d0f71bdd45105279fc59329a9c24017e7028e499
-  Kanna: 9a6637f72f5c77fe9c045b1efb2a5bb074754af8
   MXLCalendarManager: 3432fa4fb369d352f84a0874f69b198de70119ac
 
-PODFILE CHECKSUM: b23d9051e1d5b3136424df97252fe97a7649db49
+PODFILE CHECKSUM: b98af39d4d7df15aeeb9daf9b5b1ba960b330db9
 
 COCOAPODS: 1.1.1

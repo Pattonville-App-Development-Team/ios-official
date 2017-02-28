@@ -10,6 +10,7 @@ target 'Pattonville-School-District-App' do
   pod 'iCarousel'
   pod 'MXLCalendarManager'
   pod ‘Firebase/Core’
+  pod 'Firebase/Messaging'
   pod 'Alamofire'
 
   target 'Pattonville-School-District-AppTests' do

@@ -16,6 +16,7 @@
 		1B8333AB1E0391BA00776DBC /* StaffListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8333AA1E0391BA00776DBC /* StaffListViewController.swift */; };
 		1BA8DFA41E2958A500F32F91 /* htStaffList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA8DFA31E2958A500F32F91 /* htStaffList.swift */; };
 		1EF42C89FC923992795CC182 /* Pods_Pattonville_School_District_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E570B5805DCAA04D255A00EA /* Pods_Pattonville_School_District_AppUITests.framework */; };
+		422969C61E65CBCD008C34D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 422969C51E65CBCD008C34D0 /* GoogleService-Info.plist */; };
 		4234D1C11E310B19005B3CA8 /* NewsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4234D1C01E310B19005B3CA8 /* NewsParser.swift */; };
 		4242FC231E3F96D800A43491 /* NewsItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4242FC221E3F96D800A43491 /* NewsItemCell.xib */; };
 		42617B431E00A61C00BB5992 /* pin-black-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 42617B421E00A61C00BB5992 /* pin-black-1.png */; };
@@ -110,6 +111,8 @@
 		1B8333AA1E0391BA00776DBC /* StaffListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffListViewController.swift; sourceTree = "<group>"; };
 		1BA8DFA31E2958A500F32F91 /* htStaffList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = htStaffList.swift; sourceTree = "<group>"; };
 		3425B2670BFD642C6C90BF2B /* Pods-Pattonville-School-District-AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-AppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-AppUITests/Pods-Pattonville-School-District-AppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		422969C51E65CBCD008C34D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		422969C71E65CE3B008C34D0 /* Pattonville-School-District-App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Pattonville-School-District-App.entitlements"; sourceTree = "<group>"; };
 		4234D1C01E310B19005B3CA8 /* NewsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsParser.swift; sourceTree = "<group>"; };
 		4242FC221E3F96D800A43491 /* NewsItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsItemCell.xib; sourceTree = "<group>"; };
 		42617B421E00A61C00BB5992 /* pin-black-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin-black-1.png"; sourceTree = "<group>"; };
@@ -254,6 +257,8 @@
 		42B933001DFAEDC500514B73 /* Pattonville-School-District-App */ = {
 			isa = PBXGroup;
 			children = (
+				422969C71E65CE3B008C34D0 /* Pattonville-School-District-App.entitlements */,
+				422969C51E65CBCD008C34D0 /* GoogleService-Info.plist */,
 				1B5E11021E27C51D0038A33C /* email-icon.png */,
 				42617B421E00A61C00BB5992 /* pin-black-1.png */,
 				42B9330F1DFAEDC500514B73 /* Info.plist */,
@@ -508,6 +513,11 @@
 						DevelopmentTeam = ZPVDW8LQL8;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					42B933131DFAEDC600514B73 = {
 						CreatedOnToolsVersion = 8.1;
@@ -555,6 +565,7 @@
 				42B933771DFAEEF400514B73 /* DateView.xib in Resources */,
 				4B4299A81E087F7200A202F9 /* 6NutriSliceLinks.storyboard in Resources */,
 				4611185B1E4231CF005AA3A9 /* image5.jpg in Resources */,
+				422969C61E65CBCD008C34D0 /* GoogleService-Info.plist in Resources */,
 				4B7D26DC1E4A19500097F0E6 /* SelectSchoolsTableViewController.storyboard in Resources */,
 				42B9330B1DFAEDC500514B73 /* Assets.xcassets in Resources */,
 				42B933091DFAEDC500514B73 /* Main.storyboard in Resources */,
@@ -939,6 +950,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Pattonville-School-District-App/Pattonville-School-District-App.entitlements";
 				DEVELOPMENT_TEAM = ZPVDW8LQL8;
 				INFOPLIST_FILE = "Pattonville-School-District-App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -957,6 +969,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Pattonville-School-District-App/Pattonville-School-District-App.entitlements";
 				DEVELOPMENT_TEAM = ZPVDW8LQL8;
 				INFOPLIST_FILE = "Pattonville-School-District-App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
