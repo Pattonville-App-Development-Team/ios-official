@@ -198,11 +198,11 @@
 		91CBEC3F6B355A5A9025DFDD7D685876 /* GoogleToolboxForMac-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-prefix.pch"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		954F81856B6B4CED5062C2FF038176A1 /* JTAppleCalendar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTAppleCalendar-prefix.pch"; sourceTree = "<group>"; };
-		97008FAD6C7A8735C835B73046ED70CB /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Frameworks/frameworks/FirebaseCore.framework; sourceTree = "<group>"; };
 		9A8874F3AE314333CAE783DCF5EE3C25 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		9BA844DDCF03DBBC35E06018A91BE742 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
 		9DE712690257D96E7BC53ABA1AA945B5 /* iCarousel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = iCarousel.framework; path = iCarousel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE3441A4F0967EA8D251BEB78C0150D /* MXLCalendarAttendee.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXLCalendarAttendee.m; path = MXLCalendarManager/MXLCalendarAttendee.m; sourceTree = "<group>"; };
+		9F287F97FEDE8B501F784145E98495BA /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Frameworks/FirebaseCore.framework; sourceTree = "<group>"; };
 		A4984F2B0A08B28C063F0E8C1D6BA1ED /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
 		A56A02CF85F1FFD434C164E19A96C062 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
 		A653DC7255EC59443BB4D8A150F50C85 /* Pods-Pattonville-School-District-App-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Pattonville-School-District-App-resources.sh"; sourceTree = "<group>"; };
@@ -441,7 +441,7 @@
 		4C6968289835838FE2AB78A82BA31C19 /* FirebaseCore */ = {
 			isa = PBXGroup;
 			children = (
-				84822944F5AE24C01AD372DFEEB9BF67 /* Frameworks */,
+				F31F73E2DFF6ABEEF21B0A59325C93DC /* Frameworks */,
 			);
 			name = FirebaseCore;
 			path = FirebaseCore;
@@ -536,14 +536,6 @@
 				D958CAC020FB996D08E665C7EAFAD71F /* Pods_Pattonville_School_District_AppUITests.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		84822944F5AE24C01AD372DFEEB9BF67 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				97008FAD6C7A8735C835B73046ED70CB /* FirebaseCore.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		9B3194020D889537BAA81CCBDF1FE3E6 /* Firebase */ = {
@@ -724,6 +716,14 @@
 			);
 			name = "Pods-Pattonville-School-District-AppTests";
 			path = "Target Support Files/Pods-Pattonville-School-District-AppTests";
+			sourceTree = "<group>";
+		};
+		F31F73E2DFF6ABEEF21B0A59325C93DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9F287F97FEDE8B501F784145E98495BA /* FirebaseCore.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
