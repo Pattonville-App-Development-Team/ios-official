@@ -29,6 +29,7 @@ class SelectSchoolsTableCell: UITableViewCell{
         //self.cellDelegate?.didChangeSwitchState(sender: self, isOn:schoolEnabledSwitch.on)
         //^^^^
     }
+    /// Make the color view a circle next to the schoolEnabledSwitch
     override func layoutSubviews() {
         schoolColorView.layer.cornerRadius = schoolColorView.frame.width/2
     }

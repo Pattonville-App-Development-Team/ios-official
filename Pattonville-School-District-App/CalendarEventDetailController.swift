@@ -8,10 +8,29 @@
 
 import UIKit
 import EventKit
+import EventKitUI
 
-class CalendarEventDetailController: UIViewController{
+class CalendarEventDetailController: UIViewController, EKEventEditViewDelegate{
+    /*!
+     @method     eventEditViewController:didCompleteWithAction:
+     @abstract   Called to let delegate know the controller is done editing.
+     @discussion When the user presses Cancel, presses Done, or deletes the event, this method
+     is called. Your delegate is responsible for dismissing the controller. If the editing
+     session is terminated programmatically using cancelEditing,
+     this method will not be called.
+     
+     @param      controller          the controller in question
+     @param      action              the action that is causing the dismissal
+     */
+    @available(iOS 4.0, *)
+    public func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     var event: Event!
+    //var editViewDelegate: EKEventEditViewDelegate!
+    var editViewDelegate = self
     
     @IBOutlet var eventName: UILabel!
     @IBOutlet var eventLocation: UILabel!
@@ -33,27 +52,10 @@ class CalendarEventDetailController: UIViewController{
     }
     
     @IBAction func add(sender: UIButton){
-        let store = EKEventStore()
-        store.requestAccess(to: .event) {(granted, error) in
-            if !granted { return }
-            
-            let ekEvent = EKEvent(eventStore: store)
-            ekEvent.title = self.event.name!
-            ekEvent.startDate = self.event.date!
-            ekEvent.endDate = self.event.date!
-            ekEvent.calendar = store.defaultCalendarForNewEvents
-            
-            do {
-                try store.save(ekEvent, span: .thisEvent, commit: true)
-                
-                let alert = UIAlertController(title: "Event Added to Calendar", message: "The event \(ekEvent.title) was added to your calendar!", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                
-            } catch {
-                print(error)
-            }
-        }
+        print("old useless method accessed")
+        let alert = UIAlertController(title: "Useless", message: "old useless method accessed", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     ///Sets up the look of the ViewController upon loading. Sets the eventName, eventLocation, eventDate, and eventTime UILabels to the corresponding values of the event variable.
@@ -72,9 +74,56 @@ class CalendarEventDetailController: UIViewController{
         }else{
             pinButton.isSelected = false
         }
+        let rightNavigationBarAddToCalendarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector (CalendarEventDetailController.addToDeviceCalendar(_:)))
         
-        print(event.school?.name)
+        
+        self.navigationItem.rightBarButtonItem = rightNavigationBarAddToCalendarButton
+        print("START: \(event.dateString) \(event.start)")
+        print("END: \(event.dateString) \(event.end)")
         
     }
-    
+    func addToDeviceCalendar(_ sender: UIBarButtonItem){
+        print("accessed addToDeviceCalendar")
+        
+        let controller = EKEventEditViewController()
+        let store = EKEventStore()
+        store.requestAccess(to: .event) {(granted, error) in
+            if !granted { return }
+            
+            let ekEvent = EKEvent(eventStore: store)
+            controller.eventStore = store;
+            controller.editViewDelegate = self
+            controller.event = ekEvent
+            ekEvent.title = self.event.name!
+            ekEvent.startDate = self.event.start!
+            ekEvent.endDate = self.event.end!
+            if self.event.location != nil{
+                ekEvent.location = self.event.location!
+            }
+            let status = EKEventStore.authorizationStatus(for: .event)
+            switch status {
+                case .authorized:
+                    
+                    DispatchQueue.main.async(execute: { () -> Void in
+                        self.present(controller, animated: true, completion: nil)
+                    })
+                case .notDetermined:
+                    store.requestAccess(to: .event, completion: { (granted, error) -> Void in
+                        if granted == true {
+                            
+                            DispatchQueue.main.async(execute: { () -> Void in
+                                self.present(controller, animated: true, completion: nil)
+                            })
+                        }
+                    })
+                case .denied, .restricted:
+                    let alert = UIAlertController(title: "Access Denied", message: "Permission is needed to access the calendar. Go to Settings > Privacy > Calendars to allow access for the Be Collective app.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    return
+            }
+            //self.present(controller, animated: true, completion: nil)
+        }
+        
+    }
 }
