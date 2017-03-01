@@ -68,7 +68,7 @@ class SettingsViewController: UITableViewController{
         
         tableView.delegate = self
         
-        
+        var test = 4
         tableView.reloadData()
         
         // Do any additional setup after loading the view, typically from a nib.
