@@ -39,9 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(value, forKey:"recentNews")
             UserDefaults.standard.set(value, forKey: "upcomingNews")
             UserDefaults.standard.set(value, forKey: "pinnedEvents")
-           
+            
         }
-    
         
        return true 
         
@@ -80,7 +79,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         
         UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
-        
       
         return true
     }

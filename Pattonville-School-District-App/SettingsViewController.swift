@@ -18,9 +18,8 @@ class SettingsViewController: UITableViewController{
         
         var value = sender.value
         print(sender.value)
+        UserDefaults.standard.set(value, forKey: "recentNews")
         recentNewsCounter.text = Int(sender.value).description
-        UserDefaults.standard.set(value, forKey:"recentNews")
-        UserDefaults.standard.set(value, forKey:"test")
      
 
     }
