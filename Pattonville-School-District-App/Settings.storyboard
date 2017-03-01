@@ -5,8 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,7 +37,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="QSc-bt-Q38" kind="show" id="kQS-ct-HQG"/>
+                                            <segue destination="LYo-dS-2W7" kind="show" id="kQS-ct-HQG"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="3J9-LL-3dR">
@@ -198,73 +197,11 @@
             </objects>
             <point key="canvasLocation" x="2764" y="913.49325337331345"/>
         </scene>
-        <!--Select Schools Table View Controller-->
-        <scene sceneID="wM2-TK-9pc">
+        <!--SelectSchoolsTableViewController-->
+        <scene sceneID="Q3O-6V-7Aw">
             <objects>
-                <tableViewController id="QSc-bt-Q38" userLabel="Select Schools Table View Controller" customClass="SelectSchoolsTableViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="HTL-Sl-aow">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectSchoolsCell" id="QTo-ij-HO9" customClass="SelectSchoolsTableCell" customModule="Pattonville_School_District_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QTo-ij-HO9" id="i4f-by-knF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuK-ch-w1z">
-                                            <rect key="frame" x="18" y="11" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zat-3U-geI">
-                                            <rect key="frame" x="316" y="7" width="51" height="31"/>
-                                            <connections>
-                                                <action selector="schoolEnabledSwitchValueChanged:" destination="QTo-ij-HO9" eventType="valueChanged" id="Vq5-yn-yNM"/>
-                                            </connections>
-                                        </switch>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="paB-bR-UDn">
-                                            <rect key="frame" x="294" y="16" width="12" height="12"/>
-                                            <color key="backgroundColor" red="1" green="0.16416444960000001" blue="0.20694177259999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="12" id="9Am-Za-aGb"/>
-                                                <constraint firstAttribute="width" constant="12" id="A57-IW-KO0"/>
-                                            </constraints>
-                                        </view>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="zat-3U-geI" firstAttribute="centerY" secondItem="i4f-by-knF" secondAttribute="centerY" id="3YF-G7-8La"/>
-                                        <constraint firstItem="JuK-ch-w1z" firstAttribute="leading" secondItem="i4f-by-knF" secondAttribute="leadingMargin" constant="10" id="GXp-GC-U2z"/>
-                                        <constraint firstItem="paB-bR-UDn" firstAttribute="centerY" secondItem="i4f-by-knF" secondAttribute="centerY" id="RY7-2a-Gtu"/>
-                                        <constraint firstItem="zat-3U-geI" firstAttribute="leading" secondItem="paB-bR-UDn" secondAttribute="trailing" constant="10" id="Zkm-Ez-ngH"/>
-                                        <constraint firstItem="JuK-ch-w1z" firstAttribute="centerY" secondItem="i4f-by-knF" secondAttribute="centerY" id="fz1-6g-ksK"/>
-                                        <constraint firstItem="JuK-ch-w1z" firstAttribute="centerY" secondItem="i4f-by-knF" secondAttribute="centerY" id="ihB-SF-Sep"/>
-                                        <constraint firstAttribute="trailing" secondItem="zat-3U-geI" secondAttribute="trailing" constant="10" id="jWy-G0-ixU"/>
-                                        <constraint firstItem="zat-3U-geI" firstAttribute="centerY" secondItem="i4f-by-knF" secondAttribute="centerY" id="v1e-dp-bfF"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <outlet property="schoolColorView" destination="paB-bR-UDn" id="pAt-vm-Swe"/>
-                                    <outlet property="schoolEnabledSwitch" destination="zat-3U-geI" id="M0H-QF-w7x"/>
-                                    <outlet property="schoolNameLabel" destination="JuK-ch-w1z" id="xR7-dj-V62"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <variation key="heightClass=regular-widthClass=regular">
-                            <nil key="separatorColor"/>
-                        </variation>
-                        <connections>
-                            <outlet property="dataSource" destination="QSc-bt-Q38" id="LYr-WP-11p"/>
-                            <outlet property="delegate" destination="QSc-bt-Q38" id="fTj-El-PIo"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QyB-ay-c29" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="SelectSchoolsTableViewController" id="LYo-dS-2W7" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Msy-21-hYQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3653.5999999999999" y="912.5937031484259"/>
         </scene>

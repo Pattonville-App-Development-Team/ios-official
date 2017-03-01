@@ -8,17 +8,27 @@
 
 import UIKit
 
-/// Custom cell class for the TableView that displays the short info about each news story on the News Page under the News carousel
+/// Custom cell class for the TableView that displays the short info about each news story wherever there listed
 class NewsItemCell: UITableViewCell{
     
+    /// Title of the news story
     @IBOutlet var title: UILabel!
+    /// Date of the news story goes below the title
     @IBOutlet var date: UILabel!
+    /// Identifying UIView for the school on the left of cell, is made a circle and background color set to the Schools identifying color
     @IBOutlet var school: UIView!
+    /// Goes on top of school UIView and displays the shortName of the school associated with the news story
     @IBOutlet var schoolName: UILabel!
     
     var newsItem: NewsItem!
     
-    func setUp(){
+    /// Sets up newsCell items throughout the app
+    ///
+    /// - Parameter news: the news story that is being set up in the cell
+    func setUp(news: NewsItem){
+        
+        self.newsItem = news
+        
         title.text = newsItem.title
         date.text = newsItem.dateString
         

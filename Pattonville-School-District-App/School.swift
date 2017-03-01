@@ -29,7 +29,7 @@ class School: NSObject {
     var newsURL: String
     var eventsList: [Event]
     var staffArray: [StaffMember]
-    
+    var sharingLinksURL: String
     
     /// The School Object initializer, to be used in the Schools Enum
     ///
@@ -48,6 +48,7 @@ class School: NSObject {
     /// - parameter staffArray:       Array of staff members to be used in Directory of School being initialized
     ///
     /// - parameter calendarURL:      .ics calendar file remote location
+    /// - parameter color:            The Color used to identify the school throughout the app
     
     init(name: String,
          shortname: String,
@@ -60,7 +61,8 @@ class School: NSObject {
          isSubscribedTo: Bool, color: UIColor,
          calendarURL: String,
          newsURL: String,
-         staffArray: [StaffMember]) {
+         staffArray: [StaffMember],
+         sharingLinksURL: String) {
         
             self.name = name
             self.shortName = shortname
@@ -81,6 +83,8 @@ class School: NSObject {
             self.newsURL = newsURL
 
             self.eventsList = []
+            self.sharingLinksURL = sharingLinksURL
+        
         
     }
     

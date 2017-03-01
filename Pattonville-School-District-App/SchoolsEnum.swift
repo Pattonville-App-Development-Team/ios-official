@@ -25,7 +25,8 @@ class SchoolsEnum {
                                  color: UIColor.darkGray,
                                  calendarURL: "http://drummond.psdr3.org/ical/Learning%20Center.ics",
                                  newsURL: "http://fccms.psdr3.org/District/news?plugin=xml&leaves",
-                                 staffArray: [])
+                                 staffArray: [],
+                                 sharingLinksURL: "http://psdr3.org/?")
     
     static var earlyChildhood = School(name: "Early Childhood",
                                 shortname: "EC",
@@ -40,7 +41,8 @@ class SchoolsEnum {
                                 color: UIColor(red: 163/255, green: 0/255, blue: 255/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Early%20Childhood.ics",
                                 newsURL: "http://fccms.psdr3.org/",
-                                staffArray: [])
+                                staffArray: [],
+                                sharingLinksURL: "http://psdr3.org/?")
 
     static var bridgewayElementary = School(name: "Bridgeway Elementary",
                                 shortname: "BW",
@@ -55,7 +57,8 @@ class SchoolsEnum {
                                 color: UIColor(red: 0/255, green: 1/255, blue: 120/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Bridgeway.ics",
                                 newsURL: "http://fccms.psdr3.org/Bridgeway/news?plugin=xml&leaves",
-                                staffArray: [])
+                                staffArray: [],
+                                sharingLinksURL: "http://bridgeway.psdr3.org/?")
 
     static var drummondElementary = School(name: "Drummond Elementary",
                                 shortname: "DR",
@@ -70,7 +73,8 @@ class SchoolsEnum {
                                 color: UIColor(red: 71/255, green: 95/255, blue: 210/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Drummond.ics",
                                 newsURL: "http://fccms.psdr3.org/Drummond/news?plugin=xml&leaves",
-                                staffArray: [])
+                                staffArray: [],
+                                sharingLinksURL: "http://drummond.psdr3.org/?")
 
     static var parkwoodElementary = School(name: "Parkwood Elementary",
                                 shortname: "PW",
@@ -85,7 +89,8 @@ class SchoolsEnum {
                                 color: UIColor(red: 115/255, green: 195/255, blue: 0/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Parkwood.ics",
                                 newsURL: "http://fccms.psdr3.org/Parkwood/news?plugin=xml&leaves",
-                                staffArray: [])
+                                staffArray: [],
+                                sharingLinksURL: "http://parkwood.psdr3.org/?")
 
     static var remingtonTraditional = School(name: "Remington Traditional",
                                 shortname: "RE",
@@ -100,7 +105,8 @@ class SchoolsEnum {
                                 color: UIColor(red: 8/255, green: 225/255, blue: 176/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Remington.ics",
                                 newsURL: "http://fccms.psdr3.org/Remington/news?plugin=xml&leaves",
-                                staffArray: [])
+                                staffArray: [],
+                                sharingLinksURL: "http://remington.psdr3.org/?")
 
     static var roseAcresElementary = School(name: "Rose Acres Elementary",
                                 shortname: "RA",
@@ -115,7 +121,8 @@ class SchoolsEnum {
                                 color: UIColor(red: 246/255, green: 237/255, blue: 4/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Rose%20Acres.ics",
                                 newsURL: "http://fccms.psdr3.org/RoseAcres/news?plugin=xml&leaves",
-                                staffArray: [])
+                                staffArray: [],
+                                sharingLinksURL: "http://roseacres.psdr3.org/?")
 
     static var willowBrookElementary = School(name: "Willow Brook Elementary",
                                 shortname: "WB",
@@ -130,7 +137,8 @@ class SchoolsEnum {
                                 color: UIColor(red: 255/255, green: 141/255, blue: 0/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Willow%20Brook.ics",
                                 newsURL: "http://fccms.psdr3.org/WillowBrook/news?plugin=xml&leaves",
-                                staffArray: [])
+                                staffArray: [],
+                                sharingLinksURL: "http://willowbrook.psdr3.org/?")
 
     static var holmanMiddleSchool = School(name: "Holman Middle School",
                                 shortname: "HO",
@@ -145,7 +153,8 @@ class SchoolsEnum {
                                 color: UIColor(red: 229/255, green: 11/255, blue: 0/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Holman.ics",
                                 newsURL: "http://fccms.psdr3.org/Holman/news?plugin=xml&leaves",
-                                staffArray: [])
+                                staffArray: [],
+                                sharingLinksURL: "http://holman.psdr3.org/?")
 
     static var heightsMiddleSchool = School(name: "Heights Middle School",
                                 shortname: "HT",
@@ -160,7 +169,8 @@ class SchoolsEnum {
                                 color: UIColor(red: 114/255, green: 67/255, blue: 56/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/Heights.ics",
                                 newsURL: "http://fccms.psdr3.org/Heights/news?plugin=xml&leaves",
-                                staffArray: [])
+                                staffArray: [],
+                                sharingLinksURL: "http://heights.psdr3.org/?")
 
     static var pattonvilleHighSchool = School(name: "Pattonville High School",
                                 shortname: "HS",
@@ -175,7 +185,8 @@ class SchoolsEnum {
                                 color: UIColor(red: 0/255, green: 122/255, blue: 51/255, alpha: 1),
                                 calendarURL: "http://drummond.psdr3.org/ical/High%20School.ics",
                                 newsURL: "http://fccms.psdr3.org/HighSchool/news?plugin=xml&leaves",
-                                staffArray: [])
+                                staffArray: [],
+                                sharingLinksURL: "http://phs.psdr3.org/?")
     
     
     /// Method to set a schools Subscribtion staus

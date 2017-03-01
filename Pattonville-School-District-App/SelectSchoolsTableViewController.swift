@@ -52,6 +52,7 @@ class SelectSchoolsTableViewController: UITableViewController{
     override func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "SelectSchoolsCell",
                                                  for: indexPath) as! SelectSchoolsTableCell
         

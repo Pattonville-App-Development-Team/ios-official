@@ -8,18 +8,21 @@
 
 import UIKit
 import Alamofire
-import Kanna
 
-/// The ViewController for the View that appears after a user selects a news story in the main News page
+/// The ViewController for the View that appears after a user selects a news story in the main News page or from the home page
 class NewsDetailViewController: UIViewController, UIWebViewDelegate{
     
+    /// The news story that is displayed on this page
     var news: NewsItem!
     
     /// The image at the top of the news article before the text
     @IBOutlet var titleLabel: UILabel!
+    /// The Label below the title that displays the date of the news article
     @IBOutlet var date: UILabel!
     @IBOutlet var webView: UIWebView!
+    /// The View used to create the identifying circle containing the schools color
     @IBOutlet var schoolView: UIView!
+    /// Goes on top of school UIView and displays the shortName of the school associated with the news story
     @IBOutlet var schoolName: UILabel!
     
     @IBOutlet var webviewHeightConstraint: NSLayoutConstraint!
@@ -29,7 +32,7 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
         super.viewDidLoad()
         
         self.title = news.title
-
+        
         titleLabel.text = news.title
         date.text = news.dateString
         
@@ -45,8 +48,21 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
         
         headerViewHeightConstraint.constant = titleLabel.frame.height + date.frame.height + 30
         
-        getHTML()
-
+       
+        /// The button used to open the Action menu at the top right of the Navigation bar
+        let rightNavigationBarActionButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action, target: self, action: #selector(NewsDetailViewController.shareButtonClicked(_:)))
+        
+        
+        self.navigationItem.rightBarButtonItem = rightNavigationBarActionButton
+        
+        if news.content == nil{
+            getHTML()
+        }else{
+            webView.loadHTMLString(news.content!, baseURL: nil)
+        }
+        
+        
+        
         //content.text = news.content
         // Do any additional setup after loading the view.
     }
@@ -66,9 +82,9 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
         return true
     }
     
-
+    
     /// Submits a GET request to a URL and is returned the HTML of the webpage
-
+    
     func getHTML(){
         
         var contentString = "<style> font{font-family: 'Arial' !important; font-size: 0.85em !important;} img{width: 100% !important; height: auto !important;} tr:first-of-type, tr:last-of-type{display: none !important}</style>";
@@ -80,6 +96,8 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
                 contentString.append(html)
                 contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "")
                 
+                self.news.content = contentString
+                
                 self.webView.loadHTMLString(contentString, baseURL: nil)
             }
             
@@ -87,26 +105,20 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
         
     }
     
-    /// Parses the supplied HTML for all the text contained within <font></font> tags
-    ///
-    /// - html: the html string to parse (supplied by getHTML())
-    ///
-    func parseHTML(html: String){
-        if let doc = Kanna.HTML(html: html, encoding: String.Encoding.utf8) {
+     /// Opens Action activity that includes sharing options and copy and add to reading list actions
+     ///
+     /// - Parameter sender: the action icon at the top right of the NewsDetailView Navigation bar
+     @objc func shareButtonClicked(_ sender: UIBarButtonItem) {
+        let textToShare = news.title
+        
+        if let myWebsite = NSURL(string: news.sharingLinkURL){
+            let objectsToShare = [textToShare, myWebsite] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
             
-            var contentString = "<style> font{font-family: 'Arial' !important; font-size: 0.85em !important;} img{width: 100% !important; height: auto !important;}</style>";
-            
-            for text in doc.css("td").dropFirst(4).dropLast(2){
-                contentString.append(text.innerHTML!)
-                contentString.append("<br /><br />")
-            }
-            
-            contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "")
-            
-            webView.loadHTMLString(contentString, baseURL: nil)
-
-            
+            activityVC.popoverPresentationController?.sourceView = schoolView
+            self.present(activityVC, animated: true, completion: nil)
         }
     }
+    
     
 }

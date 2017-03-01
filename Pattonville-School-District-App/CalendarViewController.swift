@@ -22,6 +22,8 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     
     var selectedDateEvents = [Event]()
     
+    var prevSchools: [School] = []
+    
     var todayCell: CalendarDateView! = CalendarDateView()
     
     /// Sets up look of view controller upon loading. Completes basic setup of Calendar and TableView appearances and sorts the events list for pinned events
@@ -53,9 +55,21 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        print("VIEW DID APPEAR \n")
+        let currentSchools = SchoolsArray.getSubscribedSchools()
         
-        calendarView.selectDates([Date(), selectedDate])
+        if currentSchools != prevSchools{
+            
+            calendar.getInBackground(completionHandler: {
+                self.tableView.reloadData()
+                self.calendarView.reloadData()
+            })
+            
+            prevSchools = currentSchools
+            
+        }
+
+        
+        calendarView.selectDates([selectedDate])
         
         tableView.reloadData()
         calendarView.reloadData()
@@ -152,6 +166,8 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         let cell = (cell as? CalendarDateView)
         
         cell?.select(date: date, cellState: cellState)
+        
+        selectedDate = date
         
         filterCalendarData(for: date)
         

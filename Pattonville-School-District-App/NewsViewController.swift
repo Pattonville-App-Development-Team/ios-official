@@ -20,6 +20,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     var news: NewsReel! = NewsReel.instance{
         didSet{
             if let table = tableView{
+                print("RELOADED IN DID SET")
                 table.reloadData()
             }
         }
@@ -56,12 +57,12 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.refreshControl.tintColor = .white
         self.refreshControl.addTarget(self, action: #selector(NewsViewController.refreshData), for: UIControlEvents.valueChanged)
         
-        /*if #available(iOS 10.0, *) {
+        if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
         } else {
             // Fallback on earlier versions
             tableView.addSubview(refreshControl)
-        }*/
+        }
         
     }
     
@@ -70,8 +71,9 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if SchoolsArray.getSubscribedSchools() != prevSchools{
          
-            NewsReel.instance.getNews(completionHandler: {
-                print("Pulling in background")
+            news.getInBackground(beforeStartHandler: {
+                self.tableView.reloadData()
+            }, onCompletionHandler: {
                 self.tableView.reloadData()
             })
             
@@ -91,7 +93,13 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewsDetailSegue"{
             let destination = segue.destination as! NewsDetailViewController
-            destination.news = news.allNews[(tableView.indexPathForSelectedRow?.row)!]
+            
+            if searchController.isActive && searchController.searchBar.text != ""{
+                destination.news = news.filteredNews[(tableView.indexPathForSelectedRow?.row)!]
+            }else{
+                destination.news = news.allNews[(tableView.indexPathForSelectedRow?.row)!]
+            }
+            
         }
     }
     
@@ -122,7 +130,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsItemCell", for: indexPath) as! NewsItemCell
         
-        let newsItem: NewsItem
+        let newsItem: NewsItem?
         
         if searchController.isActive && searchController.searchBar.text != ""{
             newsItem = news.filteredNews[indexPath.row]
@@ -130,9 +138,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             newsItem = news.allNews[indexPath.row]
         }
         
-        cell.newsItem = newsItem
-        
-        cell.setUp()
+        cell.setUp(news: newsItem!)
         
         return cell
         
@@ -156,22 +162,15 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     // PRIVATE FUNCTIONS
     
     //Refreshes the list of news articles
-    @objc private func refreshData(){
-        
-        parser.updateSchools(schools: SchoolsArray.getSubscribedSchools())
-        
-        parser.getDataInBackground(completionHandler: {
-            print("REFRESHING")
-            
-            self.news.allNews.sort(by: {
-                return $0.date > $1.date
-            })
-            
+    func refreshData(){
+    
+        news.getInBackground(beforeStartHandler: {
             self.tableView.reloadData()
+        }, onCompletionHandler: {
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
         })
         
-        
-        self.refreshControl.endRefreshing()
     }
     
     private func filterNewsForSearchText(searchText: String){

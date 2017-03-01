@@ -7,14 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
-    let newsReel = NewsReel()
-    //let calendarList = Calendar.instance
     
     /// Method called as the app is launching, checks to see if the application is launched before, if so sets the isSubscribedTo values in SchoolsArray.allSchools 
     ///
@@ -27,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         
         if launchedBefore{
+            
             for school in SchoolsArray.allSchools{
                 school.isSubscribedTo = UserDefaults.standard.bool(forKey: school.name)
             }
@@ -45,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        return true 
         
     }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -68,12 +68,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         calendarController.calendar = calendar
         calendarController.selectedDate = Date()
         
-        Calendar.instance.getEvents(completionHandler: {
+        calendar.getEvents(completionHandler: {
             homeController.calendar = calendar
             calendarController.calendar = calendar
         })
         
-        NewsReel.instance.getNews(completionHandler: {
+        news.getNews(beforeStartHandler: nil, onCompletionHandler: {
             homeController.news = news
             newsController.news = news
         })
@@ -94,12 +94,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-       ///keeping this just in case the method in SelectSchoolsTableViewController proves faulty
-        /*for school in SchoolsArray.allSchools{
-            UserDefaults.standard.set(school.isSubscribedTo, forKey: school.name)
-            print("\(school.name) saved with bool value \(school.isSubscribedTo)")
-           // NSLog("\(school.name) saved with bool value \(school.isSubscribedTo). NSLogTAG0123")
-        }*/
         
        
         UserDefaults.standard.set(true, forKey: "launchedBefore")
