@@ -11,9 +11,11 @@ import UIKit
 /// The ViewController for the TableView of schools which have a directory the user can view
 class DirectoryViewController: UITableViewController {
     
+    
+    // Initializing Directory here to prevent recurring directory parsing in the school specific directory pages
     static var directory = Directory()
     
-    /// Method to specify how many rows the TableView has
+    /// Specifies how many rows the TableView has
     ///
     /// - Parameters:
     ///   - tableView: the TableView that displays the list of schools
@@ -25,12 +27,12 @@ class DirectoryViewController: UITableViewController {
         
     }
     
-    /// Method to display the proper schools in each row of the TableView
+    /// Displays the proper school in each row of the TableView
     ///
     /// - Parameters:
     ///   - tableView: the TableView that displays the list of schools
     ///   - indexPath: 
-    /// - Returns: <#return value description#>
+    /// - Returns: cell with the school name displayed
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
@@ -43,6 +45,11 @@ class DirectoryViewController: UITableViewController {
         
     }
     
+    /// Passes the selected cell's row index to the SSDViewController class
+    ///
+    /// - Parameters:
+    ///   - segue: Show segue linking the Directory View Controller to the School Specific Directory View Controller
+    ///   - sender: Cell in the TableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "schoolSpecificDirectorySegue" {
             
@@ -50,6 +57,7 @@ class DirectoryViewController: UITableViewController {
             
             let destination = segue.destination as! SSDViewController
             
+            // Sets the variable "indexOfSchool" located in the SSDViewController class equal to "row"
             destination.indexOfSchool = row
             
         }

@@ -12,9 +12,6 @@ import UIKit
 
 class SSDViewController: UIViewController{
     
-    //var schools = SchoolsArray.init().allSchools
-    
-    //var staffList = StaffArray.init().staffList
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var mainNumber: UILabel!
@@ -22,14 +19,15 @@ class SSDViewController: UIViewController{
     @IBOutlet weak var faxNumber: UILabel!
     @IBOutlet weak var schoolPicture: UIImageView!
     
+    // Set by the "prepare" function in DirectoryViewController.swift
     var indexOfSchool: Int!
     
+    // Variable is used in StaffListViewController.swift to identify which school was selected and determine which StaffMember array in Directory.directoyDictionary should be used
     static var staticSchoolIndex: Int!
     
-    
+    /// Function to display proper information on the School Specific Directory View Controller Scene for the school that was selected in the Directory View Controller Scene
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print(indexOfSchool)
         SSDViewController.staticSchoolIndex = indexOfSchool
         let school = SchoolsArray.allSchools[indexOfSchool]
         navigationItem.title = school.name
@@ -41,15 +39,6 @@ class SSDViewController: UIViewController{
         schoolPicture.image = UIImage(named: school.schoolPicture)
         
     }
-    
-    func getSchoolShortName() -> String {
-        return SchoolsArray.allSchools[indexOfSchool].shortName
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
-    
 }
 
 

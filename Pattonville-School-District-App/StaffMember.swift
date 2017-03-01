@@ -13,7 +13,10 @@ class StaffMember {
     
     var fName: String
     var lName: String
+    
+    /// Job Title
     var long_desc: String
+    
     var location: String
     var email: String
     var office1: String
@@ -23,12 +26,30 @@ class StaffMember {
     var office3: String
     var ext3: String
     
+    // Associating each of these job types with a value which is used to sort the StaffMember array in the Directory class
     static let PRINCIPAL: Int = 0, ASSOCIATE_PRINCIPAL: Int = 1, ASSISTANT_PRINCIPAL:Int = 2,
     TEACHER: Int = 3, SECRETARY: Int = 4, SUPPORT_STAFF: Int = 5
     
+    /// A two or three letter abbreviation of the location of the staff member
     lazy var directoryKey: String = self.getSchoolByLocation(location: self.location)
+    
+    /// Integer representation of the rank of a staff member used to sort the array of staff members
     lazy var rank: Int = self.getRank()
     
+    /// Default constructor for a StaffMember object
+    ///
+    /// - Parameters:
+    ///   - fName: First name
+    ///   - lName: Last name
+    ///   - long_desc: Job title
+    ///   - location: Building or School where the staff member works
+    ///   - email: District given email address
+    ///   - office1: First direct phone number
+    ///   - ext1: First phone extension number
+    ///   - office2: Second direct phone number
+    ///   - ext2: Second phone extension number
+    ///   - office3: Third direct phone number
+    ///   - ext3: Third phone extension number
     init(fName: String, lName: String, long_desc: String, location: String, email: String, office1: String, ext1: String, office2: String, ext2: String, office3: String, ext3: String) {
         
         self.fName = fName.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
@@ -45,6 +66,9 @@ class StaffMember {
         
     }
     
+    /// Initializer used when reading from directoy CSV file
+    ///
+    /// - Parameter values: Array of all of the fields available on each staff member
     convenience init(values: [String]){
         self.init(
             fName: values[0],
@@ -60,6 +84,10 @@ class StaffMember {
             ext3: values[10])
     }
     
+    /// Identifies which school shortName should be used to add the staff member to the directoryDictionary based on a key which matches a school shortName
+    ///
+    /// - Parameter location: Building or school where the staff member works given by the directory CSV file
+    /// - Returns: shortName of the building or school where the staff member works
     func getSchoolByLocation(location: String) -> String{
         var school = ""
         switch(location){
@@ -89,14 +117,15 @@ class StaffMember {
             school = "WB"
         case "EARLY CHILDHOOD SPECIAL ED":
             school = "EC"
-//        case "Location":
-//            break
         default:
             school = "PSD"
         }
         return school
     }
     
+    /// Determines what integer a staff member should be associated with when sorted in the Directory class
+    ///
+    /// - Returns: Integer representing what typing of job a staff member has
     func getRank() -> Int{
         if self.long_desc.contains("PRINCIPAL"){
             if self.long_desc.contains("ASSISTANT"){
@@ -106,7 +135,7 @@ class StaffMember {
             }else{
                 return StaffMember.PRINCIPAL
             }
-        }else if self.long_desc.contains("TEACHER"){
+        }else if self.long_desc.contains("TEACHER") || self.long_desc.contains("TEACH"){
             return StaffMember.TEACHER
         }else if self.long_desc.contains("SECRETARY"){
             return StaffMember.SECRETARY

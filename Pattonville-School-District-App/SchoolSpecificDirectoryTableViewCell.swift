@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Template for each staff member cell
 class SchoolSpecificDirectoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
