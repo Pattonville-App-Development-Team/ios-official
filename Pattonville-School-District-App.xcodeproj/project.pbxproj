@@ -27,7 +27,6 @@
 		42B933191DFAEDC600514B73 /* Pattonville_School_District_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933181DFAEDC600514B73 /* Pattonville_School_District_AppTests.swift */; };
 		42B933241DFAEDC600514B73 /* Pattonville_School_District_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933231DFAEDC600514B73 /* Pattonville_School_District_AppUITests.swift */; };
 		42B933321DFAEEE300514B73 /* TabBarIcons in Resources */ = {isa = PBXBuildFile; fileRef = 42B933311DFAEEE300514B73 /* TabBarIcons */; };
-		42B933691DFAEEF400514B73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42B933341DFAEEF300514B73 /* Assets.xcassets */; };
 		42B9336A1DFAEEF400514B73 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 42B933351DFAEEF300514B73 /* Base.lproj */; };
 		42B9336B1DFAEEF400514B73 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933361DFAEEF300514B73 /* Calendar.swift */; };
 		42B9336C1DFAEEF400514B73 /* CalendarDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933371DFAEEF300514B73 /* CalendarDateView.swift */; };
@@ -576,7 +575,6 @@
 				42B933C51DFB022B00514B73 /* pin-green.png in Resources */,
 				42B933991DFAEEF400514B73 /* Settings.storyboard in Resources */,
 				1B5E11031E27C51D0038A33C /* email-icon.png in Resources */,
-				42B933691DFAEEF400514B73 /* Assets.xcassets in Resources */,
 				42B933A21DFAEF1B00514B73 /* Calendar.storyboard in Resources */,
 				42B933761DFAEEF400514B73 /* DateCell.xib in Resources */,
 				461118581E4231CF005AA3A9 /* image2.jpg in Resources */,
@@ -858,6 +856,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -908,6 +907,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -937,6 +937,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A8A1980D33A0CDF1093BA0BB /* Pods-Pattonville-School-District-App.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = ZPVDW8LQL8;
@@ -955,6 +956,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0D8EF0D216F1277F7CB9E3C2 /* Pods-Pattonville-School-District-App.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = ZPVDW8LQL8;
