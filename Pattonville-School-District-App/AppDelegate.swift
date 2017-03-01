@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let news = NewsReel.instance
         let commitString = "committing to switch computers"
-        
+        let pushstring = "pushing"
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         print(launchedBefore)
         if launchedBefore{
