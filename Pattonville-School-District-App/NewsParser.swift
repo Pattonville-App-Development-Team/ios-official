@@ -62,6 +62,7 @@ class NewsParser: NSObject, XMLParserDelegate{
             school = SchoolsArray.getSchoolByName(name: name)
         }
         
+        
     }
     
     /// When the parser is between start and end XML tags
@@ -74,7 +75,21 @@ class NewsParser: NSObject, XMLParserDelegate{
         if element == "title"{
             articleTitle = string
         }else if element == "pubDate"{
-            articleDate = string
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "EEE, dd MMM yyyy kk:mm:ss Z"
+            
+            var dateComponent = DateComponents()
+            dateComponent.year = -1
+            
+            let lastYear = NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: Date(), options: [])
+            
+            if formatter.date(from: string)! < lastYear!{
+                parser.abortParsing()
+            }else{
+                articleDate = string
+            }
+            
         }else if element == "link"{
             articleURL = string
         }else if element == "guid"{
@@ -121,22 +136,20 @@ class NewsParser: NSObject, XMLParserDelegate{
     ///
     /// - completionHandler: function to undertake after completeing background tasks
     ///
-    func getDataInBackground(completionHandler: (() -> Void)?){
+    func getDataInBackground(beforeStartHandler: (() -> Void)?, onCompletionHandler: (() -> Void)?){
         
         DispatchQueue.global(qos: .background).async {
             
-            for school in self.schools{
+            DispatchQueue.main.async {
+                beforeStartHandler?()
+            }
+            
+            for school in SchoolsArray.getSubscribedSchools(){
                 
                 self.beginParseing(url: URL(string: school.newsURL)!)
                 
-                self.news.allNews = self.news.allNews.filter({
-                    return SchoolsArray.getSubscribedSchools().contains($0.school)
-                }).sorted(by: {
-                    $0.date > $1.date
-                })
-                
                 DispatchQueue.main.async {
-                    completionHandler?()
+                    onCompletionHandler?()
                 }
                 
             }
