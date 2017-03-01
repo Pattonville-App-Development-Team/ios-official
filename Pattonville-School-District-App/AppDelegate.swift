@@ -22,28 +22,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// - Returns: true
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
-        var initialViewController = UIViewController()
-        
-        self.window?.rootViewController = initialViewController
-        
-        self.window?.makeKeyAndVisible()
+       
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        
         if launchedBefore{
             
             for school in SchoolsArray.allSchools{
                 school.isSubscribedTo = UserDefaults.standard.bool(forKey: school.name)
             }
-            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "PSDViewController") as! PSDViewController
+            
             SchoolsEnum.district.isSubscribedTo = true
     
             
         
         } else {
             print("First launch, setting UserDefault.")
-            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "MoreViewController") as! MoreViewController
+            
             
             
         }
@@ -53,20 +46,108 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        print("App delegate did finish launcing entry")
         // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        //let mainStoryboard: UIStoryboard = UIStoryboard(name: "UINavigationController", bundle: Bundle.main)
+        let initialViewController = UITabBarController()
+        
+        
+        self.window?.rootViewController = initialViewController
         
         let calendar = Calendar.instance
+        
         let news = NewsReel.instance
+        let commitString = "committing to switch computers"
         
-        let navBarController = window!.rootViewController as! UITabBarController
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        print(launchedBefore)
+        if launchedBefore{
+            /*let mainStoryboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+            initialViewController: UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "PSDViewController") as! PSDViewController*/
+            print("did finish launching, if launched before method, if clause")
+            let navBarController = window!.rootViewController as! UITabBarController
+            print("navBarController")
+            let navHomeController = navBarController.viewControllers?[0] as! UINavigationController
+            let homeController = navHomeController.topViewController as! PSDViewController
+            
+            
+            let navNewsController = navBarController.viewControllers?[1] as! UINavigationController
+            let newsController = navNewsController.topViewController as! NewsViewController
+            
+            let navCalController = navBarController.viewControllers?[2] as! UINavigationController
+            let calendarController = navCalController.topViewController as! CalendarViewController
+            
+            homeController.news = news
+            homeController.calendar = calendar
+            newsController.news = news
+            calendarController.calendar = calendar
+            calendarController.selectedDate = Date()
+            
+            calendar.getEvents(completionHandler: {
+                homeController.calendar = calendar
+                calendarController.calendar = calendar
+            })
+            
+            news.getNews(beforeStartHandler: nil, onCompletionHandler: {
+                homeController.news = news
+                newsController.news = news
+            })
+            UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
+        }
+        else{
+            print("did finish launching, if launched before method, else clause at beginning of code")
+            let nav = self.window?.rootViewController as! UITabBarController
+            print(nav)
+            let storyBoard = UIStoryboard(name: "More", bundle: nil)
+            nav.present(storyBoard.instantiateViewController(withIdentifier: "MoreViewController") as! MoreViewController, animated: false)
+           /* let mainStoryboard: UIStoryboard = UIStoryboard(name: "More", bundle: nil)
+            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "MoreViewController") as! MoreViewController*/
+            /*let navBarController = window!.rootViewController as! UINavigationController
+            
+            let navHomeController = navBarController.viewControllers[0] as! UINavigationController
+            let homeController = navHomeController.topViewController as! PSDViewController
+            
+            let navNewsController = navBarController.viewControllers[1] as! UINavigationController
+            let newsController = navNewsController.topViewController as! NewsViewController
+            
+            let navCalController = navBarController.viewControllers[2] as! UINavigationController
+            let calendarController = navCalController.topViewController as! CalendarViewController
+            
+            homeController.news = news
+            homeController.calendar = calendar
+            newsController.news = news
+            calendarController.calendar = calendar
+            calendarController.selectedDate = Date()
+            
+            calendar.getEvents(completionHandler: {
+                homeController.calendar = calendar
+                calendarController.calendar = calendar
+            })
+            
+            news.getNews(beforeStartHandler: nil, onCompletionHandler: {
+                homeController.news = news
+                newsController.news = news
+            })*/
+
+            print("did finish launching, if launched before method, else clause at end of code")
+            self.window?.makeKeyAndVisible()
+        }
         
-        let navHomeController = navBarController.viewControllers![0] as! UINavigationController
+        /*let calendar = Calendar.instance
+        
+        let news = NewsReel.instance*/
+        
+        /*let navBarController = window!.rootViewController as! UINavigationController
+        
+        let navHomeController = navBarController.viewControllers[0] as! UINavigationController
         let homeController = navHomeController.topViewController as! PSDViewController
         
-        let navNewsController = navBarController.viewControllers![1] as! UINavigationController
+        let navNewsController = navBarController.viewControllers[1] as! UINavigationController
         let newsController = navNewsController.topViewController as! NewsViewController
         
-        let navCalController = navBarController.viewControllers![2] as! UINavigationController
+        let navCalController = navBarController.viewControllers[2] as! UINavigationController
         let calendarController = navCalController.topViewController as! CalendarViewController
         
         homeController.news = news
@@ -84,8 +165,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             homeController.news = news
             newsController.news = news
         })
-        
-        UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
+        */
+        /*UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)*/
       
         return true
     }
