@@ -50,7 +50,7 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
 //        let indexOfSchool = SSDViewController.staticSchoolIndex
 //        let currentSchoolShortName = SchoolsArray.allSchools[indexOfSchool!].shortName
 //        staffList = directoryDictionary[currentSchoolShortName]!
-        staffList = directoryDictionary[SchoolsArray.allSchools[SSDViewController.staticSchoolIndex!].shortName]!
+        staffList = directoryDictionary[SchoolsArray.allSchools[SchoolSpecificDirectoryViewController.staticSchoolIndex!].shortName]!
         
         self.navigationController?.isNavigationBarHidden = true
         

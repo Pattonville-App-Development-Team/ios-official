@@ -15,7 +15,7 @@
         <!--School Specific Directory View Controller-->
         <scene sceneID="UpS-op-cKh">
             <objects>
-                <viewController storyboardIdentifier="SchoolSpecificDirectoryViewController" id="sHY-5E-0ja" userLabel="School Specific Directory View Controller" customClass="SSDViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SchoolSpecificDirectoryViewController" id="sHY-5E-0ja" userLabel="School Specific Directory View Controller" customClass="SchoolSpecificDirectoryViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Le-5m-v8a"/>
                         <viewControllerLayoutGuide type="bottom" id="tnM-ZR-b1P"/>
@@ -31,10 +31,10 @@
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalCentering" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="jxy-nc-0ZM">
-                                <rect key="frame" x="279" y="46" width="71" height="106"/>
+                                <rect key="frame" x="279.5" y="46" width="70.5" height="106"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zws-cA-PQj">
-                                        <rect key="frame" x="0.0" y="0.0" width="71" height="14"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="70.5" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="1dj-hw-gmj"/>
                                         </constraints>
@@ -43,7 +43,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEv-Qa-AEs">
-                                        <rect key="frame" x="0.0" y="23" width="71" height="14"/>
+                                        <rect key="frame" x="0.0" y="23" width="70.5" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="DV5-Le-6dE"/>
                                         </constraints>
@@ -52,19 +52,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Main #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mW9-Cv-eJl">
-                                        <rect key="frame" x="0.0" y="46" width="71" height="14"/>
+                                        <rect key="frame" x="0.0" y="46.5" width="70.5" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" text="Attendance #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmK-Fs-o7d">
-                                        <rect key="frame" x="0.0" y="69" width="71" height="14"/>
+                                        <rect key="frame" x="0.0" y="69.5" width="70.5" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Fax #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYB-lc-24A">
-                                        <rect key="frame" x="0.0" y="92" width="71" height="14"/>
+                                        <rect key="frame" x="0.0" y="92.5" width="70.5" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

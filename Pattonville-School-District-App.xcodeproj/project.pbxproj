@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B040D7A1E0E399200D69069 /* SchoolSpecificDirectory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B040D761E0E399200D69069 /* SchoolSpecificDirectory.storyboard */; };
-		1B040D7B1E0E399200D69069 /* SSDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D771E0E399200D69069 /* SSDViewController.swift */; };
+		1B040D7B1E0E399200D69069 /* SchoolSpecificDirectoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D771E0E399200D69069 /* SchoolSpecificDirectoryViewController.swift */; };
 		1B040D7C1E0E399200D69069 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D781E0E399200D69069 /* Directory.swift */; };
 		1B040D7D1E0E399200D69069 /* StaffMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D791E0E399200D69069 /* StaffMember.swift */; };
 		1B06FFE81E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B06FFE71E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift */; };
@@ -112,7 +112,7 @@
 /* Begin PBXFileReference section */
 		0D8EF0D216F1277F7CB9E3C2 /* Pods-Pattonville-School-District-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-App/Pods-Pattonville-School-District-App.release.xcconfig"; sourceTree = "<group>"; };
 		1B040D761E0E399200D69069 /* SchoolSpecificDirectory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SchoolSpecificDirectory.storyboard; sourceTree = "<group>"; };
-		1B040D771E0E399200D69069 /* SSDViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDViewController.swift; sourceTree = "<group>"; };
+		1B040D771E0E399200D69069 /* SchoolSpecificDirectoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolSpecificDirectoryViewController.swift; sourceTree = "<group>"; };
 		1B040D781E0E399200D69069 /* Directory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
 		1B040D791E0E399200D69069 /* StaffMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffMember.swift; sourceTree = "<group>"; };
 		1B06FFE71E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolSpecificDirectoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -435,7 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				1B040D761E0E399200D69069 /* SchoolSpecificDirectory.storyboard */,
-				1B040D771E0E399200D69069 /* SSDViewController.swift */,
+				1B040D771E0E399200D69069 /* SchoolSpecificDirectoryViewController.swift */,
 				1B8333AA1E0391BA00776DBC /* StaffListViewController.swift */,
 				1B06FFE71E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift */,
 			);
@@ -798,7 +798,7 @@
 				42B933871DFAEEF400514B73 /* NewsItem.swift in Sources */,
 				42B933931DFAEEF400514B73 /* School.swift in Sources */,
 				1B040D7C1E0E399200D69069 /* Directory.swift in Sources */,
-				1B040D7B1E0E399200D69069 /* SSDViewController.swift in Sources */,
+				1B040D7B1E0E399200D69069 /* SchoolSpecificDirectoryViewController.swift in Sources */,
 				4BD53EF61E48B74C001CB302 /* PowerSchoolTableViewController.swift in Sources */,
 				42B933971DFAEEF400514B73 /* SelectSchoolsTableCell.swift in Sources */,
 				42B933981DFAEEF400514B73 /* SelectSchoolsTableViewController.swift in Sources */,

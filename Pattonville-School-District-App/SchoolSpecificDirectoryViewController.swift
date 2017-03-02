@@ -1,5 +1,5 @@
 //
-//  SSDViewController.swift
+//  SchoolSpecificDirectoryViewController.swift
 //  Pattonville School District App
 //
 
@@ -10,7 +10,7 @@
 
 import UIKit
 
-class SSDViewController: UIViewController{
+class SchoolSpecificDirectoryViewController: UIViewController{
     
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var location: UILabel!
@@ -28,7 +28,7 @@ class SSDViewController: UIViewController{
     /// Function to display proper information on the School Specific Directory View Controller Scene for the school that was selected in the Directory View Controller Scene
     override func viewDidLoad() {
         super.viewDidLoad()
-        SSDViewController.staticSchoolIndex = indexOfSchool
+        SchoolSpecificDirectoryViewController.staticSchoolIndex = indexOfSchool
         let school = SchoolsArray.allSchools[indexOfSchool]
         navigationItem.title = school.name
         address.text = school.address

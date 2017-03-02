@@ -55,7 +55,7 @@ class DirectoryViewController: UITableViewController {
             
             let row = tableView.indexPathForSelectedRow?.row
             
-            let destination = segue.destination as! SSDViewController
+            let destination = segue.destination as! SchoolSpecificDirectoryViewController
             
             // Sets the variable "indexOfSchool" located in the SSDViewController class equal to "row"
             destination.indexOfSchool = row
