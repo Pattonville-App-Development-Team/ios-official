@@ -36,11 +36,11 @@ class SSDViewController: UIViewController{
         mainNumber.text = "Main: " + school.mainNumber
         attendanceNumber.text = "Attendance: " + school.attendanceNumber
         faxNumber.text = "Fax: " + school.faxNumber
-        if school.schoolPicture == "PSDLogo.jpg" {
-            schoolPicture.contentMode = UIViewContentMode.scaleAspectFill
-        } else {
-            schoolPicture.contentMode = UIViewContentMode.scaleAspectFit
-        }
+//        if school.schoolPicture == "PSDLogo.jpg" {
+//            schoolPicture.contentMode = UIViewContentMode.scaleAspectFill
+//        } else {
+//            schoolPicture.contentMode = UIViewContentMode.scaleAspectFit
+//        }
         schoolPicture.image = UIImage(named: school.schoolPicture)
         print("School Image Not Displayed")
         
