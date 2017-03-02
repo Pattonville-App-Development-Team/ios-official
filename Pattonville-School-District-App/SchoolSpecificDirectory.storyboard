@@ -94,6 +94,10 @@
                             <constraint firstItem="bng-N1-qBO" firstAttribute="leading" secondItem="vZV-rc-Q1p" secondAttribute="leadingMargin" id="xef-Po-qLz"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="School Name" id="Tnc-j8-QJv">
+                        <barButtonItem key="backBarButtonItem" title="&quot;&quot;" id="2Ty-QJ-Lcc"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="address" destination="zws-cA-PQj" id="5rB-6d-I5Z"/>

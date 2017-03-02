@@ -46,6 +46,9 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Directory" id="szQ-zi-DDL">
+                        <barButtonItem key="backBarButtonItem" title=" " id="mtk-Vf-9ZM"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e34-Bw-MFR" userLabel="First Responder" sceneMemberID="firstResponder"/>
