@@ -33,10 +33,16 @@ class SSDViewController: UIViewController{
         navigationItem.title = school.name
         address.text = school.address
         location.text = school.city + ", " + school.state + " " + school.zip
-        mainNumber.text = "Main - " + school.mainNumber
-        attendanceNumber.text = "Attendance - " + school.attendanceNumber
-        faxNumber.text = "Fax - " + school.faxNumber
+        mainNumber.text = "Main: " + school.mainNumber
+        attendanceNumber.text = "Attendance: " + school.attendanceNumber
+        faxNumber.text = "Fax: " + school.faxNumber
+        if school.schoolPicture == "PSDLogo.jpg" {
+            schoolPicture.contentMode = UIViewContentMode.scaleAspectFill
+        } else {
+            schoolPicture.contentMode = UIViewContentMode.scaleAspectFit
+        }
         schoolPicture.image = UIImage(named: school.schoolPicture)
+        print("School Image Not Displayed")
         
     }
 }

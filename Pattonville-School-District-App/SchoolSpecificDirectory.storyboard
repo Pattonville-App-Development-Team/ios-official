@@ -30,12 +30,6 @@
                                     <segue destination="yEb-Ni-OgK" kind="embed" identifier="SchoolSpecificDirectoryTableViewSegue" id="U49-mI-wnu"/>
                                 </connections>
                             </containerView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bng-N1-qBO">
-                                <rect key="frame" x="27" y="68" width="135" height="76"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="bng-N1-qBO" secondAttribute="height" multiplier="76:43" id="Euf-VG-O77"/>
-                                </constraints>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalCentering" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="jxy-nc-0ZM">
                                 <rect key="frame" x="279.5" y="46" width="70.5" height="106"/>
                                 <subviews>
@@ -80,18 +74,24 @@
                                     <constraint firstAttribute="height" constant="106" id="s22-eU-Ivs"/>
                                 </constraints>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PSDLogo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bng-N1-qBO">
+                                <rect key="frame" x="16" y="61" width="135" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bng-N1-qBO" secondAttribute="height" multiplier="1.76744" id="Euf-VG-O77"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="bng-N1-qBO" firstAttribute="centerY" secondItem="jxy-nc-0ZM" secondAttribute="centerY" id="HNG-gw-cjW"/>
                             <constraint firstAttribute="trailing" secondItem="3pE-6Z-Ugy" secondAttribute="trailing" id="JCZ-M0-uYP"/>
                             <constraint firstItem="bng-N1-qBO" firstAttribute="width" secondItem="vZV-rc-Q1p" secondAttribute="width" multiplier="0.36" id="Wds-mG-PmW"/>
                             <constraint firstItem="jxy-nc-0ZM" firstAttribute="top" secondItem="5Le-5m-v8a" secondAttribute="bottom" constant="26" id="bYQ-qv-dll"/>
                             <constraint firstAttribute="bottomMargin" secondItem="3pE-6Z-Ugy" secondAttribute="bottom" constant="43" id="iTz-hR-klD"/>
-                            <constraint firstItem="3pE-6Z-Ugy" firstAttribute="top" secondItem="bng-N1-qBO" secondAttribute="bottom" constant="23" id="igs-2y-nmu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jxy-nc-0ZM" secondAttribute="trailing" constant="9" id="j3N-ic-s7h"/>
                             <constraint firstItem="3pE-6Z-Ugy" firstAttribute="top" secondItem="jxy-nc-0ZM" secondAttribute="bottom" constant="15" id="jlM-jA-5s0"/>
                             <constraint firstItem="3pE-6Z-Ugy" firstAttribute="leading" secondItem="vZV-rc-Q1p" secondAttribute="leading" id="mTg-QW-giL"/>
-                            <constraint firstItem="bng-N1-qBO" firstAttribute="leading" secondItem="vZV-rc-Q1p" secondAttribute="leadingMargin" constant="11" id="rt5-WG-owj"/>
+                            <constraint firstItem="bng-N1-qBO" firstAttribute="leading" secondItem="vZV-rc-Q1p" secondAttribute="leadingMargin" id="xef-Po-qLz"/>
                         </constraints>
                     </view>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -121,7 +121,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iqY-ZW-UMq" id="SzD-mC-LZZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teacher Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qo-WA-mKb">
@@ -136,33 +136,38 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgP-fa-Hmq">
-                                            <rect key="frame" x="341" y="11" width="25" height="25"/>
-                                            <state key="normal" title="" image="email-icon.png"/>
-                                            <connections>
-                                                <action selector="sendEmailButton:" destination="slO-Xc-K0z" eventType="touchUpInside" id="ESc-5X-U8g"/>
-                                            </connections>
-                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ext." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdT-w7-Cnz">
-                                            <rect key="frame" x="231" y="8" width="100" height="27"/>
+                                            <rect key="frame" x="231" y="8" width="70" height="27"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="gGr-1I-NLO"/>
+                                                <constraint firstAttribute="width" constant="70" id="gGr-1I-NLO"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgP-fa-Hmq">
+                                            <rect key="frame" x="305" y="13" width="70" height="22"/>
+                                            <rect key="contentStretch" x="0.0" y="0.29999999999999999" width="1" height="1"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="70" id="pqY-cP-ubf"/>
+                                            </constraints>
+                                            <state key="normal" title="" image="email-icon.png"/>
+                                            <connections>
+                                                <action selector="sendEmailButton:" destination="slO-Xc-K0z" eventType="touchUpInside" id="ESc-5X-U8g"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="sgP-fa-Hmq" firstAttribute="centerY" secondItem="SzD-mC-LZZ" secondAttribute="centerY" constant="1.25" id="5L9-2i-3DQ"/>
+                                        <constraint firstItem="sgP-fa-Hmq" firstAttribute="leading" secondItem="jdT-w7-Cnz" secondAttribute="trailing" constant="4" id="7LK-L1-0SI"/>
                                         <constraint firstItem="jdT-w7-Cnz" firstAttribute="bottom" secondItem="SzD-mC-LZZ" secondAttribute="bottomMargin" id="F2a-4j-b80"/>
                                         <constraint firstItem="iHj-sn-lAe" firstAttribute="leading" secondItem="SzD-mC-LZZ" secondAttribute="leadingMargin" constant="20" id="LFo-HA-dQp"/>
+                                        <constraint firstItem="sgP-fa-Hmq" firstAttribute="centerY" secondItem="SzD-mC-LZZ" secondAttribute="centerY" constant="2.5" id="Lqm-q9-7Vo"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="5qo-WA-mKb" secondAttribute="leading" constant="-10" id="N6M-Ld-Qr7"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="sgP-fa-Hmq" secondAttribute="trailing" constant="1" id="OPk-Zm-uRq"/>
+                                        <constraint firstAttribute="trailing" secondItem="sgP-fa-Hmq" secondAttribute="trailing" id="PEO-0N-drN"/>
                                         <constraint firstItem="5qo-WA-mKb" firstAttribute="top" secondItem="SzD-mC-LZZ" secondAttribute="topMargin" constant="-5" id="SC4-Jz-tHY"/>
                                         <constraint firstItem="jdT-w7-Cnz" firstAttribute="top" secondItem="SzD-mC-LZZ" secondAttribute="topMargin" id="UcB-B4-tXD"/>
+                                        <constraint firstItem="sgP-fa-Hmq" firstAttribute="bottom" secondItem="jdT-w7-Cnz" secondAttribute="bottom" id="nhe-b7-OqF"/>
                                         <constraint firstItem="iHj-sn-lAe" firstAttribute="top" secondItem="5qo-WA-mKb" secondAttribute="bottom" constant="3" id="txI-PE-m85"/>
-                                        <constraint firstItem="sgP-fa-Hmq" firstAttribute="leading" secondItem="jdT-w7-Cnz" secondAttribute="trailing" constant="10" id="uai-zR-twv"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -204,6 +209,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="PSDLogo.jpg" width="381" height="424"/>
         <image name="email-icon.png" width="25" height="25"/>
     </resources>
 </document>

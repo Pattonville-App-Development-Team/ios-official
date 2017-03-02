@@ -12,6 +12,17 @@
 		1B040D7C1E0E399200D69069 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D781E0E399200D69069 /* Directory.swift */; };
 		1B040D7D1E0E399200D69069 /* StaffMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D791E0E399200D69069 /* StaffMember.swift */; };
 		1B06FFE81E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B06FFE71E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift */; };
+		1B2B7CB91E67B73E0007183B /* Bridgeway.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CAF1E67B73E0007183B /* Bridgeway.jpg */; };
+		1B2B7CBA1E67B73E0007183B /* Drummond.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CB01E67B73E0007183B /* Drummond.jpg */; };
+		1B2B7CBB1E67B73E0007183B /* Heights.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CB11E67B73E0007183B /* Heights.jpg */; };
+		1B2B7CBC1E67B73E0007183B /* HighSchool.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CB21E67B73E0007183B /* HighSchool.jpg */; };
+		1B2B7CBD1E67B73E0007183B /* Holman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CB31E67B73E0007183B /* Holman.jpg */; };
+		1B2B7CBE1E67B73E0007183B /* LearningCenter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CB41E67B73E0007183B /* LearningCenter.jpg */; };
+		1B2B7CBF1E67B73E0007183B /* Parkwood.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CB51E67B73E0007183B /* Parkwood.jpg */; };
+		1B2B7CC01E67B73E0007183B /* Remington.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CB61E67B73E0007183B /* Remington.jpg */; };
+		1B2B7CC11E67B73E0007183B /* RoseAcres.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CB71E67B73E0007183B /* RoseAcres.jpg */; };
+		1B2B7CC21E67B73E0007183B /* WillowBrook.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CB81E67B73E0007183B /* WillowBrook.jpg */; };
+		1B2B7CC41E67BDA70007183B /* PSDLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CC31E67BDA70007183B /* PSDLogo.jpg */; };
 		1B5E11031E27C51D0038A33C /* email-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B5E11021E27C51D0038A33C /* email-icon.png */; };
 		1B6906041E5DDE0F00C1EA6B /* Student_Directory.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1B6906031E5DDE0F00C1EA6B /* Student_Directory.csv */; };
 		1B8333AB1E0391BA00776DBC /* StaffListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8333AA1E0391BA00776DBC /* StaffListViewController.swift */; };
@@ -105,6 +116,17 @@
 		1B040D781E0E399200D69069 /* Directory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
 		1B040D791E0E399200D69069 /* StaffMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffMember.swift; sourceTree = "<group>"; };
 		1B06FFE71E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolSpecificDirectoryTableViewCell.swift; sourceTree = "<group>"; };
+		1B2B7CAF1E67B73E0007183B /* Bridgeway.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Bridgeway.jpg; sourceTree = "<group>"; };
+		1B2B7CB01E67B73E0007183B /* Drummond.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Drummond.jpg; sourceTree = "<group>"; };
+		1B2B7CB11E67B73E0007183B /* Heights.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Heights.jpg; sourceTree = "<group>"; };
+		1B2B7CB21E67B73E0007183B /* HighSchool.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HighSchool.jpg; sourceTree = "<group>"; };
+		1B2B7CB31E67B73E0007183B /* Holman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Holman.jpg; sourceTree = "<group>"; };
+		1B2B7CB41E67B73E0007183B /* LearningCenter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LearningCenter.jpg; sourceTree = "<group>"; };
+		1B2B7CB51E67B73E0007183B /* Parkwood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Parkwood.jpg; sourceTree = "<group>"; };
+		1B2B7CB61E67B73E0007183B /* Remington.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Remington.jpg; sourceTree = "<group>"; };
+		1B2B7CB71E67B73E0007183B /* RoseAcres.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RoseAcres.jpg; sourceTree = "<group>"; };
+		1B2B7CB81E67B73E0007183B /* WillowBrook.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WillowBrook.jpg; sourceTree = "<group>"; };
+		1B2B7CC31E67BDA70007183B /* PSDLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PSDLogo.jpg; sourceTree = "<group>"; };
 		1B5E11021E27C51D0038A33C /* email-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-icon.png"; sourceTree = "<group>"; };
 		1B6906031E5DDE0F00C1EA6B /* Student_Directory.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Student_Directory.csv; sourceTree = "<group>"; };
 		1B8333AA1E0391BA00776DBC /* StaffListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffListViewController.swift; sourceTree = "<group>"; };
@@ -253,7 +275,6 @@
 		42B933001DFAEDC500514B73 /* Pattonville-School-District-App */ = {
 			isa = PBXGroup;
 			children = (
-				1B6906031E5DDE0F00C1EA6B /* Student_Directory.csv */,
 				1B5E11021E27C51D0038A33C /* email-icon.png */,
 				42617B421E00A61C00BB5992 /* pin-black-1.png */,
 				42B9330F1DFAEDC500514B73 /* Info.plist */,
@@ -354,10 +375,11 @@
 		42B933AA1DFAF7B200514B73 /* DIrectory */ = {
 			isa = PBXGroup;
 			children = (
-				55A31EFE1E01B3660094056E /* School-Specific-Directory */,
+				1B6906031E5DDE0F00C1EA6B /* Student_Directory.csv */,
 				42B933441DFAEEF300514B73 /* Directory.storyboard */,
 				42B933451DFAEEF300514B73 /* DirectoryViewController.swift */,
 				1B040D781E0E399200D69069 /* Directory.swift */,
+				55A31EFE1E01B3660094056E /* School Specific Directory */,
 				55A31F051E01B7FC0094056E /* Staff */,
 			);
 			name = DIrectory;
@@ -391,6 +413,17 @@
 		42B933AD1DFAF83A00514B73 /* Schools */ = {
 			isa = PBXGroup;
 			children = (
+				1B2B7CC31E67BDA70007183B /* PSDLogo.jpg */,
+				1B2B7CAF1E67B73E0007183B /* Bridgeway.jpg */,
+				1B2B7CB01E67B73E0007183B /* Drummond.jpg */,
+				1B2B7CB11E67B73E0007183B /* Heights.jpg */,
+				1B2B7CB21E67B73E0007183B /* HighSchool.jpg */,
+				1B2B7CB31E67B73E0007183B /* Holman.jpg */,
+				1B2B7CB41E67B73E0007183B /* LearningCenter.jpg */,
+				1B2B7CB51E67B73E0007183B /* Parkwood.jpg */,
+				1B2B7CB61E67B73E0007183B /* Remington.jpg */,
+				1B2B7CB71E67B73E0007183B /* RoseAcres.jpg */,
+				1B2B7CB81E67B73E0007183B /* WillowBrook.jpg */,
 				42B9335F1DFAEEF300514B73 /* School.swift */,
 				42B933611DFAEEF400514B73 /* SchoolsArray.swift */,
 				42B933621DFAEEF400514B73 /* SchoolsEnum.swift */,
@@ -398,7 +431,7 @@
 			name = Schools;
 			sourceTree = "<group>";
 		};
-		55A31EFE1E01B3660094056E /* School-Specific-Directory */ = {
+		55A31EFE1E01B3660094056E /* School Specific Directory */ = {
 			isa = PBXGroup;
 			children = (
 				1B040D761E0E399200D69069 /* SchoolSpecificDirectory.storyboard */,
@@ -406,7 +439,7 @@
 				1B8333AA1E0391BA00776DBC /* StaffListViewController.swift */,
 				1B06FFE71E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift */,
 			);
-			name = "School-Specific-Directory";
+			name = "School Specific Directory";
 			sourceTree = "<group>";
 		};
 		55A31F051E01B7FC0094056E /* Staff */ = {
@@ -550,35 +583,46 @@
 				461118591E4231CF005AA3A9 /* image3.jpg in Resources */,
 				4242FC231E3F96D800A43491 /* NewsItemCell.xib in Resources */,
 				42B933821DFAEEF400514B73 /* More.storyboard in Resources */,
+				1B2B7CC11E67B73E0007183B /* RoseAcres.jpg in Resources */,
 				42B9330E1DFAEDC500514B73 /* LaunchScreen.storyboard in Resources */,
 				1B6906041E5DDE0F00C1EA6B /* Student_Directory.csv in Resources */,
+				1B2B7CC41E67BDA70007183B /* PSDLogo.jpg in Resources */,
 				42B933771DFAEEF400514B73 /* DateView.xib in Resources */,
 				4B4299A81E087F7200A202F9 /* 6NutriSliceLinks.storyboard in Resources */,
 				4611185B1E4231CF005AA3A9 /* image5.jpg in Resources */,
 				4B7D26DC1E4A19500097F0E6 /* SelectSchoolsTableViewController.storyboard in Resources */,
 				42B9330B1DFAEDC500514B73 /* Assets.xcassets in Resources */,
+				1B2B7CBF1E67B73E0007183B /* Parkwood.jpg in Resources */,
+				1B2B7CBB1E67B73E0007183B /* Heights.jpg in Resources */,
+				1B2B7CBA1E67B73E0007183B /* Drummond.jpg in Resources */,
 				42B933091DFAEDC500514B73 /* Main.storyboard in Resources */,
+				1B2B7CC21E67B73E0007183B /* WillowBrook.jpg in Resources */,
 				4BFE3B401E427EE300902741 /* CalendarEventDetail.storyboard in Resources */,
 				42B933851DFAEEF400514B73 /* News.storyboard in Resources */,
 				1B040D7A1E0E399200D69069 /* SchoolSpecificDirectory.storyboard in Resources */,
 				4611185A1E4231CF005AA3A9 /* image4.jpg in Resources */,
 				42B933321DFAEEE300514B73 /* TabBarIcons in Resources */,
 				42B9338C1DFAEEF400514B73 /* Peachjar.storyboard in Resources */,
+				1B2B7CC01E67B73E0007183B /* Remington.jpg in Resources */,
 				42B933A31DFAEF1B00514B73 /* Home.storyboard in Resources */,
 				42B9336D1DFAEEF400514B73 /* CalendarEventDetailController.storyboard in Resources */,
 				42B933791DFAEEF400514B73 /* Directory.storyboard in Resources */,
 				42617B431E00A61C00BB5992 /* pin-black-1.png in Resources */,
+				1B2B7CBE1E67B73E0007183B /* LearningCenter.jpg in Resources */,
 				42B933701DFAEEF400514B73 /* CalendarHeaderView.xib in Resources */,
+				1B2B7CBD1E67B73E0007183B /* Holman.jpg in Resources */,
 				42B9336A1DFAEEF400514B73 /* Base.lproj in Resources */,
 				461118571E4231CF005AA3A9 /* image1.jpg in Resources */,
 				4BA99DED1E42EDB700720112 /* NewsDetail.storyboard in Resources */,
 				42B933C51DFB022B00514B73 /* pin-green.png in Resources */,
+				1B2B7CB91E67B73E0007183B /* Bridgeway.jpg in Resources */,
 				42B933991DFAEEF400514B73 /* Settings.storyboard in Resources */,
 				1B5E11031E27C51D0038A33C /* email-icon.png in Resources */,
 				42B933A21DFAEF1B00514B73 /* Calendar.storyboard in Resources */,
 				42B933761DFAEEF400514B73 /* DateCell.xib in Resources */,
 				461118581E4231CF005AA3A9 /* image2.jpg in Resources */,
 				4BD53EF41E48B6EE001CB302 /* PowerSchoolTableViewController.storyboard in Resources */,
+				1B2B7CBC1E67B73E0007183B /* HighSchool.jpg in Resources */,
 				461118561E4231CF005AA3A9 /* image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

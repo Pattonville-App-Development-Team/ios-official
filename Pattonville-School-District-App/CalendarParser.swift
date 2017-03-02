@@ -43,7 +43,7 @@ class CalendarParser{
                     
                 }, onError: {
                     (error) -> Void in
-                    print(error ?? "Error")
+//                    print(error ?? "Error")
                 })
             }
             

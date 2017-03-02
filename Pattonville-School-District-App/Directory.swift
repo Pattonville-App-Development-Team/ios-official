@@ -35,7 +35,7 @@ class Directory {
         do {
             return try String(contentsOfFile: filepath, encoding: String.Encoding.utf8)
         } catch {
-            print("File Read Error for file \(filepath)")
+//            print("File Read Error for file \(filepath)")
             return nil
         }
     }
