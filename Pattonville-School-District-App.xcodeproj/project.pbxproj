@@ -237,6 +237,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B2B7CC51E67EBA10007183B /* School Directory Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				1B2B7CC31E67BDA70007183B /* PSDLogo.jpg */,
+				1B2B7CAF1E67B73E0007183B /* Bridgeway.jpg */,
+				1B2B7CB01E67B73E0007183B /* Drummond.jpg */,
+				1B2B7CB11E67B73E0007183B /* Heights.jpg */,
+				1B2B7CB21E67B73E0007183B /* HighSchool.jpg */,
+				1B2B7CB31E67B73E0007183B /* Holman.jpg */,
+				1B2B7CB41E67B73E0007183B /* LearningCenter.jpg */,
+				1B2B7CB51E67B73E0007183B /* Parkwood.jpg */,
+				1B2B7CB61E67B73E0007183B /* Remington.jpg */,
+				1B2B7CB71E67B73E0007183B /* RoseAcres.jpg */,
+				1B2B7CB81E67B73E0007183B /* WillowBrook.jpg */,
+			);
+			name = "School Directory Pictures";
+			sourceTree = "<group>";
+		};
 		4128AC5829BDE29EE11F7F82 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,17 +431,7 @@
 		42B933AD1DFAF83A00514B73 /* Schools */ = {
 			isa = PBXGroup;
 			children = (
-				1B2B7CC31E67BDA70007183B /* PSDLogo.jpg */,
-				1B2B7CAF1E67B73E0007183B /* Bridgeway.jpg */,
-				1B2B7CB01E67B73E0007183B /* Drummond.jpg */,
-				1B2B7CB11E67B73E0007183B /* Heights.jpg */,
-				1B2B7CB21E67B73E0007183B /* HighSchool.jpg */,
-				1B2B7CB31E67B73E0007183B /* Holman.jpg */,
-				1B2B7CB41E67B73E0007183B /* LearningCenter.jpg */,
-				1B2B7CB51E67B73E0007183B /* Parkwood.jpg */,
-				1B2B7CB61E67B73E0007183B /* Remington.jpg */,
-				1B2B7CB71E67B73E0007183B /* RoseAcres.jpg */,
-				1B2B7CB81E67B73E0007183B /* WillowBrook.jpg */,
+				1B2B7CC51E67EBA10007183B /* School Directory Pictures */,
 				42B9335F1DFAEEF300514B73 /* School.swift */,
 				42B933611DFAEEF400514B73 /* SchoolsArray.swift */,
 				42B933621DFAEEF400514B73 /* SchoolsEnum.swift */,
