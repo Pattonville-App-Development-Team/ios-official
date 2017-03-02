@@ -42,7 +42,6 @@ class SchoolSpecificDirectoryViewController: UIViewController{
 //            schoolPicture.contentMode = UIViewContentMode.scaleAspectFit
 //        }
         schoolPicture.image = UIImage(named: school.schoolPicture)
-        print("School Image Not Displayed")
         
     }
 }

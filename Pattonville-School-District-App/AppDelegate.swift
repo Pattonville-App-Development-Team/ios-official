@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             SchoolsEnum.district.isSubscribedTo = true
         
         } else {
-//            print("First launch, setting UserDefault.")
+            print("First launch, setting UserDefault.")
             
             
            
