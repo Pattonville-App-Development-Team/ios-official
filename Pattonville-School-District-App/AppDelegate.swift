@@ -48,19 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         print("App delegate did finish launcing entry")
         // Override point for customization after application launch.
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        
-        //let mainStoryboard: UIStoryboard = UIStoryboard(name: "UINavigationController", bundle: Bundle.main)
-        let initialViewController = UITabBarController()
-        
-        
-        self.window?.rootViewController = initialViewController
-        
-        let calendar = Calendar.instance
+                let calendar = Calendar.instance
         
         let news = NewsReel.instance
-        let commitString = "committing to switch computers"
-        let pushstring = "pushing"
+    
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         print(launchedBefore)
         if launchedBefore{
@@ -98,13 +89,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         else{
             print("did finish launching, if launched before method, else clause at beginning of code")
-            let nav = self.window?.rootViewController as! UITabBarController
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            
+            //let mainStoryboard: UIStoryboard = UIStoryboard(name: "UINavigationController", bundle: Bundle.main)
+            let initialViewController = UINavigationController()
+            
+            
+            self.window?.rootViewController = initialViewController
+            
+
+            let nav = self.window?.rootViewController as! UINavigationController
             print(nav)
-            let storyBoard = UIStoryboard(name: "More", bundle: nil)
-            nav.present(storyBoard.instantiateViewController(withIdentifier: "MoreViewController") as! MoreViewController, animated: false)
-           /* let mainStoryboard: UIStoryboard = UIStoryboard(name: "More", bundle: nil)
-            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "MoreViewController") as! MoreViewController*/
-            /*let navBarController = window!.rootViewController as! UINavigationController
+            let storyBoard = UIStoryboard(name: "WalkThrough", bundle: nil)
+            nav.pushViewController(storyBoard.instantiateViewController(withIdentifier: "WalkThrough") as! UIPageViewController, animated: false)
+            /*let mainStoryboard: UIStoryboard = UIStoryboard(name: "More", bundle: nil)
+            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "WalkThrough") as! UIPageViewController*/
+            /*let navBarController = window!
+             rootViewController as! UINavigationController
             
             let navHomeController = navBarController.viewControllers[0] as! UINavigationController
             let homeController = navHomeController.topViewController as! PSDViewController
