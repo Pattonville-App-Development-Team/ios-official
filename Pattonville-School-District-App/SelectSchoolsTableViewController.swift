@@ -55,16 +55,25 @@ class SelectSchoolsTableViewController: UITableViewController{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SelectSchoolsCell",
                                                  for: indexPath) as! SelectSchoolsTableCell
-        
-        let school = SchoolsArray.getSchools()[indexPath.row]
-        cell.schoolNameLabel.text = school.name
-        cell.schoolColorView.backgroundColor = school.color
-        cell.schoolEnabledSwitch.setOn(school.isSubscribedTo, animated: false)
-        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        setUpSelectSchoolsCell(row: indexPath.row, selectSchoolCell: cell)
         cell.schoolEnabledSwitch.tag = indexPath.row;
         cell.schoolEnabledSwitch.addTarget(self, action: #selector(SelectSchoolsTableViewController.switchIsChanged(sender:)), for: UIControlEvents.valueChanged)
-        
         return cell
+        
+    }
+    
+    /// The method to set up the visuals of the selectSchoolTableCell
+    ///
+    /// - Parameters:
+    ///   - row: The row that the cell is being set in
+    ///   - selectSchoolCell: the actual cell being set up
+    func setUpSelectSchoolsCell(row: Int, selectSchoolCell: SelectSchoolsTableCell){
+    
+        let school = SchoolsArray.getSchools()[row]
+        selectSchoolCell.schoolNameLabel.text = school.name
+        selectSchoolCell.schoolColorView.backgroundColor = school.color
+        selectSchoolCell.schoolEnabledSwitch.setOn(school.isSubscribedTo, animated: false)
+        selectSchoolCell.selectionStyle = UITableViewCellSelectionStyle.none
         
     }
     
@@ -76,6 +85,11 @@ class SelectSchoolsTableViewController: UITableViewController{
         school.isSubscribedTo = !school.isSubscribedTo
         
         UserDefaults.standard.set(school.isSubscribedTo, forKey: school.name)
+        print("Saved \(school.name)'s isSubscribedTo bool val to \(UserDefaults.standard.bool(forKey: school.name))")
+        for school in SchoolsArray.allSchools {
+            print(school.isSubscribedTo)
+            
+        }
         
     }
     
