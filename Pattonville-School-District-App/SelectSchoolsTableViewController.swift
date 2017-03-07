@@ -13,8 +13,10 @@ class SelectSchoolsTableViewController: UITableViewController{
     /// Set up how the tableView appears on screen
     override func viewDidLoad() {
         super.viewDidLoad()
+        tutorialSelectSchoolsTableViewCotroller()
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
+        
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
         
@@ -62,6 +64,19 @@ class SelectSchoolsTableViewController: UITableViewController{
         
     }
     
+    /// Method used to set the Done button on the selectSchoolsTableViewController the first time the application is opened
+    func tutorialSelectSchoolsTableViewCotroller(){
+        let selectSchoolsOpenedBefore = UserDefaults.standard.bool(forKey: "selectSchoolsOpenedBefore")
+        if !selectSchoolsOpenedBefore{
+            let rightNavigationBarDoneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector (SelectSchoolsTableViewController.goToHomeViewController(_:)))
+            
+            
+            self.navigationItem.rightBarButtonItem = rightNavigationBarDoneButton
+            UserDefaults.standard.set(true, forKey: "selectSchoolsOpenedBefore")
+        }
+    }
+    
+    
     /// The method to set up the visuals of the selectSchoolTableCell
     ///
     /// - Parameters:
@@ -74,9 +89,15 @@ class SelectSchoolsTableViewController: UITableViewController{
         selectSchoolCell.schoolColorView.backgroundColor = school.color
         selectSchoolCell.schoolEnabledSwitch.setOn(school.isSubscribedTo, animated: false)
         selectSchoolCell.selectionStyle = UITableViewCellSelectionStyle.none
-        
+        //SelectSchoolsToHome
     }
     
+    func goToHomeViewController(_ sender: UIBarButtonItem){
+        let vc = UIStoryboard(name:"Home", bundle:nil).instantiateViewController(withIdentifier: "PSDViewController") as! PSDViewController
+        
+        self.navigationController?.pushViewController(vc, animated:true)
+        
+    }
     /// The method that activates when the schoolEnabledSwithc is activated in SelectSchoolsTableView. Gets the school from the tableVeiw cellForRowAt method with the tag and then sets the School's isSubscribedTo value to the opposite of its current value. Then saves the data using UserDefaults and the key of the school name.
     ///
     /// - Parameter sender: The school selescted switch

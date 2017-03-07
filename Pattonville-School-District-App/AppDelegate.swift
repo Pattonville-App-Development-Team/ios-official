@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         print("App delegate did finish launcing entry")
         // Override point for customization after application launch.
-                let calendar = Calendar.instance
+        let calendar = Calendar.instance
         
         let news = NewsReel.instance
     
@@ -100,8 +100,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             let nav = self.window?.rootViewController as! UINavigationController
             print(nav)
-            let storyBoard = UIStoryboard(name: "WalkThrough", bundle: nil)
-            nav.pushViewController(storyBoard.instantiateViewController(withIdentifier: "WalkThrough") as! UIPageViewController, animated: false)
+            let storyBoard = UIStoryboard(name: "SelectSchoolsTableViewController", bundle: nil)
+            nav.pushViewController(storyBoard.instantiateViewController(withIdentifier: "SelectSchoolsController") as! SelectSchoolsTableViewController, animated: false)
             /*let mainStoryboard: UIStoryboard = UIStoryboard(name: "More", bundle: nil)
             initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "WalkThrough") as! UIPageViewController*/
             /*let navBarController = window!
