@@ -39,6 +39,39 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
         }
     }
     
+    @IBAction func callStaffMember(_ sender: UIButton) {
+        
+        if filteredStaffList.count > 0 {
+            self.staffMember = filteredStaffList[sender.tag]
+        } else {
+            self.staffMember = staffList[sender.tag]
+        }
+        
+        let strPhoneNumber = "314-213-8010," + self.staffMember.ext1
+        let staffName = self.staffMember.fName + " " + self.staffMember.lName
+        
+        if let phoneCallURL:URL = URL(string: "tel:\(strPhoneNumber)") {
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                let alertController = UIAlertController(title: "Call", message: "Are you sure you want to call \n\(staffName)", preferredStyle: .alert)
+                let yesPressed = UIAlertAction(title: "Call", style: .default, handler: { (action) in
+                    if #available(iOS 10.0, *) {
+                        application.open(phoneCallURL, options: [:], completionHandler: nil)
+                    } else {
+                        // Fallback on earlier versions
+                    }
+                })
+                let noPressed = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+                
+                })
+                alertController.addAction(noPressed)
+                alertController.addAction(yesPressed)
+                present(alertController, animated: true, completion: nil)
+            }
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,9 +80,6 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
             directoryDictionary[school] = directoryDictionary[school]?.sorted(by: Directory.sortStaffMembers)
         }
         
-//        let indexOfSchool = SSDViewController.staticSchoolIndex
-//        let currentSchoolShortName = SchoolsArray.allSchools[indexOfSchool!].shortName
-//        staffList = directoryDictionary[currentSchoolShortName]!
         staffList = directoryDictionary[SchoolsArray.allSchools[SchoolSpecificDirectoryViewController.staticSchoolIndex!].shortName]!
         
         self.navigationController?.isNavigationBarHidden = true
@@ -98,12 +128,14 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
         }
         
         cell.selectionStyle = UITableViewCellSelectionStyle.none
-        cell.nameLabel.text = (staffMember.fName + " " + staffMember.lName).capitalized(with: NSLocale.current)
+        cell.nameLabel.text = (staffMember.fName + " " + staffMember.lName)
         cell.departmentLabel.text = staffMember.long_desc.capitalized(with: NSLocale.current)
+//        cell.extButton.contentHorizontalAlignment = .left
         if(staffMember.ext1 != "") {
-            cell.extensionLabel.text = "Ext: " + staffMember.ext1
+            cell.extButton.setTitle("x" + staffMember.ext1, for: .normal)
+            cell.extButton.tag = indexPath.row
         } else {
-            cell.extensionLabel.text = ""
+            cell.extButton.isHidden = true
         }
         cell.emailButton.tag = indexPath.row
         

@@ -57,13 +57,17 @@ class Directory {
                 let staffParams: [String] = line.components(separatedBy: ",")
                 let staffMember = StaffMember(values: staffParams)
                 
-                    // Adds a new key, specifying location, to the directoryDictionary if one is not present
-                    if(Directory.directoryDictionary.index(forKey: staffMember.directoryKey) == nil){
-                        Directory.directoryDictionary[staffMember.directoryKey] = []
-                    }
+                // Changes first and last names to have first letter of the name capitalized and all other letters lowercased
+                staffMember.fName = staffMember.fName.capitalized(with: NSLocale.current)
+                staffMember.lName = staffMember.lName.capitalized(with: NSLocale.current)
                 
-                    // Adds the newly made StaffMember to its respective StaffMember array based on location
-                    Directory.directoryDictionary[staffMember.directoryKey]?.append(staffMember)
+                // Adds a new key, specifying location, to the directoryDictionary if one is not present
+                if(Directory.directoryDictionary.index(forKey: staffMember.directoryKey) == nil){
+                    Directory.directoryDictionary[staffMember.directoryKey] = []
+                }
+                
+                // Adds the newly made StaffMember to its respective StaffMember array based on location
+                Directory.directoryDictionary[staffMember.directoryKey]?.append(staffMember)
     
             }
         }

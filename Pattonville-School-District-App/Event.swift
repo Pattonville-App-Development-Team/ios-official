@@ -76,7 +76,7 @@ class Event: NSObject, NSCoding{
     
     init(mxlEvent: MXLCalendarEvent, school: School){
         
-        print("END DATE: \(mxlEvent.eventEndDate)")
+//        print("END DATE: \(mxlEvent.eventEndDate)")
         
         self.school = school
         
@@ -91,8 +91,8 @@ class Event: NSObject, NSCoding{
         self.start = dateFormatter.date(from: startString)!
         self.end = dateFormatter.date(from: endString)!
         
-        print("START: \(start)")
-        print("END: \(end)")
+//        print("START: \(start)")
+//        print("END: \(end)")
         
         self.dateString = dateFormatter.string(from: mxlEvent.eventStartDate)
         self.timeString = "\(startString) - \(endString)"

@@ -140,17 +140,8 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ext." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdT-w7-Cnz">
-                                            <rect key="frame" x="231" y="8" width="70" height="27"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="70" id="gGr-1I-NLO"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgP-fa-Hmq">
-                                            <rect key="frame" x="305" y="13" width="70" height="22"/>
+                                            <rect key="frame" x="305" y="11.5" width="70" height="25"/>
                                             <rect key="contentStretch" x="0.0" y="0.29999999999999999" width="1" height="1"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="70" id="pqY-cP-ubf"/>
@@ -160,24 +151,32 @@
                                                 <action selector="sendEmailButton:" destination="slO-Xc-K0z" eventType="touchUpInside" id="ESc-5X-U8g"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Py-1g-nEQ">
+                                            <rect key="frame" x="267" y="10" width="30" height="27"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="27" id="P4e-OR-3wk"/>
+                                            </constraints>
+                                            <state key="normal" title="Ext."/>
+                                            <connections>
+                                                <action selector="callStaffMember:" destination="slO-Xc-K0z" eventType="touchUpInside" id="HwX-7J-GaM"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="sgP-fa-Hmq" firstAttribute="leading" secondItem="jdT-w7-Cnz" secondAttribute="trailing" constant="4" id="7LK-L1-0SI"/>
-                                        <constraint firstItem="jdT-w7-Cnz" firstAttribute="bottom" secondItem="SzD-mC-LZZ" secondAttribute="bottomMargin" id="F2a-4j-b80"/>
+                                        <constraint firstItem="0Py-1g-nEQ" firstAttribute="top" secondItem="SzD-mC-LZZ" secondAttribute="topMargin" constant="2" id="9GK-TX-1ze"/>
                                         <constraint firstItem="iHj-sn-lAe" firstAttribute="leading" secondItem="SzD-mC-LZZ" secondAttribute="leadingMargin" constant="20" id="LFo-HA-dQp"/>
                                         <constraint firstItem="sgP-fa-Hmq" firstAttribute="centerY" secondItem="SzD-mC-LZZ" secondAttribute="centerY" constant="2.5" id="Lqm-q9-7Vo"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="5qo-WA-mKb" secondAttribute="leading" constant="-10" id="N6M-Ld-Qr7"/>
+                                        <constraint firstItem="sgP-fa-Hmq" firstAttribute="leading" secondItem="0Py-1g-nEQ" secondAttribute="trailing" constant="8" id="OQc-pJ-zBY"/>
                                         <constraint firstAttribute="trailing" secondItem="sgP-fa-Hmq" secondAttribute="trailing" id="PEO-0N-drN"/>
                                         <constraint firstItem="5qo-WA-mKb" firstAttribute="top" secondItem="SzD-mC-LZZ" secondAttribute="topMargin" constant="-5" id="SC4-Jz-tHY"/>
-                                        <constraint firstItem="jdT-w7-Cnz" firstAttribute="top" secondItem="SzD-mC-LZZ" secondAttribute="topMargin" id="UcB-B4-tXD"/>
-                                        <constraint firstItem="sgP-fa-Hmq" firstAttribute="bottom" secondItem="jdT-w7-Cnz" secondAttribute="bottom" id="nhe-b7-OqF"/>
                                         <constraint firstItem="iHj-sn-lAe" firstAttribute="top" secondItem="5qo-WA-mKb" secondAttribute="bottom" constant="3" id="txI-PE-m85"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="departmentLabel" destination="iHj-sn-lAe" id="NbK-Rq-XTx"/>
                                     <outlet property="emailButton" destination="sgP-fa-Hmq" id="9bm-nP-Mqg"/>
-                                    <outlet property="extensionLabel" destination="jdT-w7-Cnz" id="IS6-tN-CdL"/>
+                                    <outlet property="extButton" destination="0Py-1g-nEQ" id="ZZ4-wr-X0Z"/>
                                     <outlet property="nameLabel" destination="5qo-WA-mKb" id="wDR-7b-hQF"/>
                                 </connections>
                             </tableViewCell>

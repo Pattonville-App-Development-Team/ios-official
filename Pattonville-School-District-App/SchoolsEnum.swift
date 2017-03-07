@@ -196,7 +196,7 @@ class SchoolsEnum {
     ///   - isSubscribedToValue: the bool value to set the Schools isSubsribedTo value equal to
     static func setIsSubscribedToSchoolValue(school: School, isSubscribedToValue: Bool){
         school.isSubscribedTo = isSubscribedToValue
-        print(school.isSubscribedTo)
+//        print(school.isSubscribedTo)
         
     }
     
