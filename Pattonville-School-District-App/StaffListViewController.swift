@@ -47,13 +47,15 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
             self.staffMember = staffList[sender.tag]
         }
         
+        let schoolName = SchoolsArray.allSchools[SchoolSpecificDirectoryViewController.staticSchoolIndex].name
+        
         let strPhoneNumber = "314-213-8010," + self.staffMember.ext1
         let staffName = self.staffMember.fName + " " + self.staffMember.lName
         
         if let phoneCallURL:URL = URL(string: "tel:\(strPhoneNumber)") {
             let application:UIApplication = UIApplication.shared
             if (application.canOpenURL(phoneCallURL)) {
-                let alertController = UIAlertController(title: "Call", message: "Are you sure you want to call \n\(staffName)", preferredStyle: .alert)
+                let alertController = UIAlertController(title: schoolName, message: "Are you sure you want to call \n\(staffName)", preferredStyle: .alert)
                 let yesPressed = UIAlertAction(title: "Call", style: .default, handler: { (action) in
                     if #available(iOS 10.0, *) {
                         application.open(phoneCallURL, options: [:], completionHandler: nil)
@@ -130,7 +132,6 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         cell.nameLabel.text = (staffMember.fName + " " + staffMember.lName)
         cell.departmentLabel.text = staffMember.long_desc.capitalized(with: NSLocale.current)
-//        cell.extButton.contentHorizontalAlignment = .left
         if(staffMember.ext1 != "") {
             cell.extButton.setTitle("x" + staffMember.ext1, for: .normal)
             cell.extButton.tag = indexPath.row

@@ -31,10 +31,10 @@
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalCentering" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="jxy-nc-0ZM">
-                                <rect key="frame" x="279.5" y="46" width="70.5" height="106"/>
+                                <rect key="frame" x="282" y="46" width="68" height="106"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zws-cA-PQj">
-                                        <rect key="frame" x="0.0" y="0.0" width="70.5" height="14"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="68" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="1dj-hw-gmj"/>
                                         </constraints>
@@ -43,7 +43,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEv-Qa-AEs">
-                                        <rect key="frame" x="0.0" y="23" width="70.5" height="14"/>
+                                        <rect key="frame" x="0.0" y="23" width="68" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="DV5-Le-6dE"/>
                                         </constraints>
@@ -51,20 +51,24 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Main #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mW9-Cv-eJl">
-                                        <rect key="frame" x="0.0" y="46.5" width="70.5" height="13.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yhn-5V-NNJ">
+                                        <rect key="frame" x="0.0" y="46" width="68" height="14"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" text="Attendance #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmK-Fs-o7d">
-                                        <rect key="frame" x="0.0" y="69.5" width="70.5" height="13.5"/>
+                                        <state key="normal" title="Main#"/>
+                                        <connections>
+                                            <action selector="callMainNumber:" destination="sHY-5E-0ja" eventType="touchUpInside" id="FCN-tz-qzr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRk-PG-o74">
+                                        <rect key="frame" x="0.0" y="69" width="68" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <state key="normal" title="Attendance#"/>
+                                        <connections>
+                                            <action selector="callAttendanceNumber:" destination="sHY-5E-0ja" eventType="touchUpInside" id="nIR-b0-vcV"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Fax #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYB-lc-24A">
-                                        <rect key="frame" x="0.0" y="92.5" width="70.5" height="13.5"/>
+                                        <rect key="frame" x="0.0" y="92.5" width="68" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -101,10 +105,10 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="address" destination="zws-cA-PQj" id="5rB-6d-I5Z"/>
-                        <outlet property="attendanceNumber" destination="LmK-Fs-o7d" id="Xnw-uN-THF"/>
+                        <outlet property="attendanceNumber" destination="VRk-PG-o74" id="RM5-C8-xzk"/>
                         <outlet property="faxNumber" destination="LYB-lc-24A" id="W7b-aV-Ind"/>
                         <outlet property="location" destination="mEv-Qa-AEs" id="jXF-iO-VO3"/>
-                        <outlet property="mainNumber" destination="mW9-Cv-eJl" id="xyz-h1-w6s"/>
+                        <outlet property="mainNumber" destination="Yhn-5V-NNJ" id="l6e-Ka-Kxa"/>
                         <outlet property="schoolPicture" destination="bng-N1-qBO" id="xs9-Wg-kOT"/>
                     </connections>
                 </viewController>
@@ -141,7 +145,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgP-fa-Hmq">
-                                            <rect key="frame" x="305" y="11.5" width="70" height="25"/>
+                                            <rect key="frame" x="305" y="12" width="70" height="25"/>
                                             <rect key="contentStretch" x="0.0" y="0.29999999999999999" width="1" height="1"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="70" id="pqY-cP-ubf"/>
@@ -151,7 +155,7 @@
                                                 <action selector="sendEmailButton:" destination="slO-Xc-K0z" eventType="touchUpInside" id="ESc-5X-U8g"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Py-1g-nEQ">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Py-1g-nEQ">
                                             <rect key="frame" x="267" y="10" width="30" height="27"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="27" id="P4e-OR-3wk"/>
