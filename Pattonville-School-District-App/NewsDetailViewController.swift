@@ -88,13 +88,16 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
     
     func getHTML(){
         
-        var contentString = "<style> div{font-family: 'Arial' !important; font-size: 36px !important;} img{width: 100% !important; height: auto !important;} tr:first-of-type, tr:last-of-type{display: none !important}</style>";
+        var contentString = "<style> div{font-family: 'Arial' !important; font-size: 0.85em !important;} img{width: 100% !important; height: auto !important;} tr:first-of-type, tr:last-of-type{display: none !important}</style>";
         
         Alamofire.request(news.url).responseString(encoding: .utf8, completionHandler: { response in
             
             if let html = response.result.value{
                 
-                contentString.append(html)
+                print(html)
+                
+                let theHTML = html.replacingOccurrences(of: "font-size:8pt;", with: "font-size: 12pt;")
+                contentString.append(theHTML)
                 contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "")
                 
                 self.news.content = contentString
