@@ -129,7 +129,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iqY-ZW-UMq" id="SzD-mC-LZZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teacher Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qo-WA-mKb">
@@ -139,9 +139,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Department" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHj-sn-lAe">
-                                            <rect key="frame" x="28" y="27" width="63" height="14"/>
+                                            <rect key="frame" x="18" y="27" width="63" height="14"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgP-fa-Hmq">
@@ -168,7 +168,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="0Py-1g-nEQ" firstAttribute="top" secondItem="SzD-mC-LZZ" secondAttribute="topMargin" constant="2" id="9GK-TX-1ze"/>
-                                        <constraint firstItem="iHj-sn-lAe" firstAttribute="leading" secondItem="SzD-mC-LZZ" secondAttribute="leadingMargin" constant="20" id="LFo-HA-dQp"/>
+                                        <constraint firstItem="iHj-sn-lAe" firstAttribute="leading" secondItem="SzD-mC-LZZ" secondAttribute="leadingMargin" constant="10" id="LFo-HA-dQp"/>
                                         <constraint firstItem="sgP-fa-Hmq" firstAttribute="centerY" secondItem="SzD-mC-LZZ" secondAttribute="centerY" constant="2.5" id="Lqm-q9-7Vo"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="5qo-WA-mKb" secondAttribute="leading" constant="-10" id="N6M-Ld-Qr7"/>
                                         <constraint firstItem="sgP-fa-Hmq" firstAttribute="leading" secondItem="0Py-1g-nEQ" secondAttribute="trailing" constant="8" id="OQc-pJ-zBY"/>
