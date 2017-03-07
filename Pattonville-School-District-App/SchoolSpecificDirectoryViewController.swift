@@ -27,13 +27,12 @@ class SchoolSpecificDirectoryViewController: UIViewController{
         
         if let phoneCallURL:URL = URL(string: "tel:\(mainNumber)") {
             let application:UIApplication = UIApplication.shared
-            if (application.canOpenURL(phoneCallURL)) {
                 let alertController = UIAlertController(title: school.name, message: "Are you sure you want to call \n the main office", preferredStyle: .alert)
                 let yesPressed = UIAlertAction(title: "Call", style: .default, handler: { (action) in
                     if #available(iOS 10.0, *) {
                         application.open(phoneCallURL, options: [:], completionHandler: nil)
                     } else {
-                        // Fallback on earlier versions
+                        application.openURL(phoneCallURL)
                     }
                 })
                 let noPressed = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
@@ -42,7 +41,6 @@ class SchoolSpecificDirectoryViewController: UIViewController{
                 alertController.addAction(noPressed)
                 alertController.addAction(yesPressed)
                 present(alertController, animated: true, completion: nil)
-            }
         }
         
     }
@@ -54,13 +52,12 @@ class SchoolSpecificDirectoryViewController: UIViewController{
         
         if let phoneCallURL:URL = URL(string: "tel:\(attendanceNumber)") {
             let application:UIApplication = UIApplication.shared
-            if (application.canOpenURL(phoneCallURL)) {
                 let alertController = UIAlertController(title: school.name, message: "Are you sure you want to call \n the attendance office", preferredStyle: .alert)
                 let yesPressed = UIAlertAction(title: "Call", style: .default, handler: { (action) in
                     if #available(iOS 10.0, *) {
                         application.open(phoneCallURL, options: [:], completionHandler: nil)
                     } else {
-                        // Fallback on earlier versions
+                        application.openURL(phoneCallURL)
                     }
                 })
                 let noPressed = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
@@ -69,7 +66,6 @@ class SchoolSpecificDirectoryViewController: UIViewController{
                 alertController.addAction(noPressed)
                 alertController.addAction(yesPressed)
                 present(alertController, animated: true, completion: nil)
-            }
         }
         
     }

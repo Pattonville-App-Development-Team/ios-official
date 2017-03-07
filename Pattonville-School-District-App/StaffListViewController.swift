@@ -54,13 +54,12 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
         
         if let phoneCallURL:URL = URL(string: "tel:\(strPhoneNumber)") {
             let application:UIApplication = UIApplication.shared
-            if (application.canOpenURL(phoneCallURL)) {
                 let alertController = UIAlertController(title: schoolName, message: "Are you sure you want to call \n\(staffName)", preferredStyle: .alert)
                 let yesPressed = UIAlertAction(title: "Call", style: .default, handler: { (action) in
                     if #available(iOS 10.0, *) {
                         application.open(phoneCallURL, options: [:], completionHandler: nil)
                     } else {
-                        // Fallback on earlier versions
+                        application.openURL(phoneCallURL)
                     }
                 })
                 let noPressed = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
@@ -69,7 +68,6 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
                 alertController.addAction(noPressed)
                 alertController.addAction(yesPressed)
                 present(alertController, animated: true, completion: nil)
-            }
         }
         
     }
