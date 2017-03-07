@@ -101,6 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         FIRApp.configure()
 
+        FIRMessaging.messaging().subscribe(toTopic: "/topics/District")
         
         return true
     }
@@ -147,6 +148,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Print full message.
         print(userInfo)
         
+    }
+    
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+        for school in SchoolsArray.getSubscribedSchools(){
+            FIRMessaging.messaging().subscribe(toTopic: "/teams/\(school.name.replacingOccurrences(of: " ", with: "-"))")
+        }
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {

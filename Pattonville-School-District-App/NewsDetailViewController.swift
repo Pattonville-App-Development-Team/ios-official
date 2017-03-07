@@ -58,7 +58,8 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
         if news.content == nil{
             getHTML()
         }else{
-            webView.loadHTMLString(news.content!, baseURL: nil)
+            
+            webView.loadHTMLString(self.news.content!, baseURL: nil)
         }
         
         
@@ -87,18 +88,19 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
     
     func getHTML(){
         
-        var contentString = "<style> font{font-family: 'Arial' !important; font-size: 0.85em !important;} img{width: 100% !important; height: auto !important;} tr:first-of-type, tr:last-of-type{display: none !important}</style>";
+        var contentString = "<style> div{font-family: 'Arial' !important; font-size: 36px !important;} img{width: 100% !important; height: auto !important;} tr:first-of-type, tr:last-of-type{display: none !important}</style>";
         
-        Alamofire.request(news.url).responseString(completionHandler: { response in
+        Alamofire.request(news.url).responseString(encoding: .utf8, completionHandler: { response in
             
-            if let html = response.result.value {
+            if let html = response.result.value{
                 
                 contentString.append(html)
-                contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "").replacingOccurrences(of: "â", with: "\"")
+                contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "")
                 
                 self.news.content = contentString
                 
-                self.webView.loadHTMLString(contentString, baseURL: nil)
+                self.webView.loadHTMLString(self.news.content!, baseURL: nil)
+
             }
             
         })

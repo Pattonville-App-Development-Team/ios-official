@@ -6,6 +6,7 @@
 //  Copyright © 2017 Pattonville School District. All rights reserved.
 //
 import UIKit
+import Firebase
 
 /// The TableViewController for selecting which schools a user wants to be subscribed to
 class SelectSchoolsTableViewController: UITableViewController{
@@ -72,10 +73,17 @@ class SelectSchoolsTableViewController: UITableViewController{
     ///
     /// - Parameter sender: The school selescted switch
     func switchIsChanged(sender: UISwitch){
-        let school = SchoolsArray.allSchools[sender.tag + 1]
+        let school = SchoolsArray.getSchools()[sender.tag]
         school.isSubscribedTo = !school.isSubscribedTo
         
         UserDefaults.standard.set(school.isSubscribedTo, forKey: school.name)
+        
+        if UserDefaults.standard.bool(forKey: school.name){
+            FIRMessaging.messaging().subscribe(toTopic: "/topics/\(school.name.replacingOccurrences(of: " ", with: "-"))")
+            print("SUBSCRIBING TO \(school.name.replacingOccurrences(of: " ", with: "-"))")
+        }else{
+            FIRMessaging.messaging().unsubscribe(fromTopic: "/topics/\(school.name.replacingOccurrences(of: " ", with: "-"))")
+        }
         
     }
     
