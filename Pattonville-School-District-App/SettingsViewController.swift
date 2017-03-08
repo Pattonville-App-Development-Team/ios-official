@@ -16,7 +16,7 @@ class SettingsViewController: UITableViewController{
     
     @IBAction func recentNewsChanged(_ sender: UIStepper) {
         
-        var value = sender.value
+        let value = sender.value
         print(sender.value)
         UserDefaults.standard.set(value, forKey: "recentNews")
         recentNewsCounter.text = Int(sender.value).description
@@ -29,7 +29,7 @@ class SettingsViewController: UITableViewController{
     @IBOutlet weak var upcomingNewsCounter: UILabel!
     
     @IBAction func upcomingNewsChanged(_ sender: UIStepper) {
-        var value = sender.value
+        let value = sender.value
         UserDefaults.standard.set(value, forKey: "upcomingNews")
         upcomingNewsCounter.text = Int(sender.value).description
         
@@ -42,7 +42,7 @@ class SettingsViewController: UITableViewController{
     @IBOutlet weak var pinnedEventsCounter: UILabel!
     
     @IBAction func pinnedEventsChanged(_ sender: UIStepper) {
-        var value = sender.value
+        let value = sender.value
         UserDefaults.standard.set(value, forKey: "pinnedEvents")
         pinnedEventsCounter.text = Int(sender.value).description
         
@@ -68,7 +68,6 @@ class SettingsViewController: UITableViewController{
         
         tableView.delegate = self
         
-        var star = 4
         tableView.reloadData()
         
         // Do any additional setup after loading the view, typically from a nib.
