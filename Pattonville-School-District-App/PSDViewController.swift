@@ -174,6 +174,22 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0{
+            return UserDefaults.standard.integer(forKey: "recentNews")
+         
+        
+        }
+        else if section == 1 {
+            return UserDefaults.standard.integer(forKey: "upcomingNews")
+        
+        }
+        
+        else if section == 2{
+            return UserDefaults.standard.integer(forKey: "pinnedEvents")
+        
+        
+        }
+        
         return 3
     }
     

@@ -194,6 +194,7 @@
   #ifndef GTM_USING_XCTEST
     #define GTM_USING_XCTEST 0
   #endif
+
   #define GTM_MACOS_SDK 0
 #else
   // For MacOS specific stuff
@@ -201,6 +202,7 @@
   #define GTM_IPHONE_SDK 0
   #define GTM_IPHONE_SIMULATOR 0
   #define GTM_IPHONE_DEVICE 0
+  #define GTM_IPHONE_USE_SENTEST 0
   #ifndef GTM_USING_XCTEST
     #define GTM_USING_XCTEST 0
   #endif
