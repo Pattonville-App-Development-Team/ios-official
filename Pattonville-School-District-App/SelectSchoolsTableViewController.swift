@@ -64,13 +64,12 @@ class SelectSchoolsTableViewController: UITableViewController{
         
     }
     
-    /// Method used to set the Done button on the selectSchoolsTableViewController the first time the application is opened
+    ///  set the Done button to appear on the selectSchoolsTableViewController the first time the application is opened
     func tutorialSelectSchoolsTableViewCotroller(){
         let selectSchoolsOpenedBefore = UserDefaults.standard.bool(forKey: "selectSchoolsOpenedBefore")
         if !selectSchoolsOpenedBefore{
             let rightNavigationBarDoneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector (SelectSchoolsTableViewController.goToHomeViewController(_:)))
-            
-            
+        
             self.navigationItem.rightBarButtonItem = rightNavigationBarDoneButton
             UserDefaults.standard.set(true, forKey: "selectSchoolsOpenedBefore")
         }
@@ -89,13 +88,17 @@ class SelectSchoolsTableViewController: UITableViewController{
         selectSchoolCell.schoolColorView.backgroundColor = school.color
         selectSchoolCell.schoolEnabledSwitch.setOn(school.isSubscribedTo, animated: false)
         selectSchoolCell.selectionStyle = UITableViewCellSelectionStyle.none
-        //SelectSchoolsToHome
+        
     }
     
+    /// Opens the UITabBarControlle that contains all of the project and hides the current Navgation Bar
+    ///
+    /// - Parameter sender: the Done button that shows upon the Navigation Bar
     func goToHomeViewController(_ sender: UIBarButtonItem){
-        let vc = UIStoryboard(name:"Home", bundle:nil).instantiateViewController(withIdentifier: "PSDViewController") as! PSDViewController
-        
-        self.navigationController?.pushViewController(vc, animated:true)
+        let viewController = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+         UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
+        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.pushViewController(viewController, animated:true)
         
     }
     /// The method that activates when the schoolEnabledSwithc is activated in SelectSchoolsTableView. Gets the school from the tableVeiw cellForRowAt method with the tag and then sets the School's isSubscribedTo value to the opposite of its current value. Then saves the data using UserDefaults and the key of the school name.

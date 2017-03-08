@@ -31,7 +31,7 @@
         <!--Data Source-->
         <scene sceneID="jyM-Ck-eVN">
             <objects>
-                <viewController id="dM6-0n-f51" customClass="PSDViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PSDViewController" id="dM6-0n-f51" customClass="PSDViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IeJ-Fr-3u9"/>
                         <viewControllerLayoutGuide type="bottom" id="cOe-7n-ep9"/>
