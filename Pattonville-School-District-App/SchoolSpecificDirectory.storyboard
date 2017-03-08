@@ -84,17 +84,27 @@
                                     <constraint firstAttribute="width" secondItem="bng-N1-qBO" secondAttribute="height" multiplier="1.76744" id="Euf-VG-O77"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUI-wC-J9H">
+                                <rect key="frame" x="0.0" y="167" width="375" height="1"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="0.20000000000000001" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="0uB-T3-tMc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bng-N1-qBO" firstAttribute="centerY" secondItem="jxy-nc-0ZM" secondAttribute="centerY" id="HNG-gw-cjW"/>
                             <constraint firstAttribute="trailing" secondItem="3pE-6Z-Ugy" secondAttribute="trailing" id="JCZ-M0-uYP"/>
+                            <constraint firstItem="3pE-6Z-Ugy" firstAttribute="top" secondItem="yUI-wC-J9H" secondAttribute="bottom" constant="-1" id="VVl-aj-urO"/>
                             <constraint firstItem="bng-N1-qBO" firstAttribute="width" secondItem="vZV-rc-Q1p" secondAttribute="width" multiplier="0.36" id="Wds-mG-PmW"/>
                             <constraint firstItem="jxy-nc-0ZM" firstAttribute="top" secondItem="5Le-5m-v8a" secondAttribute="bottom" constant="26" id="bYQ-qv-dll"/>
                             <constraint firstAttribute="bottomMargin" secondItem="3pE-6Z-Ugy" secondAttribute="bottom" constant="43" id="iTz-hR-klD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jxy-nc-0ZM" secondAttribute="trailing" constant="9" id="j3N-ic-s7h"/>
                             <constraint firstItem="3pE-6Z-Ugy" firstAttribute="top" secondItem="jxy-nc-0ZM" secondAttribute="bottom" constant="15" id="jlM-jA-5s0"/>
                             <constraint firstItem="3pE-6Z-Ugy" firstAttribute="leading" secondItem="vZV-rc-Q1p" secondAttribute="leading" id="mTg-QW-giL"/>
+                            <constraint firstItem="yUI-wC-J9H" firstAttribute="centerX" secondItem="vZV-rc-Q1p" secondAttribute="centerX" id="wFk-3d-jDv"/>
+                            <constraint firstItem="yUI-wC-J9H" firstAttribute="width" secondItem="vZV-rc-Q1p" secondAttribute="width" id="wLw-6J-dhK"/>
                             <constraint firstItem="bng-N1-qBO" firstAttribute="leading" secondItem="vZV-rc-Q1p" secondAttribute="leadingMargin" id="xef-Po-qLz"/>
                         </constraints>
                     </view>
