@@ -22,7 +22,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     
     var selectedDateEvents = [Event]()
     
-    var prevSchools: [School] = []
+    var prevSchools: [School]!
     
     var todayCell: CalendarDateView! = CalendarDateView()
     
@@ -48,6 +48,8 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         // Do any additional setup after loading the view, typically from a nib.
         print("VIEW DID LOAD")
         
+        prevSchools = SchoolsArray.getSubscribedSchools()
+        
     }
     
     /// Establishes appearance of view controller upon appearance on screen. Reloads calendar and tableview data and filter calendar events for teh current date.
@@ -55,24 +57,26 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let currentSchools = SchoolsArray.getSubscribedSchools()
-        
-        if currentSchools != prevSchools{
+        if SchoolsArray.getSubscribedSchools() != prevSchools{
             
             calendar.getInBackground(completionHandler: {
-                self.tableView.reloadData()
                 self.calendarView.reloadData()
+                self.filterCalendarData(for: self.selectedDate)
+                self.tableView.reloadData()
             })
             
-            prevSchools = currentSchools
+            prevSchools = SchoolsArray.getSubscribedSchools()
             
         }
-
+        
+        calendarView.reloadData()
         
         calendarView.selectDates([selectedDate])
         
+        filterCalendarData(for: selectedDate)
+        
         tableView.reloadData()
-        calendarView.reloadData()
+
         
     }
     
@@ -299,6 +303,8 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     
     func forwardMonth(sender: UIView){
         
+        calendarView.deselectAllDates()
+        
         var dateComponent = DateComponents()
         dateComponent.month = 1
         
@@ -309,6 +315,8 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     /// - sender: the button that triggers the function
     
     func backMonth(sender: UIView){
+        
+        calendarView.deselectAllDates()
 
         var dateComponent = DateComponents()
         dateComponent.month = -1

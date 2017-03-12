@@ -88,7 +88,7 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
     
     func getHTML(){
         
-        var contentString = "<style> div{font-family: 'Arial' !important; font-size: 0.85em !important;} img{width: 100% !important; height: auto !important;} tr:first-of-type, tr:last-of-type{display: none !important}</style>";
+        var contentString = "<style> div{font-family: 'Arial' !important; width: 100% !important;} img{width: 100% !important; height: auto !important;} tr:first-of-type, tr:last-of-type{display: none !important}</style>";
         
         Alamofire.request(news.url).responseString(encoding: .utf8, completionHandler: { response in
             

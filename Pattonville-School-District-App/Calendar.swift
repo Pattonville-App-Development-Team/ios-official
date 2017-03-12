@@ -5,7 +5,6 @@
 //  Created by Developer on 11/8/16.
 //  Copyright © 2017 Pattonville School District. All rights reserved.
 //
-
 import UIKit
 import MXLCalendarManager
 
@@ -39,7 +38,7 @@ class Calendar{
         pinnedEventsDictionary = [:]
         
         readFromFile()
-
+        
     }
     
     
@@ -63,7 +62,7 @@ class Calendar{
             }
             
         }
-
+        
     }
     
     /// Append all of the events of an array to allEvents
@@ -101,7 +100,7 @@ class Calendar{
             pinnedEvents.append(event)
             pinnedEventsDictionary = addEventToDictionary(dict: pinnedEventsDictionary, event: event)
             
-            print(pinnedEvents.count)
+            
             
         }
         
@@ -152,10 +151,10 @@ class Calendar{
         }
         
         return dictionary
-
+        
     }
     
-    /// Removes the given event from given dictionary 
+    /// Removes the given event from given dictionary
     ///
     /// - list: the list of events to remove from
     /// - event: the event to remove
@@ -163,7 +162,7 @@ class Calendar{
     /// - returns a new dictionary with the contents of the list except the
     ///           the passed event
     private func removeEventFromDictionary(list: [Event], event: Event) -> [Date: [Event]]{
-
+        
         var dict = [Date: [Event]]()
         
         for event in list{
@@ -254,7 +253,7 @@ class Calendar{
         //If the most recent save time is longer than one hour ago OR read from file is unsuccesful
         //OR allEvents is empty
         if mostRecentSave < lastHour! || (!readFromFile() || allEvents.count == 0){
-        
+            
             //Parse events in background
             getInBackground(completionHandler: {
                 completionHandler?()
@@ -267,7 +266,7 @@ class Calendar{
     /// Save allNews to the Cache File
     /// - returns: if saving succeeded
     func saveToFile() -> Bool{
-        print("Saved to file \(fileURL.path!)")
+        //        print("Saved to file \(fileURL.path!)")
         return NSKeyedArchiver.archiveRootObject(allEvents, toFile: fileURL.path!)
     }
     
@@ -275,7 +274,7 @@ class Calendar{
     /// - returns: if reading from the file succeeded
     func readFromFile() -> Bool{
         if let archived = NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path!) as? [Event]{
-            print("FROM ARCHIVED \(fileURL.path!)")
+            //            print("FROM ARCHIVED \(fileURL.path!)")
             
             if allEvents.count < 1{
                 appendDates(dates: archived)

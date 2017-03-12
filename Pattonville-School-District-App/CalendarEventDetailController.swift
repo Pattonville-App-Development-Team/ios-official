@@ -78,10 +78,9 @@ class CalendarEventDetailController: UIViewController, EKEventEditViewDelegate{
         
         
         self.navigationItem.rightBarButtonItem = rightNavigationBarAddToCalendarButton
-        print("START: \(event.dateString) \(event.start)")
-        print("END: \(event.dateString) \(event.end)")
         
     }
+    
     func addToDeviceCalendar(_ sender: UIBarButtonItem){
         print("accessed addToDeviceCalendar")
         

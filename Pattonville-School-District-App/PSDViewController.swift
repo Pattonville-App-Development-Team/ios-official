@@ -52,7 +52,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     let image4 = #imageLiteral(resourceName: "image4.jpg")
     let image5 = #imageLiteral(resourceName: "image5.jpg")
     
-    var prevSchools: [School]! = []
+    var prevSchools: [School]!
     var filteredEvents: [Event] = []
     
     let newsParser = NewsParser()
@@ -85,24 +85,30 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         Timer.scheduledTimer(timeInterval: 8.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
         
+        prevSchools = SchoolsArray.getSubscribedSchools()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let current = SchoolsArray.getSubscribedSchools()
+        print("\(SchoolsArray.getSubscribedSchools()) vs \(prevSchools)")
         
-        if current != prevSchools{
+        if SchoolsArray.getSubscribedSchools() != prevSchools{
+            
+            print("SUBSCRIBED SCHOOLs CHECK")
             
             calendar.getInBackground(completionHandler: {
                 self.tableView.reloadData()
             })
             
-            news.getInBackground(beforeStartHandler: nil, onCompletionHandler: {
+            news.getInBackground(beforeStartHandler: {
+                self.tableView.reloadData()
+            }, onCompletionHandler: {
                 self.tableView.reloadData()
             })
             
-            prevSchools = current
+            prevSchools = SchoolsArray.getSubscribedSchools()
             
         }
         
