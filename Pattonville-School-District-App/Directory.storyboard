@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ank-og-jnJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ank-og-jnJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -35,7 +35,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="n20-RB-0j2" kind="show" identifier="SSDSegue" id="tpY-1T-sa9"/>
+                                    <segue destination="n20-RB-0j2" kind="show" identifier="schoolSpecificDirectorySegue" id="KTR-W2-U54"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -46,16 +46,19 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Directory" id="szQ-zi-DDL">
+                        <barButtonItem key="backBarButtonItem" title=" " id="mtk-Vf-9ZM"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e34-Bw-MFR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2841" y="3233"/>
         </scene>
-        <!--SSD-->
+        <!--SchoolSpecificDirectory-->
         <scene sceneID="kuV-D2-YeZ">
             <objects>
-                <viewControllerPlaceholder storyboardName="SSD" id="n20-RB-0j2" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="SchoolSpecificDirectory" id="n20-RB-0j2" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHw-J4-dGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3442" y="3232"/>

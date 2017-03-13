@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FWy-gf-bvS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FWy-gf-bvS">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Power School Table View Controller-->
+        <!--Powerschool Links-->
         <scene sceneID="e6y-H1-wq2">
             <objects>
                 <tableViewController id="FWy-gf-bvS" customClass="PowerSchoolTableViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,6 +79,7 @@
                             <outlet property="delegate" destination="FWy-gf-bvS" id="nnQ-us-6bG"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Powerschool Links" id="5fC-rq-HN9"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nCr-hF-ySP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

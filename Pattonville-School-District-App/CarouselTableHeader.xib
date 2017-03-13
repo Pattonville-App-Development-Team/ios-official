@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="301" id="nn7-da-rRC" userLabel="CarouselHeader" customClass="DateCell" customModule="Pattonville_School_District_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="477" height="301"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nn7-da-rRC" id="nts-ZW-8WL">
+                <rect key="frame" x="0.0" y="0.0" width="477" height="301"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddl-HS-Zbe">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="200"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zu3-Vs-W6w" customClass="iCarousel">
+                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="200"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="xBU-wL-YPB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Zu3-Vs-W6w" firstAttribute="top" secondItem="ddl-HS-Zbe" secondAttribute="top" id="Bub-pr-dxD"/>
+                            <constraint firstAttribute="bottom" secondItem="Zu3-Vs-W6w" secondAttribute="bottom" id="XW0-AE-cw7"/>
+                            <constraint firstAttribute="trailing" secondItem="Zu3-Vs-W6w" secondAttribute="trailing" id="YlA-de-2fG"/>
+                            <constraint firstItem="Zu3-Vs-W6w" firstAttribute="leading" secondItem="ddl-HS-Zbe" secondAttribute="leading" id="kea-Uh-8tS"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ddl-HS-Zbe" firstAttribute="top" secondItem="nts-ZW-8WL" secondAttribute="top" id="Jp4-mU-Hir"/>
+                    <constraint firstAttribute="trailing" secondItem="ddl-HS-Zbe" secondAttribute="trailing" constant="477" id="N8y-cj-uVm"/>
+                    <constraint firstItem="ddl-HS-Zbe" firstAttribute="leading" secondItem="nts-ZW-8WL" secondAttribute="leading" id="Qth-hA-7i3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="NewCarousel" destination="Zu3-Vs-W6w" id="7lR-9B-KJ4"/>
+            </connections>
+            <point key="canvasLocation" x="205.5" y="-199.5"/>
+        </tableViewCell>
+    </objects>
+</document>

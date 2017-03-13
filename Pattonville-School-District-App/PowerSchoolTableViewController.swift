@@ -29,7 +29,7 @@ class PowerSchoolTableViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let row = indexPath.row
-        print(row)
+//        print(row)
         switch row{
             /// Adminstrators
             case 0:

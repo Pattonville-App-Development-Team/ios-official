@@ -94,13 +94,13 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         if current != prevSchools{
             
-            /*calendar.getEvents(completionHandler: {
+            calendar.getInBackground(completionHandler: {
                 self.tableView.reloadData()
-            })*/
+            })
             
-            /*news.getNews(beforeStartHandler: nil, onCompletionHandler: {
+            news.getInBackground(beforeStartHandler: nil, onCompletionHandler: {
                 self.tableView.reloadData()
-            })*/
+            })
             
             prevSchools = current
             
@@ -174,6 +174,22 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0{
+            return UserDefaults.standard.integer(forKey: "recentNews")
+         
+        
+        }
+        else if section == 1 {
+            return UserDefaults.standard.integer(forKey: "upcomingNews")
+        
+        }
+        
+        else if section == 2{
+            return UserDefaults.standard.integer(forKey: "pinnedEvents")
+        
+        
+        }
+        
         return 3
     }
     
@@ -197,8 +213,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
                 
                 let event = filteredEvents[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
-                
-                print(event.date!)
                 
                 cell.setup(event: event, indexPath: indexPath, type: .normal)
                 
@@ -296,7 +310,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     /// - returns: mainView which contains the carousel item, that has the image of story, the bar on the image and the text on the bar
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         
-        //print(index);
+//        print(index);
         
         //Initialization of views
         var mainView: UIView
@@ -365,7 +379,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     @objc private func addEventToPinned(){
         
         calendar.pinnedEvents.sort(by: {
-            $0.date! < $1.date!
+            $0.start! < $1.start!
         })
         
         tableView.reloadData()
@@ -374,7 +388,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     @objc private func removeEventFromPinned(){
         
         calendar.pinnedEvents.sort(by: {
-            $0.date! < $1.date!
+            $0.start! < $1.start!
         })
         
         tableView.reloadData()
@@ -397,11 +411,11 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     private func getUpcomingEvents(){
         
         filteredEvents = calendar.allEvents.filter({
-            return $0.date! > Date()
+            return $0.start! > Date()
         })
         
         filteredEvents.sort(by: {
-            $0.date! < $1.date!
+            $0.start! < $1.start!
         })
         
     }

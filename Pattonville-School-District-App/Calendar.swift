@@ -101,7 +101,7 @@ class Calendar{
             pinnedEvents.append(event)
             pinnedEventsDictionary = addEventToDictionary(dict: pinnedEventsDictionary, event: event)
             
-            print(pinnedEvents.count)
+           
             
         }
         
@@ -142,7 +142,7 @@ class Calendar{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
         
-        let theDateString = dateFormatter.string(from: event.date!)
+        let theDateString = dateFormatter.string(from: event.start!)
         let theDate = dateFormatter.date(from: theDateString)
         
         if dictionary.keys.contains(theDate!){
@@ -171,7 +171,7 @@ class Calendar{
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "YYYY-MM-dd"
             
-            let theDateString = dateFormatter.string(from: event.date!)
+            let theDateString = dateFormatter.string(from: event.start!)
             let theDate = dateFormatter.date(from: theDateString)
             
             if dict.keys.contains(theDate!){
@@ -267,7 +267,7 @@ class Calendar{
     /// Save allNews to the Cache File
     /// - returns: if saving succeeded
     func saveToFile() -> Bool{
-        print("Saved to file \(fileURL.path!)")
+//        print("Saved to file \(fileURL.path!)")
         return NSKeyedArchiver.archiveRootObject(allEvents, toFile: fileURL.path!)
     }
     
@@ -275,7 +275,7 @@ class Calendar{
     /// - returns: if reading from the file succeeded
     func readFromFile() -> Bool{
         if let archived = NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path!) as? [Event]{
-            print("FROM ARCHIVED \(fileURL.path!)")
+//            print("FROM ARCHIVED \(fileURL.path!)")
             
             if allEvents.count < 1{
                 appendDates(dates: archived)

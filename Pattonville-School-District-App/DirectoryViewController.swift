@@ -8,16 +8,31 @@
 
 import UIKit
 
+/// The ViewController for the TableView of schools which have a directory the user can view
 class DirectoryViewController: UITableViewController {
     
-   // var schools: SchoolsArray! = SchoolsArray.init()
     
+    // Initializing Directory here to prevent recurring directory parsing in the school specific directory pages
+    static var directory = Directory()
+    
+    /// Specifies how many rows the TableView has
+    ///
+    /// - Parameters:
+    ///   - tableView: the TableView that displays the list of schools
+    ///   - section: The integer index for which section of the table view is being referenced
+    /// - Returns: the number of schools in the allSchools array in the SchoolArray class
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return SchoolsArray.allSchools.count
         
     }
     
+    /// Displays the proper school in each row of the TableView
+    ///
+    /// - Parameters:
+    ///   - tableView: the TableView that displays the list of schools
+    ///   - indexPath: 
+    /// - Returns: cell with the school name displayed
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
@@ -30,13 +45,19 @@ class DirectoryViewController: UITableViewController {
         
     }
     
+    /// Passes the selected cell's row index to the SSDViewController class
+    ///
+    /// - Parameters:
+    ///   - segue: Show segue linking the Directory View Controller to the School Specific Directory View Controller
+    ///   - sender: Cell in the TableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SSDSegue" {
+        if segue.identifier == "schoolSpecificDirectorySegue" {
             
             let row = tableView.indexPathForSelectedRow?.row
             
-            let destination = segue.destination as! SSDViewController
+            let destination = segue.destination as! SchoolSpecificDirectoryViewController
             
+            // Sets the variable "indexOfSchool" located in the SSDViewController class equal to "row"
             destination.indexOfSchool = row
             
         }

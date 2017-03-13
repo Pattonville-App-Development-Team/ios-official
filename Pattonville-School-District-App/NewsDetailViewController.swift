@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import Kanna
 
 /// The ViewController for the View that appears after a user selects a news story in the main News page or from the home page
 class NewsDetailViewController: UIViewController, UIWebViewDelegate{
@@ -56,8 +55,13 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
         
         self.navigationItem.rightBarButtonItem = rightNavigationBarActionButton
         
+        if news.content == nil{
+            getHTML()
+        }else{
+            webView.loadHTMLString(news.content!, baseURL: nil)
+        }
         
-        getHTML()
+        
         
         //content.text = news.content
         // Do any additional setup after loading the view.
@@ -69,7 +73,7 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
 
-        print("LINK CLICKED")
+//        print("LINK CLICKED")
         
         if navigationType == UIWebViewNavigationType.linkClicked {
             UIApplication.shared.openURL(request.url!)
@@ -92,36 +96,14 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
                 contentString.append(html)
                 contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "")
                 
+                self.news.content = contentString
+                
                 self.webView.loadHTMLString(contentString, baseURL: nil)
             }
             
         })
         
     }
-    
-    /// Parses the supplied HTML for all the text contained within <font></font> tags
-    ///
-    /// - html: the html string to parse (supplied by getHTML())
-    ///
-    func parseHTML(html: String){
-        if let doc = Kanna.HTML(html: html, encoding: String.Encoding.utf8) {
-            
-            var contentString = "<style> font{font-family: 'Arial' !important; font-size: 0.85em !important;} img{width: 100% !important; height: auto !important;}</style>";
-            
-            for text in doc.css("td").dropFirst(4).dropLast(2){
-                contentString.append(text.innerHTML!)
-                contentString.append("<br /><br />")
-            }
-            
-            contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "")
-            
-            webView.loadHTMLString(contentString, baseURL: nil)
-            
-            
-        }
-    }
-
-
     
      /// Opens Action activity that includes sharing options and copy and add to reading list actions
      ///

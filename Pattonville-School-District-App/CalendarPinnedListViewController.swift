@@ -22,7 +22,7 @@ class CalendarPinnedListViewController: UIViewController, UITableViewDelegate, U
     override func viewDidLoad(){
         super.viewDidLoad()
         tableView.register(UINib(nibName: "DateCell", bundle:nil), forCellReuseIdentifier: "DateCell")
-        print(calendar.pinnedEvents.count)
+//        print(calendar.pinnedEvents.count)
     }
     
     override func viewDidAppear(_ animated: Bool){
@@ -66,7 +66,7 @@ class CalendarPinnedListViewController: UIViewController, UITableViewDelegate, U
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        print("CELL FOR ROW AT INDEX PATH")
+//        print("CELL FOR ROW AT INDEX PATH")
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
         

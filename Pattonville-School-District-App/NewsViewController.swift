@@ -20,7 +20,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     var news: NewsReel! = NewsReel.instance{
         didSet{
             if let table = tableView{
-                print("RELOADED IN DID SET")
+//                print("RELOADED IN DID SET")
                 table.reloadData()
             }
         }
@@ -71,7 +71,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if SchoolsArray.getSubscribedSchools() != prevSchools{
          
-            news.getNews(beforeStartHandler: {
+            news.getInBackground(beforeStartHandler: {
                 self.tableView.reloadData()
             }, onCompletionHandler: {
                 self.tableView.reloadData()
@@ -151,11 +151,11 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func updateSearchResults(for: UISearchController) {
         
-        print(news.filteredNews.count)
+//        print(news.filteredNews.count)
         
         filterNewsForSearchText(searchText: searchController.searchBar.text!)
         
-        print(news.filteredNews.count)
+//        print(news.filteredNews.count)
         
     }
     

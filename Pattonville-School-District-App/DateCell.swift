@@ -72,7 +72,7 @@ class DateCell: UITableViewCell{
             pinButton.isSelected = false
         }
         
-        setTimes(start: event.startTime!, end: event.endTime!)
+        setTimes(start: event.start!, end: event.end!)
 
         schoolColorLine.isHidden = false
         schoolColorLine.backgroundColor = event.school?.color
