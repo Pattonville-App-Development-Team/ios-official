@@ -139,19 +139,19 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
         cell.departmentLabel.text = staffMember.long_desc.capitalized(with: NSLocale.current)
         
         if staffMember.ext1.characters.count != 0 {
+            
             let title = NSMutableAttributedString(string: "x" + staffMember.ext1)
             title.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: NSMakeRange(0, title.length))
-            
             cell.extButton.setAttributedTitle(title, for: .normal)
             
         } else {
-            cell.extButton.setTitle(nil, for: .normal)
+            
             let title = NSMutableAttributedString(string: "")
             cell.extButton.setAttributedTitle(title, for: .normal)
+            
         }
         
         cell.extButton.tag = indexPath.row
-
         cell.emailButton.tag = indexPath.row
         
         return cell
