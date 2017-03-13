@@ -52,7 +52,7 @@ class CalendarEventDetailController: UIViewController, EKEventEditViewDelegate{
     }
     
     @IBAction func add(sender: UIButton){
-        print("old useless method accessed")
+        
         let alert = UIAlertController(title: "Useless", message: "old useless method accessed", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
@@ -82,7 +82,7 @@ class CalendarEventDetailController: UIViewController, EKEventEditViewDelegate{
     }
     
     func addToDeviceCalendar(_ sender: UIBarButtonItem){
-        print("accessed addToDeviceCalendar")
+       
         
         let controller = EKEventEditViewController()
         let store = EKEventStore()

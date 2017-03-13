@@ -15,6 +15,8 @@ class MoreViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         tableView.delegate = self
         
         
@@ -35,7 +37,7 @@ class MoreViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let row = indexPath.row
-        print(row)
+//        print(row)
         
         switch row{
             /// Link to the Athletics and Activites Website

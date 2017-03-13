@@ -2,6 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
@@ -10,6 +11,7 @@
 	<string>$(PRODUCT_NAME) would like to access your location while using the app for adding locations to Calendar events</string>
 	<key>NSContactsUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like to access Contacts to allow adding locations from Contacts</string>
+
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -37,6 +39,10 @@
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like to add this event to your calendar</string>
+	<key>NSContactsUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like to access Contacts to allow adding locations from Contacts</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like to access your location while using the app for adding locations to Calendar events</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -57,8 +63,8 @@
 	</dict>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
-		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

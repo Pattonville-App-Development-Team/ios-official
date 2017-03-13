@@ -180,6 +180,22 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0{
+            return UserDefaults.standard.integer(forKey: "recentNews")
+         
+        
+        }
+        else if section == 1 {
+            return UserDefaults.standard.integer(forKey: "upcomingNews")
+        
+        }
+        
+        else if section == 2{
+            return UserDefaults.standard.integer(forKey: "pinnedEvents")
+        
+        
+        }
+        
         return 3
     }
     
@@ -300,7 +316,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     /// - returns: mainView which contains the carousel item, that has the image of story, the bar on the image and the text on the bar
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         
-        //print(index);
+//        print(index);
         
         //Initialization of views
         var mainView: UIView

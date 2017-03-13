@@ -112,8 +112,7 @@ class NewsReel{
         
         //Try to read from file, and then check if it added allNews
         if mostRecentSave < lastHour! || (!readFromFile() || allNews.count == 0){
-            
-            //            print("Getting om Background")
+//            print("Getting om Background")
             
             //Parse News from FCCMS
             getInBackground(beforeStartHandler: {
@@ -129,7 +128,8 @@ class NewsReel{
     /// Save allNews to the Cache File
     /// - returns: if saving succeeded
     func saveToFile() -> Bool{
-        //        print("Saved to file \(fileURL.path!)")
+//        print("Saved to file \(fileURL.path!)")
+
         return NSKeyedArchiver.archiveRootObject(allNews, toFile: fileURL.path!)
     }
     

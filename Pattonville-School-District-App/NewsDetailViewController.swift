@@ -74,7 +74,7 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
 
-        print("LINK CLICKED")
+//        print("LINK CLICKED")
         
         if navigationType == UIWebViewNavigationType.linkClicked {
             UIApplication.shared.openURL(request.url!)
