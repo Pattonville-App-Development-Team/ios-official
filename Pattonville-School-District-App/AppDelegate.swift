@@ -54,6 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("App delegate did finish launcing entry")
         // Override point for customization after application launch.
         //SchoolsArray.readFromFile()
+        
         let launchedBeforeForSelectSchools = UserDefaults.standard.bool(forKey: "launchedBeforeForSelectSchools")
         print(launchedBeforeForSelectSchools)
         if launchedBeforeForSelectSchools{
