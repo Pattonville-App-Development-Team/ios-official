@@ -107,8 +107,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         application.registerForRemoteNotifications()
 
         FIRApp.configure()
-
-        FIRMessaging.messaging().subscribe(toTopic: "/topics/District")
         
         return true
     }

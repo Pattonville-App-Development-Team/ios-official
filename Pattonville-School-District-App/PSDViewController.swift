@@ -8,6 +8,7 @@
 
 import UIKit
 import iCarousel
+import Firebase
 
 class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegate, UITableViewDelegate, UITableViewDataSource{
     
@@ -91,6 +92,8 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        FIRMessaging.messaging().subscribe(toTopic: "/topics/District")
         
         print("\(SchoolsArray.getSubscribedSchools()) vs \(prevSchools)")
         

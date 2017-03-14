@@ -69,7 +69,7 @@ class SelectSchoolsTableViewController: UITableViewController{
         
     }
     
-    /// The method that activates when the schoolEnabledSwithc is activated in SelectSchoolsTableView. Gets the school from the tableVeiw cellForRowAt method with the tag and then sets the School's isSubscribedTo value to the opposite of its current value. Then saves the data using UserDefaults and the key of the school name.
+    /// The method that activates when the schoolEnabledSwitch is activated in SelectSchoolsTableView. Gets the school from the tableVeiw cellForRowAt method with the tag and then sets the School's isSubscribedTo value to the opposite of its current value. Then saves the data using UserDefaults and the key of the school name.
     ///
     /// - Parameter sender: The school selescted switch
     func switchIsChanged(sender: UISwitch){
@@ -84,6 +84,8 @@ class SelectSchoolsTableViewController: UITableViewController{
         }else{
             FIRMessaging.messaging().unsubscribe(fromTopic: "/topics/\(school.name.replacingOccurrences(of: " ", with: "-"))")
         }
+        
+        FIRMessaging.messaging().subscribe(toTopic: "/topics/District")
         
     }
     
