@@ -12,6 +12,7 @@
 		1B040D7C1E0E399200D69069 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D781E0E399200D69069 /* Directory.swift */; };
 		1B040D7D1E0E399200D69069 /* StaffMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D791E0E399200D69069 /* StaffMember.swift */; };
 		1B06FFE81E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B06FFE71E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift */; };
+		1B1B71B81E6EFBCB003B421B /* roboticspic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B1B71B71E6EFBCB003B421B /* roboticspic.jpg */; };
 		1B2B7CB91E67B73E0007183B /* Bridgeway.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CAF1E67B73E0007183B /* Bridgeway.jpg */; };
 		1B2B7CBA1E67B73E0007183B /* Drummond.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CB01E67B73E0007183B /* Drummond.jpg */; };
 		1B2B7CBB1E67B73E0007183B /* Heights.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CB11E67B73E0007183B /* Heights.jpg */; };
@@ -116,6 +117,7 @@
 		1B040D781E0E399200D69069 /* Directory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
 		1B040D791E0E399200D69069 /* StaffMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffMember.swift; sourceTree = "<group>"; };
 		1B06FFE71E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolSpecificDirectoryTableViewCell.swift; sourceTree = "<group>"; };
+		1B1B71B71E6EFBCB003B421B /* roboticspic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = roboticspic.jpg; sourceTree = "<group>"; };
 		1B2B7CAF1E67B73E0007183B /* Bridgeway.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Bridgeway.jpg; sourceTree = "<group>"; };
 		1B2B7CB01E67B73E0007183B /* Drummond.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Drummond.jpg; sourceTree = "<group>"; };
 		1B2B7CB11E67B73E0007183B /* Heights.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Heights.jpg; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 		42B933001DFAEDC500514B73 /* Pattonville-School-District-App */ = {
 			isa = PBXGroup;
 			children = (
+				1B1B71B71E6EFBCB003B421B /* roboticspic.jpg */,
 				1B5E11021E27C51D0038A33C /* email-icon.png */,
 				42617B421E00A61C00BB5992 /* pin-black-1.png */,
 				42B9330F1DFAEDC500514B73 /* Info.plist */,
@@ -618,6 +621,7 @@
 				42617B431E00A61C00BB5992 /* pin-black-1.png in Resources */,
 				1B2B7CBE1E67B73E0007183B /* LearningCenter.jpg in Resources */,
 				42B933701DFAEEF400514B73 /* CalendarHeaderView.xib in Resources */,
+				1B1B71B81E6EFBCB003B421B /* roboticspic.jpg in Resources */,
 				1B2B7CBD1E67B73E0007183B /* Holman.jpg in Resources */,
 				42B9336A1DFAEEF400514B73 /* Base.lproj in Resources */,
 				461118571E4231CF005AA3A9 /* image1.jpg in Resources */,

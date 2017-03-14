@@ -19,7 +19,7 @@ class Directory {
     
     /// Reads data from file and populates the directory Dictionary
     init() {
-        studentDirectoryCSVContents = readDataFromFile(file: "Student_Directory")
+        studentDirectoryCSVContents = readDataFromURL(url: "https://forms.psdr3.org/psdapp/directory.csv")
         createStaffMembers()
     }
     
@@ -27,13 +27,13 @@ class Directory {
     ///
     /// - Parameter file: Name of the directory CSV file
     /// - Returns: String value of the directory CSV file
-    func readDataFromFile(file:String)-> String!{
-        guard let filepath = Bundle.main.path(forResource: file, ofType: "csv")
+    func readDataFromURL(url: String)-> String!{
+        guard let filepath = NSURL(string: url)
             else {
                 return nil
         }
         do {
-            return try String(contentsOfFile: filepath, encoding: String.Encoding.utf8)
+            return try String(contentsOf: filepath as URL, encoding: String.Encoding.utf8)
         } catch {
             print("File Read Error for file \(filepath)")
             return nil
