@@ -91,8 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 newsController.news = news
             })
             UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
-        }
-        else{
+        }else{
             //print("did finish launching, if launched before method, else clause at beginning of code")
             self.window = UIWindow(frame: UIScreen.main.bounds)
             
