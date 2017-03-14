@@ -55,9 +55,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let news = NewsReel.instance
     
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        print(launchedBefore)
-        if launchedBefore{
+        let launchedBeforeForSelectSchools = UserDefaults.standard.bool(forKey: "launchedBeforeForSelectSchools")
+        print(launchedBeforeForSelectSchools)
+        if launchedBeforeForSelectSchools{
             print("did finish launching, if launched before method, if clause")
             let navBarController = window!.rootViewController as! UITabBarController
             print("navBarController")
@@ -105,6 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            
             //print("did finish launching, if launched before method, else clause at end of code")
             self.window?.makeKeyAndVisible()
+            UserDefaults.standard.set(true, forKey: "launchedBeforeForSelectSchools")
         }
         
         
