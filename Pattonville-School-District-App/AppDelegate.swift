@@ -64,14 +64,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if launchedBeforeForSelectSchools{
             print("did finish launching, if launched before method, if clause")
             let navBarController = window!.rootViewController as! UITabBarController
-            print("navBarController")
             let navHomeController = navBarController.viewControllers?[0] as! UINavigationController
             let homeController = navHomeController.topViewController as! PSDViewController
-            
-            
             let navNewsController = navBarController.viewControllers?[1] as! UINavigationController
             let newsController = navNewsController.topViewController as! NewsViewController
-            
             let navCalController = navBarController.viewControllers?[2] as! UINavigationController
             let calendarController = navCalController.topViewController as! CalendarViewController
             
@@ -93,21 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
         }else{
             //print("did finish launching, if launched before method, else clause at beginning of code")
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            
-            let initialViewController = UINavigationController()
-            
-            
-            self.window?.rootViewController = initialViewController
-            
-
-            let nav = self.window?.rootViewController as! UINavigationController
-            //print(nav)
-            let storyBoard = UIStoryboard(name: "SelectSchoolsTableViewController", bundle: nil)
-            nav.pushViewController(storyBoard.instantiateViewController(withIdentifier: "SelectSchoolsController") as! SelectSchoolsTableViewController, animated: false)
-           
-            //print("did finish launching, if launched before method, else clause at end of code")
-            self.window?.makeKeyAndVisible()
+            showSelectSchoolsFirstTime()
             UserDefaults.standard.set(true, forKey: "launchedBeforeForSelectSchools")
         }
         
@@ -229,7 +211,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     }
-    
+    /// Called to in the will finish launching method, to create the SelectSchoolsView on the first user launch
+    func showSelectSchoolsFirstTime(){
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let initialViewController = UINavigationController()
+        self.window?.rootViewController = initialViewController
+        let nav = self.window?.rootViewController as! UINavigationController
+        //print(nav)
+        let storyBoard = UIStoryboard(name: "SelectSchoolsTableViewController", bundle: nil)
+        nav.pushViewController(storyBoard.instantiateViewController(withIdentifier: "SelectSchoolsController") as! SelectSchoolsTableViewController, animated: false)
+        //print("did finish launching, if launched before method, else clause at end of code")
+        self.window?.makeKeyAndVisible()
+    }
     
 }
 
