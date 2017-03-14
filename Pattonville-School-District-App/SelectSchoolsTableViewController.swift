@@ -6,6 +6,7 @@
 //  Copyright © 2017 Pattonville School District. All rights reserved.
 //
 import UIKit
+import Firebase
 
 /// The TableViewController for selecting which schools a user wants to be subscribed to
 class SelectSchoolsTableViewController: UITableViewController{
@@ -64,6 +65,7 @@ class SelectSchoolsTableViewController: UITableViewController{
         
     }
     
+    /// The method that activates when the schoolEnabledSwitch is activated in SelectSchoolsTableView. Gets the school from the tableVeiw cellForRowAt method with the tag and then sets the School's isSubscribedTo value to the opposite of its current value. Then saves the data using UserDefaults and the key of the school name.
     ///  set the Done button to appear on the selectSchoolsTableViewController the first time the application is opened
     func tutorialSelectSchoolsTableViewCotroller(){
         let selectSchoolsOpenedBefore = UserDefaults.standard.bool(forKey: "selectSchoolsOpenedBefore")
@@ -105,7 +107,7 @@ class SelectSchoolsTableViewController: UITableViewController{
     ///
     /// - Parameter sender: The school selescted switch
     func switchIsChanged(sender: UISwitch){
-        let school = SchoolsArray.allSchools[sender.tag + 1]
+        let school = SchoolsArray.getSchools()[sender.tag]
         school.isSubscribedTo = !school.isSubscribedTo
         
         UserDefaults.standard.set(school.isSubscribedTo, forKey: school.name)
@@ -114,6 +116,15 @@ class SelectSchoolsTableViewController: UITableViewController{
             print(school.isSubscribedTo)
             
         }
+        
+        if UserDefaults.standard.bool(forKey: school.name){
+            FIRMessaging.messaging().subscribe(toTopic: "/topics/\(school.name.replacingOccurrences(of: " ", with: "-"))")
+            print("SUBSCRIBING TO \(school.name.replacingOccurrences(of: " ", with: "-"))")
+        }else{
+            FIRMessaging.messaging().unsubscribe(fromTopic: "/topics/\(school.name.replacingOccurrences(of: " ", with: "-"))")
+        }
+        
+        FIRMessaging.messaging().subscribe(toTopic: "/topics/District")
         
     }
     

@@ -28,7 +28,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var parser: NewsParser!
     
-    var prevSchools: [School] = []
+    var prevSchools: [School]!
     
     var searchController: UISearchController!
     
@@ -64,13 +64,15 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             tableView.addSubview(refreshControl)
         }
         
+        prevSchools = SchoolsArray.getSubscribedSchools()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if SchoolsArray.getSubscribedSchools() != prevSchools{
-         
+            
             news.getInBackground(beforeStartHandler: {
                 self.tableView.reloadData()
             }, onCompletionHandler: {

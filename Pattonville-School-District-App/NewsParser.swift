@@ -20,6 +20,10 @@ class NewsParser: NSObject, XMLParserDelegate{
     var articleURL: String = ""
     var id: String = ""
     
+    override init(){
+        print("Constructred Parser")
+    }
+    
     /// Updates the school list for the parser to parse from
     ///
     /// - schools: the array of schools to parse from (SchoolsArray.getSubscribedSchools())
@@ -137,6 +141,8 @@ class NewsParser: NSObject, XMLParserDelegate{
     /// - completionHandler: function to undertake after completeing background tasks
     ///
     func getDataInBackground(beforeStartHandler: (() -> Void)?, onCompletionHandler: (() -> Void)?){
+        
+        print("GET DATA IN BACKGROUND FROM PARSER")
         
         DispatchQueue.global(qos: .background).async {
             

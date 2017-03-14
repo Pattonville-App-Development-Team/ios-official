@@ -15,6 +15,14 @@ class SchoolsArray {
     static var allSchools: [School] = [SchoolsEnum.district, SchoolsEnum.pattonvilleHighSchool, SchoolsEnum.heightsMiddleSchool, SchoolsEnum.holmanMiddleSchool, SchoolsEnum.remingtonTraditional, SchoolsEnum.bridgewayElementary, SchoolsEnum.drummondElementary, SchoolsEnum.parkwoodElementary, SchoolsEnum.roseAcresElementary, SchoolsEnum.willowBrookElementary, SchoolsEnum.earlyChildhood]
     
     
+    static let fileURL: NSURL = {
+        let directories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let document = directories.first!
+        
+        return document.appendingPathComponent("schools.archive") as NSURL
+        
+    }()
+    
     /// Function that returns the School Object associated with the name passed to the method, used in news
     ///
     /// - Parameter name: The School name string
@@ -45,5 +53,23 @@ class SchoolsArray {
             $0 != SchoolsEnum.district
         })
     }
+    
+    static func saveToFile() -> Bool{
+        return NSKeyedArchiver.archiveRootObject(allSchools, toFile: fileURL.path!)
+    }
+    
+    static func readFromFile() -> Bool{
+        if let archived = NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path!) as? [School]{
+            print("SCHOOLS FROM ARCHIVED \(fileURL.path!)")
+            
+            if allSchools.count < 1{
+                allSchools = archived
+            }
+            
+            return true
+        }
+        return false
+    }
+    
    
 }

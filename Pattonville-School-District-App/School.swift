@@ -9,7 +9,7 @@
 import UIKit
 import MXLCalendarManager
 
-class School: NSObject {
+class School: NSObject, NSCoding {
  
     var name: String
     var shortName: String
@@ -88,6 +88,52 @@ class School: NSObject {
         
     }
     
+    required init(coder aDecoder: NSCoder){
+        self.name = aDecoder.decodeObject(forKey: "name") as! String
+        self.shortName = aDecoder.decodeObject(forKey: "shortname") as! String
+        self.address = aDecoder.decodeObject(forKey: "address") as! String
+        self.city = aDecoder.decodeObject(forKey: "city") as! String
+        self.state = aDecoder.decodeObject(forKey: "state") as! String
+        self.zip = aDecoder.decodeObject(forKey: "zip") as! String
+        self.mainNumber = aDecoder.decodeObject(forKey: "main_number") as! String
+        self.attendanceNumber = aDecoder.decodeObject(forKey: "attendance_number") as! String
+        self.faxNumber = aDecoder.decodeObject(forKey: "fax_number") as! String
+        self.schoolPicture = aDecoder.decodeObject(forKey: "picture") as! String
+        self.peachjarURL = aDecoder.decodeObject(forKey: "peachjar") as! String
+        self.nutriSliceURL = aDecoder.decodeObject(forKey: "nutrislice") as! String
+        self.isSubscribedTo = aDecoder.decodeObject(forKey: "subscribed") as! Bool
+        self.color = aDecoder.decodeObject(forKey: "color") as! UIColor
+        self.calendarURL = aDecoder.decodeObject(forKey: "calendar")  as! String
+        self.staffArray = aDecoder.decodeObject(forKey: "staff") as! [StaffMember]
+        self.newsURL = aDecoder.decodeObject(forKey: "news")  as! String
+        self.eventsList = aDecoder.decodeObject(forKey: "events") as! [Event]
+        self.sharingLinksURL = aDecoder.decodeObject(forKey: "sharingsURL") as! String
+        
+        super.init()
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.name, forKey: "name")
+        aCoder.encode(self.shortName, forKey: "shortname")
+        aCoder.encode(self.address, forKey: "address")
+        aCoder.encode(self.city, forKey: "city")
+        aCoder.encode(self.state, forKey: "state")
+        aCoder.encode(self.zip, forKey: "zip")
+        aCoder.encode(self.mainNumber, forKey: "main_number")
+        aCoder.encode(self.attendanceNumber, forKey: "attendance_number")
+        aCoder.encode(self.faxNumber, forKey: "fax_number")
+        aCoder.encode(self.schoolPicture, forKey: "picture")
+        aCoder.encode(self.peachjarURL, forKey: "peachjar")
+        aCoder.encode(self.nutriSliceURL, forKey: "nutrislice")
+        aCoder.encode(self.isSubscribedTo, forKey: "subscribed")
+        aCoder.encode(self.color, forKey: "color")
+        aCoder.encode(self.calendarURL, forKey: "calendar")
+        aCoder.encode(self.staffArray, forKey: "staff")
+        aCoder.encode(self.newsURL, forKey: "news")
+        aCoder.encode(self.eventsList, forKey: "events")
+        aCoder.encode(self.sharingLinksURL, forKey: "sharingURL")
+    }
+    
     /// Gets calendar data from calendarURL for the school
     /// - onSuccess: completion handler called upon succesful downloading of calendar data from the URL (the '@escaping' syntax id required for nested closures as of Swift 3.0)
     /// - onFailure: completion handler called upon the rendering of an error in the downloading process (the '@escaping' syntax id required for nested closures as of Swift 3.0)
@@ -114,5 +160,10 @@ class School: NSObject {
         })
         
     }
+    
+    static func == (lhs: School, rhs: School) -> Bool{
+        return lhs.name == rhs.name
+    }
+
     
 }

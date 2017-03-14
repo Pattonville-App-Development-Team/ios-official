@@ -11,10 +11,6 @@ import UIKit
 /// TableViewControler for the nutriSlice links for the different schools
 class NutriSliceViewController: UITableViewController{
     
-   
-    
-    
-    
     /// Gives the number of rows for the tableview
     ///
     /// - parameter tableView: the NutriSliceTableView

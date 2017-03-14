@@ -5,7 +5,6 @@
 //  Created by Developer on 10/5/16.
 //  Copyright © 2017 Pattonville School District. All rights reserved.
 //
-
 import UIKit
 
 /// Class for the array of NewsItems used in NewsViewController to display news
@@ -18,10 +17,10 @@ class NewsReel{
     
     /// The URL to the cache file
     let fileURL: NSURL = {
-       let directories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-       let document = directories.first!
+        let directories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let document = directories.first!
         
-       return document.appendingPathComponent("newsitem.archive") as NSURL
+        return document.appendingPathComponent("newsitem.archive") as NSURL
         
     }()
     
@@ -30,7 +29,7 @@ class NewsReel{
         
         allNews = []
         filteredNews = []
-
+        
         readFromFile()
         
     }
@@ -63,11 +62,11 @@ class NewsReel{
     /// - onCompletionHandler: function to run on completion of parsing
     
     func getInBackground(beforeStartHandler: (() -> Void)?, onCompletionHandler: (() -> Void)?){
-    
-        let parser = NewsParser()
-    
-        parser.getDataInBackground(beforeStartHandler: {
         
+        let parser = NewsParser()
+        
+        parser.getDataInBackground(beforeStartHandler: {
+            
             // Reset News to empty
             self.resetNews()
             
@@ -105,7 +104,7 @@ class NewsReel{
         }else{
             mostRecentSave = Date()
         }
-
+        
         var dateComponent = DateComponents()
         dateComponent.hour = -1
         
@@ -113,7 +112,6 @@ class NewsReel{
         
         //Try to read from file, and then check if it added allNews
         if mostRecentSave < lastHour! || (!readFromFile() || allNews.count == 0){
-         
 //            print("Getting om Background")
             
             //Parse News from FCCMS
@@ -131,6 +129,7 @@ class NewsReel{
     /// - returns: if saving succeeded
     func saveToFile() -> Bool{
 //        print("Saved to file \(fileURL.path!)")
+
         return NSKeyedArchiver.archiveRootObject(allNews, toFile: fileURL.path!)
     }
     

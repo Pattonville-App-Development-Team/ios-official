@@ -78,9 +78,9 @@ class CalendarEventDetailController: UIViewController, EKEventEditViewDelegate{
         
         
         self.navigationItem.rightBarButtonItem = rightNavigationBarAddToCalendarButton
-       
         
     }
+    
     func addToDeviceCalendar(_ sender: UIBarButtonItem){
        
         
