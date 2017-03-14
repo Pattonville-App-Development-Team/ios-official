@@ -13,7 +13,7 @@
         <!--Select Schools Table View Controller-->
         <scene sceneID="wM2-TK-9pc">
             <objects>
-                <tableViewController id="QSc-bt-Q38" userLabel="Select Schools Table View Controller" customClass="SelectSchoolsTableViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SelectSchoolsController" id="QSc-bt-Q38" userLabel="Select Schools Table View Controller" customClass="SelectSchoolsTableViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="HTL-Sl-aow">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,7 +78,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Select Schools" id="dLe-Yn-NJ5"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QyB-ay-c29" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

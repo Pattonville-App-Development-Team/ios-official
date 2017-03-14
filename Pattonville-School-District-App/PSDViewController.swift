@@ -52,6 +52,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     let image3 = #imageLiteral(resourceName: "image3.jpg")
     let image4 = #imageLiteral(resourceName: "image4.jpg")
     let image5 = #imageLiteral(resourceName: "image5.jpg")
+    let image6 = #imageLiteral(resourceName: "roboticspic.jpg")
     
     var prevSchools: [School]!
     var filteredEvents: [Event] = []
@@ -72,6 +73,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         images.append([image3, ""])
         images.append([image4, ""])
         images.append([image5, ""])
+        images.append([image6, ""])
         
         homeCarousel.type = iCarouselType.linear
         homeCarousel.isPagingEnabled = true
