@@ -56,16 +56,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         //SchoolsArray.readFromFile()
         
         let launchedBeforeForSelectSchools = UserDefaults.standard.bool(forKey: "launchedBeforeForSelectSchools")
-        print(launchedBeforeForSelectSchools)
+        //print(launchedBeforeForSelectSchools)
+        
         if launchedBeforeForSelectSchools{
             showPSDViewControllerOnRegularLaunch()
-        }else{
-            //print("did finish launching, if launched before method, else clause at beginning of code")
+        }
+        else{
             showSelectSchoolsViewControllerOnInitialLaunch()
             UserDefaults.standard.set(true, forKey: "launchedBeforeForSelectSchools")
         }
-        
-        UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
         
         if #available(iOS 10.0, *) {
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
@@ -226,6 +225,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 newsController.news = news
             })
             UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
+        
         
     }
     
