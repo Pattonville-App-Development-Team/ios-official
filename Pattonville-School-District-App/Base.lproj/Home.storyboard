@@ -98,7 +98,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="PSD" id="rAx-6R-ogE">
-                        <barButtonItem key="leftBarButtonItem" image="alert" id="vQG-fd-vnj"/>
                         <barButtonItem key="rightBarButtonItem" image="settings" style="plain" id="iRX-iK-Vsw">
                             <connections>
                                 <action selector="goToSettingsWithSender:" destination="dM6-0n-f51" id="KGC-ZC-VR3"/>
@@ -142,7 +141,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="alert" width="20" height="20"/>
         <image name="logo" width="30" height="29"/>
         <image name="settings" width="30" height="30"/>
     </resources>
