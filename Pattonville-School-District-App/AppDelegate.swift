@@ -56,7 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         //SchoolsArray.readFromFile()
         
         let calendar = Calendar.instance
-        
         let news = NewsReel.instance
         
         let navBarController = window!.rootViewController as! UITabBarController
@@ -64,16 +63,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let navHomeController = navBarController.viewControllers?[0] as! UINavigationController
         let homeController = navHomeController.topViewController as! PSDViewController
         
-        
         let navNewsController = navBarController.viewControllers?[1] as! UINavigationController
         let newsController = navNewsController.topViewController as! NewsViewController
         
         let navCalController = navBarController.viewControllers?[2] as! UINavigationController
         let calendarController = navCalController.topViewController as! CalendarViewController
 
-    
         let launchedBeforeForSelectSchools = UserDefaults.standard.bool(forKey: "launchedBeforeForSelectSchools")
-        print(launchedBeforeForSelectSchools)
+        //print(launchedBeforeForSelectSchools)
         
         if !launchedBeforeForSelectSchools{
             //print("did finish launching, if launched before method, else clause at beginning of code")
@@ -133,6 +130,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         application.registerForRemoteNotifications()
         
         FIRApp.configure()
+            
+        let subscribed = SchoolsArray.getSubscribedSchools()
+        
+        if(subscribed.contains(SchoolsEnum.bridgewayElementary) || subscribed.contains(SchoolsEnum.drummondElementary) || subscribed.contains(SchoolsEnum.parkwoodElementary) || subscribed.contains(SchoolsEnum.remingtonTraditional) || subscribed.contains(SchoolsEnum.roseAcresElementary) || subscribed.contains(SchoolsEnum.willowBrookElementary)){
+            
+            FIRMessaging.messaging().subscribe(toTopic: "/topics/All-Elementary-Schools")
+            
+        }else if(subscribed.contains(SchoolsEnum.heightsMiddleSchool) || subscribed.contains(SchoolsEnum.holmanMiddleSchool) || subscribed.contains(SchoolsEnum.remingtonTraditional)){
+            
+            FIRMessaging.messaging().subscribe(toTopic: "/topics/All-Middle-Schools")
+            
+        }
         
         return true
     }
@@ -228,6 +237,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     }
+    
     /// Called to in the will finish launching method, to create the SelectSchoolsView on the first user launch
     func showSelectSchoolsViewControllerOnInitialLaunch(){
         self.window = UIWindow(frame: UIScreen.main.bounds)
@@ -270,8 +280,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 homeController.news = news
                 newsController.news = news
             })
-            UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
         
+            UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
         
     }
     

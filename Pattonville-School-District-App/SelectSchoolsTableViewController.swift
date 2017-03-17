@@ -122,6 +122,7 @@ class SelectSchoolsTableViewController: UITableViewController{
             
         }
         
+        
         if UserDefaults.standard.bool(forKey: school.name){
             FIRMessaging.messaging().subscribe(toTopic: "/topics/\(school.name.replacingOccurrences(of: " ", with: "-"))")
             print("SUBSCRIBING TO \(school.name.replacingOccurrences(of: " ", with: "-"))")
@@ -130,6 +131,27 @@ class SelectSchoolsTableViewController: UITableViewController{
         }
         
         FIRMessaging.messaging().subscribe(toTopic: "/topics/District")
+        
+        
+        
+        let subscribed = SchoolsArray.getSubscribedSchools()
+        
+        if(subscribed.contains(SchoolsEnum.bridgewayElementary) || subscribed.contains(SchoolsEnum.drummondElementary) || subscribed.contains(SchoolsEnum.parkwoodElementary) || subscribed.contains(SchoolsEnum.remingtonTraditional) || subscribed.contains(SchoolsEnum.roseAcresElementary) || subscribed.contains(SchoolsEnum.willowBrookElementary)){
+            
+            FIRMessaging.messaging().subscribe(toTopic: "/topics/All-Elementary-Schools")
+            
+        }else{
+            FIRMessaging.messaging().unsubscribe(fromTopic: "/topics/All-Elementray-Schools")
+        }
+        
+        if(subscribed.contains(SchoolsEnum.heightsMiddleSchool) || subscribed.contains(SchoolsEnum.holmanMiddleSchool) || subscribed.contains(SchoolsEnum.remingtonTraditional)){
+            
+            FIRMessaging.messaging().subscribe(toTopic: "/topics/All-Middle-Schools")
+            
+        }else{
+            FIRMessaging.messaging().unsubscribe(fromTopic: "/topics/All-Middle-Schools")
+        }
+        
         
     }
     
