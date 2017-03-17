@@ -98,9 +98,13 @@ class SelectSchoolsTableViewController: UITableViewController{
     /// - Parameter sender: the Done button that shows upon the Navigation Bar
     func goToHomeViewController(_ sender: UIBarButtonItem){
         let viewController = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-         UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
+        
+        UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
         self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.pushViewController(viewController, animated:true)
+        
+        NewsReel.instance.getInBackground(beforeStartHandler: nil, onCompletionHandler: nil)
+        Calendar.instance.getEvents(completionHandler: nil)
         
     }
     /// The method that activates when the schoolEnabledSwithc is activated in SelectSchoolsTableView. Gets the school from the tableVeiw cellForRowAt method with the tag and then sets the School's isSubscribedTo value to the opposite of its current value. Then saves the data using UserDefaults and the key of the school name.

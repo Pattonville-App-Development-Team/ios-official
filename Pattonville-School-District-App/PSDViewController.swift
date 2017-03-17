@@ -97,9 +97,9 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         FIRMessaging.messaging().subscribe(toTopic: "/topics/District")
         
-        print("\(SchoolsArray.getSubscribedSchools()) vs \(prevSchools)")
+        print("HOME COMPARISON: \(SchoolsArray.getSubscribedSchools()) vs \(prevSchools)")
         
-        if SchoolsArray.getSubscribedSchools() != prevSchools{
+        if SchoolsArray.getSubscribedSchools() != prevSchools || !UserDefaults.standard.bool(forKey: "launchedBefore"){
             
             print("SUBSCRIBED SCHOOLs CHECK")
             
@@ -321,7 +321,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     /// - returns: mainView which contains the carousel item, that has the image of story, the bar on the image and the text on the bar
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         
-//        print(index);
+        //print(index);
         
         //Initialization of views
         var mainView: UIView

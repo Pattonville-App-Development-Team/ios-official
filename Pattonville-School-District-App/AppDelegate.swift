@@ -34,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
             
             SchoolsEnum.district.isSubscribedTo = true
-    
             
         
         } else {
@@ -55,51 +54,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("App delegate did finish launcing entry")
         // Override point for customization after application launch.
         //SchoolsArray.readFromFile()
+        
         let calendar = Calendar.instance
         
         let news = NewsReel.instance
+        
+        let navBarController = window!.rootViewController as! UITabBarController
+        print("navBarController")
+        let navHomeController = navBarController.viewControllers?[0] as! UINavigationController
+        let homeController = navHomeController.topViewController as! PSDViewController
+        
+        
+        let navNewsController = navBarController.viewControllers?[1] as! UINavigationController
+        let newsController = navNewsController.topViewController as! NewsViewController
+        
+        let navCalController = navBarController.viewControllers?[2] as! UINavigationController
+        let calendarController = navCalController.topViewController as! CalendarViewController
+
     
         let launchedBeforeForSelectSchools = UserDefaults.standard.bool(forKey: "launchedBeforeForSelectSchools")
         print(launchedBeforeForSelectSchools)
-        if launchedBeforeForSelectSchools{
-            print("did finish launching, if launched before method, if clause")
-            let navBarController = window!.rootViewController as! UITabBarController
-            print("navBarController")
-            let navHomeController = navBarController.viewControllers?[0] as! UINavigationController
-            let homeController = navHomeController.topViewController as! PSDViewController
-            
-            
-            let navNewsController = navBarController.viewControllers?[1] as! UINavigationController
-            let newsController = navNewsController.topViewController as! NewsViewController
-            
-            let navCalController = navBarController.viewControllers?[2] as! UINavigationController
-            let calendarController = navCalController.topViewController as! CalendarViewController
-            
-            homeController.news = news
-            homeController.calendar = calendar
-            newsController.news = news
-            calendarController.calendar = calendar
-            calendarController.selectedDate = Date()
-            
-            calendar.getEvents(completionHandler: {
-                homeController.calendar = calendar
-                calendarController.calendar = calendar
-            })
-            
-            news.getNews(beforeStartHandler: nil, onCompletionHandler: {
-                homeController.news = news
-                newsController.news = news
-            })
-            UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
-        }else{
+        
+        if !launchedBeforeForSelectSchools{
             //print("did finish launching, if launched before method, else clause at beginning of code")
             self.window = UIWindow(frame: UIScreen.main.bounds)
             
             let initialViewController = UINavigationController()
             
-            
             self.window?.rootViewController = initialViewController
-            
 
             let nav = self.window?.rootViewController as! UINavigationController
             //print(nav)
@@ -109,7 +91,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             //print("did finish launching, if launched before method, else clause at end of code")
             self.window?.makeKeyAndVisible()
             UserDefaults.standard.set(true, forKey: "launchedBeforeForSelectSchools")
+            
         }
+        
+        homeController.news = news
+        homeController.calendar = calendar
+        newsController.news = news
+        calendarController.calendar = calendar
+        calendarController.selectedDate = Date()
+        
+        news.getNews(beforeStartHandler: nil, onCompletionHandler: {
+            homeController.news = news
+            newsController.news = news
+        })
+        
+        calendar.getEvents(completionHandler: {
+            homeController.news = news
+            newsController.news = news
+        })
         
         UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
         

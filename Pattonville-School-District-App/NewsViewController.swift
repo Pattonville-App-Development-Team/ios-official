@@ -71,6 +71,8 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        print("NEWS COMPARISON: \(SchoolsArray.getSubscribedSchools()) vs \(prevSchools)")
+        
         if SchoolsArray.getSubscribedSchools() != prevSchools{
             
             news.getInBackground(beforeStartHandler: {
