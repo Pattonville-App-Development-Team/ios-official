@@ -16,8 +16,7 @@ import FirebaseMessaging
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, FIRMessagingDelegate {
     
     var window: UIWindow?
-    
-    /// Method called as the app is launching, checks to see if the application is launched before, if so sets the isSubscribedTo values in SchoolsArray.allSchools 
+    /// Method called as the app is launching, checks to see if the application is launched before, if so sets the isSubscribedTo values in SchoolsArray.allSchools
     ///
     /// - Parameters:
     ///   - application: The PSD App
@@ -25,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     /// - Returns: true
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
-       
+        
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore{
             
@@ -35,18 +34,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             
             SchoolsEnum.district.isSubscribedTo = true
             
-        
+            
+            
         } else {
             print("First launch, setting UserDefault.")
             let value = 3
             UserDefaults.standard.set(value, forKey:"recentNews")
             UserDefaults.standard.set(value, forKey: "upcomingNews")
             UserDefaults.standard.set(value, forKey: "pinnedEvents")
-
+            
         }
         
         return true
-
+        
         
     }
     
@@ -131,7 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
         application.registerForRemoteNotifications()
-
+        
         FIRApp.configure()
         
         return true
@@ -228,7 +228,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     }
+    /// Called to in the will finish launching method, to create the SelectSchoolsView on the first user launch
+    func showSelectSchoolsViewControllerOnInitialLaunch(){
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let initialViewController = UINavigationController()
+        self.window?.rootViewController = initialViewController
+        let nav = self.window?.rootViewController as! UINavigationController
+        //print(nav)
+        let storyBoard = UIStoryboard(name: "SelectSchoolsTableViewController", bundle: nil)
+        nav.pushViewController(storyBoard.instantiateViewController(withIdentifier: "SelectSchoolsController") as! SelectSchoolsTableViewController, animated: false)
+        //print("did finish launching, if launched before method, else clause at end of code")
+        self.window?.makeKeyAndVisible()
+    }
+    /// Called to show PSDViewController on every launch that is not the first time
+    func showPSDViewControllerOnRegularLaunch(){
+        let calendar = Calendar.instance
+        
+        let news = NewsReel.instance
     
+            print("did finish launching, if launched before method, if clause")
+            let navBarController = window!.rootViewController as! UITabBarController
+            let navHomeController = navBarController.viewControllers?[0] as! UINavigationController
+            let homeController = navHomeController.topViewController as! PSDViewController
+            let navNewsController = navBarController.viewControllers?[1] as! UINavigationController
+            let newsController = navNewsController.topViewController as! NewsViewController
+            let navCalController = navBarController.viewControllers?[2] as! UINavigationController
+            let calendarController = navCalController.topViewController as! CalendarViewController
+            
+            homeController.news = news
+            homeController.calendar = calendar
+            newsController.news = news
+            calendarController.calendar = calendar
+            calendarController.selectedDate = Date()
+            
+            calendar.getEvents(completionHandler: {
+                homeController.calendar = calendar
+                calendarController.calendar = calendar
+            })
+            
+            news.getNews(beforeStartHandler: nil, onCompletionHandler: {
+                homeController.news = news
+                newsController.news = news
+            })
+            UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 122/255.0, blue: 51/255.0, alpha: 1.0)
+        
+        
+    }
     
 }
-
