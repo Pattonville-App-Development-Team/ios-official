@@ -103,8 +103,9 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             }else{
                 destination.news = news.allNews[(tableView.indexPathForSelectedRow?.row)!]
             }
-            
         }
+        
+        
     }
     
     // TABLE VIEW STUFF
@@ -150,6 +151,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "NewsDetailSegue", sender: self)
+        searchController.isActive = false
     }
     
     
