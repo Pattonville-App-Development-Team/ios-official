@@ -57,7 +57,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if SchoolsArray.getSubscribedSchools() != prevSchools{
+        if Reachability.isConnectedToNetwork() && SchoolsArray.getSubscribedSchools() != prevSchools{
             
             calendar.getInBackground(completionHandler: {
                 self.calendarView.reloadData()

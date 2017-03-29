@@ -94,8 +94,6 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
             
             if let html = response.result.value{
                 
-                print(html)
-                
                 let theHTML = html.replacingOccurrences(of: "font-size:8pt;", with: "font-size: 12pt;")
                 contentString.append(theHTML)
                 contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "")

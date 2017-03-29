@@ -249,7 +249,7 @@ class Calendar{
         
         //If the most recent save time is longer than one hour ago OR read from file is unsuccesful
         //OR allEvents is empty
-        if mostRecentSave < lastHour! || (!readFromFile() || allEvents.count == 0){
+        if Reachability.isConnectedToNetwork() && mostRecentSave < lastHour! || (!readFromFile() || allEvents.count == 0){
             
             //Parse events in background
             getInBackground(completionHandler: {
