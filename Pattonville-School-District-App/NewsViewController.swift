@@ -71,8 +71,6 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        print("NEWS COMPARISON: \(SchoolsArray.getSubscribedSchools()) vs \(prevSchools)")
-        
         if Reachability.isConnectedToNetwork() && SchoolsArray.getSubscribedSchools() != prevSchools{
             
             news.getInBackground(beforeStartHandler: {
@@ -182,7 +180,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             refreshControl.endRefreshing()
             
-            let alert = UIAlertController(title: "No Intenter Connection", message: "You currently do not have internet connection. To refresh news and calendar events please connect to the internet via wifi or a cellular connection.", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "No Internet Connection", message: "You currently do not have internet connection. To refresh news and calendar events please connect to the internet via wifi or a cellular connection.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: {
                 self.refreshControl.endRefreshing()
