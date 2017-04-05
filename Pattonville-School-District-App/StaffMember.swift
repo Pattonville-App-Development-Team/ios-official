@@ -9,7 +9,7 @@
 import UIKit
 
 /// The Model class for type StaffMember to be used in the Directory 
-class StaffMember {
+class StaffMember: NSObject, NSCoding {
     
     var fName: String
     var lName: String
@@ -89,10 +89,6 @@ class StaffMember {
     
     required init(coder decoder: NSCoder) {
         
-        
-        
-        
-        
         fName = (decoder.decodeObject(forKey: "fName") as? String)!
         lName = (decoder.decodeObject(forKey: "lName") as? String)!
         pcn = (decoder.decodeObject(forKey: "pcn") as? String)!
@@ -106,7 +102,7 @@ class StaffMember {
         office3 = (decoder.decodeObject(forKey: "office3") as? String)!
         ext3 = (decoder.decodeObject(forKey: "ext3") as? String)!
         
-//        super.init()
+        super.init()
         
     }
     
