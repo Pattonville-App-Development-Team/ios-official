@@ -16,17 +16,8 @@ class SelectSchoolsTableViewController: UITableViewController{
         super.viewDidLoad()
         tutorialSelectSchoolsTableViewCotroller()
         
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
-        
-        tableView.contentInset = insets
-        tableView.scrollIndicatorInsets = insets
-        
         tableView.delegate = self
-        
         tableView.reloadData()
-        
-        tableView.rowHeight = 44
         
     }
     
