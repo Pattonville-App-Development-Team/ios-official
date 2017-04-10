@@ -16,17 +16,8 @@ class SelectSchoolsTableViewController: UITableViewController{
         super.viewDidLoad()
         tutorialSelectSchoolsTableViewCotroller()
         
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
-        
-        tableView.contentInset = insets
-        tableView.scrollIndicatorInsets = insets
-        
         tableView.delegate = self
-        
         tableView.reloadData()
-        
-        tableView.rowHeight = 44
         
     }
     
@@ -74,7 +65,11 @@ class SelectSchoolsTableViewController: UITableViewController{
             let rightNavigationBarDoneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector (SelectSchoolsTableViewController.goToHomeViewController(_:)))
         
             self.navigationItem.rightBarButtonItem = rightNavigationBarDoneButton
+            let alert = UIAlertController(title: "Please select schools", message: "After selecting schools you will be able to receieve notifications, view calendar events, and view news stories.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Dismiss ", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             UserDefaults.standard.set(true, forKey: "selectSchoolsOpenedBefore")
+            
         }
     }
     
