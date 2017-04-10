@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 /// Singleton class to read from the CSV directory file, create staff members, and create and populate a directoryDictionary
 class Directory {
     
@@ -20,7 +19,6 @@ class Directory {
     /// Reads data from file and populates the directory Dictionary
     init() {
         
-//        studentDirectoryCSVContents = readDataFromFile(file: "directory")
         createStaffMembers()
     }
     
@@ -40,20 +38,6 @@ class Directory {
                 return nil
             }
         }
-    
-//    func readDataFromFile(file: String)-> String!{
-//        guard let filepath = Bundle.main.path(forResource: file, ofType: "csv")
-//            else {
-//                return nil
-//        }
-//        do {
-//            return try String(contentsOfFile: filepath, encoding: String.Encoding.utf8)
-//        } catch {
-//            print("File Read Error for file \(filepath)")
-//            return nil
-//        }
-//    }
-
 
     /// Creates objects of type StaffMember from each line of the directory CSV file
     func createStaffMembers() {
