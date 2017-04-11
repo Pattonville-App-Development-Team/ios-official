@@ -208,6 +208,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         completionHandler(UIBackgroundFetchResult.newData)
         
+        if application.applicationState == UIApplicationState.active{
+            
+            application.applicationIconBadgeNumber = 0
+            
+            //print("APS \((userInfo["aps"] as! [String:AnyObject])["alert"])")
+            
+            let alert = UIAlertController(title: "TITLE", message: "You received a message.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+
+        }
+        
     }
     
     
