@@ -212,9 +212,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             
             application.applicationIconBadgeNumber = 0
             
-            //print("APS \((userInfo["aps"] as! [String:AnyObject])["alert"])")
+            let notification = ((userInfo["aps"] as! [String:AnyObject])["alert"] as! [String:AnyObject])
             
-            let alert = UIAlertController(title: "TITLE", message: "You received a message.", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: notification["title"] as! String, message: notification["body"] as! String, preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
             self.window?.rootViewController?.present(alert, animated: true, completion: nil)
 
