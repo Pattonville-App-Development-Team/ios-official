@@ -111,7 +111,7 @@ class NewsReel{
         let lastHour = NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: Date(), options: [])
         
         //Try to read from file, and then check if it added allNews
-        if mostRecentSave < lastHour! || (!readFromFile() || allNews.count == 0){
+        if Reachability.isConnectedToNetwork() && mostRecentSave < lastHour! || (!readFromFile() || allNews.count == 0){
 //            print("Getting om Background")
             
             //Parse News from FCCMS

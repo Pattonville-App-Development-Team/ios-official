@@ -116,7 +116,7 @@ class CalendarEventDetailController: UIViewController, EKEventEditViewDelegate{
                         }
                     })
                 case .denied, .restricted:
-                    let alert = UIAlertController(title: "Access Denied", message: "Permission is needed to access the calendar. Go to Settings > Privacy > Calendars to allow access for the Be Collective app.", preferredStyle: UIAlertControllerStyle.alert)
+                    let alert = UIAlertController(title: "Access Denied", message: "Permission is needed to access the calendar. Go to Settings > Privacy > Calendars to allow access to calendars for the app.", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     return

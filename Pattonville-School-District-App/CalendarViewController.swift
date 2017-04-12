@@ -16,6 +16,8 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     @IBOutlet var calendarView: JTAppleCalendarView!
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var pinButton: UIBarButtonItem!
+    
     var calendar: Calendar! = Calendar.instance
     
     var selectedDate: Date = Date()
@@ -30,6 +32,8 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        pinButton.width = -2.0;
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -57,7 +61,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if SchoolsArray.getSubscribedSchools() != prevSchools{
+        if Reachability.isConnectedToNetwork() && SchoolsArray.getSubscribedSchools() != prevSchools{
             
             calendar.getInBackground(completionHandler: {
                 self.calendarView.reloadData()

@@ -21,6 +21,12 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
     
     var calendar: Calendar! = Calendar.instance
     
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-dd"
+        return formatter
+    }()
+    
     ///Sets up the look of the ViewController upon loading.
     
     override func viewDidLoad() {
@@ -30,6 +36,12 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
         tableView.dataSource = self
         
         tableView.register(UINib(nibName: "DateCell", bundle:nil), forCellReuseIdentifier: "DateCell")
+        
+        let sectionIndex = getIndexForSectionName(sectionName: dateFormatter.string(from: Date()))
+        
+        let indexPath = IndexPath(row: 0, section: sectionIndex)
+        
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         
     }
     
@@ -54,10 +66,6 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM dd, YYYY"
-        
         return dateFormatter.string(from: getKeyForIndex(index: section))
     }
     
@@ -116,6 +124,27 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
         }
         
         return keys[index]
+    }
+    
+    private func getIndexForSectionName(sectionName: String) -> Int{
+        
+        var keys = Array(calendar.allEventsDictionary.keys)
+
+        keys = keys.sorted{
+            $0 < $1
+        }
+        
+        print(keys)
+        
+        print(dateFormatter.date(from: sectionName)!)
+        
+        let key = keys.index(of: dateFormatter.date(from: sectionName)!)
+        
+        print(key)
+        
+        return key!
+        
+        
     }
     
     

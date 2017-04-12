@@ -9,7 +9,7 @@
 import UIKit
 
 /// The Model class for type StaffMember to be used in the Directory 
-class StaffMember {
+class StaffMember: NSObject, NSCoding {
     
     var fName: String
     var lName: String
@@ -87,6 +87,25 @@ class StaffMember {
             ext3: values[11])
     }
     
+    required init(coder decoder: NSCoder) {
+        
+        fName = (decoder.decodeObject(forKey: "fName") as? String)!
+        lName = (decoder.decodeObject(forKey: "lName") as? String)!
+        pcn = (decoder.decodeObject(forKey: "pcn") as? String)!
+        long_desc = (decoder.decodeObject(forKey: "long_desc") as? String)!
+        location = (decoder.decodeObject(forKey: "location") as? String)!
+        email = (decoder.decodeObject(forKey: "email") as? String)!
+        office1 = (decoder.decodeObject(forKey: "office1") as? String)!
+        ext1 = (decoder.decodeObject(forKey: "ext1") as? String)!
+        office2 = (decoder.decodeObject(forKey: "office2") as? String)!
+        ext2 = (decoder.decodeObject(forKey: "ext2") as? String)!
+        office3 = (decoder.decodeObject(forKey: "office3") as? String)!
+        ext3 = (decoder.decodeObject(forKey: "ext3") as? String)!
+        
+        super.init()
+        
+    }
+    
     /// Identifies which school shortName should be used to add the staff member to the directoryDictionary based on a key which matches a school shortName
     ///
     /// - Parameter location: Building or school where the staff member works given by the directory CSV file
@@ -147,6 +166,19 @@ class StaffMember {
         }
     }
     
-    
+    func encode(with coder: NSCoder) {
+        coder.encode(fName, forKey: "fName")
+        coder.encode(lName, forKey: "lName")
+        coder.encode(pcn, forKey: "pcn")
+        coder.encode(long_desc, forKey: "long_desc")
+        coder.encode(location, forKey: "location")
+        coder.encode(email, forKey: "email")
+        coder.encode(office1, forKey: "office1")
+        coder.encode(ext1, forKey: "ext1")
+        coder.encode(office2, forKey: "office2")
+        coder.encode(ext2, forKey: "ext2")
+        coder.encode(office3, forKey: "office3")
+        coder.encode(ext3, forKey: "ext3")
+    }
     
 }
