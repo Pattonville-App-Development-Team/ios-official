@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zAo-hx-RnD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zAo-hx-RnD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -137,14 +137,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Calendar" id="gUM-eg-TA9">
-                        <barButtonItem key="leftBarButtonItem" title="List" id="Dai-y7-BWa">
+                        <barButtonItem key="leftBarButtonItem" image="list" id="Dai-y7-BWa">
+                            <color key="tintColor" red="0.0" green="0.3918526786" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="7e3-rq-jXc" kind="popoverPresentation" identifier="CalendarListViewSegue" popoverAnchorBarButtonItem="Dai-y7-BWa" id="TIf-eo-mwC">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Pin" id="gLM-eT-6LR">
+                        <barButtonItem key="rightBarButtonItem" image="pin" id="gLM-eT-6LR">
+                            <color key="tintColor" red="0.0" green="0.3918526786" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="UuQ-Ez-sBD" kind="popoverPresentation" identifier="PinnedListSegue" popoverAnchorBarButtonItem="gLM-eT-6LR" id="16d-eV-6cj">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -154,6 +156,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="calendarView" destination="6gU-Ab-bVq" id="Yip-ht-bVS"/>
+                        <outlet property="pinButton" destination="gLM-eT-6LR" id="9fD-lP-xh8"/>
                         <outlet property="tableView" destination="Z4G-Ne-V4A" id="dJC-3w-ltN"/>
                     </connections>
                 </viewController>
@@ -264,6 +267,8 @@
     </scenes>
     <resources>
         <image name="calendar" width="30" height="30"/>
+        <image name="list" width="30" height="30"/>
+        <image name="pin" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="KRv-jj-Kom"/>

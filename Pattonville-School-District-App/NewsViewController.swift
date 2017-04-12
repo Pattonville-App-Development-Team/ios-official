@@ -71,9 +71,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        print("NEWS COMPARISON: \(SchoolsArray.getSubscribedSchools()) vs \(prevSchools)")
-        
-        if SchoolsArray.getSubscribedSchools() != prevSchools{
+        if Reachability.isConnectedToNetwork() && SchoolsArray.getSubscribedSchools() != prevSchools{
             
             news.getInBackground(beforeStartHandler: {
                 self.tableView.reloadData()
@@ -103,8 +101,9 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             }else{
                 destination.news = news.allNews[(tableView.indexPathForSelectedRow?.row)!]
             }
-            
         }
+        
+        
     }
     
     // TABLE VIEW STUFF
@@ -150,6 +149,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "NewsDetailSegue", sender: self)
+        searchController.isActive = false
     }
     
     
@@ -168,13 +168,27 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     //Refreshes the list of news articles
     func refreshData(){
     
-        news.getInBackground(beforeStartHandler: {
-            self.tableView.reloadData()
-        }, onCompletionHandler: {
-            self.tableView.reloadData()
-            self.refreshControl.endRefreshing()
-        })
-        
+        if Reachability.isConnectedToNetwork(){
+            news.getInBackground(beforeStartHandler: {
+                self.tableView.reloadData()
+            }, onCompletionHandler: {
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+            })
+
+        }else{
+            
+            refreshControl.endRefreshing()
+            
+            let alert = UIAlertController(title: "No Internet Connection", message: "You currently do not have internet connection. To refresh news and calendar events please connect to the internet via wifi or a cellular connection.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: {
+                self.refreshControl.endRefreshing()
+            })
+
+            
+        }
+
     }
     
     private func filterNewsForSearchText(searchText: String){

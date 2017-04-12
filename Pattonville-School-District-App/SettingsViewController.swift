@@ -53,6 +53,7 @@ class SettingsViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         recentNewsCounter.text = UserDefaults.standard.integer(forKey: "recentNews").description
         recentNewsStepper.minimumValue = 3
         recentNewsStepper.maximumValue = 6

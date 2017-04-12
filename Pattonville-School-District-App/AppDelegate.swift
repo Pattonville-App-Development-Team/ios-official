@@ -208,6 +208,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         completionHandler(UIBackgroundFetchResult.newData)
         
+        if application.applicationState == UIApplicationState.active{
+            
+            application.applicationIconBadgeNumber = 0
+            
+            let notification = ((userInfo["aps"] as! [String:AnyObject])["alert"] as! [String:AnyObject])
+            
+            let alert = UIAlertController(title: notification["title"] as! String, message: notification["body"] as! String, preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+
+        }
+        
     }
     
     
@@ -231,7 +243,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         FIRMessaging.messaging().connect { (error) in
             if error != nil {
-                print("Unable to connect with FCM. \(error)")
+                print("Unable to connect with FCM. \(String(describing: error))")
             } else {
                 print("Connected to FCM.")
             }

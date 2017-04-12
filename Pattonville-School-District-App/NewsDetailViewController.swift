@@ -88,17 +88,22 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
     
     func getHTML(){
         
-        var contentString = "<style> div{font-family: 'Arial' !important; width: 100% !important;} img{width: 100% !important; height: auto !important;} tr:first-of-type, tr:last-of-type{display: none !important}</style>";
+        var contentString = "<style type=\"text/css\">tr:first-of-type, tr:last-of-type{display: none !important} img{display: inline !important; width: 100%; height: auto;} font{display: block !important; width: 99% !important;}</style>";
         
         Alamofire.request(news.url).responseString(encoding: .utf8, completionHandler: { response in
             
             if let html = response.result.value{
                 
-                print(html)
+                contentString.append(html)
+                contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "")
+                                             .replacingOccurrences(of: "-End-", with: "")
+                                             .replacingOccurrences(of: "7pt", with: "12pt")
+                                             .replacingOccurrences(of: "8pt", with: "12pt")
+                                             .replacingOccurrences(of: "9pt", with: "12pt")
+                                             .replacingOccurrences(of: "13pt", with: "12pt")
+                                             .replacingOccurrences(of: "14pt", with: "12pt")
                 
-                let theHTML = html.replacingOccurrences(of: "font-size:8pt;", with: "font-size: 12pt;")
-                contentString.append(theHTML)
-                contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "")
+                print("HTML: \(contentString)")
                 
                 self.news.content = contentString
                 
@@ -107,6 +112,19 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
             }
             
         })
+        
+        /*do{
+            let html = try String(contentsOf: URL(string: news.url)!, encoding: String.Encoding.utf8)
+            
+            contentString.append(html)
+            contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "")
+            
+            self.webView.loadHTMLString(contentString, baseURL: nil)
+
+        }catch let error{
+            print(error)
+        }*/
+        
         
     }
     
