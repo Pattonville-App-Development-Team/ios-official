@@ -140,7 +140,7 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
         
         let key = keys.index(of: dateFormatter.date(from: sectionName)!)
         
-        print(key)
+        print(key ?? "No key")
         
         return key!
         
