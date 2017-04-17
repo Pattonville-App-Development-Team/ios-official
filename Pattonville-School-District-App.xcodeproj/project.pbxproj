@@ -26,7 +26,6 @@
 		1B2B7CC41E67BDA70007183B /* PSDLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CC31E67BDA70007183B /* PSDLogo.jpg */; };
 		1B5E11031E27C51D0038A33C /* email-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B5E11021E27C51D0038A33C /* email-icon.png */; };
 		1B8333AB1E0391BA00776DBC /* StaffListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8333AA1E0391BA00776DBC /* StaffListViewController.swift */; };
-		1BB8CDA71E8C0A2500D14D9A /* directory.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1BB8CDA61E8C0A2500D14D9A /* directory.csv */; };
 		1EF42C89FC923992795CC182 /* Pods_Pattonville_School_District_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E570B5805DCAA04D255A00EA /* Pods_Pattonville_School_District_AppUITests.framework */; };
 		422969C61E65CBCD008C34D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 422969C51E65CBCD008C34D0 /* GoogleService-Info.plist */; };
 		4234D1C11E310B19005B3CA8 /* NewsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4234D1C01E310B19005B3CA8 /* NewsParser.swift */; };
@@ -134,7 +133,6 @@
 		1B2B7CC31E67BDA70007183B /* PSDLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PSDLogo.jpg; sourceTree = "<group>"; };
 		1B5E11021E27C51D0038A33C /* email-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-icon.png"; sourceTree = "<group>"; };
 		1B8333AA1E0391BA00776DBC /* StaffListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffListViewController.swift; sourceTree = "<group>"; };
-		1BB8CDA61E8C0A2500D14D9A /* directory.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = directory.csv; sourceTree = "<group>"; };
 		3425B2670BFD642C6C90BF2B /* Pods-Pattonville-School-District-AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-AppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-AppUITests/Pods-Pattonville-School-District-AppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		422969C51E65CBCD008C34D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		422969C71E65CE3B008C34D0 /* Pattonville-School-District-App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Pattonville-School-District-App.entitlements"; sourceTree = "<group>"; };
@@ -407,7 +405,6 @@
 		42B933AA1DFAF7B200514B73 /* DIrectory */ = {
 			isa = PBXGroup;
 			children = (
-				1BB8CDA61E8C0A2500D14D9A /* directory.csv */,
 				42B933441DFAEEF300514B73 /* Directory.storyboard */,
 				42B933451DFAEEF300514B73 /* DirectoryViewController.swift */,
 				1B040D781E0E399200D69069 /* Directory.swift */,
@@ -607,7 +604,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BB8CDA71E8C0A2500D14D9A /* directory.csv in Resources */,
 				461118591E4231CF005AA3A9 /* image3.jpg in Resources */,
 				4242FC231E3F96D800A43491 /* NewsItemCell.xib in Resources */,
 				42B933821DFAEEF400514B73 /* More.storyboard in Resources */,

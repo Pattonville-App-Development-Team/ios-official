@@ -16,7 +16,7 @@ class Calendar{
     var allEvents: [Event]
     var allEventsDictionary: [Date:[Event]]
     
-    // A list and dictionary contained pinned events
+    // A list and dictionary containing pinned events
     var pinnedEvents: [Event]
     var pinnedEventsDictionary: [Date:[Event]]
     

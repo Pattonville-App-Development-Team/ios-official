@@ -180,7 +180,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             refreshControl.endRefreshing()
             
-            let alert = UIAlertController(title: "No Internet Connection", message: "You currently do not have internet connection. To refresh news and calendar events please connect to the internet via wifi or a cellular connection.", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "No Internet Connection", message: "You currently do not have internet connection. To refresh news and calendar events please connect to the internet via wifi or a cellular data.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: {
                 self.refreshControl.endRefreshing()
