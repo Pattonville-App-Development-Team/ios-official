@@ -214,7 +214,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             
             let notification = ((userInfo["aps"] as! [String:AnyObject])["alert"] as! [String:AnyObject])
             
-            let alert = UIAlertController(title: notification["title"] as? String, message: notification["body"] as? String, preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: notification["title"] as? String, message: notification["body"] as! String, preferredStyle: UIAlertControllerStyle.alert)
+
             alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
             self.window?.rootViewController?.present(alert, animated: true, completion: nil)
 
