@@ -29,8 +29,12 @@ class CalendarEventDetailController: UIViewController, EKEventEditViewDelegate{
     
     
     var event: Event!
-    //var editViewDelegate: EKEventEditViewDelegate!
     var editViewDelegate = self
+    var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, MMMM dd, YYYY"
+        return formatter
+    }()
     
     @IBOutlet var eventName: UILabel!
     @IBOutlet var eventLocation: UILabel!
@@ -66,7 +70,7 @@ class CalendarEventDetailController: UIViewController, EKEventEditViewDelegate{
         
         eventName.text = event.name
         eventLocation.text = event.location
-        eventDate.text = event.dateString
+        eventDate.text = dateFormatter.string(from: event.start!)
         eventTime.text = event.timeString
         
         if event.pinned{

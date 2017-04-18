@@ -27,7 +27,7 @@ class SchoolsEnum {
                                  newsURL: "http://fccms.psdr3.org/District/news?plugin=xml&leaves",
                                  staffArray: [],
                                  sharingLinksURL: "http://psdr3.org/?",
-                                 websiteURL: "https://www.psdr3.org")
+                                 websiteURL: "http://psdr3.org")
     
     static var earlyChildhood = School(name: "Early Childhood",
                                 shortname: "EC",
@@ -44,7 +44,7 @@ class SchoolsEnum {
                                 newsURL: "http://fccms.psdr3.org/",
                                 staffArray: [],
                                 sharingLinksURL: "http://psdr3.org/?",
-                                websiteURL: "")
+                                websiteURL: "http://ec.psdr3.org")
 
     static var bridgewayElementary = School(name: "Bridgeway Elementary",
                                 shortname: "BW",
@@ -61,7 +61,7 @@ class SchoolsEnum {
                                 newsURL: "http://fccms.psdr3.org/Bridgeway/news?plugin=xml&leaves",
                                 staffArray: [],
                                 sharingLinksURL: "http://bridgeway.psdr3.org/?",
-                                websiteURL: "https://bw.psdr3.org")
+                                websiteURL: "http://bridgeway.psdr3.org")
 
     static var drummondElementary = School(name: "Drummond Elementary",
                                 shortname: "DR",
@@ -78,7 +78,7 @@ class SchoolsEnum {
                                 newsURL: "http://fccms.psdr3.org/Drummond/news?plugin=xml&leaves",
                                 staffArray: [],
                                 sharingLinksURL: "http://drummond.psdr3.org/?",
-                                websiteURL: "https://dr.psdr3.org")
+                                websiteURL: "http://drummond.psdr3.org")
 
     static var parkwoodElementary = School(name: "Parkwood Elementary",
                                 shortname: "PW",
@@ -95,7 +95,7 @@ class SchoolsEnum {
                                 newsURL: "http://fccms.psdr3.org/Parkwood/news?plugin=xml&leaves",
                                 staffArray: [],
                                 sharingLinksURL: "http://parkwood.psdr3.org/?",
-                                websiteURL: "https://pw.psdr3.org")
+                                websiteURL: "http://parkwood.psdr3.org")
 
     static var remingtonTraditional = School(name: "Remington Traditional",
                                 shortname: "RE",
@@ -112,7 +112,7 @@ class SchoolsEnum {
                                 newsURL: "http://fccms.psdr3.org/Remington/news?plugin=xml&leaves",
                                 staffArray: [],
                                 sharingLinksURL: "http://remington.psdr3.org/?",
-                                websiteURL: "https://rt.psdr3.org")
+                                websiteURL: "http://remington.psdr3.org")
 
     static var roseAcresElementary = School(name: "Rose Acres Elementary",
                                 shortname: "RA",
@@ -129,7 +129,7 @@ class SchoolsEnum {
                                 newsURL: "http://fccms.psdr3.org/RoseAcres/news?plugin=xml&leaves",
                                 staffArray: [],
                                 sharingLinksURL: "http://roseacres.psdr3.org/?",
-                                websiteURL: "https://ra.psdr3.org")
+                                websiteURL: "http://roseacres.psdr3.org")
 
     static var willowBrookElementary = School(name: "Willow Brook Elementary",
                                 shortname: "WB",
@@ -146,7 +146,7 @@ class SchoolsEnum {
                                 newsURL: "http://fccms.psdr3.org/WillowBrook/news?plugin=xml&leaves",
                                 staffArray: [],
                                 sharingLinksURL: "http://willowbrook.psdr3.org/?",
-                                websiteURL: "https://wb.psdr3.org")
+                                websiteURL: "http://willowbrook.psdr3.org")
 
     static var holmanMiddleSchool = School(name: "Holman Middle School",
                                 shortname: "HO",
@@ -163,7 +163,7 @@ class SchoolsEnum {
                                 newsURL: "http://fccms.psdr3.org/Holman/news?plugin=xml&leaves",
                                 staffArray: [],
                                 sharingLinksURL: "http://holman.psdr3.org/?",
-                                websiteURL: "https://ho.psdr3.org")
+                                websiteURL: "http://holman.psdr3.org")
 
     static var heightsMiddleSchool = School(name: "Heights Middle School",
                                 shortname: "HT",
@@ -180,7 +180,7 @@ class SchoolsEnum {
                                 newsURL: "http://fccms.psdr3.org/Heights/news?plugin=xml&leaves",
                                 staffArray: [],
                                 sharingLinksURL: "http://heights.psdr3.org/?",
-                                websiteURL: "https://ht.psdr3.org")
+                                websiteURL: "http://heights.psdr3.org")
 
     static var pattonvilleHighSchool = School(name: "Pattonville High School",
                                 shortname: "HS",
@@ -197,7 +197,7 @@ class SchoolsEnum {
                                 newsURL: "http://fccms.psdr3.org/HighSchool/news?plugin=xml&leaves",
                                 staffArray: [],
                                 sharingLinksURL: "http://phs.psdr3.org/?",
-                                websiteURL: "https://phs.psdr3.org")
+                                websiteURL: "http://phs.psdr3.org")
     
     
     /// Method to set a schools Subscribtion staus
