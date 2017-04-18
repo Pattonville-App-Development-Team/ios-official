@@ -42,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             UserDefaults.standard.set(value, forKey:"recentNews")
             UserDefaults.standard.set(value, forKey: "upcomingNews")
             UserDefaults.standard.set(value, forKey: "pinnedEvents")
+            UserDefaults.standard.set(false, forKey:"PSDViewControllerOpenedBefore")
             
         }
         
