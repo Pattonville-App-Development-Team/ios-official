@@ -9,7 +9,7 @@
 import UIKit
 
 /// TableViewControler for the peachjar links for the different schools
-class PeachjarViewController: UITableViewController{
+class WebsitesViewController: UITableViewController{
     
     /// Gives the number of rows for the tableview
     ///
@@ -19,7 +19,7 @@ class PeachjarViewController: UITableViewController{
     /// - returns: the number of schools in the array for the umber of rows in the tableview
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return SchoolsArray.getSchools().count
+        return SchoolsArray.allSchools.count
         
     }
     
@@ -33,7 +33,7 @@ class PeachjarViewController: UITableViewController{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         
-        let school = SchoolsArray.getSchools()[indexPath.row]
+        let school = SchoolsArray.allSchools[indexPath.row]
         
         cell.textLabel?.text = school.name
         
@@ -50,10 +50,10 @@ class PeachjarViewController: UITableViewController{
         let row = indexPath.row
         
         if #available(iOS 10.0, *) {
-            UIApplication.shared.open(URL(string: SchoolsArray.getSchools()[row].peachjarURL)!, options: [:], completionHandler: nil)
+            UIApplication.shared.open(URL(string: SchoolsArray.allSchools[row].websiteURL)!, options: [:], completionHandler: nil)
         } else {
-            UIApplication.shared.openURL(NSURL(string: SchoolsArray.getSchools()[row].peachjarURL)! as URL)
-
+            UIApplication.shared.openURL(NSURL(string: SchoolsArray.allSchools[row].websiteURL)! as URL)
+            
             
         }
         

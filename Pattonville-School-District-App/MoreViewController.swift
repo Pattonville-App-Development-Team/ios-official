@@ -44,10 +44,7 @@ class MoreViewController: UITableViewController {
             case 0:
                 openUrlWithCheckForCompatibility(URLToBeOpened: "http://pirates.psdr3.org")
             /// Link to the District Website
-            case 1:
-                openUrlWithCheckForCompatibility(URLToBeOpened: "http://psdr3.org")
-            /// Link to the Moodle
-            case 3:
+            case 2:
                 openUrlWithCheckForCompatibility(URLToBeOpened: "http://moodle.psdr3.org")
             /// Link to the Feedback form
             case 7:
