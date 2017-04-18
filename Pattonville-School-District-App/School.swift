@@ -30,6 +30,7 @@ class School: NSObject, NSCoding {
     var eventsList: [Event]
     var staffArray: [StaffMember]
     var sharingLinksURL: String
+    var websiteURL: String
     
     /// The School Object initializer, to be used in the Schools Enum
     ///
@@ -62,7 +63,8 @@ class School: NSObject, NSCoding {
          calendarURL: String,
          newsURL: String,
          staffArray: [StaffMember],
-         sharingLinksURL: String) {
+         sharingLinksURL: String,
+         websiteURL: String) {
         
             self.name = name
             self.shortName = shortname
@@ -84,6 +86,8 @@ class School: NSObject, NSCoding {
 
             self.eventsList = []
             self.sharingLinksURL = sharingLinksURL
+        
+            self.websiteURL = websiteURL
         
         
     }
@@ -108,6 +112,7 @@ class School: NSObject, NSCoding {
         self.newsURL = aDecoder.decodeObject(forKey: "news")  as! String
         self.eventsList = aDecoder.decodeObject(forKey: "events") as! [Event]
         self.sharingLinksURL = aDecoder.decodeObject(forKey: "sharingsURL") as! String
+        self.websiteURL = aDecoder.decodeObject(forKey: "websiteURL") as! String
         
         super.init()
     }
@@ -132,6 +137,7 @@ class School: NSObject, NSCoding {
         aCoder.encode(self.newsURL, forKey: "news")
         aCoder.encode(self.eventsList, forKey: "events")
         aCoder.encode(self.sharingLinksURL, forKey: "sharingURL")
+        aCoder.encode(self.websiteURL, forKey: "websiteURL")
     }
     
     /// Gets calendar data from calendarURL for the school
@@ -142,17 +148,13 @@ class School: NSObject, NSCoding {
         
         let mxlCalendarManager = MXLCalendarManager()
         
-        var theCalendar: MXLCalendar?
-        
         mxlCalendarManager.scanICSFile(atRemoteURL: URL(string: calendarURL), withCompletionHandler: {
             (calendar, error) -> Void in
             
             if error == nil{
-                theCalendar = calendar
                 onSucces(calendar)
                 
             }else{
-                theCalendar = nil
                 onError(error)
                 
             }

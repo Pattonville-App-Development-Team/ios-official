@@ -24,7 +24,7 @@ class NewsReel{
         
     }()
     
-    /// Initialize a new NewsReel by attempting to read from the cahe file
+    /// Initialize a new NewsReel by attempting to read from the cache file
     init(){
         
         allNews = []
@@ -88,6 +88,7 @@ class NewsReel{
             }
             
             onCompletionHandler?()
+            
         })
     }
     
@@ -141,10 +142,8 @@ class NewsReel{
             if allNews.count < 1{
                 appendNews(news: archived)
             }
-            
             return true
         }
-        
         return false
     }
     

@@ -113,19 +113,6 @@ class NewsDetailViewController: UIViewController, UIWebViewDelegate{
             
         })
         
-        /*do{
-            let html = try String(contentsOf: URL(string: news.url)!, encoding: String.Encoding.utf8)
-            
-            contentString.append(html)
-            contentString = contentString.replacingOccurrences(of: "-Read-More-", with: "").replacingOccurrences(of: "-End-", with: "")
-            
-            self.webView.loadHTMLString(contentString, baseURL: nil)
-
-        }catch let error{
-            print(error)
-        }*/
-        
-        
     }
     
      /// Opens Action activity that includes sharing options and copy and add to reading list actions
