@@ -9,10 +9,11 @@
 import UIKit
 
 /// The Model class for type StaffMember to be used in the Directory 
-class StaffMember {
+class StaffMember: NSObject, NSCoding {
     
     var fName: String
     var lName: String
+    var pcn: String
     
     /// Job Title
     var long_desc: String
@@ -50,10 +51,11 @@ class StaffMember {
     ///   - ext2: Second phone extension number
     ///   - office3: Third direct phone number
     ///   - ext3: Third phone extension number
-    init(fName: String, lName: String, long_desc: String, location: String, email: String, office1: String, ext1: String, office2: String, ext2: String, office3: String, ext3: String) {
+    init(fName: String, lName: String, pcn: String, long_desc: String, location: String, email: String, office1: String, ext1: String, office2: String, ext2: String, office3: String, ext3: String) {
         
         self.fName = fName.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         self.lName = lName.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        self.pcn = pcn.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         self.long_desc = long_desc.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         self.location = location.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         self.email = email.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
@@ -73,15 +75,35 @@ class StaffMember {
         self.init(
             fName: values[0],
             lName: values[1],
-            long_desc: values[2],
-            location: values[3],
-            email: values[4],
-            office1: values[5],
-            ext1: values[6],
-            office2: values[7],
-            ext2: values[8],
-            office3: values[9],
-            ext3: values[10])
+            pcn: values[2],
+            long_desc: values[3],
+            location: values[4],
+            email: values[5],
+            office1: values[6],
+            ext1: values[7],
+            office2: values[8],
+            ext2: values[9],
+            office3: values[10],
+            ext3: values[11])
+    }
+    
+    required init(coder decoder: NSCoder) {
+        
+        fName = (decoder.decodeObject(forKey: "fName") as? String)!
+        lName = (decoder.decodeObject(forKey: "lName") as? String)!
+        pcn = (decoder.decodeObject(forKey: "pcn") as? String)!
+        long_desc = (decoder.decodeObject(forKey: "long_desc") as? String)!
+        location = (decoder.decodeObject(forKey: "location") as? String)!
+        email = (decoder.decodeObject(forKey: "email") as? String)!
+        office1 = (decoder.decodeObject(forKey: "office1") as? String)!
+        ext1 = (decoder.decodeObject(forKey: "ext1") as? String)!
+        office2 = (decoder.decodeObject(forKey: "office2") as? String)!
+        ext2 = (decoder.decodeObject(forKey: "ext2") as? String)!
+        office3 = (decoder.decodeObject(forKey: "office3") as? String)!
+        ext3 = (decoder.decodeObject(forKey: "ext3") as? String)!
+        
+        super.init()
+        
     }
     
     /// Identifies which school shortName should be used to add the staff member to the directoryDictionary based on a key which matches a school shortName
@@ -144,6 +166,19 @@ class StaffMember {
         }
     }
     
-    
+    func encode(with coder: NSCoder) {
+        coder.encode(fName, forKey: "fName")
+        coder.encode(lName, forKey: "lName")
+        coder.encode(pcn, forKey: "pcn")
+        coder.encode(long_desc, forKey: "long_desc")
+        coder.encode(location, forKey: "location")
+        coder.encode(email, forKey: "email")
+        coder.encode(office1, forKey: "office1")
+        coder.encode(ext1, forKey: "ext1")
+        coder.encode(office2, forKey: "office2")
+        coder.encode(ext2, forKey: "ext2")
+        coder.encode(office3, forKey: "office3")
+        coder.encode(ext3, forKey: "ext3")
+    }
     
 }

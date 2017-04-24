@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QSc-bt-Q38">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QSc-bt-Q38">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,19 +13,18 @@
         <!--Select Schools Table View Controller-->
         <scene sceneID="wM2-TK-9pc">
             <objects>
-                <tableViewController id="QSc-bt-Q38" userLabel="Select Schools Table View Controller" customClass="SelectSchoolsTableViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SelectSchoolsController" id="QSc-bt-Q38" userLabel="Select Schools Table View Controller" customClass="SelectSchoolsTableViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="HTL-Sl-aow">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectSchoolsCell" id="QTo-ij-HO9" customClass="SelectSchoolsTableCell" customModule="Pattonville_School_District_App" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QTo-ij-HO9" id="i4f-by-knF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuK-ch-w1z">
@@ -60,7 +59,6 @@
                                         <constraint firstItem="zat-3U-geI" firstAttribute="centerY" secondItem="i4f-by-knF" secondAttribute="centerY" id="v1e-dp-bfF"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="schoolColorView" destination="paB-bR-UDn" id="pAt-vm-Swe"/>
                                     <outlet property="schoolEnabledSwitch" destination="zat-3U-geI" id="M0H-QF-w7x"/>
@@ -68,9 +66,6 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
-                        <variation key="heightClass=regular-widthClass=regular">
-                            <nil key="separatorColor"/>
-                        </variation>
                         <connections>
                             <outlet property="dataSource" destination="QSc-bt-Q38" id="LYr-WP-11p"/>
                             <outlet property="delegate" destination="QSc-bt-Q38" id="fTj-El-PIo"/>
@@ -78,7 +73,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Select Schools" id="dLe-Yn-NJ5"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QyB-ay-c29" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

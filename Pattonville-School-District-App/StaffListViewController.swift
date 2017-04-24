@@ -10,8 +10,7 @@ import UIKit
 import MessageUI
 
 /// Controller responsible for properly displaying, emailing, and searching through staff members
-class StaffListViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, MFMailComposeViewControllerDelegate {
-
+class StaffListViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, MFMailComposeViewControllerDelegate, UISearchBarDelegate {
     
     var directory = DirectoryViewController.directory
     var directoryDictionary = Directory.directoryDictionary
@@ -26,13 +25,16 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
     ///
     /// - Parameter sender: Email icon clicked to send email
     @IBAction func sendEmailButton(_ sender: UIButton) {
-        searchController.searchBar.text! = ""
-        searchController.dismiss(animated: false)
+        
         if filteredStaffList.count > 0 {
             self.staffMember = filteredStaffList[sender.tag]
         } else {
             self.staffMember = staffList[sender.tag]
         }
+        
+        searchController.searchBar.text! = ""
+        searchController.dismiss(animated: false)
+        
         let mailComposeViewController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
             self.present(mailComposeViewController, animated: true, completion: nil)
@@ -41,19 +43,27 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
     
     @IBAction func callStaffMember(_ sender: UIButton) {
         
+        
         if filteredStaffList.count > 0 {
             self.staffMember = filteredStaffList[sender.tag]
+            print(sender.tag)
+            print(filteredStaffList[sender.tag].lName)
+            print(self.staffMember.lName)
         } else {
             self.staffMember = staffList[sender.tag]
         }
         
-        let schoolName = SchoolsArray.allSchools[SchoolSpecificDirectoryViewController.staticSchoolIndex].name
-        
-        let strPhoneNumber = "314-213-8010," + self.staffMember.ext1
-        let staffName = self.staffMember.fName + " " + self.staffMember.lName
-        
-        if let phoneCallURL:URL = URL(string: "tel:\(strPhoneNumber)") {
-            let application:UIApplication = UIApplication.shared
+        if staffMember.ext1 == "" {
+            
+        } else {
+            
+            let schoolName = SchoolsArray.allSchools[SchoolSpecificDirectoryViewController.staticSchoolIndex].name
+            
+            let strPhoneNumber = "314-213-8010," + self.staffMember.ext1
+            let staffName = self.staffMember.fName + " " + self.staffMember.lName
+            
+            if let phoneCallURL:URL = URL(string: "tel:\(strPhoneNumber)") {
+                let application:UIApplication = UIApplication.shared
                 let alertController = UIAlertController(title: schoolName, message: "Are you sure you want to call \n\(staffName)", preferredStyle: .alert)
                 let yesPressed = UIAlertAction(title: "Call", style: .default, handler: { (action) in
                     if #available(iOS 10.0, *) {
@@ -63,11 +73,13 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
                     }
                 })
                 let noPressed = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
-                
+                    
                 })
                 alertController.addAction(noPressed)
                 alertController.addAction(yesPressed)
                 present(alertController, animated: true, completion: nil)
+            }
+            
         }
         
     }
@@ -88,6 +100,7 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
         searchController.dimsBackgroundDuringPresentation = false
         searchController.delegate = self
         searchController.searchBar.sizeToFit()
+        searchController.searchBar.delegate = self
         
         tableView.tableHeaderView = searchController.searchBar
         tableView.reloadData()
@@ -118,7 +131,7 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "schoolSpecificDirectoryTableViewCell", for: indexPath) as! SchoolSpecificDirectoryTableViewCell
-
+        
         let staffMember: StaffMember
         
         if searchController.isActive && searchController.searchBar.text != "" {
@@ -130,16 +143,31 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         cell.nameLabel.text = (staffMember.fName + " " + staffMember.lName)
         cell.departmentLabel.text = staffMember.long_desc.capitalized(with: NSLocale.current)
-        if(staffMember.ext1 != "") {
-            cell.extButton.setTitle("x" + staffMember.ext1, for: .normal)
-            cell.extButton.tag = indexPath.row
+        
+        if staffMember.ext1.characters.count != 0 {
+            
+            let title = NSMutableAttributedString(string: "x" + staffMember.ext1)
+            title.addAttribute(NSUnderlineStyleAttributeName, value: NSUnderlineStyle.styleSingle.rawValue, range: NSMakeRange(0, title.length))
+            cell.extButton.setAttributedTitle(title, for: .normal)
+            
         } else {
-            cell.extButton.isHidden = true
+            
+            let title = NSMutableAttributedString(string: "")
+            cell.extButton.setAttributedTitle(title, for: .normal)
+            
         }
+        
+        if staffMember.email.characters.count != 0 {
+            cell.emailButton.isHidden = false
+        } else {
+            cell.emailButton.isHidden = true
+        }
+        
+        cell.extButton.tag = indexPath.row
         cell.emailButton.tag = indexPath.row
         
         return cell
-    
+        
     }
     
     /// Populates the filteredStaffList based on a user's search
@@ -154,6 +182,8 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
         }
         
         tableView.reloadData()
+        
+        
     }
     
     /// Updates the searchController based on the filtered content

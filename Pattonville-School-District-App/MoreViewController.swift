@@ -42,32 +42,13 @@ class MoreViewController: UITableViewController {
         switch row{
             /// Link to the Athletics and Activites Website
             case 0:
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(URL(string: "http://pirates.psdr3.org")!, options: [:], completionHandler: nil)
-                } else {
-                    UIApplication.shared.openURL(NSURL(string: "http://pirates.psdr3.org")! as URL)
-                }
+                openUrlWithCheckForCompatibility(URLToBeOpened: "http://pirates.psdr3.org")
             /// Link to the District Website
-            case 1:
-                if #available(iOS 10.0, *){
-                    UIApplication.shared.open(URL(string: "http://psdr3.org")!, options: [:], completionHandler: nil)
-                } else {
-                    UIApplication.shared.openURL(NSURL(string: "http://psdr3.org" )! as URL)
-                }
-            /// Link to the Moodle
-            case 3:
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(URL(string: "http://moodle.psdr3.org")!, options: [:], completionHandler: nil)
-                } else {
-                    UIApplication.shared.openURL(NSURL(string: "http://moodle.psdr3.org")! as URL)
-                }
+            case 2:
+                openUrlWithCheckForCompatibility(URLToBeOpened: "http://moodle.psdr3.org")
             /// Link to the Feedback form
             case 7:
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdqXNE4Wo8lsWuH9Ku8763B0NWqis3xoV4d5pNHoFfplJvMhw/viewform")!, options: [:], completionHandler: nil)
-                } else {
-                    UIApplication.shared.openURL(NSURL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdqXNE4Wo8lsWuH9Ku8763B0NWqis3xoV4d5pNHoFfplJvMhw/viewform")! as URL)
-                }
+                openUrlWithCheckForCompatibility(URLToBeOpened: "https://docs.google.com/forms/d/e/1FAIpQLSdqXNE4Wo8lsWuH9Ku8763B0NWqis3xoV4d5pNHoFfplJvMhw/viewform")
             default:
                 print("ROW: \(row)")
         }
@@ -75,7 +56,17 @@ class MoreViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
-    
+    /// Used to open URL's in safari, checks iOS level then opens the given URL
+    ///
+    /// - Parameter URLToBeOpened: the URL to be opened, changes based upon which row selected
+    func openUrlWithCheckForCompatibility(URLToBeOpened: String){
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL(string: URLToBeOpened)!, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(NSURL(string: URLToBeOpened)! as URL)
+        }
+        
+    }
     
     
 }

@@ -33,28 +33,28 @@ class PowerSchoolTableViewController: UITableViewController{
         switch row{
             /// Adminstrators
             case 0:
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(URL(string: "https://powerschool.psdr3.org/admin/pw.html")!, options: [:], completionHandler: nil)
-                } else {
-                    UIApplication.shared.openURL(NSURL(string: "https://powerschool.psdr3.org/admin/pw.html")! as URL)
-                }
+                openUrlWithCheckForCompatibility(URLToBeOpened: "https://powerschool.psdr3.org/admin/pw.html")
             /// Students and Parents
             case 1:
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(URL(string: "https://powerschool.psdr3.org/public/")!, options: [:], completionHandler: nil)
-                } else {
-                    UIApplication.shared.openURL(NSURL(string: "https://powerschool.psdr3.org/public/")! as URL)
-                }
+                openUrlWithCheckForCompatibility(URLToBeOpened: "https://powerschool.psdr3.org/public/")
             /// Teachers
             case 2:
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(URL(string: "https://powerschool.psdr3.org/teachers/pw.html")!, options: [:], completionHandler: nil)
-                } else {
-                    UIApplication.shared.openURL(NSURL(string: "https://powerschool.psdr3.org/teachers/pw.html")! as URL)
-                }
+                openUrlWithCheckForCompatibility(URLToBeOpened: "https://powerschool.psdr3.org/teachers/pw.html")
             default:
                 print("ROW: \(row)")
         }
         
-
-    }}
+    }
+    /// Used to open URL's in safari, checks iOS level then opens the given URL
+    ///
+    /// - Parameter URLToBeOpened: the URL to be opened, changes based upon which row selected
+    func openUrlWithCheckForCompatibility(URLToBeOpened: String){
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL(string: URLToBeOpened)!, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(NSURL(string: URLToBeOpened)! as URL)
+        }
+        
+    }
+    
+}

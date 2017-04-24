@@ -8,6 +8,7 @@
 
 import UIKit
 import iCarousel
+import Firebase
 
 class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegate, UITableViewDelegate, UITableViewDataSource{
     
@@ -51,8 +52,9 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     let image3 = #imageLiteral(resourceName: "image3.jpg")
     let image4 = #imageLiteral(resourceName: "image4.jpg")
     let image5 = #imageLiteral(resourceName: "image5.jpg")
+    let image6 = #imageLiteral(resourceName: "roboticspic.jpg")
     
-    var prevSchools: [School]! = []
+    var prevSchools: [School]!
     var filteredEvents: [Event] = []
     
     let newsParser = NewsParser()
@@ -71,6 +73,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         images.append([image3, ""])
         images.append([image4, ""])
         images.append([image5, ""])
+        images.append([image6, ""])
         
         homeCarousel.type = iCarouselType.linear
         homeCarousel.isPagingEnabled = true
@@ -85,24 +88,35 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         Timer.scheduledTimer(timeInterval: 8.0, target: self, selector: #selector(scroll), userInfo: nil, repeats: true)
         
+        prevSchools = SchoolsArray.getSubscribedSchools()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        //UserDefaults.standard.set(false, forKey:"PSDViewControllerOpenedBefore")
+        let PSDViewControllerOpenedBefore = UserDefaults.standard.bool(forKey: "PSDViewControllerOpenedBefore")
+        FIRMessaging.messaging().subscribe(toTopic: "/topics/District")
         
-        let current = SchoolsArray.getSubscribedSchools()
+        print("HOME COMPARISON: \(SchoolsArray.getSubscribedSchools()) vs \(prevSchools)")
         
-        if current != prevSchools{
+        if SchoolsArray.getSubscribedSchools() != prevSchools || !UserDefaults.standard.bool(forKey: "launchedBefore"){
+            
+            print("SUBSCRIBED SCHOOLs CHECK")
             
             calendar.getInBackground(completionHandler: {
                 self.tableView.reloadData()
             })
-            
-            news.getInBackground(beforeStartHandler: nil, onCompletionHandler: {
-                self.tableView.reloadData()
-            })
-            
-            prevSchools = current
+            if PSDViewControllerOpenedBefore{
+                news.getInBackground(beforeStartHandler: {
+                    self.tableView.reloadData()
+                }, onCompletionHandler: {
+                    self.tableView.reloadData()
+                })
+            }else{
+                UserDefaults.standard.set(true, forKey: "PSDViewControllerOpenedBefore")
+            }
+            prevSchools = SchoolsArray.getSubscribedSchools()
             
         }
         
@@ -310,7 +324,7 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     /// - returns: mainView which contains the carousel item, that has the image of story, the bar on the image and the text on the bar
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         
-//        print(index);
+        //print(index);
         
         //Initialization of views
         var mainView: UIView

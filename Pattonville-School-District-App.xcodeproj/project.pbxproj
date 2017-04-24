@@ -12,6 +12,7 @@
 		1B040D7C1E0E399200D69069 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D781E0E399200D69069 /* Directory.swift */; };
 		1B040D7D1E0E399200D69069 /* StaffMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D791E0E399200D69069 /* StaffMember.swift */; };
 		1B06FFE81E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B06FFE71E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift */; };
+		1B1B71B81E6EFBCB003B421B /* roboticspic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B1B71B71E6EFBCB003B421B /* roboticspic.jpg */; };
 		1B2B7CB91E67B73E0007183B /* Bridgeway.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CAF1E67B73E0007183B /* Bridgeway.jpg */; };
 		1B2B7CBA1E67B73E0007183B /* Drummond.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CB01E67B73E0007183B /* Drummond.jpg */; };
 		1B2B7CBB1E67B73E0007183B /* Heights.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CB11E67B73E0007183B /* Heights.jpg */; };
@@ -24,11 +25,15 @@
 		1B2B7CC21E67B73E0007183B /* WillowBrook.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CB81E67B73E0007183B /* WillowBrook.jpg */; };
 		1B2B7CC41E67BDA70007183B /* PSDLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CC31E67BDA70007183B /* PSDLogo.jpg */; };
 		1B5E11031E27C51D0038A33C /* email-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B5E11021E27C51D0038A33C /* email-icon.png */; };
-		1B6906041E5DDE0F00C1EA6B /* Student_Directory.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1B6906031E5DDE0F00C1EA6B /* Student_Directory.csv */; };
 		1B8333AB1E0391BA00776DBC /* StaffListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8333AA1E0391BA00776DBC /* StaffListViewController.swift */; };
 		1EF42C89FC923992795CC182 /* Pods_Pattonville_School_District_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E570B5805DCAA04D255A00EA /* Pods_Pattonville_School_District_AppUITests.framework */; };
+		42284ACE1EA6506800C1AE2E /* WebsitesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42284ACD1EA6506800C1AE2E /* WebsitesViewController.swift */; };
+		42284AD01EA6513300C1AE2E /* Websites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42284ACF1EA6513300C1AE2E /* Websites.storyboard */; };
+		422969C61E65CBCD008C34D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 422969C51E65CBCD008C34D0 /* GoogleService-Info.plist */; };
 		4234D1C11E310B19005B3CA8 /* NewsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4234D1C01E310B19005B3CA8 /* NewsParser.swift */; };
+		4240935B1E953A42005844C9 /* pin-green-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 4240935A1E953A42005844C9 /* pin-green-small.png */; };
 		4242FC231E3F96D800A43491 /* NewsItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4242FC221E3F96D800A43491 /* NewsItemCell.xib */; };
+		42568C3B1E8BF91700FFC51D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42568C3A1E8BF91700FFC51D /* Reachability.swift */; };
 		42617B431E00A61C00BB5992 /* pin-black-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 42617B421E00A61C00BB5992 /* pin-black-1.png */; };
 		42B014CD1E4001740062CBE0 /* CalendarParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B014CC1E4001740062CBE0 /* CalendarParser.swift */; };
 		42B933021DFAEDC500514B73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B933011DFAEDC500514B73 /* AppDelegate.swift */; };
@@ -116,6 +121,7 @@
 		1B040D781E0E399200D69069 /* Directory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
 		1B040D791E0E399200D69069 /* StaffMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffMember.swift; sourceTree = "<group>"; };
 		1B06FFE71E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolSpecificDirectoryTableViewCell.swift; sourceTree = "<group>"; };
+		1B1B71B71E6EFBCB003B421B /* roboticspic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = roboticspic.jpg; sourceTree = "<group>"; };
 		1B2B7CAF1E67B73E0007183B /* Bridgeway.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Bridgeway.jpg; sourceTree = "<group>"; };
 		1B2B7CB01E67B73E0007183B /* Drummond.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Drummond.jpg; sourceTree = "<group>"; };
 		1B2B7CB11E67B73E0007183B /* Heights.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Heights.jpg; sourceTree = "<group>"; };
@@ -128,11 +134,16 @@
 		1B2B7CB81E67B73E0007183B /* WillowBrook.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WillowBrook.jpg; sourceTree = "<group>"; };
 		1B2B7CC31E67BDA70007183B /* PSDLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PSDLogo.jpg; sourceTree = "<group>"; };
 		1B5E11021E27C51D0038A33C /* email-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "email-icon.png"; sourceTree = "<group>"; };
-		1B6906031E5DDE0F00C1EA6B /* Student_Directory.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Student_Directory.csv; sourceTree = "<group>"; };
 		1B8333AA1E0391BA00776DBC /* StaffListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffListViewController.swift; sourceTree = "<group>"; };
 		3425B2670BFD642C6C90BF2B /* Pods-Pattonville-School-District-AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-AppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-AppUITests/Pods-Pattonville-School-District-AppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		42284ACD1EA6506800C1AE2E /* WebsitesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebsitesViewController.swift; sourceTree = "<group>"; };
+		42284ACF1EA6513300C1AE2E /* Websites.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Websites.storyboard; sourceTree = "<group>"; };
+		422969C51E65CBCD008C34D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		422969C71E65CE3B008C34D0 /* Pattonville-School-District-App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Pattonville-School-District-App.entitlements"; sourceTree = "<group>"; };
 		4234D1C01E310B19005B3CA8 /* NewsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsParser.swift; sourceTree = "<group>"; };
+		4240935A1E953A42005844C9 /* pin-green-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin-green-small.png"; sourceTree = "<group>"; };
 		4242FC221E3F96D800A43491 /* NewsItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsItemCell.xib; sourceTree = "<group>"; };
+		42568C3A1E8BF91700FFC51D /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		42617B421E00A61C00BB5992 /* pin-black-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin-black-1.png"; sourceTree = "<group>"; };
 		42A9ABCDF3EE610FB5F3DDB8 /* Pods-Pattonville-School-District-AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-AppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-AppUITests/Pods-Pattonville-School-District-AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		42B014CC1E4001740062CBE0 /* CalendarParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarParser.swift; sourceTree = "<group>"; };
@@ -293,6 +304,10 @@
 		42B933001DFAEDC500514B73 /* Pattonville-School-District-App */ = {
 			isa = PBXGroup;
 			children = (
+				4240935A1E953A42005844C9 /* pin-green-small.png */,
+				422969C71E65CE3B008C34D0 /* Pattonville-School-District-App.entitlements */,
+				422969C51E65CBCD008C34D0 /* GoogleService-Info.plist */,
+				1B1B71B71E6EFBCB003B421B /* roboticspic.jpg */,
 				1B5E11021E27C51D0038A33C /* email-icon.png */,
 				42617B421E00A61C00BB5992 /* pin-black-1.png */,
 				42B9330F1DFAEDC500514B73 /* Info.plist */,
@@ -316,6 +331,7 @@
 				42B9330A1DFAEDC500514B73 /* Assets.xcassets */,
 				42B9330C1DFAEDC500514B73 /* LaunchScreen.storyboard */,
 				42B933331DFAEEF300514B73 /* Pattonville-School-District-App-Bridging-Header.h */,
+				42568C3A1E8BF91700FFC51D /* Reachability.swift */,
 			);
 			path = "Pattonville-School-District-App";
 			sourceTree = "<group>";
@@ -370,6 +386,8 @@
 				42B9334F1DFAEEF300514B73 /* MoreViewController.swift */,
 				42B933581DFAEEF300514B73 /* Peachjar.storyboard */,
 				42B9335A1DFAEEF300514B73 /* PeachjarViewController.swift */,
+				42284ACD1EA6506800C1AE2E /* WebsitesViewController.swift */,
+				42284ACF1EA6513300C1AE2E /* Websites.storyboard */,
 				4BE086DD1E08738F00BEA0E4 /* NutriSliceViewController.swift */,
 				4B4299A71E087F7200A202F9 /* 6NutriSliceLinks.storyboard */,
 				4BD53EF31E48B6EE001CB302 /* PowerSchoolTableViewController.storyboard */,
@@ -393,7 +411,6 @@
 		42B933AA1DFAF7B200514B73 /* DIrectory */ = {
 			isa = PBXGroup;
 			children = (
-				1B6906031E5DDE0F00C1EA6B /* Student_Directory.csv */,
 				42B933441DFAEEF300514B73 /* Directory.storyboard */,
 				42B933451DFAEEF300514B73 /* DirectoryViewController.swift */,
 				1B040D781E0E399200D69069 /* Directory.swift */,
@@ -548,6 +565,11 @@
 						DevelopmentTeam = ZPVDW8LQL8;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					42B933131DFAEDC600514B73 = {
 						CreatedOnToolsVersion = 8.1;
@@ -592,12 +614,13 @@
 				4242FC231E3F96D800A43491 /* NewsItemCell.xib in Resources */,
 				42B933821DFAEEF400514B73 /* More.storyboard in Resources */,
 				1B2B7CC11E67B73E0007183B /* RoseAcres.jpg in Resources */,
+				42284AD01EA6513300C1AE2E /* Websites.storyboard in Resources */,
 				42B9330E1DFAEDC500514B73 /* LaunchScreen.storyboard in Resources */,
-				1B6906041E5DDE0F00C1EA6B /* Student_Directory.csv in Resources */,
 				1B2B7CC41E67BDA70007183B /* PSDLogo.jpg in Resources */,
 				42B933771DFAEEF400514B73 /* DateView.xib in Resources */,
 				4B4299A81E087F7200A202F9 /* 6NutriSliceLinks.storyboard in Resources */,
 				4611185B1E4231CF005AA3A9 /* image5.jpg in Resources */,
+				422969C61E65CBCD008C34D0 /* GoogleService-Info.plist in Resources */,
 				4B7D26DC1E4A19500097F0E6 /* SelectSchoolsTableViewController.storyboard in Resources */,
 				42B9330B1DFAEDC500514B73 /* Assets.xcassets in Resources */,
 				1B2B7CBF1E67B73E0007183B /* Parkwood.jpg in Resources */,
@@ -618,6 +641,7 @@
 				42617B431E00A61C00BB5992 /* pin-black-1.png in Resources */,
 				1B2B7CBE1E67B73E0007183B /* LearningCenter.jpg in Resources */,
 				42B933701DFAEEF400514B73 /* CalendarHeaderView.xib in Resources */,
+				1B1B71B81E6EFBCB003B421B /* roboticspic.jpg in Resources */,
 				1B2B7CBD1E67B73E0007183B /* Holman.jpg in Resources */,
 				42B9336A1DFAEEF400514B73 /* Base.lproj in Resources */,
 				461118571E4231CF005AA3A9 /* image1.jpg in Resources */,
@@ -625,6 +649,7 @@
 				42B933C51DFB022B00514B73 /* pin-green.png in Resources */,
 				1B2B7CB91E67B73E0007183B /* Bridgeway.jpg in Resources */,
 				42B933991DFAEEF400514B73 /* Settings.storyboard in Resources */,
+				4240935B1E953A42005844C9 /* pin-green-small.png in Resources */,
 				1B5E11031E27C51D0038A33C /* email-icon.png in Resources */,
 				42B933A21DFAEF1B00514B73 /* Calendar.storyboard in Resources */,
 				42B933761DFAEEF400514B73 /* DateCell.xib in Resources */,
@@ -802,6 +827,7 @@
 				42B933721DFAEEF400514B73 /* CalendarPinnedListViewController.swift in Sources */,
 				42B9339A1DFAEEF400514B73 /* SettingsViewController.swift in Sources */,
 				42B933711DFAEEF400514B73 /* CalendarListViewController.swift in Sources */,
+				42284ACE1EA6506800C1AE2E /* WebsitesViewController.swift in Sources */,
 				42B933831DFAEEF400514B73 /* MoreViewController.swift in Sources */,
 				42B933871DFAEEF400514B73 /* NewsItem.swift in Sources */,
 				42B933931DFAEEF400514B73 /* School.swift in Sources */,
@@ -822,6 +848,7 @@
 				42B9337A1DFAEEF400514B73 /* DirectoryViewController.swift in Sources */,
 				42B9338E1DFAEEF400514B73 /* PeachjarViewController.swift in Sources */,
 				42B9336B1DFAEEF400514B73 /* Calendar.swift in Sources */,
+				42568C3B1E8BF91700FFC51D /* Reachability.swift in Sources */,
 				1B040D7D1E0E399200D69069 /* StaffMember.swift in Sources */,
 				42B9336E1DFAEEF400514B73 /* CalendarEventDetailController.swift in Sources */,
 				1B06FFE81E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift in Sources */,
@@ -979,7 +1006,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -992,6 +1019,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Pattonville-School-District-App/Pattonville-School-District-App.entitlements";
 				DEVELOPMENT_TEAM = ZPVDW8LQL8;
 				INFOPLIST_FILE = "Pattonville-School-District-App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -1012,6 +1040,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Pattonville-School-District-App/Pattonville-School-District-App.entitlements";
 				DEVELOPMENT_TEAM = ZPVDW8LQL8;
 				INFOPLIST_FILE = "Pattonville-School-District-App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;

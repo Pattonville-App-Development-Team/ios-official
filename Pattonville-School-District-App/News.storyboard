@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DHr-DV-oCS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DHr-DV-oCS">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,14 +23,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QQ7-ld-LYh">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="-4" y="64" width="383" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NewsItemCell" rowHeight="60" id="UXM-ll-ri2" customClass="NewsItemCell" customModule="Pattonville_School_District_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="28" width="383" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UXM-ll-ri2" id="3u9-fK-ARd">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="350" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -46,10 +46,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="QQ7-ld-LYh" secondAttribute="trailing" constant="-20" id="7Ud-hT-DJB"/>
                             <constraint firstItem="QQ7-ld-LYh" firstAttribute="top" secondItem="Chm-rN-0fy" secondAttribute="bottom" id="P3M-ib-mGO"/>
+                            <constraint firstItem="QQ7-ld-LYh" firstAttribute="leading" secondItem="c16-Ym-zgA" secondAttribute="leadingMargin" constant="-20" id="Qfw-SP-FSF"/>
                             <constraint firstItem="fAR-mc-Icf" firstAttribute="top" secondItem="QQ7-ld-LYh" secondAttribute="bottom" id="VwS-tB-pdJ"/>
-                            <constraint firstItem="QQ7-ld-LYh" firstAttribute="leading" secondItem="c16-Ym-zgA" secondAttribute="leadingMargin" constant="-16" id="bfR-rR-O5G"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="QQ7-ld-LYh" secondAttribute="trailing" constant="-16" id="qBM-1q-AQm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="News" id="9Fx-xT-C4e"/>
@@ -59,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P6A-n7-kFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-381.60000000000002" y="1458.6206896551726"/>
+            <point key="canvasLocation" x="-348" y="1459"/>
         </scene>
         <!--News-->
         <scene sceneID="QlN-IT-OEw">

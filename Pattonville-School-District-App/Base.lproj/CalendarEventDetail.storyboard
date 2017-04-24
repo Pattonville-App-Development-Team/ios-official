@@ -52,7 +52,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ksi-9Y-7rq">
                                 <rect key="frame" x="323" y="77" width="26" height="26"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="26" id="IRG-Z1-pE7"/>
+                                    <constraint firstAttribute="height" constant="26" id="Svo-ST-cgn"/>
+                                    <constraint firstAttribute="width" constant="26" id="T7f-PR-GnZ"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="pin-black-1.png"/>
                                 <state key="selected" image="pin-green.png"/>
@@ -70,16 +71,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ksi-9Y-7rq" firstAttribute="leading" secondItem="kHo-KF-eri" secondAttribute="trailing" constant="32" id="0B7-Wa-HLg"/>
                             <constraint firstItem="MLb-KE-uqm" firstAttribute="top" secondItem="c80-z5-GID" secondAttribute="bottom" constant="4" id="0EH-4L-dVl"/>
-                            <constraint firstItem="Ksi-9Y-7rq" firstAttribute="top" secondItem="clR-FN-oiE" secondAttribute="bottom" constant="13" id="46K-dR-XrX"/>
                             <constraint firstItem="MLb-KE-uqm" firstAttribute="leading" secondItem="c80-z5-GID" secondAttribute="leading" id="Nm7-jh-6yH"/>
                             <constraint firstAttribute="leadingMargin" secondItem="kHo-KF-eri" secondAttribute="leading" id="TRG-Oz-okO"/>
                             <constraint firstItem="kHo-KF-eri" firstAttribute="top" secondItem="clR-FN-oiE" secondAttribute="bottom" constant="15" id="WDs-dZ-ZQS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ksi-9Y-7rq" secondAttribute="trailing" constant="10" id="aFr-5T-MK9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ksi-9Y-7rq" secondAttribute="trailing" constant="10" id="aTj-hC-JeH"/>
                             <constraint firstItem="hqu-QC-F5d" firstAttribute="top" secondItem="kHo-KF-eri" secondAttribute="bottom" constant="8" id="k8u-8W-Q79"/>
                             <constraint firstItem="c80-z5-GID" firstAttribute="leading" secondItem="hqu-QC-F5d" secondAttribute="leading" id="pnz-vk-ydv"/>
                             <constraint firstItem="hqu-QC-F5d" firstAttribute="leading" secondItem="kHo-KF-eri" secondAttribute="leading" id="qkh-Xk-5vk"/>
+                            <constraint firstItem="Ksi-9Y-7rq" firstAttribute="top" secondItem="clR-FN-oiE" secondAttribute="bottom" constant="13" id="vg8-XT-dVz"/>
                             <constraint firstItem="c80-z5-GID" firstAttribute="top" secondItem="hqu-QC-F5d" secondAttribute="bottom" constant="15" id="zs6-I6-g0t"/>
                         </constraints>
                     </view>

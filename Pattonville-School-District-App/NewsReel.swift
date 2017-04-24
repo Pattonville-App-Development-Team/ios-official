@@ -5,7 +5,6 @@
 //  Created by Developer on 10/5/16.
 //  Copyright © 2017 Pattonville School District. All rights reserved.
 //
-
 import UIKit
 
 /// Class for the array of NewsItems used in NewsViewController to display news
@@ -18,24 +17,24 @@ class NewsReel{
     
     /// The URL to the cache file
     let fileURL: NSURL = {
-       let directories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-       let document = directories.first!
+        let directories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let document = directories.first!
         
-       return document.appendingPathComponent("newsitem.archive") as NSURL
+        return document.appendingPathComponent("newsitem.archive") as NSURL
         
     }()
     
-    /// Initialize a new NewsReel by attempting to read from the cahe file
+    /// Initialize a new NewsReel by attempting to read from the cache file
     init(){
         
         allNews = []
         filteredNews = []
-
+        
         readFromFile()
         
     }
     
-    /// Appends and array of news events to allEvents
+    /// Appends and array of news events to allEvents, used for caching
     ///
     /// - news: an arrays of news items
     
@@ -47,7 +46,7 @@ class NewsReel{
         
     }
     
-    /// Adds a news item to the news array
+    /// Adds a news item to the news array, used for xml parsing
     ///
     /// - newsItem: the news item to add
     ///
@@ -63,11 +62,11 @@ class NewsReel{
     /// - onCompletionHandler: function to run on completion of parsing
     
     func getInBackground(beforeStartHandler: (() -> Void)?, onCompletionHandler: (() -> Void)?){
-    
-        let parser = NewsParser()
-    
-        parser.getDataInBackground(beforeStartHandler: {
         
+        let parser = NewsParser()
+        
+        parser.getDataInBackground(beforeStartHandler: {
+            
             // Reset News to empty
             self.resetNews()
             
@@ -89,10 +88,11 @@ class NewsReel{
             }
             
             onCompletionHandler?()
+            
         })
     }
     
-    /// Get NewsEvents from the most resonable source
+    /// Get NewsEvents from either the cache or the XML
     ///
     /// - beforeStartHandler: function to run prior to the start of parsing
     /// - onCompletionHandler: function to run on completion of parsing
@@ -105,15 +105,14 @@ class NewsReel{
         }else{
             mostRecentSave = Date()
         }
-
+        
         var dateComponent = DateComponents()
         dateComponent.hour = -1
         
         let lastHour = NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: Date(), options: [])
         
         //Try to read from file, and then check if it added allNews
-        if mostRecentSave < lastHour! || (!readFromFile() || allNews.count == 0){
-         
+        if Reachability.isConnectedToNetwork() && mostRecentSave < lastHour! || (!readFromFile() || allNews.count == 0){
 //            print("Getting om Background")
             
             //Parse News from FCCMS
@@ -131,6 +130,7 @@ class NewsReel{
     /// - returns: if saving succeeded
     func saveToFile() -> Bool{
 //        print("Saved to file \(fileURL.path!)")
+
         return NSKeyedArchiver.archiveRootObject(allNews, toFile: fileURL.path!)
     }
     
@@ -142,10 +142,8 @@ class NewsReel{
             if allNews.count < 1{
                 appendNews(news: archived)
             }
-            
             return true
         }
-        
         return false
     }
     
@@ -153,6 +151,7 @@ class NewsReel{
     func resetNews(){
         allNews = []
         filteredNews = []
+        print("resetNews ran")
     }
     
 }
