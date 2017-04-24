@@ -16,6 +16,7 @@ import FirebaseMessaging
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, FIRMessagingDelegate {
     
     var window: UIWindow?
+    var currentDevice = UIDevice()
     /// Method called as the app is launching, checks to see if the application is launched before, if so sets the isSubscribedTo values in SchoolsArray.allSchools
     ///
     /// - Parameters:
@@ -23,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     ///   - launchOptions: the launching options used
     /// - Returns: true
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-        
+        var deviceTypeString = currentDevice.model
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore{
@@ -34,16 +35,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             
             SchoolsEnum.district.isSubscribedTo = true
             
-            
+            print(currentDevice.model)
             
         } else {
+            if(deviceTypeString == "iPad"){
+                let value = 5 
+                UserDefaults.standard.set(value, forKey:"recentNews")
+                UserDefaults.standard.set(value, forKey: "upcomingNews")
+                UserDefaults.standard.set(value, forKey: "pinnedEvents")
+                UserDefaults.standard.set(false, forKey:"PSDViewControllerOpenedBefore")
+            }else{
             print("First launch, setting UserDefault.")
             let value = 3
             UserDefaults.standard.set(value, forKey:"recentNews")
             UserDefaults.standard.set(value, forKey: "upcomingNews")
             UserDefaults.standard.set(value, forKey: "pinnedEvents")
             UserDefaults.standard.set(false, forKey:"PSDViewControllerOpenedBefore")
-            
+            }
         }
         
         return true
