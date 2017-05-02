@@ -111,10 +111,6 @@ class SelectSchoolsTableViewController: UITableViewController{
         school.isSubscribedTo = !school.isSubscribedTo
         
         UserDefaults.standard.set(school.isSubscribedTo, forKey: school.name)
-        print("Saved \(school.name)'s isSubscribedTo bool val to \(UserDefaults.standard.bool(forKey: school.name))")
-        for school in SchoolsArray.allSchools {
-            print(school.isSubscribedTo)
-        }
         
         
         if UserDefaults.standard.bool(forKey: school.name){
