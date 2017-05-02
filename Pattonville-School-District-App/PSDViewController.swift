@@ -94,7 +94,8 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        //UserDefaults.standard.set(false, forKey:"PSDViewControllerOpenedBefore")
+        let PSDViewControllerOpenedBefore = UserDefaults.standard.bool(forKey: "PSDViewControllerOpenedBefore")
         FIRMessaging.messaging().subscribe(toTopic: "/topics/District")
         
         print("HOME COMPARISON: \(SchoolsArray.getSubscribedSchools()) vs \(prevSchools)")
@@ -106,13 +107,15 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
             calendar.getInBackground(completionHandler: {
                 self.tableView.reloadData()
             })
-            
-            news.getInBackground(beforeStartHandler: {
-                self.tableView.reloadData()
-            }, onCompletionHandler: {
-                self.tableView.reloadData()
-            })
-            
+            if PSDViewControllerOpenedBefore{
+                news.getInBackground(beforeStartHandler: {
+                    self.tableView.reloadData()
+                }, onCompletionHandler: {
+                    self.tableView.reloadData()
+                })
+            }else{
+                UserDefaults.standard.set(true, forKey: "PSDViewControllerOpenedBefore")
+            }
             prevSchools = SchoolsArray.getSubscribedSchools()
             
         }

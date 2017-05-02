@@ -34,7 +34,7 @@ class NewsReel{
         
     }
     
-    /// Appends and array of news events to allEvents
+    /// Appends and array of news events to allEvents, used for caching
     ///
     /// - news: an arrays of news items
     
@@ -46,7 +46,7 @@ class NewsReel{
         
     }
     
-    /// Adds a news item to the news array
+    /// Adds a news item to the news array, used for xml parsing
     ///
     /// - newsItem: the news item to add
     ///
@@ -92,7 +92,7 @@ class NewsReel{
         })
     }
     
-    /// Get NewsEvents from the most resonable source
+    /// Get NewsEvents from either the cache or the XML
     ///
     /// - beforeStartHandler: function to run prior to the start of parsing
     /// - onCompletionHandler: function to run on completion of parsing
@@ -151,6 +151,7 @@ class NewsReel{
     func resetNews(){
         allNews = []
         filteredNews = []
+        print("resetNews ran")
     }
     
 }

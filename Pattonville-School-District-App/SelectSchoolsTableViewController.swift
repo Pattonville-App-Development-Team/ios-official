@@ -121,7 +121,7 @@ class SelectSchoolsTableViewController: UITableViewController{
         }
         
         FIRMessaging.messaging().subscribe(toTopic: "/topics/District")
-        
+        FIRMessaging.messaging().subscribe(toTopic: "/topics/test")
         
         
         let subscribed = SchoolsArray.getSubscribedSchools()
