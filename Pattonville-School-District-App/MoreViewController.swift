@@ -49,6 +49,8 @@ class MoreViewController: UITableViewController {
             /// Link to the Feedback form
             case 7:
                 openUrlWithCheckForCompatibility(URLToBeOpened: "https://docs.google.com/forms/d/e/1FAIpQLSdqXNE4Wo8lsWuH9Ku8763B0NWqis3xoV4d5pNHoFfplJvMhw/viewform")
+            /// Link to our privacy policy
+            case 9:openUrlWithCheckForCompatibility(URLToBeOpened: "https://www.iubenda.com/privacy-policy/8085303")
             default:
                 print("ROW: \(row)")
         }
