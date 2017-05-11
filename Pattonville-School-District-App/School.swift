@@ -31,6 +31,7 @@ class School: NSObject, NSCoding {
     var staffArray: [StaffMember]
     var sharingLinksURL: String
     var websiteURL: String
+    var rank: Int
     
     /// The School Object initializer, to be used in the Schools Enum
     ///
@@ -64,7 +65,8 @@ class School: NSObject, NSCoding {
          newsURL: String,
          staffArray: [StaffMember],
          sharingLinksURL: String,
-         websiteURL: String) {
+         websiteURL: String,
+         rank: Int) {
         
             self.name = name
             self.shortName = shortname
@@ -88,6 +90,8 @@ class School: NSObject, NSCoding {
             self.sharingLinksURL = sharingLinksURL
         
             self.websiteURL = websiteURL
+        
+            self.rank = rank
         
         
     }
@@ -113,7 +117,7 @@ class School: NSObject, NSCoding {
         self.eventsList = aDecoder.decodeObject(forKey: "events") as! [Event]
         self.sharingLinksURL = aDecoder.decodeObject(forKey: "sharingsURL") as! String
         self.websiteURL = aDecoder.decodeObject(forKey: "websiteURL") as! String
-        
+        self.rank = aDecoder.decodeInt64(forKey: "rank") as! Int
         super.init()
     }
     
@@ -138,6 +142,7 @@ class School: NSObject, NSCoding {
         aCoder.encode(self.eventsList, forKey: "events")
         aCoder.encode(self.sharingLinksURL, forKey: "sharingURL")
         aCoder.encode(self.websiteURL, forKey: "websiteURL")
+        aCoder.encode(self.rank, forKey: "rank")
     }
     
     /// Gets calendar data from calendarURL for the school

@@ -285,6 +285,10 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         selectedDateEvents = calendar.eventsForDate(date: theDate!)
         
+        selectedDateEvents.sort(by: {
+            ($0.school?.rank)! < ($1.school?.rank)!
+        })
+        
     }
     
     /// Compares two dates to check for equality
