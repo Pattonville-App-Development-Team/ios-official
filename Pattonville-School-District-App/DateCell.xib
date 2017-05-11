@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SrO-26-U2d" id="7KG-XW-aWS">
-                <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iN-Ii-h0z">
@@ -58,21 +58,26 @@
                             <action selector="setPinned" destination="SrO-26-U2d" eventType="touchDown" id="WGc-8I-631"/>
                         </connections>
                     </button>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kM9-TO-ZUQ">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kM9-TO-ZUQ">
                         <rect key="frame" x="64" y="4" width="2" height="35"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="2" id="rOG-NC-mju"/>
+                        </constraints>
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="kM9-TO-ZUQ" firstAttribute="top" secondItem="7KG-XW-aWS" secondAttribute="topMargin" constant="-4" id="20z-Kf-DlZ"/>
                     <constraint firstAttribute="leadingMargin" secondItem="4iN-Ii-h0z" secondAttribute="leading" constant="-8" id="GCq-Xr-kjR"/>
                     <constraint firstItem="OKW-fX-wth" firstAttribute="centerY" secondItem="7KG-XW-aWS" secondAttribute="centerY" id="HE0-da-TVO"/>
+                    <constraint firstItem="h89-i5-JsU" firstAttribute="leading" secondItem="kM9-TO-ZUQ" secondAttribute="trailing" constant="8" id="HgU-Et-ApS"/>
                     <constraint firstItem="h89-i5-JsU" firstAttribute="top" secondItem="7KG-XW-aWS" secondAttribute="topMargin" constant="-4" id="Ohs-Gj-wqe"/>
                     <constraint firstItem="KOe-fa-g8h" firstAttribute="leading" secondItem="h89-i5-JsU" secondAttribute="leading" id="QTm-q3-jmS"/>
                     <constraint firstItem="4iN-Ii-h0z" firstAttribute="top" secondItem="7KG-XW-aWS" secondAttribute="topMargin" constant="-2" id="QWb-Ab-l5A"/>
                     <constraint firstAttribute="trailingMargin" secondItem="OKW-fX-wth" secondAttribute="trailing" id="Umh-cV-9RY"/>
                     <constraint firstItem="jCE-sp-E1W" firstAttribute="top" secondItem="4iN-Ii-h0z" secondAttribute="bottom" constant="8" id="YBP-Y9-3R1"/>
                     <constraint firstItem="h89-i5-JsU" firstAttribute="leading" secondItem="7KG-XW-aWS" secondAttribute="leadingMargin" constant="66" id="aun-as-sTh"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="kM9-TO-ZUQ" secondAttribute="bottom" constant="-3.5" id="bY9-GE-IMz"/>
                     <constraint firstItem="KOe-fa-g8h" firstAttribute="centerY" secondItem="jCE-sp-E1W" secondAttribute="centerY" id="rQT-UO-7IG"/>
                     <constraint firstItem="jCE-sp-E1W" firstAttribute="leading" secondItem="4iN-Ii-h0z" secondAttribute="leading" id="vek-Wd-ajY"/>
                     <constraint firstItem="OKW-fX-wth" firstAttribute="leading" secondItem="h89-i5-JsU" secondAttribute="trailing" constant="8" id="ySw-gA-W7n"/>
@@ -91,6 +96,6 @@
     </objects>
     <resources>
         <image name="pin-black-1.png" width="48" height="48"/>
-        <image name="pin-green.png" width="48" height="48"/>
+        <image name="pin-green.png" width="60" height="60"/>
     </resources>
 </document>

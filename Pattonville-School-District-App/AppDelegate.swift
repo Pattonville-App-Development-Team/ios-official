@@ -106,6 +106,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         calendarController.calendar = calendar
         calendarController.selectedDate = Date()
         
+        calendar.filterPinnedEvents()
+        
         news.getNews(beforeStartHandler: nil, onCompletionHandler: {
             homeController.news = news
             newsController.news = news

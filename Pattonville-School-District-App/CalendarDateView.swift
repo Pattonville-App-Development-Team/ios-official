@@ -63,7 +63,7 @@ class CalendarDateView: JTAppleDayCellView{
     /// Sets the look for the cell when it is selected
     /// - color: the color to set the background of the cell to
     
-    func select(date: Date, cellState: CellState){
+    func select(date: Date){
         
         if isToday(date: date){
             styleToday()

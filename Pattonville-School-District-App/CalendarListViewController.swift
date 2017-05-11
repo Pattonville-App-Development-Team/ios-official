@@ -43,13 +43,14 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
         
         tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         
+        tableView.reloadData()
+        
     }
     
     ///Sets up the look of the ViewController upon appearing on screen.
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tableView.reloadData()
     }
     
     /// Determines functionality when the view controller stack is modified. If parent = nil then the view controller was popped
@@ -134,13 +135,13 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
             $0 < $1
         }
         
-        print(keys)
+        //print(keys)
         
-        print(dateFormatter.date(from: sectionName)!)
+       // print(dateFormatter.date(from: sectionName)!)
         
         let key = keys.index(of: dateFormatter.date(from: sectionName)!)
         
-        print(key ?? "No key")
+        //print(key ?? "No key")
         
         return key!
         

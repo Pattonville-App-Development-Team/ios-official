@@ -125,6 +125,17 @@ class Calendar{
         
     }
     
+    func filterPinnedEvents(){
+        
+        for event in pinnedEvents{
+            if event.end! < Date(){
+                unPinEvent(event: event)
+                event.setUnpinned()
+            }
+        }
+        
+    }
+    
     /// get the index of a given event
     ///
     /// - event: the event
@@ -257,7 +268,7 @@ class Calendar{
         let lastWeek = NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: Date(), options: [])
         
         //If the most recent save time is longer than one hour ago OR read from file is unsuccesful OR allEvents is empty
-        if Reachability.isConnectedToNetwork() && mostRecentSave < lastWeek! || !readFromFile() || allEvents.count == 0{
+        if Reachability.isConnectedToNetwork() && (mostRecentSave < lastWeek! || !readFromFile() || allEvents.count == 0){
             
             //Parse events in background
             getInBackground(completionHandler: {
@@ -271,7 +282,6 @@ class Calendar{
     /// Save allNews to the Cache File
     /// - returns: if saving succeeded
     func saveToFile() -> Bool{
-
         //print("Saved to file \(fileURL.path!)")
         return NSKeyedArchiver.archiveRootObject(allEvents, toFile: fileURL.path!)
         

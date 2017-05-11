@@ -17,16 +17,32 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet var pinButton: UIBarButtonItem!
+    @IBOutlet var listButton: UIBarButtonItem!
+    
+    @IBAction func goToList(sender: UIBarButtonItem){
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "CalendarListViewSegue", sender: sender)
+        }
+    }
     
     var calendar: Calendar! = Calendar.instance
     
-    var selectedDate: Date = Date()
+    var selectedDate: Date = Date(){
+        didSet{
+            print("SELECTED DATE: \(selectedDate)")
+        }
+    }
     
     var selectedDateEvents = [Event]()
     
     var prevSchools: [School]!
     
     var todayCell: CalendarDateView! = CalendarDateView()
+    var selectedCell: CalendarDateView!{
+        didSet{
+            print("SELECTED CELL: \(selectedCell)")
+        }
+    }
     
     /// Sets up look of view controller upon loading. Completes basic setup of Calendar and TableView appearances and sorts the events list for pinned events
     override func viewDidLoad() {
@@ -128,6 +144,11 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         if compareDates(date1: date, date2: Date()){
             todayCell = cell
         }
+        
+        if compareDates(date1: date, date2: selectedDate){
+            selectedCell = cell
+            selectedCell.select(date: date)
+        }
 
     }
     
@@ -173,9 +194,10 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         let cell = (cell as? CalendarDateView)
         
-        cell?.select(date: date, cellState: cellState)
+        cell?.select(date: date)
         
         selectedDate = date
+        selectedCell = cell
         
         filterCalendarData(for: date)
         
@@ -240,7 +262,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CalendarListViewSegue"{
             let destination = (segue.destination as! UINavigationController).viewControllers[0] as! CalendarListViewController
-            destination.calendar = calendar
+            //destination.calendar = calendar
         }else if segue.identifier == "PinnedListSegue"{
             let destination = (segue.destination as! UINavigationController).viewControllers[0] as! CalendarPinnedListViewController
             destination.calendar = calendar

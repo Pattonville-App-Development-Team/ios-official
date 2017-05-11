@@ -115,6 +115,11 @@ class Event: NSObject, NSCoding{
     func setPinned(){
         pinned = true
         Calendar.instance.pinEvent(event: self)
+        
+        if end! < Date(){
+            setUnpinned()
+        }
+        
     }
     
     func setUnpinned(){
