@@ -19,7 +19,7 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
         self.parent?.dismiss(animated: true, completion: nil)
     }
     
-    var calendar: Calendar! = Calendar.instance
+    var calendar: Calendar!
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -32,25 +32,37 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("\(Date()) LIST VIEW DID LOAD")
+        
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.register(UINib(nibName: "DateCell", bundle:nil), forCellReuseIdentifier: "DateCell")
         
+        print("\(Date()) LIST VIEW CELL REGISTERED")
         let sectionIndex = getIndexForSectionName(sectionName: dateFormatter.string(from: Date()))
         
         let indexPath = IndexPath(row: 0, section: sectionIndex)
         
+        print("\(Date()) LIST VIEW SCROLL TO ROW")
         tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         
+        print("\(Date()) LIST VIEW RELOAD DATA")
         tableView.reloadData()
+        
+        print("\(Date()) LIST VIEW DID LOAD FINISHED")
         
     }
     
-    ///Sets up the look of the ViewController upon appearing on screen.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("\(Date()) LIST VIEW WILL APPEAR")
+    }
     
+    ///Sets up the look of the ViewController upon appearing on screen.
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print("\(Date()) LIST VIEW DID APPEAR")
     }
     
     /// Determines functionality when the view controller stack is modified. If parent = nil then the view controller was popped
@@ -143,7 +155,17 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
         
         //print(key ?? "No key")
         
-        return key!
+        if let theKey = key{
+            return theKey
+        }else{
+            var dateComponent = DateComponents()
+            dateComponent.day = 1
+            
+            // Find the date for one hour ago
+            let lastDay = NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: Date(), options: [])
+
+            return getIndexForSectionName(sectionName: dateFormatter.string(from: lastDay!))
+        }
         
         
     }

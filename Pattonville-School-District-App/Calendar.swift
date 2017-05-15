@@ -54,15 +54,9 @@ class Calendar{
             
             let theEvent = Event(mxlEvent: (event as! MXLCalendarEvent), school: school)
             
-            /*if pinnedEvents.contains(theEvent){
-                print("PIN IT")
+            if pinnedEvents.contains(theEvent){
                 theEvent.setPinned()
-            }*/
-
-            for aEvent in pinnedEvents{
-                if aEvent.eventID == theEvent.eventID{
-                    theEvent.setPinned()
-                }
+                theEvent.pinned = true
             }
             
             if !allEvents.contains(theEvent){
@@ -81,7 +75,8 @@ class Calendar{
         for event in dates{
             
             if event.pinned{
-                pinEvent(event: event)
+                event.setPinned()
+                event.pinned = true
             }
             
             if !allEvents.contains(event){
