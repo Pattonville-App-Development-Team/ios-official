@@ -79,7 +79,9 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         if Reachability.isConnectedToNetwork() && SchoolsArray.getSubscribedSchools() != prevSchools{
             
-            calendar.getInBackground(completionHandler: {
+            calendar.getInBackground(beforeStartHandler: {
+                self.tableView.reloadData()
+            }, completionHandler: {
                 self.calendarView.reloadData()
                 self.filterCalendarData(for: self.selectedDate)
                 self.tableView.reloadData()

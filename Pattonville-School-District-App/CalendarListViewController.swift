@@ -11,7 +11,6 @@ import UIKit
 class CalendarListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var filter: UIBarButtonItem!
     @IBOutlet var exit: UIBarButtonItem!
     
     @IBAction func exitView(sender: UIBarButtonItem!){
@@ -51,18 +50,21 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
         tableView.reloadData()
         
         print("\(Date()) LIST VIEW DID LOAD FINISHED")
+        print(Thread.current)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("\(Date()) LIST VIEW WILL APPEAR")
+        print(Thread.current)
     }
     
     ///Sets up the look of the ViewController upon appearing on screen.
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("\(Date()) LIST VIEW DID APPEAR")
+        print(Thread.current)        
     }
     
     /// Determines functionality when the view controller stack is modified. If parent = nil then the view controller was popped
@@ -147,13 +149,7 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
             $0 < $1
         }
         
-        //print(keys)
-        
-       // print(dateFormatter.date(from: sectionName)!)
-        
         let key = keys.index(of: dateFormatter.date(from: sectionName)!)
-        
-        //print(key ?? "No key")
         
         if let theKey = key{
             return theKey

@@ -225,11 +225,16 @@ class Calendar{
     ///
     /// - onCompletionHandler: function to run on completion of parsing
     
-    func getInBackground(completionHandler: (() -> Void)?){
+    func getInBackground(beforeStartHandler: (() -> Void)?, completionHandler: (() -> Void)?){
         
         let parser = CalendarParser()
         
-        parser.getEventsInBackground(completionHandler: {
+        parser.getEventsInBackground(beforeStartHandler: {
+            
+            self.resetEvents()
+            beforeStartHandler?()
+            
+        }, completionHandler: {
             
             let success = self.saveToFile()
             
@@ -266,7 +271,7 @@ class Calendar{
         if Reachability.isConnectedToNetwork() && (mostRecentSave < lastWeek! || !readFromFile() || allEvents.count == 0){
             
             //Parse events in background
-            getInBackground(completionHandler: {
+            getInBackground(beforeStartHandler: nil, completionHandler: {
                 completionHandler?()
             })
             

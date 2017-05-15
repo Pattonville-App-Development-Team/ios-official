@@ -37,14 +37,13 @@ class MoreViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let row = indexPath.row
-//        print(row)
         
         switch row{
             /// Link to the Athletics and Activites Website
-            case 1:
+            case 0:
                 openUrlWithCheckForCompatibility(URLToBeOpened: "http://pirates.psdr3.org")
             /// Link to the District Website
-            case 3:
+            case 2:
                 openUrlWithCheckForCompatibility(URLToBeOpened: "http://moodle.psdr3.org")
 
             default:
