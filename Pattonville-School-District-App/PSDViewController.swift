@@ -110,9 +110,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
                     self.tableView.reloadData()
                 })
                 
-                print(filteredEvents)
-                
-                
                 calendar.getInBackground(beforeStartHandler: {
                     print(self.calendar.allEvents)
                     self.filteredEvents.removeAll()

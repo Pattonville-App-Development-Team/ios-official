@@ -321,9 +321,9 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         let event = selectedDateEvents[sender.tag];
         
         if event.pinned && !calendar.pinnedEvents.contains(event){
-            calendar.pinEvent(event: event)
+            event.setPinned()
         }else if(!event.pinned && calendar.pinnedEvents.contains(event)){
-            calendar.unPinEvent(event: event)
+            event.setUnpinned()
         }
         
         tableView.reloadData()

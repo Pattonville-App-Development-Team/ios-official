@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     ///   - launchOptions: the launching options used
     /// - Returns: true
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        
         let deviceTypeString = currentDevice.model
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
@@ -64,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         //SchoolsArray.readFromFile()
         
         let calendar = Calendar.instance
+        calendar.makePinnedEvents()
         let news = NewsReel.instance
         
         let navBarController = window!.rootViewController as! UITabBarController
