@@ -103,7 +103,6 @@ class Event: NSObject, NSCoding{
     }
     
     func encode(with aCoder: NSCoder) {
-        print("ENCODED: \(name) \(start) \(pinned)")
         aCoder.encode(school?.name, forKey: "school")
         aCoder.encode(name, forKey: "name")
         aCoder.encode(start, forKey: "startTime")

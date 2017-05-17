@@ -100,8 +100,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         if SchoolsArray.getSubscribedSchools() != prevSchools || !UserDefaults.standard.bool(forKey: "launchedBefore"){
             
-            print("SUBSCRIBED SCHOOLs CHECK")
-            
             if PSDViewControllerOpenedBefore{
                 
                 news.getInBackground(beforeStartHandler: {
@@ -111,7 +109,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
                 })
                 
                 calendar.getInBackground(beforeStartHandler: {
-                    print(self.calendar.allEvents)
                     self.filteredEvents.removeAll()
                     self.tableView.reloadData()
                 }, completionHandler: {

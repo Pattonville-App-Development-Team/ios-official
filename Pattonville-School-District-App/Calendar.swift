@@ -104,8 +104,6 @@ class Calendar{
     func rebuildPinnedEvents(){
         var toPin: [Event] = []
         
-        print("COMPLETION PINNED EVENTS: \(self.pinnedEvents.count)")
-        
         for event in self.allEvents{
             
             let contains = self.pinnedEvents.contains(where: {
@@ -125,7 +123,6 @@ class Calendar{
             
         }
         
-        print("TO PIN: \(toPin.count)")
         for event in toPin{
             event.setPinned()
         }

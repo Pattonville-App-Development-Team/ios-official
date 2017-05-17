@@ -31,25 +31,19 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("\(Date()) LIST VIEW DID LOAD")
-        
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.register(UINib(nibName: "DateCell", bundle:nil), forCellReuseIdentifier: "DateCell")
         
-        print("\(Date()) LIST VIEW CELL REGISTERED")
         let sectionIndex = getIndexForSectionName(sectionName: dateFormatter.string(from: Date()))
         
         let indexPath = IndexPath(row: 0, section: sectionIndex)
-        
-        print("\(Date()) LIST VIEW SCROLL TO ROW")
+
         tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-        
-        print("\(Date()) LIST VIEW RELOAD DATA")
+
         tableView.reloadData()
-        
-        print("\(Date()) LIST VIEW DID LOAD FINISHED")
+
         print(Thread.current)
         
     }
@@ -103,6 +97,10 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
+        
+        calendar.allEventsDictionary[getKeyForIndex(index: indexPath.section)]?.sort(by: {
+            ($0.school?.rank)! < ($1.school?.rank)!
+        })
         
         let event = calendar.allEventsDictionary[getKeyForIndex(index: indexPath.section)]?[indexPath.row]
         
