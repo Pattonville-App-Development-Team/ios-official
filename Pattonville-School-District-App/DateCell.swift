@@ -67,7 +67,6 @@ class DateCell: UITableViewCell{
         location.text = event.dateString
         
         if event.pinned{
-            print("\(event.name) is pinned")
             pinButton.isSelected = true
         }else{
             pinButton.isSelected = false

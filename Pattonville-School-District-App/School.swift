@@ -117,7 +117,7 @@ class School: NSObject, NSCoding {
         self.eventsList = aDecoder.decodeObject(forKey: "events") as! [Event]
         self.sharingLinksURL = aDecoder.decodeObject(forKey: "sharingsURL") as! String
         self.websiteURL = aDecoder.decodeObject(forKey: "websiteURL") as! String
-        self.rank = aDecoder.decodeInt64(forKey: "rank") as! Int
+        self.rank = aDecoder.decodeInteger(forKey: "rank")
         super.init()
     }
     
