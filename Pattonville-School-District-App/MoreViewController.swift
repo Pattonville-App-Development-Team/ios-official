@@ -37,7 +37,6 @@ class MoreViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let row = indexPath.row
-//        print(row)
         
         switch row{
             /// Link to the Athletics and Activites Website
@@ -46,11 +45,7 @@ class MoreViewController: UITableViewController {
             /// Link to the District Website
             case 2:
                 openUrlWithCheckForCompatibility(URLToBeOpened: "http://moodle.psdr3.org")
-            /// Link to the Feedback form
-            case 7:
-                openUrlWithCheckForCompatibility(URLToBeOpened: "https://docs.google.com/forms/d/e/1FAIpQLSdqXNE4Wo8lsWuH9Ku8763B0NWqis3xoV4d5pNHoFfplJvMhw/viewform")
-            /// Link to our privacy policy
-            case 9:openUrlWithCheckForCompatibility(URLToBeOpened: "https://www.iubenda.com/privacy-policy/8085303")
+
             default:
                 print("ROW: \(row)")
         }

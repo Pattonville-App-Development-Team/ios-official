@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     ///   - launchOptions: the launching options used
     /// - Returns: true
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        
         let deviceTypeString = currentDevice.model
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
@@ -45,17 +46,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 UserDefaults.standard.set(value, forKey: "pinnedEvents")
                 UserDefaults.standard.set(false, forKey:"PSDViewControllerOpenedBefore")
             }else{
-            print("First launch, setting UserDefault.")
-            let value = 3
-            UserDefaults.standard.set(value, forKey:"recentNews")
-            UserDefaults.standard.set(value, forKey: "upcomingNews")
-            UserDefaults.standard.set(value, forKey: "pinnedEvents")
-            UserDefaults.standard.set(false, forKey:"PSDViewControllerOpenedBefore")
+                print("First launch, setting UserDefault.")
+                let value = 3
+                UserDefaults.standard.set(value, forKey:"recentNews")
+                UserDefaults.standard.set(value, forKey: "upcomingNews")
+                UserDefaults.standard.set(value, forKey: "pinnedEvents")
+                UserDefaults.standard.set(false, forKey:"PSDViewControllerOpenedBefore")
             }
         }
         
         return true
-        
         
     }
     
@@ -65,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         //SchoolsArray.readFromFile()
         
         let calendar = Calendar.instance
+        calendar.makePinnedEvents()
         let news = NewsReel.instance
         
         let navBarController = window!.rootViewController as! UITabBarController

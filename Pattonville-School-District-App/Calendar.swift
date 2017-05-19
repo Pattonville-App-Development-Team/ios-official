@@ -54,15 +54,9 @@ class Calendar{
             
             let theEvent = Event(mxlEvent: (event as! MXLCalendarEvent), school: school)
             
-            /*if pinnedEvents.contains(theEvent){
-                print("PIN IT")
+            if pinnedEvents.contains(theEvent){
                 theEvent.setPinned()
-            }*/
-
-            for aEvent in pinnedEvents{
-                if aEvent.eventID == theEvent.eventID{
-                    theEvent.setPinned()
-                }
+                theEvent.pinned = true
             }
             
             if !allEvents.contains(theEvent){
@@ -77,12 +71,8 @@ class Calendar{
     ///
     /// - dates: the array of events to add
     func appendDates(dates: [Event]){
-        
+
         for event in dates{
-            
-            if event.pinned{
-                pinEvent(event: event)
-            }
             
             if !allEvents.contains(event){
                 addDate(event: event)
@@ -100,12 +90,55 @@ class Calendar{
         allEventsDictionary = addEventToDictionary(dict: allEventsDictionary, event: event)
     }
     
+    func makePinnedEvents(){
+        let pinned = allEvents.filter({
+            $0.pinned
+        })
+        
+        for event in pinned{
+            event.setPinned()
+        }
+        
+    }
+    
+    func rebuildPinnedEvents(){
+        var toPin: [Event] = []
+        
+        for event in self.allEvents{
+            
+            let contains = self.pinnedEvents.contains(where: {
+                $0.name == event.name && $0.start == event.start
+            })
+            
+            if contains{
+                if !toPin.contains(event){
+                 
+                    toPin.append(event)
+                    self.pinnedEvents = self.pinnedEvents.filter({
+                        $0 != event
+                    })
+                    
+                }
+            }
+            
+        }
+        
+        for event in toPin{
+            event.setPinned()
+        }
+        
+    }
+    
     /// Adds and event to the pinnedEvents dictinoary
     ///
     /// - event: the event to add
     func pinEvent(event: Event){
         
-        if !pinnedEvents.contains(event){
+        let contains = self.pinnedEvents.contains(where: {
+            $0.name == event.name && $0.start == event.start
+        })
+        
+        if !contains{
             pinnedEvents.append(event)
             pinnedEventsDictionary = addEventToDictionary(dict: pinnedEventsDictionary, event: event)
         }
@@ -116,12 +149,16 @@ class Calendar{
     ///
     /// - event: the event to remove
     func unPinEvent(event: Event){
-        
-        pinnedEvents = pinnedEvents.filter({
-            return $0 != event
-        })
-        
-        pinnedEventsDictionary = removeEventFromDictionary(list: pinnedEvents, event: event)
+
+        if pinnedEvents.contains(event){
+
+            pinnedEvents = pinnedEvents.filter({
+                return $0 != event
+            })
+            
+            pinnedEventsDictionary = removeEventFromDictionary(list: pinnedEvents, event: event)
+
+        }
         
     }
     
@@ -129,7 +166,6 @@ class Calendar{
         
         for event in pinnedEvents{
             if event.end! < Date(){
-                unPinEvent(event: event)
                 event.setUnpinned()
             }
         }
@@ -230,11 +266,18 @@ class Calendar{
     ///
     /// - onCompletionHandler: function to run on completion of parsing
     
-    func getInBackground(completionHandler: (() -> Void)?){
+    func getInBackground(beforeStartHandler: (() -> Void)?, completionHandler: (() -> Void)?){
         
         let parser = CalendarParser()
         
-        parser.getEventsInBackground(completionHandler: {
+        parser.getEventsInBackground(beforeStartHandler: {
+            
+            self.resetEvents()
+            beforeStartHandler?()
+            
+        }, completionHandler: {
+            
+            self.rebuildPinnedEvents()
             
             let success = self.saveToFile()
             
@@ -271,7 +314,7 @@ class Calendar{
         if Reachability.isConnectedToNetwork() && (mostRecentSave < lastWeek! || !readFromFile() || allEvents.count == 0){
             
             //Parse events in background
-            getInBackground(completionHandler: {
+            getInBackground(beforeStartHandler: nil, completionHandler: {
                 completionHandler?()
             })
             
@@ -282,7 +325,7 @@ class Calendar{
     /// Save allNews to the Cache File
     /// - returns: if saving succeeded
     func saveToFile() -> Bool{
-        //print("Saved to file \(fileURL.path!)")
+        print("Saved to file \(fileURL.path!)")
         return NSKeyedArchiver.archiveRootObject(allEvents, toFile: fileURL.path!)
         
     }
@@ -290,10 +333,12 @@ class Calendar{
     /// Read data from cache file and append its contents into allEvents
     /// - returns: if reading from the file succeeded
     func readFromFile() -> Bool{
+        print("READ FROM FILE")
         if let archived = NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path!) as? [Event]{
-            //print("FROM ARCHIVED \(fileURL.path!)")
+            print("FROM ARCHIVED \(fileURL.path!)")
 
             if allEvents.count < 1{
+                print("APPEND")
                 appendDates(dates: archived)
             }
             

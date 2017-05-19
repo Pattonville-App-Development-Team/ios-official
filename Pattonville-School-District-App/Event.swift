@@ -46,6 +46,8 @@ class Event: NSObject, NSCoding{
         location = aDecoder.decodeObject(forKey: "location") as? String
         pinned = aDecoder.decodeBool(forKey: "pinned")
         
+        print("PINNED \(pinned)")
+        
         school = SchoolsArray.getSchoolByName(name: aDecoder.decodeObject(forKey: "school") as! String)
         
         super.init()
@@ -123,8 +125,13 @@ class Event: NSObject, NSCoding{
     }
     
     func setUnpinned(){
+
         pinned = false
+
+        print(Calendar.instance)
+
         Calendar.instance.unPinEvent(event: self)
+
     }
     
     static func == (lhs: Event, rhs: Event) -> Bool{

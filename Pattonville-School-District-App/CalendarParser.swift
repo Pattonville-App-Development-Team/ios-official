@@ -23,11 +23,13 @@ class CalendarParser{
         self.schools = schools
     }
 
-    func getEventsInBackground(completionHandler: (() -> Void)?){
+    func getEventsInBackground(beforeStartHandler: (() -> Void)?, completionHandler: (() -> Void)?){
         
         DispatchQueue.global(qos: .background).async{
             
-            self.calendar.resetEvents()
+            DispatchQueue.main.async {
+                beforeStartHandler?()
+            }
             
             for school in SchoolsArray.getSubscribedSchools(){
                 

@@ -98,24 +98,28 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         let PSDViewControllerOpenedBefore = UserDefaults.standard.bool(forKey: "PSDViewControllerOpenedBefore")
         FIRMessaging.messaging().subscribe(toTopic: "/topics/District")
         
-        print("HOME COMPARISON: \(SchoolsArray.getSubscribedSchools()) vs \(prevSchools)")
-        
         if SchoolsArray.getSubscribedSchools() != prevSchools || !UserDefaults.standard.bool(forKey: "launchedBefore"){
             
-            print("SUBSCRIBED SCHOOLs CHECK")
-            
-            calendar.getInBackground(completionHandler: {
-                self.tableView.reloadData()
-            })
             if PSDViewControllerOpenedBefore{
+                
                 news.getInBackground(beforeStartHandler: {
                     self.tableView.reloadData()
                 }, onCompletionHandler: {
                     self.tableView.reloadData()
                 })
+                
+                calendar.getInBackground(beforeStartHandler: {
+                    self.filteredEvents.removeAll()
+                    self.tableView.reloadData()
+                }, completionHandler: {
+                    self.getUpcomingEvents()
+                    self.tableView.reloadData()
+                })
+                
             }else{
                 UserDefaults.standard.set(true, forKey: "PSDViewControllerOpenedBefore")
             }
+            
             prevSchools = SchoolsArray.getSubscribedSchools()
             
         }
@@ -131,7 +135,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         // Dispose of any resources that can be recreated.
     }
-    
     
     
     //***************************** TABLE VIEW STUFF *****************************\\
@@ -189,19 +192,17 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0{
+            
             return UserDefaults.standard.integer(forKey: "recentNews")
-         
-        
-        }
-        else if section == 1 {
+            
+        }else if section == 1 {
+            
             return UserDefaults.standard.integer(forKey: "upcomingNews")
-        
-        }
-        
-        else if section == 2{
+            
+        }else if section == 2{
+            
             return UserDefaults.standard.integer(forKey: "pinnedEvents")
-        
-        
+            
         }
         
         return 3
@@ -367,7 +368,8 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         homeCarousel.addSubview(mainView)
     
         //return main view as the
-        return mainView;
+        return mainView
+        
     }
     
     /// Creates wrapping functionality for carousel

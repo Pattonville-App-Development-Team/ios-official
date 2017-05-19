@@ -141,7 +141,7 @@
                             <color key="tintColor" red="0.0" green="0.3918526786" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="goToListWithSender:" destination="Fa4-Xk-h4Z" id="mrg-cQ-UXK"/>
-                                <segue destination="7e3-rq-jXc" kind="popoverPresentation" identifier="CalendarListViewSegue" popoverAnchorBarButtonItem="Dai-y7-BWa" id="TIf-eo-mwC">
+                                <segue destination="7e3-rq-jXc" kind="popoverPresentation" identifier="CalendarListViewSegue" popoverAnchorBarButtonItem="Dai-y7-BWa" id="RSd-uc-gT9">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
@@ -273,6 +273,6 @@
         <image name="pin" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KRv-jj-Kom"/>
+        <segue reference="ARG-YV-w2A"/>
     </inferredMetricsTieBreakers>
 </document>

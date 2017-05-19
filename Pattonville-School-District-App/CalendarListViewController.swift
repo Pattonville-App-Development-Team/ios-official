@@ -11,7 +11,6 @@ import UIKit
 class CalendarListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var filter: UIBarButtonItem!
     @IBOutlet var exit: UIBarButtonItem!
     
     @IBAction func exitView(sender: UIBarButtonItem!){
@@ -19,7 +18,7 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
         self.parent?.dismiss(animated: true, completion: nil)
     }
     
-    var calendar: Calendar! = Calendar.instance
+    var calendar: Calendar!
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -40,17 +39,26 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
         let sectionIndex = getIndexForSectionName(sectionName: dateFormatter.string(from: Date()))
         
         let indexPath = IndexPath(row: 0, section: sectionIndex)
-        
+
         tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-        
+
         tableView.reloadData()
+
+        print(Thread.current)
         
     }
     
-    ///Sets up the look of the ViewController upon appearing on screen.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("\(Date()) LIST VIEW WILL APPEAR")
+        print(Thread.current)
+    }
     
+    ///Sets up the look of the ViewController upon appearing on screen.
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print("\(Date()) LIST VIEW DID APPEAR")
+        print(Thread.current)        
     }
     
     /// Determines functionality when the view controller stack is modified. If parent = nil then the view controller was popped
@@ -89,6 +97,10 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
+        
+        calendar.allEventsDictionary[getKeyForIndex(index: indexPath.section)]?.sort(by: {
+            ($0.school?.rank)! < ($1.school?.rank)!
+        })
         
         let event = calendar.allEventsDictionary[getKeyForIndex(index: indexPath.section)]?[indexPath.row]
         
@@ -135,15 +147,19 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
             $0 < $1
         }
         
-        //print(keys)
-        
-       // print(dateFormatter.date(from: sectionName)!)
-        
         let key = keys.index(of: dateFormatter.date(from: sectionName)!)
         
-        //print(key ?? "No key")
-        
-        return key!
+        if let theKey = key{
+            return theKey
+        }else{
+            var dateComponent = DateComponents()
+            dateComponent.day = 1
+            
+            // Find the date for one hour ago
+            let lastDay = NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: Date(), options: [])
+
+            return getIndexForSectionName(sectionName: dateFormatter.string(from: lastDay!))
+        }
         
         
     }

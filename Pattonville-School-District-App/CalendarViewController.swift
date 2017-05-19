@@ -79,7 +79,9 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         
         if Reachability.isConnectedToNetwork() && SchoolsArray.getSubscribedSchools() != prevSchools{
             
-            calendar.getInBackground(completionHandler: {
+            calendar.getInBackground(beforeStartHandler: {
+                self.tableView.reloadData()
+            }, completionHandler: {
                 self.calendarView.reloadData()
                 self.filterCalendarData(for: self.selectedDate)
                 self.tableView.reloadData()
@@ -262,7 +264,7 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CalendarListViewSegue"{
             let destination = (segue.destination as! UINavigationController).viewControllers[0] as! CalendarListViewController
-            //destination.calendar = calendar
+            destination.calendar = calendar
         }else if segue.identifier == "PinnedListSegue"{
             let destination = (segue.destination as! UINavigationController).viewControllers[0] as! CalendarPinnedListViewController
             destination.calendar = calendar
@@ -319,9 +321,9 @@ class CalendarViewController: UIViewController, JTAppleCalendarViewDataSource, J
         let event = selectedDateEvents[sender.tag];
         
         if event.pinned && !calendar.pinnedEvents.contains(event){
-            calendar.pinEvent(event: event)
+            event.setPinned()
         }else if(!event.pinned && calendar.pinnedEvents.contains(event)){
-            calendar.unPinEvent(event: event)
+            event.setUnpinned()
         }
         
         tableView.reloadData()
