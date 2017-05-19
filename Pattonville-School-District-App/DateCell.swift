@@ -25,6 +25,14 @@ class DateCell: UITableViewCell{
         
         pinButton.isSelected = !pinButton.isSelected
         
+        if event.end! < Date(){
+            let alert = UIAlertController(title: "Could not Pin Event", message: "You can not pin this event because it happened in the past.", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+            self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+
+        }
+        
         if event.pinned{
             event.setUnpinned()
         }else{
