@@ -10,7 +10,7 @@
 
 import UIKit
 
-class SchoolSpecificDirectoryViewController: UIViewController{
+class SchoolSpecificDirectoryViewController: UIViewController{ 
     
     @IBOutlet weak var address: UILabel!
     @IBOutlet weak var location: UILabel!
@@ -82,6 +82,9 @@ class SchoolSpecificDirectoryViewController: UIViewController{
         SchoolSpecificDirectoryViewController.staticSchoolIndex = indexOfSchool
         let school = SchoolsArray.allSchools[indexOfSchool]
         navigationItem.title = school.name
+        if (navigationItem.title?.contains("Pattonville School District"))! {
+            navigationItem.title = "Learning Center"
+        }
         address.text = school.address
         location.text = school.city + ", " + school.state + " " + school.zip
         mainNumber.setTitle("Main: " + school.mainNumber, for: .normal)
