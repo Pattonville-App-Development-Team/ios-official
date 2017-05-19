@@ -11,7 +11,6 @@
 		1B040D7B1E0E399200D69069 /* SchoolSpecificDirectoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D771E0E399200D69069 /* SchoolSpecificDirectoryViewController.swift */; };
 		1B040D7C1E0E399200D69069 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D781E0E399200D69069 /* Directory.swift */; };
 		1B040D7D1E0E399200D69069 /* StaffMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D791E0E399200D69069 /* StaffMember.swift */; };
-		1B06FFE81E649FEF00C2A66F /* staffMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B06FFE71E649FEF00C2A66F /* staffMemberTableViewCell.swift */; };
 		1B1B71B81E6EFBCB003B421B /* roboticspic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B1B71B71E6EFBCB003B421B /* roboticspic.jpg */; };
 		1B2B7CB91E67B73E0007183B /* Bridgeway.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CAF1E67B73E0007183B /* Bridgeway.jpg */; };
 		1B2B7CBA1E67B73E0007183B /* Drummond.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CB01E67B73E0007183B /* Drummond.jpg */; };
@@ -122,7 +121,6 @@
 		1B040D771E0E399200D69069 /* SchoolSpecificDirectoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolSpecificDirectoryViewController.swift; sourceTree = "<group>"; };
 		1B040D781E0E399200D69069 /* Directory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
 		1B040D791E0E399200D69069 /* StaffMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffMember.swift; sourceTree = "<group>"; };
-		1B06FFE71E649FEF00C2A66F /* staffMemberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = staffMemberTableViewCell.swift; sourceTree = "<group>"; };
 		1B1B71B71E6EFBCB003B421B /* roboticspic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = roboticspic.jpg; sourceTree = "<group>"; };
 		1B2B7CAF1E67B73E0007183B /* Bridgeway.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Bridgeway.jpg; sourceTree = "<group>"; };
 		1B2B7CB01E67B73E0007183B /* Drummond.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Drummond.jpg; sourceTree = "<group>"; };
@@ -468,7 +466,6 @@
 				1B040D761E0E399200D69069 /* SchoolSpecificDirectory.storyboard */,
 				1B040D771E0E399200D69069 /* SchoolSpecificDirectoryViewController.swift */,
 				1B8333AA1E0391BA00776DBC /* StaffListViewController.swift */,
-				1B06FFE71E649FEF00C2A66F /* staffMemberTableViewCell.swift */,
 			);
 			name = "School Specific Directory";
 			sourceTree = "<group>";
@@ -859,7 +856,6 @@
 				42568C3B1E8BF91700FFC51D /* Reachability.swift in Sources */,
 				1B040D7D1E0E399200D69069 /* StaffMember.swift in Sources */,
 				42B9336E1DFAEEF400514B73 /* CalendarEventDetailController.swift in Sources */,
-				1B06FFE81E649FEF00C2A66F /* staffMemberTableViewCell.swift in Sources */,
 				42B9338A1DFAEEF400514B73 /* NewsViewController.swift in Sources */,
 				42B933881DFAEEF400514B73 /* NewsItemCell.swift in Sources */,
 				42B9337B1DFAEEF400514B73 /* Event.swift in Sources */,
