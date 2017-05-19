@@ -64,7 +64,7 @@ class Directory {
         }
         
         //If the most recent save time is longer than one year ago OR the object in the archived space is nil
-        if 1 > 2 /*mostRecentSave < lastYear! || NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path!) as? [String:[StaffMember]] != nil*/{
+        if mostRecentSave < lastYear! || NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path!) as? [String:[StaffMember]] != nil{
             
             Directory.directoryDictionary = NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path!) as! [String : [StaffMember]]
             print("getting from saved")
