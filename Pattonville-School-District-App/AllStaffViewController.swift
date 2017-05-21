@@ -1,16 +1,16 @@
 //
-//  StaffListViewController.swift
+//  AllStaffViewController.swift
 //  Pattonville-School-District-App
 //
-//  Created by Kevin Bowers on 12/15/16.
-//  Copyright © 2017 Pattonville School District. All rights reserved.
+//  Created by Kevin Bowers on 5/19/17.
+//  Copyright © 2017 Pattonville R-3 School District. All rights reserved.
 //
 
 import UIKit
 import MessageUI
 
 /// Controller responsible for properly displaying, emailing, and searching through staff members
-class StaffListViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, MFMailComposeViewControllerDelegate, UISearchBarDelegate {
+class AllStaffViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, MFMailComposeViewControllerDelegate, UISearchBarDelegate {
     
     var directory = DirectoryViewController.directory
     var directoryDictionary = Directory.directoryDictionary
@@ -92,9 +92,7 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
             directoryDictionary[school] = directoryDictionary[school]?.sorted(by: Directory.sortStaffMembers)
         }
         
-        staffList = directoryDictionary[SchoolsArray.allSchools[SchoolSpecificDirectoryViewController.staticSchoolIndex!].shortName]!
-        
-        self.navigationController?.isNavigationBarHidden = true
+        staffList = directoryDictionary["All Staff"]!
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -120,6 +118,7 @@ class StaffListViewController: UITableViewController, UISearchResultsUpdating, U
         } else {
             return staffList.count
         }
+        
     }
     
     /// Assigns values to the attributes of the cell based on the staff member

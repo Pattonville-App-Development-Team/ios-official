@@ -36,12 +36,28 @@ class DirectoryViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-        
         let school = SchoolsArray.allSchools[indexPath.row]
         
-        cell.textLabel?.text = school.name
+        if indexPath.row == 0 {
+            cell.textLabel?.text = "Learning Center"
+        } else if indexPath.row == 10 {
+            cell.textLabel?.text = "All Staff"
+        } else {
+            cell.textLabel?.text = school.name
+        }
         
         return cell
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == 10 {
+            performSegue(withIdentifier: "AllStaffSegue", sender: nil)
+        } else {
+            performSegue(withIdentifier: "SchoolSpecificDirectorySegue", sender: nil)
+        
+        }
         
     }
     
@@ -51,7 +67,7 @@ class DirectoryViewController: UITableViewController {
     ///   - segue: Show segue linking the Directory View Controller to the School Specific Directory View Controller
     ///   - sender: Cell in the TableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "schoolSpecificDirectorySegue" {
+        if segue.identifier == "SchoolSpecificDirectorySegue" {
             
             let row = tableView.indexPathForSelectedRow?.row
             

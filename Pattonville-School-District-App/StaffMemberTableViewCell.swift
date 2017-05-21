@@ -1,5 +1,5 @@
 //
-//  SchoolSpecificDirectoryTableViewCell.swift
+//  staffMemberTableViewCell.swift
 //  Pattonville-School-District-App
 //
 //  Created by D3vel0per on 12/15/16.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// Template for each staff member cell
-class SchoolSpecificDirectoryTableViewCell: UITableViewCell {
+class StaffMemberTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var departmentLabel: UILabel!

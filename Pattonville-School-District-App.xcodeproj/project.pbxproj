@@ -11,7 +11,6 @@
 		1B040D7B1E0E399200D69069 /* SchoolSpecificDirectoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D771E0E399200D69069 /* SchoolSpecificDirectoryViewController.swift */; };
 		1B040D7C1E0E399200D69069 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D781E0E399200D69069 /* Directory.swift */; };
 		1B040D7D1E0E399200D69069 /* StaffMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B040D791E0E399200D69069 /* StaffMember.swift */; };
-		1B06FFE81E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B06FFE71E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift */; };
 		1B1B71B81E6EFBCB003B421B /* roboticspic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B1B71B71E6EFBCB003B421B /* roboticspic.jpg */; };
 		1B2B7CB91E67B73E0007183B /* Bridgeway.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CAF1E67B73E0007183B /* Bridgeway.jpg */; };
 		1B2B7CBA1E67B73E0007183B /* Drummond.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B2B7CB01E67B73E0007183B /* Drummond.jpg */; };
@@ -95,6 +94,9 @@
 		4BD53EF61E48B74C001CB302 /* PowerSchoolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD53EF51E48B74C001CB302 /* PowerSchoolTableViewController.swift */; };
 		4BE086DE1E08738F00BEA0E4 /* NutriSliceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE086DD1E08738F00BEA0E4 /* NutriSliceViewController.swift */; };
 		4BFE3B401E427EE300902741 /* CalendarEventDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BFE3B3E1E427EE300902741 /* CalendarEventDetail.storyboard */; };
+		55A57E811ECF2C330064EC05 /* AllStaff.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55A57E801ECF2C330064EC05 /* AllStaff.storyboard */; };
+		55A57E831ECF32030064EC05 /* AllStaffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A57E821ECF32030064EC05 /* AllStaffViewController.swift */; };
+		55A57E871ECF54190064EC05 /* StaffMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A57E861ECF54190064EC05 /* StaffMemberTableViewCell.swift */; };
 		6B4B6CFEFCAF92D0441078C0 /* Pods_Pattonville_School_District_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3997F7E4BE66858E7DB5202 /* Pods_Pattonville_School_District_AppTests.framework */; };
 		F00DBA22462C83C348C9D4E6 /* Pods_Pattonville_School_District_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5FC4863EB3AC5B68D1FAFB /* Pods_Pattonville_School_District_App.framework */; };
 /* End PBXBuildFile section */
@@ -122,7 +124,6 @@
 		1B040D771E0E399200D69069 /* SchoolSpecificDirectoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolSpecificDirectoryViewController.swift; sourceTree = "<group>"; };
 		1B040D781E0E399200D69069 /* Directory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
 		1B040D791E0E399200D69069 /* StaffMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffMember.swift; sourceTree = "<group>"; };
-		1B06FFE71E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolSpecificDirectoryTableViewCell.swift; sourceTree = "<group>"; };
 		1B1B71B71E6EFBCB003B421B /* roboticspic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = roboticspic.jpg; sourceTree = "<group>"; };
 		1B2B7CAF1E67B73E0007183B /* Bridgeway.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Bridgeway.jpg; sourceTree = "<group>"; };
 		1B2B7CB01E67B73E0007183B /* Drummond.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Drummond.jpg; sourceTree = "<group>"; };
@@ -216,6 +217,9 @@
 		4BD53EF51E48B74C001CB302 /* PowerSchoolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerSchoolTableViewController.swift; sourceTree = "<group>"; };
 		4BE086DD1E08738F00BEA0E4 /* NutriSliceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutriSliceViewController.swift; sourceTree = "<group>"; };
 		4BFE3B3F1E427EE300902741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CalendarEventDetail.storyboard; sourceTree = "<group>"; };
+		55A57E801ECF2C330064EC05 /* AllStaff.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AllStaff.storyboard; sourceTree = "<group>"; };
+		55A57E821ECF32030064EC05 /* AllStaffViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllStaffViewController.swift; sourceTree = "<group>"; };
+		55A57E861ECF54190064EC05 /* StaffMemberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffMemberTableViewCell.swift; sourceTree = "<group>"; };
 		744CB7DE37186867DC47DBFC /* Pods-Pattonville-School-District-AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-AppTests/Pods-Pattonville-School-District-AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		94EB10DCC58D641E498FA421 /* Pods-Pattonville-School-District-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-AppTests/Pods-Pattonville-School-District-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		A8A1980D33A0CDF1093BA0BB /* Pods-Pattonville-School-District-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pattonville-School-District-App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pattonville-School-District-App/Pods-Pattonville-School-District-App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -422,6 +426,9 @@
 				1B040D781E0E399200D69069 /* Directory.swift */,
 				55A31EFE1E01B3660094056E /* School Specific Directory */,
 				55A31F051E01B7FC0094056E /* Staff */,
+				55A57E801ECF2C330064EC05 /* AllStaff.storyboard */,
+				55A57E821ECF32030064EC05 /* AllStaffViewController.swift */,
+				55A57E861ECF54190064EC05 /* StaffMemberTableViewCell.swift */,
 			);
 			name = DIrectory;
 			sourceTree = "<group>";
@@ -468,7 +475,6 @@
 				1B040D761E0E399200D69069 /* SchoolSpecificDirectory.storyboard */,
 				1B040D771E0E399200D69069 /* SchoolSpecificDirectoryViewController.swift */,
 				1B8333AA1E0391BA00776DBC /* StaffListViewController.swift */,
-				1B06FFE71E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift */,
 			);
 			name = "School Specific Directory";
 			sourceTree = "<group>";
@@ -656,6 +662,7 @@
 				42B933C51DFB022B00514B73 /* pin-green.png in Resources */,
 				1B2B7CB91E67B73E0007183B /* Bridgeway.jpg in Resources */,
 				42B933991DFAEEF400514B73 /* Settings.storyboard in Resources */,
+				55A57E811ECF2C330064EC05 /* AllStaff.storyboard in Resources */,
 				4240935B1E953A42005844C9 /* pin-green-small.png in Resources */,
 				1B5E11031E27C51D0038A33C /* email-icon.png in Resources */,
 				42B933A21DFAEF1B00514B73 /* Calendar.storyboard in Resources */,
@@ -828,6 +835,7 @@
 			files = (
 				42B933861DFAEEF400514B73 /* NewsDetailViewController.swift in Sources */,
 				42B933921DFAEEF400514B73 /* PSDViewController.swift in Sources */,
+				55A57E871ECF54190064EC05 /* StaffMemberTableViewCell.swift in Sources */,
 				42B933731DFAEEF400514B73 /* CalendarViewController.swift in Sources */,
 				42B933751DFAEEF400514B73 /* DateCell.swift in Sources */,
 				4BE086DE1E08738F00BEA0E4 /* NutriSliceViewController.swift in Sources */,
@@ -842,6 +850,7 @@
 				1B040D7B1E0E399200D69069 /* SchoolSpecificDirectoryViewController.swift in Sources */,
 				4BD53EF61E48B74C001CB302 /* PowerSchoolTableViewController.swift in Sources */,
 				42B933971DFAEEF400514B73 /* SelectSchoolsTableCell.swift in Sources */,
+				55A57E831ECF32030064EC05 /* AllStaffViewController.swift in Sources */,
 				42B933981DFAEEF400514B73 /* SelectSchoolsTableViewController.swift in Sources */,
 				4234D1C11E310B19005B3CA8 /* NewsParser.swift in Sources */,
 				42B933891DFAEEF400514B73 /* NewsReel.swift in Sources */,
@@ -858,7 +867,6 @@
 				42568C3B1E8BF91700FFC51D /* Reachability.swift in Sources */,
 				1B040D7D1E0E399200D69069 /* StaffMember.swift in Sources */,
 				42B9336E1DFAEEF400514B73 /* CalendarEventDetailController.swift in Sources */,
-				1B06FFE81E649FEF00C2A66F /* SchoolSpecificDirectoryTableViewCell.swift in Sources */,
 				42B9338A1DFAEEF400514B73 /* NewsViewController.swift in Sources */,
 				42F35D411EC93AD300DBAEC8 /* AboutViewController.swift in Sources */,
 				42B933881DFAEEF400514B73 /* NewsItemCell.swift in Sources */,

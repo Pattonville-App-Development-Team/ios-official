@@ -99,7 +99,19 @@ class Directory {
                     
                 }
             }
-        
+            
+            var allStaff = [StaffMember]()
+            
+            for directoryArray in Directory.directoryDictionary.keys {
+                for staffmember in Directory.directoryDictionary[directoryArray]! {
+                    allStaff.append(staffmember)
+                }
+            }
+            
+            Directory.directoryDictionary["All Staff"] = []
+            
+            Directory.directoryDictionary["All Staff"]?.append(contentsOf: allStaff)
+            
             saveToFile()
         
         }

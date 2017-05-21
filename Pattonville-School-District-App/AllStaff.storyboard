@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hXv-w9-rOp">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--All StaffView Controller-->
+        <scene sceneID="pHn-p1-Awx">
+            <objects>
+                <tableViewController id="hXv-w9-rOp" userLabel="All StaffView Controller" customClass="AllStaffViewController" customModule="Pattonville_School_District_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="5Kx-MD-otc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="staffMemberTableViewCell" id="sIU-Is-wF3" userLabel="StaffMemberTableViewCell" customClass="StaffMemberTableViewCell" customModule="Pattonville_School_District_App" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sIU-Is-wF3" id="AFm-EE-i4v">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teacher Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MgS-5p-hhL">
+                                            <rect key="frame" x="18" y="3" width="111" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Department" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMi-p6-R5B">
+                                            <rect key="frame" x="18" y="27" width="63" height="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBt-a1-Vlx">
+                                            <rect key="frame" x="305" y="12" width="70" height="25"/>
+                                            <rect key="contentStretch" x="0.0" y="0.29999999999999999" width="1" height="1"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="70" id="RPT-7e-2Jx"/>
+                                            </constraints>
+                                            <state key="normal" title="" image="email-icon.png"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PXK-d7-Dk8">
+                                            <rect key="frame" x="267" y="10" width="30" height="27"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="27" id="fPZ-Pp-WFc"/>
+                                            </constraints>
+                                            <state key="normal">
+                                                <attributedString key="attributedTitle">
+                                                    <fragment content="Ext.">
+                                                        <attributes>
+                                                            <font key="NSFont" metaFont="system" size="15"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jMi-p6-R5B" firstAttribute="leading" secondItem="AFm-EE-i4v" secondAttribute="leadingMargin" constant="10" id="3Ug-fU-cnd"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="MgS-5p-hhL" secondAttribute="leading" constant="-10" id="IvR-yh-H8O"/>
+                                        <constraint firstItem="MgS-5p-hhL" firstAttribute="top" secondItem="AFm-EE-i4v" secondAttribute="topMargin" constant="-5" id="Lwd-QU-AK4"/>
+                                        <constraint firstItem="ZBt-a1-Vlx" firstAttribute="leading" secondItem="PXK-d7-Dk8" secondAttribute="trailing" constant="8" id="Tnb-3U-Mb8"/>
+                                        <constraint firstAttribute="trailing" secondItem="ZBt-a1-Vlx" secondAttribute="trailing" id="Xu1-k2-Uzj"/>
+                                        <constraint firstItem="jMi-p6-R5B" firstAttribute="top" secondItem="MgS-5p-hhL" secondAttribute="bottom" constant="3" id="aIy-Mn-lLP"/>
+                                        <constraint firstItem="ZBt-a1-Vlx" firstAttribute="centerY" secondItem="AFm-EE-i4v" secondAttribute="centerY" constant="2.5" id="eaN-ds-6Wo"/>
+                                        <constraint firstItem="PXK-d7-Dk8" firstAttribute="top" secondItem="AFm-EE-i4v" secondAttribute="topMargin" constant="2" id="mCX-1G-gQT"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="departmentLabel" destination="jMi-p6-R5B" id="8ed-ix-1tZ"/>
+                                    <outlet property="emailButton" destination="ZBt-a1-Vlx" id="pql-Ir-jVh"/>
+                                    <outlet property="extButton" destination="PXK-d7-Dk8" id="RlN-OP-wjW"/>
+                                    <outlet property="nameLabel" destination="MgS-5p-hhL" id="Khs-ui-eZq"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hXv-w9-rOp" id="SBK-GT-Rol"/>
+                            <outlet property="delegate" destination="hXv-w9-rOp" id="OM9-Rq-uIi"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="All Staff" id="ceO-On-GaD">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="sj3-At-528"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kNy-W6-cIc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4660" y="3236"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="email-icon.png" width="25" height="25"/>
+    </resources>
+</document>
