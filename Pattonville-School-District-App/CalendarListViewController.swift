@@ -146,7 +146,7 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
         keys = keys.sorted()
         print(dateFormatter.date(from: sectionName)!)
         let key = keys.index(of: dateFormatter.date(from: sectionName)!)
-        print("THE KEY IS \(key)")
+
         if let theKey = key{
             return theKey
         }else{
