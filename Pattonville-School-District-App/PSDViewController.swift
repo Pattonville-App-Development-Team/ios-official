@@ -334,11 +334,11 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         var captionLabel: UILabel
         
         // Create new UIView the same dimensions as the carousel view
-        mainView = UIView(frame: CGRect(x: 0, y: 0, width: carouselWidth, height: 200));
+        mainView = UIView(frame: CGRect(x: 0, y: 0, width: carouselWidth, height: carouselHeight));
         let mainViewHeight = mainView.bounds.size.height
         
         //Create new UIImageView the same dimensions as the mainView. Set image content mode to Aspect Fill. Clip to bounds.
-        imageView = UIImageView(frame: CGRect(x:0, y:0, width: carouselWidth, height: mainViewHeight))
+        imageView = UIImageView(frame: mainView.frame)
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.clipsToBounds = true
         
