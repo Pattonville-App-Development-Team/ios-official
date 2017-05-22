@@ -242,6 +242,10 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
                 let event: Event!
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
                 
+                calendar.pinnedEvents = calendar.pinnedEvents.sorted(by: {
+                    $0.start! < $1.start!
+                })
+                
                 if indexPath.row < calendar.pinnedEvents.count{
                     event = calendar.pinnedEvents[indexPath.row]
                     cell.setup(event: event, indexPath: indexPath, type: .normal)
