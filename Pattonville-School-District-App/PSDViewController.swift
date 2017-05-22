@@ -339,7 +339,6 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         
         // Create new UIView the same dimensions as the carousel view
         mainView = UIView(frame: CGRect(x: 0, y: 0, width: carouselWidth, height: carouselHeight));
-        let mainViewHeight = mainView.bounds.size.height
         
         //Create new UIImageView the same dimensions as the mainView. Set image content mode to Aspect Fill. Clip to bounds.
         imageView = UIImageView(frame: mainView.frame)
