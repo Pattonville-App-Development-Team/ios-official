@@ -11,6 +11,7 @@ import EventKit
 import EventKitUI
 
 class CalendarEventDetailController: UIViewController, EKEventEditViewDelegate{
+    
     /*!
      @method     eventEditViewController:didCompleteWithAction:
      @abstract   Called to let delegate know the controller is done editing.

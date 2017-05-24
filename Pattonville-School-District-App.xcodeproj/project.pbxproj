@@ -79,6 +79,12 @@
 		42B933A21DFAEF1B00514B73 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B9339D1DFAEF1B00514B73 /* Calendar.storyboard */; };
 		42B933A31DFAEF1B00514B73 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B9339E1DFAEF1B00514B73 /* Home.storyboard */; };
 		42B933C51DFB022B00514B73 /* pin-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 42B933BD1DFB022B00514B73 /* pin-green.png */; };
+		42DCF0C31ED5ECE100A2B148 /* micah.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42DCF0C11ED5ECE100A2B148 /* micah.jpg */; };
+		42DCF0C41ED5ECE100A2B148 /* simmons.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 42DCF0C21ED5ECE100A2B148 /* simmons.jpeg */; };
+		42DCF0C71ED5EEED00A2B148 /* zahner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42DCF0C61ED5EEED00A2B148 /* zahner.jpg */; };
+		42DCF0C91ED5F22600A2B148 /* gadson.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42DCF0C81ED5F22600A2B148 /* gadson.jpg */; };
+		42DCF0CB1ED5F27A00A2B148 /* bowers.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42DCF0CA1ED5F27A00A2B148 /* bowers.jpg */; };
+		42DCF0CD1ED5F79100A2B148 /* barrie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42DCF0CC1ED5F79100A2B148 /* barrie.jpg */; };
 		42F35D3F1EC9364500DBAEC8 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F35D3E1EC9364500DBAEC8 /* About.storyboard */; };
 		42F35D411EC93AD300DBAEC8 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F35D401EC93AD300DBAEC8 /* AboutViewController.swift */; };
 		461118561E4231CF005AA3A9 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 461118501E4231CF005AA3A9 /* image.jpg */; };
@@ -202,6 +208,12 @@
 		42B9339D1DFAEF1B00514B73 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Calendar.storyboard; path = Base.lproj/Calendar.storyboard; sourceTree = "<group>"; };
 		42B9339E1DFAEF1B00514B73 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		42B933BD1DFB022B00514B73 /* pin-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin-green.png"; sourceTree = "<group>"; };
+		42DCF0C11ED5ECE100A2B148 /* micah.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = micah.jpg; sourceTree = "<group>"; };
+		42DCF0C21ED5ECE100A2B148 /* simmons.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = simmons.jpeg; sourceTree = "<group>"; };
+		42DCF0C61ED5EEED00A2B148 /* zahner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zahner.jpg; sourceTree = "<group>"; };
+		42DCF0C81ED5F22600A2B148 /* gadson.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gadson.jpg; sourceTree = "<group>"; };
+		42DCF0CA1ED5F27A00A2B148 /* bowers.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bowers.jpg; sourceTree = "<group>"; };
+		42DCF0CC1ED5F79100A2B148 /* barrie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = barrie.jpg; sourceTree = "<group>"; };
 		42F35D3E1EC9364500DBAEC8 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		42F35D401EC93AD300DBAEC8 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		461118501E4231CF005AA3A9 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
@@ -313,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				4240935A1E953A42005844C9 /* pin-green-small.png */,
+				42DCF0C51ED5ECED00A2B148 /* Portraits */,
 				422969C71E65CE3B008C34D0 /* Pattonville-School-District-App.entitlements */,
 				422969C51E65CBCD008C34D0 /* GoogleService-Info.plist */,
 				1B1B71B71E6EFBCB003B421B /* roboticspic.jpg */,
@@ -467,6 +480,19 @@
 				42B933621DFAEEF400514B73 /* SchoolsEnum.swift */,
 			);
 			name = Schools;
+			sourceTree = "<group>";
+		};
+		42DCF0C51ED5ECED00A2B148 /* Portraits */ = {
+			isa = PBXGroup;
+			children = (
+				42DCF0CC1ED5F79100A2B148 /* barrie.jpg */,
+				42DCF0CA1ED5F27A00A2B148 /* bowers.jpg */,
+				42DCF0C81ED5F22600A2B148 /* gadson.jpg */,
+				42DCF0C61ED5EEED00A2B148 /* zahner.jpg */,
+				42DCF0C11ED5ECE100A2B148 /* micah.jpg */,
+				42DCF0C21ED5ECE100A2B148 /* simmons.jpeg */,
+			);
+			name = Portraits;
 			sourceTree = "<group>";
 		};
 		55A31EFE1E01B3660094056E /* School Specific Directory */ = {
@@ -629,15 +655,18 @@
 				1B2B7CC11E67B73E0007183B /* RoseAcres.jpg in Resources */,
 				42284AD01EA6513300C1AE2E /* Websites.storyboard in Resources */,
 				42B9330E1DFAEDC500514B73 /* LaunchScreen.storyboard in Resources */,
+				42DCF0C91ED5F22600A2B148 /* gadson.jpg in Resources */,
 				1B2B7CC41E67BDA70007183B /* PSDLogo.jpg in Resources */,
 				42B933771DFAEEF400514B73 /* DateView.xib in Resources */,
 				4B4299A81E087F7200A202F9 /* 6NutriSliceLinks.storyboard in Resources */,
 				4611185B1E4231CF005AA3A9 /* image5.jpg in Resources */,
 				422969C61E65CBCD008C34D0 /* GoogleService-Info.plist in Resources */,
+				42DCF0C41ED5ECE100A2B148 /* simmons.jpeg in Resources */,
 				4B7D26DC1E4A19500097F0E6 /* SelectSchoolsTableViewController.storyboard in Resources */,
 				42B9330B1DFAEDC500514B73 /* Assets.xcassets in Resources */,
 				1B2B7CBF1E67B73E0007183B /* Parkwood.jpg in Resources */,
 				1B2B7CBB1E67B73E0007183B /* Heights.jpg in Resources */,
+				42DCF0CD1ED5F79100A2B148 /* barrie.jpg in Resources */,
 				1B2B7CBA1E67B73E0007183B /* Drummond.jpg in Resources */,
 				42B933091DFAEDC500514B73 /* Main.storyboard in Resources */,
 				1B2B7CC21E67B73E0007183B /* WillowBrook.jpg in Resources */,
@@ -646,12 +675,15 @@
 				1B040D7A1E0E399200D69069 /* SchoolSpecificDirectory.storyboard in Resources */,
 				4611185A1E4231CF005AA3A9 /* image4.jpg in Resources */,
 				42B933321DFAEEE300514B73 /* TabBarIcons in Resources */,
+				42DCF0C71ED5EEED00A2B148 /* zahner.jpg in Resources */,
 				42B9338C1DFAEEF400514B73 /* Peachjar.storyboard in Resources */,
 				1B2B7CC01E67B73E0007183B /* Remington.jpg in Resources */,
 				42B933A31DFAEF1B00514B73 /* Home.storyboard in Resources */,
 				42B9336D1DFAEEF400514B73 /* CalendarEventDetailController.storyboard in Resources */,
 				42B933791DFAEEF400514B73 /* Directory.storyboard in Resources */,
 				42617B431E00A61C00BB5992 /* pin-black-1.png in Resources */,
+				42DCF0CB1ED5F27A00A2B148 /* bowers.jpg in Resources */,
+				42DCF0C31ED5ECE100A2B148 /* micah.jpg in Resources */,
 				1B2B7CBE1E67B73E0007183B /* LearningCenter.jpg in Resources */,
 				42B933701DFAEEF400514B73 /* CalendarHeaderView.xib in Resources */,
 				1B1B71B81E6EFBCB003B421B /* roboticspic.jpg in Resources */,
