@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// The Model class for type StaffMember to be used in the Directory 
+/// The Model class for type StaffMember to be used in the Directory
 class StaffMember: NSObject, NSCoding {
     
     var fName: String
@@ -28,8 +28,7 @@ class StaffMember: NSObject, NSCoding {
     var ext3: String
     
     // Associating each of these job types with a value which is used to sort the StaffMember array in the Directory class
-    static let PRINCIPAL: Int = 0, ASSOCIATE_PRINCIPAL: Int = 1, ASSISTANT_PRINCIPAL:Int = 2,
-    TEACHER: Int = 3, SECRETARY: Int = 4, SUPPORT_STAFF: Int = 5
+    static let SUPERINTENDENT: Int = 0, ASSISTANT_SUPERINTENDENT = 1, DIRECTOR: Int = 2, PRINCIPAL: Int = 3, ASSOCIATE_PRINCIPAL: Int = 4, ASSISTANT_PRINCIPAL:Int = 3, TEACHER: Int = 5, SECRETARY: Int = 6, SUPPORT_STAFF: Int = 7
     
     /// A two or three letter abbreviation of the location of the staff member
     lazy var directoryKey: String = self.getSchoolByLocation(location: self.location)
@@ -149,7 +148,20 @@ class StaffMember: NSObject, NSCoding {
     ///
     /// - Returns: Integer representing what typing of job a staff member has
     func getRank() -> Int{
-        if self.long_desc.contains("PRINCIPAL"){
+        
+        if self.long_desc.contains("SUPERINTENDENT") {
+            if self.long_desc.contains("ASSISTANT") {
+                return StaffMember.ASSISTANT_SUPERINTENDENT
+            } else {
+                return StaffMember.SUPERINTENDENT
+            }
+        } else if self.long_desc.contains("DIRECTOR") {
+            if self.long_desc.contains("ASSISTANT") {
+                return StaffMember.ASSISTANT_SUPERINTENDENT
+            } else {
+                return StaffMember.DIRECTOR
+            }
+        } else if self.long_desc.contains("PRINCIPAL"){
             if self.long_desc.contains("ASSISTANT"){
                 return StaffMember.ASSISTANT_PRINCIPAL
             }else if self.long_desc.contains("ASSOCIATE"){
@@ -164,6 +176,7 @@ class StaffMember: NSObject, NSCoding {
         }else{
             return StaffMember.SUPPORT_STAFF
         }
+        
     }
     
     func encode(with coder: NSCoder) {
