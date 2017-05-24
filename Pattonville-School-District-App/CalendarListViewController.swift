@@ -143,20 +143,21 @@ class CalendarListViewController: UIViewController, UITableViewDataSource, UITab
         
         var keys = Array(calendar.allEventsDictionary.keys)
 
-        keys = keys.sorted{
-            $0 < $1
-        }
-        
+        keys = keys.sorted()
+        print(dateFormatter.date(from: sectionName)!)
         let key = keys.index(of: dateFormatter.date(from: sectionName)!)
-        
+
         if let theKey = key{
             return theKey
         }else{
+            
+            let day = dateFormatter.date(from: sectionName)!
+            print("ADDING ONE TO DAY")
             var dateComponent = DateComponents()
             dateComponent.day = 1
             
             // Find the date for one hour ago
-            let lastDay = NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: Date(), options: [])
+            let lastDay = NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: day, options: [])
 
             return getIndexForSectionName(sectionName: dateFormatter.string(from: lastDay!))
         }
