@@ -242,6 +242,10 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
                 let event: Event!
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DateCell", for: indexPath) as! DateCell
                 
+                calendar.pinnedEvents = calendar.pinnedEvents.sorted(by: {
+                    $0.start! < $1.start!
+                })
+                
                 if indexPath.row < calendar.pinnedEvents.count{
                     event = calendar.pinnedEvents[indexPath.row]
                     cell.setup(event: event, indexPath: indexPath, type: .normal)
@@ -334,11 +338,10 @@ class PSDViewController: UIViewController, iCarouselDataSource, iCarouselDelegat
         var captionLabel: UILabel
         
         // Create new UIView the same dimensions as the carousel view
-        mainView = UIView(frame: CGRect(x: 0, y: 0, width: carouselWidth, height: 200));
-        let mainViewHeight = mainView.bounds.size.height
+        mainView = UIView(frame: CGRect(x: 0, y: 0, width: carouselWidth, height: carouselHeight));
         
         //Create new UIImageView the same dimensions as the mainView. Set image content mode to Aspect Fill. Clip to bounds.
-        imageView = UIImageView(frame: CGRect(x:0, y:0, width: carouselWidth, height: mainViewHeight))
+        imageView = UIImageView(frame: mainView.frame)
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.clipsToBounds = true
         
