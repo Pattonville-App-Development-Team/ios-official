@@ -91,7 +91,7 @@
         <scene sceneID="x3E-Vo-hzG">
             <objects>
                 <tableViewController title="Developers" id="Vdp-49-tjm" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="c5s-Yh-LCC">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="c5s-Yh-LCC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -284,7 +284,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Gx-gC-Xn1">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="holtgrieve.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="7Gx-gC-Xn1">
                                                     <rect key="frame" x="17" y="7" width="64" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -319,7 +319,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZXI-Xm-EtR">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="skaggs.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ZXI-Xm-EtR">
                                                     <rect key="frame" x="17" y="7" width="64" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -354,7 +354,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Owa-LS-1BO">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="skelton.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Owa-LS-1BO">
                                                     <rect key="frame" x="17" y="7" width="64" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -439,8 +439,11 @@
         <image name="barrie.jpg" width="640" height="640"/>
         <image name="bowers.jpg" width="640" height="640"/>
         <image name="gadson.jpg" width="640" height="640"/>
+        <image name="holtgrieve.jpg" width="640" height="640"/>
         <image name="micah.jpg" width="640" height="640"/>
         <image name="simmons.jpeg" width="640" height="640"/>
+        <image name="skaggs.jpg" width="640" height="640"/>
+        <image name="skelton.jpg" width="640" height="640"/>
         <image name="zahner.jpg" width="640" height="640"/>
     </resources>
 </document>

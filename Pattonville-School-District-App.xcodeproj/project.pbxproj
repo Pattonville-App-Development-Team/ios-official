@@ -85,6 +85,9 @@
 		42DCF0C91ED5F22600A2B148 /* gadson.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42DCF0C81ED5F22600A2B148 /* gadson.jpg */; };
 		42DCF0CB1ED5F27A00A2B148 /* bowers.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42DCF0CA1ED5F27A00A2B148 /* bowers.jpg */; };
 		42DCF0CD1ED5F79100A2B148 /* barrie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42DCF0CC1ED5F79100A2B148 /* barrie.jpg */; };
+		42DCF0D01ED8C9CF00A2B148 /* holtgrieve.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42DCF0CE1ED8C9CF00A2B148 /* holtgrieve.jpg */; };
+		42DCF0D11ED8C9CF00A2B148 /* skaggs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42DCF0CF1ED8C9CF00A2B148 /* skaggs.jpg */; };
+		42DCF0D31ED90F9600A2B148 /* skelton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42DCF0D21ED90F9600A2B148 /* skelton.jpg */; };
 		42F35D3F1EC9364500DBAEC8 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F35D3E1EC9364500DBAEC8 /* About.storyboard */; };
 		42F35D411EC93AD300DBAEC8 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F35D401EC93AD300DBAEC8 /* AboutViewController.swift */; };
 		461118561E4231CF005AA3A9 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 461118501E4231CF005AA3A9 /* image.jpg */; };
@@ -214,6 +217,9 @@
 		42DCF0C81ED5F22600A2B148 /* gadson.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gadson.jpg; sourceTree = "<group>"; };
 		42DCF0CA1ED5F27A00A2B148 /* bowers.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bowers.jpg; sourceTree = "<group>"; };
 		42DCF0CC1ED5F79100A2B148 /* barrie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = barrie.jpg; sourceTree = "<group>"; };
+		42DCF0CE1ED8C9CF00A2B148 /* holtgrieve.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = holtgrieve.jpg; sourceTree = "<group>"; };
+		42DCF0CF1ED8C9CF00A2B148 /* skaggs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = skaggs.jpg; sourceTree = "<group>"; };
+		42DCF0D21ED90F9600A2B148 /* skelton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = skelton.jpg; sourceTree = "<group>"; };
 		42F35D3E1EC9364500DBAEC8 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		42F35D401EC93AD300DBAEC8 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		461118501E4231CF005AA3A9 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
@@ -485,6 +491,9 @@
 		42DCF0C51ED5ECED00A2B148 /* Portraits */ = {
 			isa = PBXGroup;
 			children = (
+				42DCF0D21ED90F9600A2B148 /* skelton.jpg */,
+				42DCF0CE1ED8C9CF00A2B148 /* holtgrieve.jpg */,
+				42DCF0CF1ED8C9CF00A2B148 /* skaggs.jpg */,
 				42DCF0CC1ED5F79100A2B148 /* barrie.jpg */,
 				42DCF0CA1ED5F27A00A2B148 /* bowers.jpg */,
 				42DCF0C81ED5F22600A2B148 /* gadson.jpg */,
@@ -648,6 +657,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42DCF0D31ED90F9600A2B148 /* skelton.jpg in Resources */,
 				461118591E4231CF005AA3A9 /* image3.jpg in Resources */,
 				4242FC231E3F96D800A43491 /* NewsItemCell.xib in Resources */,
 				42F35D3F1EC9364500DBAEC8 /* About.storyboard in Resources */,
@@ -671,6 +681,7 @@
 				42B933091DFAEDC500514B73 /* Main.storyboard in Resources */,
 				1B2B7CC21E67B73E0007183B /* WillowBrook.jpg in Resources */,
 				4BFE3B401E427EE300902741 /* CalendarEventDetail.storyboard in Resources */,
+				42DCF0D11ED8C9CF00A2B148 /* skaggs.jpg in Resources */,
 				42B933851DFAEEF400514B73 /* News.storyboard in Resources */,
 				1B040D7A1E0E399200D69069 /* SchoolSpecificDirectory.storyboard in Resources */,
 				4611185A1E4231CF005AA3A9 /* image4.jpg in Resources */,
@@ -694,6 +705,7 @@
 				42B933C51DFB022B00514B73 /* pin-green.png in Resources */,
 				1B2B7CB91E67B73E0007183B /* Bridgeway.jpg in Resources */,
 				42B933991DFAEEF400514B73 /* Settings.storyboard in Resources */,
+				42DCF0D01ED8C9CF00A2B148 /* holtgrieve.jpg in Resources */,
 				55A57E811ECF2C330064EC05 /* AllStaff.storyboard in Resources */,
 				4240935B1E953A42005844C9 /* pin-green-small.png in Resources */,
 				1B5E11031E27C51D0038A33C /* email-icon.png in Resources */,
