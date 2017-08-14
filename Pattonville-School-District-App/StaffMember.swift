@@ -155,6 +155,8 @@ class StaffMember: NSObject, NSCoding {
             } else {
                 return StaffMember.SUPERINTENDENT
             }
+        } else if (self.long_desc.contains("CFO")){
+            return StaffMember.ASSISTANT_SUPERINTENDENT
         } else if self.long_desc.contains("DIRECTOR") {
             if self.long_desc.contains("ASSISTANT") {
                 return StaffMember.ASSISTANT_SUPERINTENDENT

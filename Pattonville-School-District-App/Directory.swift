@@ -54,17 +54,17 @@ class Directory {
         }
         
         var dateComponent = DateComponents()
-        dateComponent.year = -1
+        dateComponent.day = -7
         
-        // Find the date for one year ago
-        let lastYear = NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: Date(), options: [])
+        // Find the date for week ago
+        let lastWeek = NSCalendar(calendarIdentifier: .gregorian)?.date(byAdding: dateComponent, to: Date(), options: [])
         
         if NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path!) as? [String:[StaffMember]] != nil {
             
         }
         
         //If the most recent save time is longer than one year ago OR the object in the archived space is nil
-        if mostRecentSave < lastYear! || NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path!) as? [String:[StaffMember]] != nil{
+        if mostRecentSave < lastWeek! || NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path!) as? [String:[StaffMember]] != nil{
             
             Directory.directoryDictionary = NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path!) as! [String : [StaffMember]]
             print("getting from saved")
