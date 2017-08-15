@@ -51,7 +51,9 @@ class Directory {
             mostRecentSave = recent
         }else{
             mostRecentSave = Date()
+            UserDefaults.standard.set(mostRecentSave, forKey: "lastDirectoryUpdate")
         }
+        print("*****MostRecentSave\(mostRecentSave)")
         
         var dateComponent = DateComponents()
         dateComponent.day = -7
@@ -63,14 +65,19 @@ class Directory {
             
         }
         
+        print("**Last week: \(lastWeek!)")
+        
+        print(mostRecentSave.compare(lastWeek!).rawValue)
+        
         //If the most recent save time is longer than one year ago OR the object in the archived space is nil
-        if mostRecentSave < lastWeek! || NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path!) as? [String:[StaffMember]] != nil{
+        if mostRecentSave.compare(lastWeek!).rawValue >= 0 && NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path!) as? [String:[StaffMember]] != nil{
             
             Directory.directoryDictionary = NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path!) as! [String : [StaffMember]]
             print("getting from saved")
             
         } else {
         
+            print("Pulling new")
             let input = readDataFromURL(url: "https://forms.psdr3.org/psdapp/directory.csv")
             
             // Separates each line of the directory CSV file
@@ -113,6 +120,7 @@ class Directory {
             Directory.directoryDictionary["All Staff"]?.append(contentsOf: allStaff)
             
             saveToFile()
+            UserDefaults.standard.set(Date(), forKey: "lastDirectoryUpdate")
         
         }
         
